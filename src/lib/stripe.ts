@@ -13,7 +13,7 @@ export const stripe = new Stripe(stripeSecretKey || "fallback_key", {
 export interface StripeProduct {
   id: string;
   name: string;
-  description?: string;
+  description?: string | null;
   price: number;
   priceId: string;
   features: string[];
@@ -38,12 +38,10 @@ export async function getActiveProducts(): Promise<StripeProduct[]> {
           name: product.name,
           description: product.description,
           price: price.unit_amount ? price.unit_amount / 100 : 0,
-          priceId: price.id,
-          features:
-            product.features ||
-            (product.metadata.features
-              ? JSON.parse(product.metadata.features)
-              : []),
+          priceId: typeof price === "string" ? price : price.id,
+          features: product.metadata.features
+            ? JSON.parse(product.metadata.features)
+            : [],
           interval: price.recurring?.interval || "month",
         };
       });
@@ -55,31 +53,6 @@ export async function getActiveProducts(): Promise<StripeProduct[]> {
   }
 }
 
-export const SUBSCRIPTION_TIERS = {
-  BASIC: {
-    id: process.env.STRIPE_BASIC_PRICE_ID,
-    name: "UX",
-    price: 799,
-    features: [
-      "Acceso a plantillas básicas",
-      "Soporte por email",
-      "Hasta 3 proyectos",
-    ],
-  },
-  PRO: {
-    id: process.env.STRIPE_PRO_PRICE_ID,
-    name: "UI",
-    price: 799,
-    features: [
-      "Todas las plantillas",
-      "Soporte prioritario",
-      "Proyectos ilimitados",
-      "Exportación en alta calidad",
-      "Personalización avanzada",
-    ],
-  },
-};
-
 export async function createCheckoutSession(
   priceId: string,
   customerId?: string
@@ -87,16 +60,6 @@ export async function createCheckoutSession(
   if (!stripeSecretKey) {
     throw new Error("Stripe secret key is not configured");
   }
-
-  // Debug logs
-  console.log("Creating checkout session with:", {
-    priceId,
-    customerId,
-    availablePrices: {
-      basic: process.env.STRIPE_BASIC_PRICE_ID,
-      pro: process.env.STRIPE_PRO_PRICE_ID,
-    },
-  });
 
   try {
     const session = await stripe.checkout.sessions.create({

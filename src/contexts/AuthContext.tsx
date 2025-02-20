@@ -16,8 +16,8 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  setUser: (user: User | null) => void;
   loading: boolean;
+  setUser: (user: User | null) => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -27,25 +27,26 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const checkAuth = async () => {
       try {
         const response = await fetch("/api/user");
         if (response.ok) {
-          const userData = await response.json();
-          setUser(userData);
+          const { user } = await response.json();
+          setUser(user);
         }
       } catch (error) {
-        console.error("Error fetching user:", error);
+        console.error("Error checking auth:", error);
+        setUser(null);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchUser();
+    checkAuth();
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, loading }}>
+    <AuthContext.Provider value={{ user, loading, setUser }}>
       {children}
     </AuthContext.Provider>
   );

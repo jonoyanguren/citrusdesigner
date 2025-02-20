@@ -63,7 +63,7 @@ export default function Contacts() {
         throw new Error("Error al enviar el email");
       }
 
-      console.log("Email enviado correctamente");
+      console.info("Email enviado correctamente");
     } catch (err) {
       console.error("Error:", err);
     } finally {

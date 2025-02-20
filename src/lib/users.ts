@@ -5,21 +5,30 @@ import { verify } from "jsonwebtoken";
 export async function isAdmin(): Promise<boolean> {
   try {
     const cookieStore = await cookies();
-    const token = cookieStore.get("auth_token")?.value;
+    const token = cookieStore.get("token")?.value;
 
     if (!token) {
       return false;
     }
 
-    const decoded = verify(
-      token,
-      process.env.JWT_SECRET || "fallback_secret"
-    ) as {
+    if (!process.env.JWT_SECRET) {
+      return false;
+    }
+
+    const decoded = verify(token, process.env.JWT_SECRET) as {
       userId: string;
+      role: string;
     };
 
+    // Verificar directamente por el rol en el token
+    if (decoded.role === "admin") {
+      return true;
+    }
+
+    // Verificación adicional en la base de datos
     const user = await prisma.user.findUnique({
       where: { id: decoded.userId },
+      select: { role: true },
     });
 
     return user?.role === "admin";

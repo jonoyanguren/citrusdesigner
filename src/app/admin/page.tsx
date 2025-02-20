@@ -15,37 +15,38 @@ interface User {
 export default function AdminDashboard() {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
   const router = useRouter();
   const { user, loading } = useAuth();
 
   useEffect(() => {
-    console.log(user);
+    // Si está cargando el auth, no hacemos nada
+    if (loading) return;
+
+    // Si no hay usuario o no es admin, redirigimos
+    if (!user || user.role !== "admin") {
+      router.replace("/dashboard");
+      return;
+    }
+
+    // Cargamos los usuarios solo si es admin
     const fetchUsers = async () => {
       try {
         const response = await fetch("/api/admin/users");
         if (!response.ok) {
-          throw new Error("No autorizado");
+          router.replace("/dashboard");
+          return;
         }
         const data = await response.json();
         setUsers(data);
-      } catch (err) {
-        setError("No tienes permisos para ver esta página");
-        router.push("/dashboard");
       } finally {
         setIsLoading(false);
       }
     };
 
-    if (!loading) {
-      if (!user || user.role !== "admin") {
-        router.push("/dashboard");
-      } else {
-        fetchUsers();
-      }
-    }
-  }, [router, user, loading]);
+    fetchUsers();
+  }, [user, loading, router]);
 
+  // Mientras carga, mostramos el spinner
   if (loading || isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -54,14 +55,12 @@ export default function AdminDashboard() {
     );
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-red-500">{error}</p>
-      </div>
-    );
+  // Si no hay usuario o no es admin, no renderizamos nada
+  if (!user || user.role !== "admin") {
+    return null;
   }
 
+  // Renderizado principal
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-7xl mx-auto space-y-8 pt-20">

@@ -13,7 +13,7 @@ async function main() {
   try {
     const hashedPassword = await hash(process.env.ADMIN_PASSWORD!, 10);
 
-    const admin = await prisma.user.upsert({
+    await prisma.user.upsert({
       where: { email: "acegarras@gmail.com" },
       update: {
         role: "admin",
@@ -26,7 +26,7 @@ async function main() {
       },
     });
 
-    console.log("Admin user created successfully");
+    console.info("Admin user created successfully");
   } catch (error) {
     console.error("Error creating admin:", error);
   } finally {

@@ -67,6 +67,7 @@ export default function Pricing() {
       }
     } catch (err) {
       console.error("Error:", err);
+      setError("Error al procesar el pago");
     } finally {
       setIsLoading(null);
     }
@@ -133,12 +134,11 @@ export default function Pricing() {
                 ))}
               </ul>
               <Button
-                variant="primary"
                 fullWidth
-                isLoading={isLoading === product.id}
-                onClick={() => handleSubscribe(product.id, product.name)}
+                isLoading={isLoading === product.name}
+                onClick={() => handleSubscribe(product.priceId, product.name)}
               >
-                {isLoading === product.id ? "Procesando..." : "Suscribirse"}
+                {isLoading === product.name ? "Procesando..." : "Suscribirse"}
               </Button>
             </div>
           ))}

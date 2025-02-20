@@ -26,15 +26,31 @@ model Project {
     user        User?    @relation(fields: [userId], references: [id])
 }
 
+model Subscription {
+    id                   String   @id @default(cuid())
+    stripeUserId         String   @unique
+    userId               String
+    user                 User     @relation(fields: [userId], references: [id])
+    stripeSubscriptionId String   @unique // ID de la suscripción de Stripe
+    status               String // active, canceled, etc.
+    priceId              String // ID del precio en Stripe
+    productId            String // ID del producto en Stripe
+    createdAt            DateTime @default(now())
+    updatedAt            DateTime @updatedAt
+
+    @@index([userId])
+}
+
 model User {
-    id               String    @id @default(cuid())
+    id               String         @id @default(cuid())
     name             String
-    email            String    @unique
+    email            String         @unique
     password         String
-    role             String    @default("user") // "user" | "admin"
+    role             String         @default("user") // "user" | "admin"
     resetToken       String?
     resetTokenExpiry DateTime?
-    createdAt        DateTime  @default(now())
-    updatedAt        DateTime  @updatedAt
+    createdAt        DateTime       @default(now())
+    updatedAt        DateTime       @updatedAt
     projects         Project[]
+    subscriptions    Subscription[]
 }

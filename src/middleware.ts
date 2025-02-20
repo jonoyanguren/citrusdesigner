@@ -1,42 +1,42 @@
 import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextRequest } from "next/server";
+import * as jose from "jose";
 
 export async function middleware(request: NextRequest) {
+  console.log("🔒 Middleware - Path:", request.nextUrl.pathname);
+
   // No aplicar el middleware durante el login/registro
   if (request.nextUrl.pathname.startsWith("/auth")) {
     return NextResponse.next();
   }
 
-  // Verificar si la ruta comienza con /admin
-  if (request.nextUrl.pathname.startsWith("/admin")) {
-    const token = request.cookies.get("auth_token")?.value;
+  const token = request.cookies.get("token")?.value;
 
+  // Rutas protegidas
+  if (request.nextUrl.pathname.startsWith("/admin")) {
     if (!token) {
       return NextResponse.redirect(new URL("/auth/login", request.url));
     }
 
+    if (!process.env.JWT_SECRET) {
+      return NextResponse.redirect(new URL("/auth/login", request.url));
+    }
+
     try {
-      // Verificar si el usuario es admin
-      const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user`, {
-        headers: {
-          Cookie: `auth_token=${token}`,
-        },
-      });
+      const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+      const { payload } = await jose.jwtVerify(token, secret);
 
-      if (!response.ok) {
-        throw new Error("Error fetching user");
+      console.log("👤 Decoded token:", payload);
+
+      if (payload.role !== "admin") {
+        console.log("⛔ Not admin - Redirecting to home");
+        return NextResponse.redirect(new URL("/", request.url));
+      } else {
+        console.log("👤 Admin - Redirecting to admin");
+        return NextResponse.next();
       }
-
-      const user = await response.json();
-
-      // Si no es admin, redirigir a dashboard
-      if (user.role !== "admin") {
-        return NextResponse.redirect(new URL("/dashboard", request.url));
-      }
-
-      // Si es admin, permitir el acceso
-      return NextResponse.next();
-    } catch {
+    } catch (err) {
+      console.error("🚫 Token verification failed:", err);
       return NextResponse.redirect(new URL("/auth/login", request.url));
     }
   }
@@ -45,5 +45,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/admin/:path*",
+  matcher: ["/admin/:path*", "/admin"],
 };

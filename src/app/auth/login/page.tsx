@@ -1,5 +1,5 @@
 "use client";
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
@@ -11,39 +11,40 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+
   const { setUser } = useAuth();
 
-  const handleSubmit = useCallback(
-    async (e: React.FormEvent) => {
-      e.preventDefault();
-      setIsLoading(true);
-      setError("");
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError("");
 
-      try {
-        const response = await fetch("/api/auth/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, password }),
-        });
+    try {
+      const response = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (!response.ok) {
-          throw new Error(data.error || "Error al iniciar sesión");
-        }
-
-        await setUser(data);
-        window.location.href = data.role === "admin" ? "/admin" : "/dashboard";
-      } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Error al iniciar sesión"
-        );
-      } finally {
-        setIsLoading(false);
+      if (!response.ok) {
+        throw new Error(data.error || "Error al iniciar sesión");
       }
-    },
-    [email, password, setUser]
-  );
+
+      setUser(data.user);
+
+      if (data.user.role === "admin") {
+        router.push("/admin");
+      } else {
+        router.push("/dashboard");
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error al iniciar sesión");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">

@@ -16,7 +16,6 @@ export default function Contact() {
     const fetchContacts = async () => {
       const response = await fetch("/api/contact");
       const data = await response.json();
-      console.log("Contacts:", data);
     };
     fetchContacts();
   }, []);
@@ -26,12 +25,8 @@ export default function Contact() {
     setStatus("loading");
 
     try {
-      console.log("Form submission started");
-      console.log("Form data:", formData);
-
       // Verificar que la ruta es correcta
       const apiUrl = "/api/contact";
-      console.log("Sending request to:", apiUrl);
 
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -43,17 +38,12 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
 
-      console.log("Response status:", response.status);
-      console.log("Response headers:", Object.fromEntries(response.headers));
-
       // Intentar leer el cuerpo de la respuesta
       const responseText = await response.text();
-      console.log("Raw response:", responseText);
 
       let data;
       try {
         data = JSON.parse(responseText);
-        console.log("Parsed response data:", data);
       } catch (parseError) {
         console.error("Error parsing response:", parseError);
         throw new Error("Invalid JSON response");
