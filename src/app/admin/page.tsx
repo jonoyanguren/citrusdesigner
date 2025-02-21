@@ -3,14 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import Button from "@/components/Button";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  createdAt: string;
-}
+import { User } from "@prisma/client";
 
 export default function AdminDashboard() {
   const [users, setUsers] = useState<User[]>([]);

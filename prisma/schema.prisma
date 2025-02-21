@@ -42,15 +42,16 @@ model Subscription {
 }
 
 model User {
-    id               String         @id @default(cuid())
-    name             String
-    email            String         @unique
-    password         String
-    role             String         @default("user") // "user" | "admin"
-    resetToken       String?
-    resetTokenExpiry DateTime?
-    createdAt        DateTime       @default(now())
-    updatedAt        DateTime       @updatedAt
-    projects         Project[]
-    subscriptions    Subscription[]
+    id                  String         @id @default(cuid())
+    name                String
+    email               String         @unique
+    password            String
+    role                String         @default("user")
+    resetToken          String?
+    hasToChangePassword Boolean        @default(false)
+    resetTokenExpiry    DateTime?
+    createdAt           DateTime       @default(now())
+    updatedAt           DateTime       @updatedAt
+    projects            Project[]
+    subscriptions       Subscription[]
 }

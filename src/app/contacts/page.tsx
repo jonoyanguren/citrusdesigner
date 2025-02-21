@@ -1,14 +1,7 @@
 "use client";
 import Button from "@/components/Button";
 import { useEffect, useState } from "react";
-
-interface Contact {
-  id: string;
-  name: string;
-  email: string;
-  message: string;
-  createdAt: string;
-}
+import { Contact } from "@prisma/client";
 
 export default function Contacts() {
   const [contacts, setContacts] = useState<Contact[]>([]);

@@ -6,13 +6,7 @@ import {
   useEffect,
   ReactNode,
 } from "react";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-}
+import { User } from "@prisma/client";
 
 interface AuthContextType {
   user: User | null;

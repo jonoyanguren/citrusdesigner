@@ -1,6 +1,8 @@
 import Stripe from "stripe";
+import { PrismaClient } from "@prisma/client";
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+const prisma = new PrismaClient();
 
 if (!stripeSecretKey) {
   console.error("⚠️ STRIPE_SECRET_KEY is not defined in environment variables");
@@ -97,6 +99,36 @@ export async function createPortalSession(customerId: string) {
     return { url: session.url };
   } catch (error) {
     console.error("Error creating portal session:", error);
+    throw error;
+  }
+}
+
+export async function getSubscription(subscriptionId: string) {
+  try {
+    // Primero obtenemos la suscripción de nuestra base de datos para obtener el stripeSubscriptionId
+    const dbSubscription = await prisma.subscription.findUnique({
+      where: { id: subscriptionId },
+    });
+
+    if (!dbSubscription?.stripeSubscriptionId) {
+      throw new Error("No se encontró el ID de suscripción de Stripe");
+    }
+
+    // Ahora obtenemos los detalles de la suscripción desde Stripe
+    const stripeSubscription = await stripe.subscriptions.retrieve(
+      dbSubscription.stripeSubscriptionId,
+      {
+        expand: ["default_payment_method", "items.data.price.product"],
+      }
+    );
+
+    console.log("================================================");
+    console.log("stripeSubscription", stripeSubscription);
+    console.log("================================================");
+
+    return stripeSubscription;
+  } catch (error) {
+    console.error("Error getting subscription:", error);
     throw error;
   }
 }

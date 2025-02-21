@@ -28,6 +28,7 @@ export async function createSubscription(invoice: Stripe.Invoice) {
           email: invoice.customer_email,
           name: invoice.customer_email.split("@")[0],
           password: hashSync("Password123", 10),
+          hasToChangePassword: true,
         },
       });
 

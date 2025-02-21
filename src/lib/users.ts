@@ -1,6 +1,7 @@
+"use server";
 import prisma from "@/lib/prisma";
-import { cookies } from "next/headers";
 import { verify } from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 export async function isAdmin(): Promise<boolean> {
   try {
@@ -38,27 +39,19 @@ export async function isAdmin(): Promise<boolean> {
   }
 }
 
-export async function getCurrentUser() {
-  try {
-    const cookieStore = await cookies();
-    const token = cookieStore.get("auth_token")?.value;
+export async function verifyToken() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value;
 
-    if (!token) {
-      return null;
-    }
-
-    const decoded = verify(
-      token,
-      process.env.JWT_SECRET || "fallback_secret"
-    ) as {
-      userId: string;
-    };
-
-    return await prisma.user.findUnique({
-      where: { id: decoded.userId },
-    });
-  } catch (error) {
-    console.error("Error getting current user:", error);
-    return null;
+  if (!token) {
+    return false;
   }
+
+  if (!process.env.JWT_SECRET) {
+    return false;
+  }
+  const decoded = verify(token, process.env.JWT_SECRET) as {
+    userId: string;
+  };
+  return decoded;
 }

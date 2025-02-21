@@ -1,13 +1,16 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
-
+import { getSubscription } from "@/lib/stripe";
 export async function GET() {
   try {
     const decodedToken = await verifyToken();
 
     if (!decodedToken) {
-      return NextResponse.json({ error: "No token provided" }, { status: 401 });
+      return NextResponse.json(
+        { error: "No token provided or not valid" },
+        { status: 401 }
+      );
     }
 
     const user = await prisma.user.findUnique({
@@ -18,14 +21,28 @@ export async function GET() {
         name: true,
         role: true,
         hasToChangePassword: true,
+        subscriptions: true,
       },
     });
+
+    console.log("================================================");
+    console.log("user", user);
+    console.log("================================================");
+
+    const subscriptions = await Promise.all(
+      user?.subscriptions.map(async (subscription) => {
+        console.log("subscription", subscription);
+        const s = await getSubscription(subscription.id);
+        console.log("s", s);
+        return s;
+      })
+    );
 
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    return NextResponse.json({ user });
+    return NextResponse.json({ user, subscriptions });
   } catch (error) {
     console.error("Auth error:", error);
     return NextResponse.json(

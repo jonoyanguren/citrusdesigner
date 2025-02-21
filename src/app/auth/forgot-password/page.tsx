@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Button from "@/components/Button";
+import Input from "@/components/Input";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -68,19 +69,14 @@ export default function ForgotPasswordPage() {
             </div>
           )}
 
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-2">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-foreground/20 bg-background"
-            />
-          </div>
+          <Input
+            id="email"
+            type="email"
+            label="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
 
           <Button type="submit" disabled={isLoading} className="w-full">
             {isLoading ? "Enviando..." : "Enviar instrucciones"}

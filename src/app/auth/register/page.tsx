@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 import { useAuth } from "@/contexts/AuthContext";
+import Input from "@/components/Input";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -95,73 +96,45 @@ export default function RegisterPage() {
             </div>
           )}
 
-          <div className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Nombre
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-foreground/20 bg-background"
-              />
-            </div>
+          <Input
+            id="name"
+            name="name"
+            type="text"
+            label="Nombre"
+            required
+            value={formData.name}
+            onChange={handleChange}
+          />
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-foreground/20 bg-background"
-              />
-            </div>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            label="Email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+          />
 
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium mb-2"
-              >
-                Contraseña
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                required
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-foreground/20 bg-background"
-              />
-            </div>
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            label="Contraseña"
+            required
+            value={formData.password}
+            onChange={handleChange}
+          />
 
-            <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium mb-2"
-              >
-                Confirmar contraseña
-              </label>
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                required
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className="w-full px-3 py-2 border border-foreground/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-foreground/20 bg-background"
-              />
-            </div>
-          </div>
+          <Input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            label="Confirmar contraseña"
+            required
+            value={formData.confirmPassword}
+            onChange={handleChange}
+          />
 
           <Button type="submit" fullWidth isLoading={isLoading}>
             {isLoading ? "Creando cuenta..." : "Crear cuenta"}
