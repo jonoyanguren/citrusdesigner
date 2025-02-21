@@ -39,7 +39,7 @@ export async function isAdmin(): Promise<boolean> {
   }
 }
 
-export async function verifyToken() {
+export async function verifyToken(): Promise<{ userId: string } | false> {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 

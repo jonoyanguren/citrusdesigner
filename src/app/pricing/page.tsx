@@ -8,6 +8,12 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
+const getProducts = async () => {
+  const response = await fetch("/api/products");
+  const data = await response.json();
+  return data;
+};
+
 export default function Pricing() {
   const [isLoading, setIsLoading] = useState<string | null>(null);
   const [products, setProducts] = useState<StripeProduct[]>([]);
@@ -17,12 +23,8 @@ export default function Pricing() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/api/products");
-        if (!response.ok) {
-          throw new Error("Error fetching products");
-        }
-        const data = await response.json();
-        setProducts(data);
+        const response = await getProducts();
+        setProducts(response);
       } catch (err) {
         setError("Error cargando los planes");
         console.error("Error:", err);
