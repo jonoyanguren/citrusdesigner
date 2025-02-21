@@ -18,7 +18,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "px-4 py-2 rounded-lg transition-opacity disabled:opacity-50 disabled:cursor-not-allowed";
+    "px-4 py-2 cursor-pointer rounded-lg transition-opacity disabled:opacity-50 disabled:cursor-not-allowed";
 
   const variants = {
     primary: "bg-foreground text-background hover:opacity-90",
