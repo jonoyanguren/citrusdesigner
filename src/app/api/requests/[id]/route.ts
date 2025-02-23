@@ -12,9 +12,12 @@ export async function GET(
     );
   }
 
+  const resolvedParams = await Promise.resolve(params);
+  const id = resolvedParams.id;
+
   try {
     const requestData = await prisma.request.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         feedback: {
           include: {

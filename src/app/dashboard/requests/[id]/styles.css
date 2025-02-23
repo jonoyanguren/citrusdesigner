@@ -1,0 +1,97 @@
+.feedback-content h1 {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  color: #1a202c;
+}
+
+.feedback-content h2 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  margin-top: 1.25em;
+  margin-bottom: 0.75em;
+  color: #2d3748;
+}
+
+.feedback-content p {
+  margin-bottom: 1em;
+  line-height: 1.7;
+  color: #4a5568;
+}
+
+.feedback-content a {
+  color: #3182ce;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.feedback-content a:hover {
+  color: #2c5282;
+}
+
+.feedback-content strong,
+.feedback-content b {
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.feedback-content em,
+.feedback-content i {
+  font-style: italic;
+}
+
+.feedback-content ul {
+  list-style-type: disc;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.feedback-content ol {
+  list-style-type: decimal;
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+.feedback-content li {
+  margin-bottom: 0.5em;
+  color: #4a5568;
+}
+
+.feedback-content ul li::marker {
+  color: #4a5568;
+}
+
+.feedback-content ol li::marker {
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.feedback-container {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 1rem;
+  /* Estilos para la barra de scroll */
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #edf2f7;
+}
+
+/* Estilos para navegadores webkit (Chrome, Safari, etc) */
+.feedback-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.feedback-container::-webkit-scrollbar-track {
+  background: #edf2f7;
+  border-radius: 4px;
+}
+
+.feedback-container::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 4px;
+  border: 2px solid #edf2f7;
+}
+
+.feedback-container::-webkit-scrollbar-thumb:hover {
+  background-color: #a0aec0;
+}

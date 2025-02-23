@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Textarea from "./Textarea";
+import { RichText } from "./RichText";
+import Button from "./Button";
 
 interface FeedbackFormProps {
   requestId: string;
-  revalidate: (formData: FormData) => Promise<void>;
+  revalidate: (formData: FormData) => void;
   path: string;
 }
 
@@ -14,28 +15,34 @@ export function FeedbackForm({
   revalidate,
   path,
 }: FeedbackFormProps) {
-  const [feedback, setFeedback] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!feedback.trim()) return;
-
     setIsSubmitting(true);
+
     try {
       const response = await fetch(`/api/requests/${requestId}/feedback`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ feedback }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          requestId,
+          feedback,
+        }),
       });
 
-      if (!response.ok) throw new Error("Error al enviar el feedback");
+      if (!response.ok) {
+        throw new Error("Error al enviar el feedback");
+      }
 
       setFeedback("");
 
       const formData = new FormData();
-      formData.set("path", path);
-      await revalidate(formData);
+      formData.append("path", path);
+      revalidate(formData);
     } catch (error) {
       console.error("Error:", error);
     } finally {
@@ -45,20 +52,18 @@ export function FeedbackForm({
 
   return (
     <form onSubmit={handleSubmit} className="mt-6">
-      <Textarea
-        label="Añadir feedback"
-        value={feedback}
-        onChange={(e) => setFeedback(e.target.value)}
-        placeholder="Escribe tu feedback aquí..."
-        disabled={isSubmitting}
-      />
-      <button
-        type="submit"
-        disabled={isSubmitting || !feedback.trim()}
-        className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {isSubmitting ? "Enviando..." : "Enviar feedback"}
-      </button>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">
+          Añadir Feedback
+        </label>
+        <RichText
+          initialContent=""
+          onChange={(content) => setFeedback(content)}
+        />
+      </div>
+      <Button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Enviando..." : "Enviar Feedback"}
+      </Button>
     </form>
   );
 }
