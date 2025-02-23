@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { RichText } from "./RichText";
 import Button from "./Button";
 
@@ -17,6 +17,7 @@ export function FeedbackForm({
 }: FeedbackFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState("");
+  const editorRef = useRef(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,6 +40,7 @@ export function FeedbackForm({
       }
 
       setFeedback("");
+      editorRef.current?.clearContent();
 
       const formData = new FormData();
       formData.append("path", path);
@@ -57,6 +59,7 @@ export function FeedbackForm({
           Añadir Feedback
         </label>
         <RichText
+          ref={editorRef}
           initialContent=""
           onChange={(content) => setFeedback(content)}
         />
