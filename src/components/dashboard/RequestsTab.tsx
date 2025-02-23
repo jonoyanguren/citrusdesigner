@@ -1,5 +1,7 @@
 import { Request } from "@prisma/client";
 import Link from "next/link";
+import { EmptyState } from "@/components/EmptyState";
+import { RiClipboardLine } from "react-icons/ri";
 
 interface RequestWithFeedback extends Request {
   feedback: {
@@ -17,7 +19,15 @@ interface Props {
 }
 
 export function RequestsTab({ requests }: Props) {
-  if (!requests) return null;
+  if (!requests?.length) {
+    return (
+      <EmptyState
+        icon={<RiClipboardLine size={48} />}
+        title="No hay peticiones"
+        description="Este usuario aún no ha realizado ninguna petición."
+      />
+    );
+  }
 
   return (
     <div className="space-y-6">

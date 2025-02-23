@@ -100,7 +100,9 @@ export default function AdminDashboard() {
                     <td className="py-4 px-6">
                       <Button
                         variant="secondary"
-                        onClick={() => router.push(`/admin/users/${user.id}`)}
+                        onClick={() =>
+                          router.push(`/admin/customer-details/${user.id}`)
+                        }
                         className="text-sm"
                       >
                         Ver detalles
