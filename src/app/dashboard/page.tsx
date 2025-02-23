@@ -51,6 +51,7 @@ export default function DashboardPage() {
           throw new Error("No autorizado");
         }
         const profile = await userResponse.json();
+        console.log(profile);
         setUser(profile.user);
         setSubscriptions(profile.subscriptions);
       } catch (error) {
@@ -99,7 +100,7 @@ export default function DashboardPage() {
       case "subscriptions":
         return <SubscriptionsTab subscriptions={subscriptions} />;
       case "requests":
-        return <RequestsTab requests={requests} />;
+        return <RequestsTab requests={requests} isAdmin={false} />;
       case "profile":
         return <ProfileTab user={user} />;
     }

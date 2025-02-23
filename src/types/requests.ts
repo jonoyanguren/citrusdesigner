@@ -9,4 +9,5 @@ export interface RequestWithFeedback extends Request {
       name: string;
     };
   }[];
+  seenByAdmin: boolean;
 }

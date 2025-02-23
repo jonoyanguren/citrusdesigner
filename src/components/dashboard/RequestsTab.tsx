@@ -2,6 +2,7 @@ import { Request } from "@prisma/client";
 import Link from "next/link";
 import { EmptyState } from "@/components/EmptyState";
 import { RiClipboardLine } from "react-icons/ri";
+import { useEffect, useState } from "react";
 
 interface RequestWithFeedback extends Request {
   feedback: {
@@ -16,9 +17,14 @@ interface RequestWithFeedback extends Request {
 
 interface Props {
   requests: RequestWithFeedback[];
+  isAdmin: boolean;
 }
 
-export function RequestsTab({ requests }: Props) {
+export function RequestsTab({ requests, isAdmin }: Props) {
+  const [requestsState, setRequests] = useState(requests);
+  useEffect(() => {
+    setRequests(requests);
+  }, [requests]);
   if (!requests?.length) {
     return (
       <EmptyState
@@ -28,6 +34,30 @@ export function RequestsTab({ requests }: Props) {
       />
     );
   }
+
+  const markAsSeen = async (requestId: string) => {
+    try {
+      const response = await fetch(`/api/admin/requests/${requestId}/seen`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to mark request as seen");
+      }
+
+      // Actualizar la UI localmente
+      setRequests(
+        requestsState.map((req) =>
+          req.id === requestId ? { ...req, seenByAdmin: true } : req
+        )
+      );
+    } catch (error) {
+      console.error("Error marking request as seen:", error);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -84,7 +114,7 @@ export function RequestsTab({ requests }: Props) {
             </tr>
           </thead>
           <tbody className="bg-white divide-y divide-gray-200">
-            {requests.map((request) => (
+            {requestsState.map((request) => (
               <tr key={request.id}>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm font-medium text-gray-900">
@@ -132,6 +162,14 @@ export function RequestsTab({ requests }: Props) {
                   >
                     Ver detalle
                   </Link>
+                  {isAdmin && !request.seenByAdmin && (
+                    <button
+                      onClick={() => markAsSeen(request.id)}
+                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2"
+                    >
+                      Mark as Seen
+                    </button>
+                  )}
                 </td>
               </tr>
             ))}
