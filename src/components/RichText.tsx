@@ -23,7 +23,6 @@ const CustomImage = Image.extend({
           handleDOMEvents: {
             drop(view, event) {
               const hasFiles = event.dataTransfer?.files?.length;
-
               if (!hasFiles) return false;
 
               const images = Array.from(event.dataTransfer.files).filter(
@@ -31,7 +30,6 @@ const CustomImage = Image.extend({
               );
 
               if (images.length === 0) return false;
-
               event.preventDefault();
 
               const { schema } = view.state;
@@ -60,9 +58,7 @@ const CustomImage = Image.extend({
               return true;
             },
             paste(view, event) {
-              console.log("paste", event);
               const hasFiles = event.clipboardData?.files?.length;
-
               if (!hasFiles) return false;
 
               const images = Array.from(event.clipboardData.files).filter(
@@ -70,7 +66,6 @@ const CustomImage = Image.extend({
               );
 
               if (images.length === 0) return false;
-
               event.preventDefault();
 
               const { schema } = view.state;
