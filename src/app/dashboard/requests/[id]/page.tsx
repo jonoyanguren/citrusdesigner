@@ -10,6 +10,7 @@ type Feedback = {
   createdAt: Date;
   user: {
     name: string;
+    role: "user" | "admin";
   };
 };
 
@@ -79,9 +80,28 @@ export default async function RequestDetail({
           {request.feedback.length > 0 ? (
             <div className="space-y-4">
               {request.feedback.map((fb: Feedback) => (
-                <div key={fb.id} className="bg-gray-50 p-4 rounded-lg">
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium">{fb.user.name}</span>
+                <div
+                  key={fb.id}
+                  className={`p-4 rounded-lg max-w-[80%] ${
+                    fb.user.role === "admin"
+                      ? "bg-blue-50 ml-auto"
+                      : "bg-gray-50"
+                  }`}
+                >
+                  <div
+                    className={`flex justify-between items-center mb-2 ${
+                      fb.user.role === "admin" ? "flex-row-reverse" : ""
+                    }`}
+                  >
+                    <span
+                      className={`font-medium ${
+                        fb.user.role === "admin"
+                          ? "text-blue-700"
+                          : "text-gray-700"
+                      }`}
+                    >
+                      {fb.user.name}
+                    </span>
                     <span className="text-sm text-gray-500">
                       {new Date(fb.createdAt).toLocaleDateString()}
                     </span>
