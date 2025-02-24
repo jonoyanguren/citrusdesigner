@@ -3,7 +3,8 @@ import Link from "next/link";
 import { EmptyState } from "@/components/EmptyState";
 import { RiClipboardLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
-
+import Button from "@/components/Button";
+import { useRouter } from "next/navigation";
 interface RequestWithFeedback extends Request {
   feedback: {
     id: string;
@@ -21,6 +22,7 @@ interface Props {
 }
 
 export function RequestsTab({ requests, isAdmin }: Props) {
+  const router = useRouter();
   const [requestsState, setRequests] = useState(requests);
   useEffect(() => {
     setRequests(requests);
@@ -63,12 +65,12 @@ export function RequestsTab({ requests, isAdmin }: Props) {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold">Mis Peticiones</h2>
-        <Link
-          href="/dashboard/create-request"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        <Button
+          variant="secondary"
+          onClick={() => router.push("/dashboard/create-request")}
         >
-          Crear petición
-        </Link>
+          Crear Petición
+        </Button>
       </div>
 
       <div className="bg-white shadow-sm rounded-lg overflow-hidden">
@@ -80,12 +82,6 @@ export function RequestsTab({ requests, isAdmin }: Props) {
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
                 Nombre
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Petición
               </th>
               <th
                 scope="col"
@@ -119,11 +115,6 @@ export function RequestsTab({ requests, isAdmin }: Props) {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm font-medium text-gray-900">
                     {request.name}
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  <div className="text-sm text-gray-900 line-clamp-2">
-                    {request.request}
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">

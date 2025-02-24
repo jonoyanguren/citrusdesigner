@@ -14,6 +14,25 @@ export default function Navigation() {
     setIsMenuOpen(false);
   }, [user]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const menu = document.getElementById("user-menu");
+      const button = document.getElementById("user-menu-button");
+      if (
+        menu &&
+        !menu.contains(event.target as Node) &&
+        !button?.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleLogout = async () => {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
@@ -51,6 +70,7 @@ export default function Navigation() {
           {user ? (
             <div className="relative">
               <Button
+                id="user-menu-button"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="flex items-center gap-2 hover:opacity-70 transition-opacity"
               >
@@ -72,13 +92,26 @@ export default function Navigation() {
                 </svg>
               </Button>
               {isMenuOpen && (
-                <div className="absolute right-0 mt-2 w-48 py-2 bg-background rounded-lg shadow-lg">
+                <div
+                  id="user-menu"
+                  className="absolute right-0 mt-2 w-48 py-2 bg-background rounded-lg shadow-lg"
+                >
                   <Link
                     href={user.role === "admin" ? "/admin" : "/dashboard"}
                     className="block px-4 py-2 hover:bg-foreground/5"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     Dashboard
                   </Link>
+                  {user.role === "admin" && (
+                    <Link
+                      href="/admin/create-request"
+                      className="block px-4 py-2 hover:bg-foreground/5"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Crear solicitud
+                    </Link>
+                  )}
                   <Button
                     variant="text"
                     onClick={handleLogout}

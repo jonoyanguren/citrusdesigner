@@ -4,7 +4,7 @@ import { verifyToken } from "@/lib/users";
 
 export async function POST(body: Request) {
   try {
-    const { name, request, createdAt } = await body.json();
+    const { name, request, userId } = await body.json();
     const decodedToken = await verifyToken();
 
     if (!decodedToken) {
@@ -15,8 +15,7 @@ export async function POST(body: Request) {
       data: {
         name,
         request,
-        userId: decodedToken.userId,
-        createdAt,
+        userId: userId || decodedToken.userId,
       },
     });
 

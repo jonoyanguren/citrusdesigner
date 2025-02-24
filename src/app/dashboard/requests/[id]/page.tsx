@@ -64,7 +64,20 @@ export default async function RequestDetail({
 
         <div>
           <h2 className="text-lg font-semibold mb-2">Petición</h2>
-          <p className="text-gray-700 whitespace-pre-wrap">{request.request}</p>
+          <div
+            className="text-gray-700 max-h-[600px] overflow-y-auto pr-4 [&>h1]:text-[1.875rem] [&>h1]:font-bold [&>h1]:mt-6 [&>h1]:mb-3 [&>h1]:text-gray-900
+              [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-5 [&>h2]:mb-3 [&>h2]:text-gray-800
+              [&>p]:mb-4 [&>p]:leading-7 [&>p]:text-gray-600
+              [&>a]:text-blue-600 [&>a]:underline hover:[&>a]:text-blue-800 [&>a]:transition-colors
+              [&>strong]:font-semibold [&>strong]:text-gray-800
+              [&>em]:italic
+              [&>ul]:list-disc [&>ul]:ml-6 [&>ul]:mb-4
+              [&>ol]:list-decimal [&>ol]:ml-6 [&>ol]:mb-4
+              [&>li]:mb-2 [&>li]:text-gray-600
+              [&>img]:max-w-full [&>img]:h-auto [&>img]:rounded-lg [&>img]:my-4
+              scrollbar-hide hover:scrollbar-default"
+            dangerouslySetInnerHTML={{ __html: request.request }}
+          />
         </div>
 
         <div>
