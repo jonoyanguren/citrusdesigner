@@ -7,7 +7,6 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    console.log("request", request);
     const userIsAdmin = await isAdmin();
 
     if (!userIsAdmin) {

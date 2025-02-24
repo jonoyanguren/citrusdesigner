@@ -14,12 +14,18 @@ type Feedback = {
   };
 };
 
-async function getRequest(id: string) {
+async function getRequest(id: string | undefined) {
+  if (!id) {
+    notFound(); // Redirige a 404 si el id no está definido
+  }
+
   const baseUrl = getBaseUrl();
   const response = await fetch(`${baseUrl}/api/requests/${id}`);
+
   if (!response.ok) {
     notFound();
   }
+
   return response.json();
 }
 
@@ -29,11 +35,21 @@ async function revalidate(formData: FormData) {
   revalidatePath(path);
 }
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+  return {
+    title: `Solicitud ${params.id}`,
+  };
+}
+
 export default async function RequestDetail({
   params,
 }: {
-  params: { id: string };
+  params?: { id?: string };
 }) {
+  if (!params?.id) {
+    notFound();
+  }
+
   const request = await getRequest(params.id);
 
   return (
@@ -57,7 +73,7 @@ export default async function RequestDetail({
             className={`px-2 py-1 text-sm font-semibold rounded-full ${
               request.status === "PENDING"
                 ? "bg-yellow-100 text-yellow-800"
-                : request.status === "APROVED"
+                : request.status === "APPROVED"
                 ? "bg-green-100 text-green-800"
                 : request.status === "COMPLETED"
                 ? "bg-blue-100 text-blue-800"

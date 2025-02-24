@@ -99,14 +99,18 @@ interface RichTextProps {
   value?: string;
 }
 
-export const RichText = forwardRef<{ clearContent: () => void }, RichTextProps>(
+interface RichTextHandle {
+  clearContent: () => void;
+}
+
+export const RichText = forwardRef<RichTextHandle, RichTextProps>(
   ({ initialContent = "", onChange, value }, ref) => {
     const editor = useEditor({
       extensions: [
         StarterKit,
         CustomImage.configure({
           inline: true,
-          allowBase64: true,
+          // allowBase64: true,
         }),
       ],
       content: initialContent,
@@ -127,7 +131,6 @@ export const RichText = forwardRef<{ clearContent: () => void }, RichTextProps>(
       }
     }, [editor, value]);
 
-    // Exponemos un método para limpiar el editor
     React.useImperativeHandle(ref, () => ({
       clearContent: () => {
         editor?.commands.setContent("");
