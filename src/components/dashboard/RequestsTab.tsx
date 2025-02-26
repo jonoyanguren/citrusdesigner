@@ -1,11 +1,13 @@
-import { Request } from "@prisma/client";
+import { Request, RequestStatus } from "@prisma/client";
 import Link from "next/link";
 import { EmptyState } from "@/components/EmptyState";
-import { RiClipboardLine } from "react-icons/ri";
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
-interface RequestWithFeedback extends Request {
+import { RiClipboardLine } from "react-icons/ri";
+interface RequestWithFeedback extends Omit<Request, "status"> {
+  status: RequestStatus;
+  timeToComplete: string | null;
   feedback: {
     id: string;
     feedback: string;
@@ -18,12 +20,31 @@ interface RequestWithFeedback extends Request {
 
 interface Props {
   requests: RequestWithFeedback[];
-  isAdmin: boolean;
 }
 
-export function RequestsTab({ requests, isAdmin }: Props) {
+const STATUS_ACTIONS = {
+  PENDING: {
+    label: "Pendiente",
+    color: "bg-yellow-100 text-yellow-800",
+  },
+  ACCEPTED: {
+    label: "Aceptado",
+    color: "bg-blue-100 text-blue-800",
+  },
+  WORKING: {
+    label: "En proceso",
+    color: "bg-purple-100 text-purple-800",
+  },
+  DONE: {
+    label: "Completado",
+    color: "bg-green-100 text-green-800",
+  },
+} as const;
+
+export function RequestsTab({ requests }: Props) {
   const router = useRouter();
   const [requestsState, setRequests] = useState(requests);
+
   useEffect(() => {
     setRequests(requests);
   }, [requests]);
@@ -33,33 +54,17 @@ export function RequestsTab({ requests, isAdmin }: Props) {
         icon={<RiClipboardLine size={48} />}
         title="No hay peticiones"
         description="Este usuario aún no ha realizado ninguna petición."
+        action={
+          <Button
+            variant="secondary"
+            onClick={() => router.push("/dashboard/create-request")}
+          >
+            Crear Petición
+          </Button>
+        }
       />
     );
   }
-
-  const markAsSeen = async (requestId: string) => {
-    try {
-      const response = await fetch(`/api/admin/requests/${requestId}/seen`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to mark request as seen");
-      }
-
-      // Actualizar la UI localmente
-      setRequests(
-        requestsState.map((req) =>
-          req.id === requestId ? { ...req, seenByAdmin: true } : req
-        )
-      );
-    } catch (error) {
-      console.error("Error marking request as seen:", error);
-    }
-  };
 
   return (
     <div className="space-y-6">
@@ -99,6 +104,12 @@ export function RequestsTab({ requests, isAdmin }: Props) {
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
               >
+                Tiempo estimado
+              </th>
+              <th
+                scope="col"
+                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
                 Feedback
               </th>
               <th
@@ -118,23 +129,24 @@ export function RequestsTab({ requests, isAdmin }: Props) {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span
-                    className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                      request.status === "PENDING"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : request.status === "APROVED"
-                        ? "bg-green-100 text-green-800"
-                        : request.status === "COMPLETED"
-                        ? "bg-blue-100 text-blue-800"
-                        : "bg-red-100 text-red-800"
+                  <div
+                    className={`text-sm text-gray-900 text-center rounded-full px-2 py-1 ${
+                      STATUS_ACTIONS[request.status].color
                     }`}
                   >
-                    {request.status}
-                  </span>
+                    {STATUS_ACTIONS[request.status].label}
+                  </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">
                     {new Date(request.createdAt).toLocaleDateString()}
+                  </div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">
+                    {request.timeToComplete
+                      ? `${request.timeToComplete} días`
+                      : "Sin estimación"}
                   </div>
                 </td>
                 <td className="px-6 py-4">
@@ -153,14 +165,6 @@ export function RequestsTab({ requests, isAdmin }: Props) {
                   >
                     Ver detalle
                   </Link>
-                  {isAdmin && !request.seenByAdmin && (
-                    <button
-                      onClick={() => markAsSeen(request.id)}
-                      className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 ml-2"
-                    >
-                      Mark as Seen
-                    </button>
-                  )}
                 </td>
               </tr>
             ))}

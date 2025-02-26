@@ -16,6 +16,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@prisma/client": "^6.4.0",
+    "@radix-ui/react-popover": "^1.1.6",
     "@sendinblue/client": "^3.3.1",
     "@stripe/stripe-js": "^5.6.0",
     "@tiptap/extension-image": "^2.11.5",
@@ -23,6 +24,7 @@
     "@tiptap/react": "^2.11.5",
     "@tiptap/starter-kit": "^2.11.5",
     "bcrypt": "^5.1.1",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.4.7",
     "jose": "^5.10.0",
     "jsdom": "^26.0.0",

@@ -6,6 +6,7 @@ import { createSubscription } from "./createSubscription";
 
 export async function POST(request: NextRequest) {
   try {
+    console.log("🔔 Stripe webhook received");
     const body = await request.text();
     const headersList = await headers();
     const signature = headersList.get("stripe-signature");

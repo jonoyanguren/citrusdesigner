@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { UsersList } from "@/components/admin/UsersList";
-import { NewRequests } from "@/components/admin/NewRequests";
+import { AdminRequests } from "@/components/admin/AdminRequests";
 import { Configuration } from "@/components/admin/Configuration";
 
 const MENU_ITEMS = [
@@ -82,7 +82,7 @@ export default function AdminPage() {
       case "users":
         return <UsersList users={users} />;
       case "requests":
-        return <NewRequests requests={requests} />;
+        return <AdminRequests requests={requests} />;
       case "settings":
         return <Configuration />;
     }

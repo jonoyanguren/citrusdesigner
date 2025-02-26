@@ -1,6 +1,8 @@
-import { Request } from "@prisma/client";
+import { Request, RequestStatus } from "@prisma/client";
 
-export interface RequestWithFeedback extends Request {
+export interface RequestWithFeedback extends Omit<Request, "status"> {
+  status: RequestStatus;
+  timeToComplete: string | null;
   feedback: {
     id: string;
     feedback: string;
@@ -9,5 +11,4 @@ export interface RequestWithFeedback extends Request {
       name: string;
     };
   }[];
-  seenByAdmin: boolean;
 }
