@@ -4,7 +4,6 @@ import { hash } from "bcrypt";
 
 export async function POST(request: Request) {
   const { password } = await request.json();
-  console.log(password);
   try {
     const decodedToken = await verifyToken();
 

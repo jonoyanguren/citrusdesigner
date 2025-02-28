@@ -122,10 +122,6 @@ export async function getSubscription(subscriptionId: string) {
       }
     );
 
-    console.log("================================================");
-    console.log("stripeSubscription", stripeSubscription);
-    console.log("================================================");
-
     return stripeSubscription;
   } catch (error) {
     console.error("Error getting subscription:", error);

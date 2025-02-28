@@ -1,6 +1,5 @@
 "use server";
 import prisma from "@/lib/prisma";
-import { User } from "@prisma/client";
 import { verify } from "jsonwebtoken";
 import { cookies } from "next/headers";
 
@@ -40,7 +39,15 @@ export async function isAdmin(): Promise<boolean> {
   }
 }
 
-export async function verifyToken(): Promise<{ userId: string } | false> {
+export async function verifyToken(): Promise<
+  | {
+      userId: string;
+      name: string;
+      role: string;
+      email: string;
+    }
+  | false
+> {
   const cookieStore = await cookies();
   const token = cookieStore.get("token")?.value;
 
@@ -53,6 +60,9 @@ export async function verifyToken(): Promise<{ userId: string } | false> {
   }
   const decoded = verify(token, process.env.JWT_SECRET) as {
     userId: string;
+    name: string;
+    role: string;
+    email: string;
   };
   return decoded;
 }

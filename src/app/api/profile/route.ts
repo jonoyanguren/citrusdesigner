@@ -25,17 +25,11 @@ export async function GET() {
       },
     });
 
-    console.log("================================================");
-    console.log("user", user);
-    console.log("================================================");
-
     const subscriptions = await Promise.all(
-      user?.subscriptions.map(async (subscription) => {
-        console.log("subscription", subscription);
+      user?.subscriptions?.map(async (subscription) => {
         const s = await getSubscription(subscription.id);
-        console.log("s", s);
         return s;
-      })
+      }) || []
     );
 
     if (!user) {

@@ -19,7 +19,6 @@ export default function ChangePasswordFirstTime() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
-    console.log(formData);
     if (formData.password !== formData.confirmPassword) {
       setError("Las contraseñas no coinciden");
       return;

@@ -18,7 +18,9 @@ interface LoggedUser {
 export default function CustomerDetails() {
   const { id } = useParams();
   const [user, setUser] = useState<UserWithRequests | null>(null);
-  const [loggedUser, setLoggedUser] = useState<LoggedUser | false>(false);
+  const [loggedUser, setLoggedUser] = useState<LoggedUser | undefined>(
+    undefined
+  );
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -33,7 +35,6 @@ export default function CustomerDetails() {
   useEffect(() => {
     const fetchLoggedUser = async () => {
       const loggedUser = await verifyToken();
-      console.log(loggedUser);
       setLoggedUser(loggedUser as LoggedUser);
     };
     fetchLoggedUser();

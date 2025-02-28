@@ -51,7 +51,6 @@ export default function DashboardPage() {
           throw new Error("No autorizado");
         }
         const profile = await userResponse.json();
-        console.log(profile);
         setUser(profile.user);
         setSubscriptions(profile.subscriptions);
       } catch (error) {
