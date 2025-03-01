@@ -44,13 +44,15 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
 export default async function RequestDetail({
   params,
 }: {
-  params?: { id?: string };
+  params: { id: string };
 }) {
-  if (!params?.id) {
+  const id = await params.id; // Esperamos el id
+
+  if (!id) {
     notFound();
   }
 
-  const request = await getRequest(params.id);
+  const request = await getRequest(id);
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 mt-24">
@@ -216,9 +218,9 @@ export default async function RequestDetail({
 
           <Suspense>
             <FeedbackForm
-              requestId={params.id}
+              requestId={id}
               revalidate={revalidate}
-              path={`/dashboard/requests/${params.id}`}
+              path={`/dashboard/requests/${id}`}
             />
           </Suspense>
         </div>
