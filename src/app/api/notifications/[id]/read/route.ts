@@ -6,6 +6,13 @@ export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
 ) {
+  if (!params?.id) {
+    return NextResponse.json(
+      { error: "Request ID is required" },
+      { status: 400 }
+    );
+  }
+
   try {
     const session = await verifyToken();
     if (!session) {

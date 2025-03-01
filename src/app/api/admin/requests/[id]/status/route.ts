@@ -14,7 +14,7 @@ export async function PUT(
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
     }
 
-    const { status, timeToComplete } = await request.json();
+    const { status, timeToComplete, figmaUrl } = await request.json();
     const requestId = params.id;
 
     const updatedRequest = await prisma.request.update({
@@ -23,6 +23,7 @@ export async function PUT(
       data: {
         status,
         timeToComplete,
+        figmaUrl,
       },
     });
 

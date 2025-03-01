@@ -80,21 +80,80 @@ export default async function RequestDetail({
           />
         </div>
 
+        {request.figmaUrl && (
+          <div>
+            <h2 className="text-lg font-semibold mb-2">Diseño en Figma</h2>
+            <a
+              href={request.figmaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:text-blue-800 underline flex items-center gap-2"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2H8.5C6.567 2 5 3.567 5 5.5S6.567 9 8.5 9H12V2Z"
+                  fill="#1ABCFE"
+                />
+                <path
+                  d="M12 9H8.5C6.567 9 5 10.567 5 12.5S6.567 16 8.5 16H12V9Z"
+                  fill="#0ACF83"
+                />
+                <path
+                  d="M19 12.5c0 1.933-1.567 3.5-3.5 3.5H12V9h3.5c1.933 0 3.5 1.567 3.5 3.5Z"
+                  fill="#FF7262"
+                />
+                <path
+                  d="M12 2h3.5C17.433 2 19 3.567 19 5.5S17.433 9 15.5 9H12V2Z"
+                  fill="#F24E1E"
+                />
+                <path
+                  d="M8.5 16A3.5 3.5 0 1 0 12 19.5V16H8.5Z"
+                  fill="#A259FF"
+                />
+              </svg>
+              Ver diseño en Figma
+            </a>
+          </div>
+        )}
+
         <div>
           <h2 className="text-lg font-semibold mb-2">Estado</h2>
-          <span
-            className={`px-2 py-1 text-sm font-semibold rounded-full ${
-              request.status === "PENDING"
-                ? "bg-yellow-100 text-yellow-800"
-                : request.status === "APPROVED"
-                ? "bg-green-100 text-green-800"
-                : request.status === "COMPLETED"
-                ? "bg-blue-100 text-blue-800"
-                : "bg-red-100 text-red-800"
-            }`}
-          >
-            {request.status}
-          </span>
+          <div className="flex items-center gap-4">
+            <span
+              className={`px-2 py-1 text-sm font-semibold rounded-full ${
+                request.status === "PENDING"
+                  ? "bg-yellow-100 text-yellow-800"
+                  : request.status === "ACCEPTED"
+                  ? "bg-green-100 text-green-800"
+                  : request.status === "WORKING"
+                  ? "bg-purple-100 text-purple-800"
+                  : request.status === "DONE"
+                  ? "bg-blue-100 text-blue-800"
+                  : "bg-red-100 text-red-800"
+              }`}
+            >
+              {request.status === "PENDING"
+                ? "Pendiente"
+                : request.status === "ACCEPTED"
+                ? "Aceptado"
+                : request.status === "WORKING"
+                ? "En proceso"
+                : request.status === "DONE"
+                ? "Completado"
+                : request.status}
+            </span>
+            {request.status === "WORKING" && request.timeToComplete && (
+              <span className="text-sm text-gray-600">
+                Tiempo estimado: {request.timeToComplete}
+              </span>
+            )}
+          </div>
         </div>
 
         <div>

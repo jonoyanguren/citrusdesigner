@@ -72,6 +72,42 @@ function TimeToCompleteDialog({
   );
 }
 
+interface FigmaUrlDialogProps {
+  onSubmit: (url: string) => void;
+  onClose: () => void;
+}
+
+function FigmaUrlDialog({ onSubmit, onClose }: FigmaUrlDialogProps) {
+  const [url, setUrl] = useState("");
+
+  return (
+    <div className="p-4">
+      <h3 className="text-sm font-medium mb-2">URL del diseño en Figma</h3>
+      <input
+        type="text"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+        placeholder="https://www.figma.com/file/..."
+        className="w-full px-3 py-2 border rounded-md mb-4"
+      />
+      <div className="flex justify-end gap-2">
+        <button
+          onClick={onClose}
+          className="px-3 py-1 text-sm text-gray-600 hover:text-gray-800"
+        >
+          Cancelar
+        </button>
+        <button
+          onClick={() => onSubmit(url)}
+          className="px-3 py-1 text-sm bg-blue-500 text-white rounded-md hover:bg-blue-600"
+        >
+          Guardar
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export function AdminRequests({ requests }: Props) {
   const [requestsState, setRequestsState] = useState(requests);
   const [nameFilter, setNameFilter] = useState("");
@@ -81,6 +117,7 @@ export function AdminRequests({ requests }: Props) {
     action: RequestStatus;
   } | null>(null);
   const [showTimeDialog, setShowTimeDialog] = useState(false);
+  const [showFigmaDialog, setShowFigmaDialog] = useState(false);
 
   const getRelativeTime = (date: Date) => {
     return formatDistanceToNow(new Date(date), {
@@ -92,7 +129,8 @@ export function AdminRequests({ requests }: Props) {
   const updateRequestStatus = async (
     requestId: string,
     newStatus: RequestStatus,
-    timeToComplete?: string | null
+    timeToComplete?: string | null,
+    figmaUrl?: string | null
   ) => {
     try {
       const response = await fetch(`/api/admin/requests/${requestId}/status`, {
@@ -103,6 +141,7 @@ export function AdminRequests({ requests }: Props) {
         body: JSON.stringify({
           status: newStatus,
           timeToComplete,
+          figmaUrl,
         }),
       });
 
@@ -113,7 +152,7 @@ export function AdminRequests({ requests }: Props) {
       setRequestsState(
         requestsState.map((req) =>
           req.id === requestId
-            ? { ...req, status: newStatus, timeToComplete }
+            ? { ...req, status: newStatus, timeToComplete, figmaUrl }
             : req
         )
       );
@@ -255,6 +294,12 @@ export function AdminRequests({ requests }: Props) {
                                       action: status as RequestStatus,
                                     });
                                     setShowTimeDialog(true);
+                                  } else if (status === "DONE") {
+                                    setSelectedRequest({
+                                      id: request.id,
+                                      action: status as RequestStatus,
+                                    });
+                                    setShowFigmaDialog(true);
                                   } else {
                                     updateRequestStatus(
                                       request.id,
@@ -301,6 +346,25 @@ export function AdminRequests({ requests }: Props) {
                 setShowTimeDialog(false);
               }}
               onClose={() => setShowTimeDialog(false)}
+            />
+          </div>
+        </div>
+      )}
+
+      {showFigmaDialog && selectedRequest && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+          <div className="bg-white rounded-lg">
+            <FigmaUrlDialog
+              onSubmit={(url) => {
+                updateRequestStatus(
+                  selectedRequest.id,
+                  selectedRequest.action,
+                  null,
+                  url
+                );
+                setShowFigmaDialog(false);
+              }}
+              onClose={() => setShowFigmaDialog(false)}
             />
           </div>
         </div>
