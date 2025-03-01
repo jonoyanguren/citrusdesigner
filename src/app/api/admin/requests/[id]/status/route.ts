@@ -27,13 +27,14 @@ export async function PUT(
       },
     });
 
-    await addNotification(
-      updatedRequest.userId,
-      "Actualización de solicitud",
-      `Tu solicitud "${updatedRequest.name}" ${
+    await addNotification({
+      userId: updatedRequest.userId,
+      title: "Actualización de solicitud",
+      message: `Tu solicitud "${updatedRequest.name}" ${
         statusMessages[status as keyof typeof statusMessages]
-      }${timeToComplete ? `. Tiempo estimado: ${timeToComplete}` : ""}`
-    );
+      }${timeToComplete ? `. Tiempo estimado: ${timeToComplete}` : ""}`,
+      action: `/dashboard/requests/${requestId}`,
+    });
 
     return NextResponse.json(updatedRequest);
   } catch (error) {

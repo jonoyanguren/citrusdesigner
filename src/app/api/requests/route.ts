@@ -28,11 +28,12 @@ export async function POST(body: Request) {
     });
 
     if (userId) {
-      await addNotification(
-        userId,
-        "Te han asignado una nueva petición",
-        "El admin te ha creado una nueva petición"
-      );
+      await addNotification({
+        userId: userId,
+        title: "Te han asignado una nueva petición",
+        message: "El admin te ha creado una nueva petición",
+        action: `/dashboard/requests/${nuevaPeticion.id}`,
+      });
     } else {
       const adminUser = await prisma.user.findFirst({
         where: {
@@ -40,11 +41,12 @@ export async function POST(body: Request) {
         },
       });
       if (adminUser) {
-        await addNotification(
-          adminUser.id,
-          "Nueva petición",
-          "Del usuario " + decodedToken.email
-        );
+        await addNotification({
+          userId: adminUser.id,
+          title: "Nueva petición",
+          message: "Del usuario " + decodedToken.email,
+          action: `/dashboard/requests/${nuevaPeticion.id}`,
+        });
       }
     }
 

@@ -8,7 +8,16 @@ import { useAuth } from "@/contexts/AuthContext";
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
-  const [notifications, setNotifications] = useState<any[]>([]);
+
+  interface Notification {
+    id: string;
+    title: string;
+    message: string;
+    createdAt: string;
+    action?: string;
+  }
+
+  const [notifications, setNotifications] = useState<Notification[]>([]);
   const router = useRouter();
   const { user, setUser } = useAuth();
 
@@ -158,23 +167,36 @@ export default function Navigation() {
                           className="px-4 py-3 hover:bg-foreground/5 border-b border-foreground/10 last:border-b-0"
                         >
                           <div className="flex justify-between items-start">
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-medium">
                                 {notification.title}
                               </h4>
                               <p className="text-sm text-foreground/70">
                                 {notification.message}
                               </p>
-                              <span className="text-xs text-foreground/50">
-                                {new Date(
-                                  notification.createdAt
-                                ).toLocaleDateString()}
-                              </span>
+                              <div className="flex items-center justify-between mt-1">
+                                <span className="text-xs text-foreground/50">
+                                  {new Date(
+                                    notification.createdAt
+                                  ).toLocaleDateString()}
+                                </span>
+                                {notification.action && (
+                                  <Link
+                                    href={notification.action}
+                                    className="text-xs text-primary hover:underline ml-2"
+                                    onClick={() =>
+                                      setIsNotificationsOpen(false)
+                                    }
+                                  >
+                                    Ver más
+                                  </Link>
+                                )}
+                              </div>
                             </div>
                             <Button
                               variant="text"
                               onClick={() => handleMarkAsRead(notification.id)}
-                              className="text-xs text-foreground/50 hover:text-foreground"
+                              className="text-xs text-foreground/50 hover:text-foreground ml-2"
                             >
                               <svg
                                 className="w-4 h-4"

@@ -48,17 +48,21 @@ export async function POST(
     }
 
     if (session.role === "admin") {
-      await addNotification(
-        requestData.userId,
-        "Has recibido un feedback",
-        "En la petición " + requestData.name + " has recibido un feedback"
-      );
+      await addNotification({
+        userId: requestData.userId,
+        title: "Has recibido un feedback",
+        message:
+          "En la petición " + requestData.name + " has recibido un feedback",
+        action: `/dashboard/requests/${params.id}`,
+      });
     } else {
-      await addNotification(
-        adminUser.id,
-        "Has recibido un feedback",
-        "En la petición " + requestData.name + " has recibido un feedback"
-      );
+      await addNotification({
+        userId: adminUser.id,
+        title: "Has recibido un feedback",
+        message:
+          "En la petición " + requestData.name + " has recibido un feedback",
+        action: `/admin/requests/${params.id}`,
+      });
     }
 
     return NextResponse.json(newFeedback);
