@@ -1,3 +1,5 @@
+import CalendarButton from "@/components/CalendarButton";
+
 export default function HowItWorks() {
   return (
     <div className="min-h-screen flex flex-col items-center p-8">
@@ -29,6 +31,25 @@ export default function HowItWorks() {
               Descarga tus diseños en múltiples formatos listos para usar.
             </p>
           </div>
+        </div>
+
+        {/* Calendario de Reservas - Versión iframe */}
+        <div className="mt-12 w-full">
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            Agenda una cita
+          </h2>
+          <iframe
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ031JOAV5ygirtLHMtQWDm2C1ULlf3s_xZH29lzvZYHGaZQaamFerAo1CDJ9XC4aGRLNL-ERMY3?gv=true"
+            className="w-full h-[600px] border-0 rounded-lg"
+          />
+        </div>
+
+        {/* Calendario de Reservas - Versión botón */}
+        <div className="mt-12 text-center">
+          <h2 className="text-2xl font-bold mb-6">
+            ¿Prefieres agendar directamente?
+          </h2>
+          <CalendarButton />
         </div>
 
         <div className="mt-12 text-center">
