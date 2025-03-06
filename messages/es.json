@@ -1,0 +1,24 @@
+{
+    "common": {
+        "welcome": "Bienvenido a Citrus Designer",
+        "platform": "La plataforma perfecta para dar vida a tus diseños",
+        "howItWorks": "Cómo funciona",
+        "contactUs": "Contáctanos",
+        "login": "Iniciar sesión",
+        "register": "Registrarse",
+        "dashboard": "Panel de control",
+        "logout": "Cerrar sesión",
+        "home": "Inicio",
+        "pricing": "Precios",
+        "createRequest": "Crear solicitud",
+        "noNotifications": "No hay notificaciones"
+    },
+    "home": {
+        "title": "Inicio",
+        "description": "Bienvenido a nuestra página de inicio"
+    },
+    "howItWorks": {
+        "title": "Cómo funciona",
+        "description": "Descubre cómo funciona nuestro servicio"
+    }
+}

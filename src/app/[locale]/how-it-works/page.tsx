@@ -1,4 +1,5 @@
 import CalendarButton from "@/components/CalendarButton";
+import CalendlyWidget from "@/components/CalendlyWidget";
 
 export default function HowItWorks() {
   return (
@@ -38,10 +39,7 @@ export default function HowItWorks() {
           <h2 className="text-2xl font-bold mb-6 text-center">
             Agenda una cita
           </h2>
-          <iframe
-            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ031JOAV5ygirtLHMtQWDm2C1ULlf3s_xZH29lzvZYHGaZQaamFerAo1CDJ9XC4aGRLNL-ERMY3?gv=true"
-            className="w-full h-[600px] border-0 rounded-lg"
-          />
+          <CalendlyWidget />
         </div>
 
         {/* Calendario de Reservas - Versión botón */}

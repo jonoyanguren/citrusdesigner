@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import Button from "@/components/Button";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -78,10 +77,21 @@ export default function Navigation() {
 
   const handleLogout = async () => {
     try {
-      await fetch("/api/auth/logout", { method: "POST" });
-      setUser(null);
       setIsMenuOpen(false);
-      router.push("/");
+      setIsNotificationsOpen(false);
+      setNotifications([]);
+
+      const response = await fetch("/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        setUser(null);
+
+        const baseUrl = window.location.origin;
+        window.location.href = baseUrl;
+      }
     } catch (error) {
       console.error("Error logging out:", error);
     }

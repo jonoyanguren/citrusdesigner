@@ -1,12 +1,21 @@
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 import { NextResponse } from "next/server";
-import { NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
 import * as jose from "jose";
 
+// Create the internationalization middleware
+const intlMiddleware = createMiddleware(routing);
+
+// Wrap the intl middleware with our custom auth logic
 export async function middleware(request: NextRequest) {
   console.log("🔒 Middleware - Path:", request.nextUrl.pathname);
 
-  // No aplicar el middleware durante el login/registro
-  if (request.nextUrl.pathname.startsWith("/auth")) {
+  // No aplicar el middleware durante el login/registro y logout
+  if (
+    request.nextUrl.pathname.startsWith("/auth") ||
+    request.nextUrl.pathname === "/api/auth/logout"
+  ) {
     return NextResponse.next();
   }
 
@@ -41,9 +50,15 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  return NextResponse.next();
+  return intlMiddleware(request);
 }
 
 export const config = {
-  matcher: ["/admin/:path*", "/admin"],
+  matcher: [
+    // Auth and admin routes
+    "/admin/:path*",
+    "/admin",
+    "/",
+    "/(es|en)/:path*",
+  ],
 };
