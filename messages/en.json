@@ -16,14 +16,146 @@
     "home": {
         "hero": {
             "title": "Home",
-            "description": "Welcome to our home page"
+            "description": "Welcome to our home page",
+            "cta": "Start your subscription now",
+            "ctaSecondary": "Book a free call"
         },
         "customers": {
             "title": "Companies that trust us"
+        },
+        "howItWorks": {
+            "title": "How it works",
+            "subtitle": "Our process is simple and easy",
+            "description": "Discover how our service works",
+            "steps": {
+                "step1": {
+                    "title": "Step 1",
+                    "description": "Subscribe to our service"
+                },
+                "step2": {
+                    "title": "Step 2",
+                    "description": "Create a request"
+                },
+                "step3": {
+                    "title": "Step 3",
+                    "description": "Receive your design"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Benefits",
+            "subtitle": "Our benefits",
+            "description": "Discover the benefits of our service"
+        },
+        "pricing": {
+            "title": "Pricing",
+            "subtitle": "Plans that adapt to you",
+            "description": "Choose the plan that best suits your needs",
+            "plans": {
+                "basic": {
+                    "title": "Basic",
+                    "price": "29",
+                    "period": "/month",
+                    "description": "Perfect to start",
+                    "features": [
+                        "1 design per month",
+                        "Delivery time: 5 days",
+                        "Unlimited revisions",
+                        "Email support"
+                    ],
+                    "cta": "Start now"
+                },
+                "pro": {
+                    "title": "Professional",
+                    "price": "79",
+                    "period": "/month",
+                    "description": "For growing businesses",
+                    "features": [
+                        "3 designs per month",
+                        "Delivery time: 3 days",
+                        "Unlimited revisions",
+                        "Priority support"
+                    ],
+                    "cta": "Start now",
+                    "popular": true
+                },
+                "enterprise": {
+                    "title": "Enterprise",
+                    "price": "199",
+                    "period": "/month",
+                    "description": "For large teams",
+                    "features": [
+                        "10 designs per month",
+                        "Delivery time: 2 days",
+                        "Unlimited revisions",
+                        "24/7 support"
+                    ],
+                    "cta": "Contact sales"
+                }
+            }
+        },
+        "testimonials": {
+            "title": "Testimonials",
+            "subtitle": "What our clients say",
+            "description": "Discover why our clients trust us",
+            "items": [
+                {
+                    "text": "The best design service I've tried. Fast, professional and with amazing results.",
+                    "author": "Mary Garcia",
+                    "position": "CEO at StartupX",
+                    "image": "/testimonials/avatar1.jpg"
+                },
+                {
+                    "text": "They have completely transformed our brand. The process was very simple and the result exceeded our expectations.",
+                    "author": "Charles Rodriguez",
+                    "position": "Marketing Director, TechCorp",
+                    "image": "/testimonials/avatar2.jpg"
+                },
+                {
+                    "text": "Excellent value for money. The designs are top quality and customer service is exceptional.",
+                    "author": "Anna Martinez",
+                    "position": "Founder at CreativeHub",
+                    "image": "/testimonials/avatar3.jpg"
+                }
+            ]
         }
     },
-    "howItWorks": {
-        "title": "How it works",
-        "description": "Discover how our service works"
+    "footer": {
+        "company": {
+            "title": "Citrus Designer",
+            "description": "We transform your ideas into exceptional designs. Simple and effective design subscription service."
+        },
+        "quickLinks": {
+            "title": "Quick links",
+            "items": [
+                {
+                    "text": "Home",
+                    "href": "/"
+                },
+                {
+                    "text": "How it works",
+                    "href": "/#how-it-works"
+                },
+                {
+                    "text": "Pricing",
+                    "href": "/#pricing"
+                },
+                {
+                    "text": "Contact",
+                    "href": "/contact"
+                }
+            ]
+        },
+        "contact": {
+            "title": "Contact",
+            "email": "info@citrusdesigner.com",
+            "phone": "+1 900 123 456",
+            "address": "123 Main Street, New York"
+        },
+        "legal": {
+            "privacy": "Privacy Policy",
+            "terms": "Terms and Conditions"
+        },
+        "copyright": "All rights reserved"
     }
 }

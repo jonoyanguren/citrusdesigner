@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -46,7 +47,8 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
             <Navigation />
-            <div>{children}</div>
+            <main>{children}</main>
+            <Footer />
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

@@ -119,5 +119,43 @@
                 }
             ]
         }
+    },
+    "footer": {
+        "company": {
+            "title": "Citrus Designer",
+            "description": "Transformamos tus ideas en diseños excepcionales. Servicio de diseño por suscripción simple y efectivo."
+        },
+        "quickLinks": {
+            "title": "Enlaces rápidos",
+            "items": [
+                {
+                    "text": "Inicio",
+                    "href": "/"
+                },
+                {
+                    "text": "Cómo funciona",
+                    "href": "/#how-it-works"
+                },
+                {
+                    "text": "Precios",
+                    "href": "/#pricing"
+                },
+                {
+                    "text": "Contacto",
+                    "href": "/contact"
+                }
+            ]
+        },
+        "contact": {
+            "title": "Contacto",
+            "email": "info@citrusdesigner.com",
+            "phone": "+34 900 123 456",
+            "address": "Calle Principal 123, Madrid"
+        },
+        "legal": {
+            "privacy": "Política de privacidad",
+            "terms": "Términos y condiciones"
+        },
+        "copyright": "Todos los derechos reservados"
     }
 }
