@@ -4,13 +4,21 @@ import { loadStripe } from "@stripe/stripe-js";
 import type { StripeProduct } from "@/lib/stripe";
 import Button from "@/components/Button";
 
+type ProductsResponse = {
+  waitlist: boolean;
+  products?: StripeProduct[];
+  message?: string;
+  activeSubscriptions: number;
+  maxProjects: number;
+};
+
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
 const getProducts = async () => {
   const response = await fetch("/api/products");
-  const data = await response.json();
+  const data: ProductsResponse = await response.json();
   return data;
 };
 
@@ -19,12 +27,22 @@ export default function Pricing() {
   const [products, setProducts] = useState<StripeProduct[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoadingProducts, setIsLoadingProducts] = useState(true);
+  const [showWaitlist, setShowWaitlist] = useState(false);
+  const [email, setEmail] = useState("");
+  const [waitlistMessage, setWaitlistMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await getProducts();
-        setProducts(response);
+        if (response.waitlist) {
+          setShowWaitlist(true);
+          setWaitlistMessage(response.message || "");
+        } else {
+          setProducts(response.products || []);
+        }
       } catch (err) {
         setError("Error cargando los planes");
         console.error("Error:", err);
@@ -75,6 +93,37 @@ export default function Pricing() {
     }
   };
 
+  const handleWaitlistSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Error submitting to waitlist");
+      }
+
+      setSubmitSuccess(true);
+      setEmail("");
+    } catch (error) {
+      console.error("Error:", error);
+      alert(
+        "Error al añadir a la lista de espera. Por favor, intenta de nuevo."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   if (isLoadingProducts) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -87,6 +136,52 @@ export default function Pricing() {
     return (
       <div className="min-h-screen flex items-center justify-center text-red-500">
         {error}
+      </div>
+    );
+  }
+
+  if (showWaitlist) {
+    return (
+      <div className="min-h-screen flex flex-col items-center p-8">
+        <main className="max-w-lg w-full mt-16">
+          <h1 className="text-4xl font-bold text-center mb-4">
+            Lista de Espera
+          </h1>
+          <p className="text-xl text-center text-foreground/60 mb-8">
+            {waitlistMessage}
+          </p>
+          {submitSuccess ? (
+            <div className="text-center p-4 bg-green-100 rounded-md">
+              <p className="text-green-800">
+                ¡Gracias por unirte a nuestra lista de espera! Te contactaremos
+                pronto.
+              </p>
+            </div>
+          ) : (
+            <form onSubmit={handleWaitlistSubmit} className="space-y-4">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full p-2 border rounded-md"
+                  placeholder="tu@email.com"
+                  required
+                />
+              </div>
+              <Button type="submit" fullWidth isLoading={isSubmitting}>
+                {isSubmitting ? "Procesando..." : "Unirme a la lista de espera"}
+              </Button>
+            </form>
+          )}
+        </main>
       </div>
     );
   }
