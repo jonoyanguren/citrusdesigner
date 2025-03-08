@@ -46,7 +46,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
             <Navigation />
-            {children}
+            <div>{children}</div>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

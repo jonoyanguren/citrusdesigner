@@ -14,11 +14,110 @@
         "noNotifications": "No hay notificaciones"
     },
     "home": {
-        "title": "Inicio",
-        "description": "Bienvenido a nuestra página de inicio"
-    },
-    "howItWorks": {
-        "title": "Cómo funciona",
-        "description": "Descubre cómo funciona nuestro servicio"
+        "hero": {
+            "title": "Inicio",
+            "description": "Bienvenido a nuestra página de inicio",
+            "cta": "Empieza tu suscripción ahora",
+            "ctaSecondary": "Reserva una llamada gratis"
+        },
+        "customers": {
+            "title": "Empresas que confían en nosotros"
+        },
+        "howItWorks": {
+            "title": "Cómo funciona",
+            "subtitle": "Nuestro proceso es simple y fácil",
+            "description": "Descubre cómo funciona nuestro servicio",
+            "steps": {
+                "step1": {
+                    "title": "Paso 1",
+                    "description": "Suscríbete a nuestro servicio"
+                },
+                "step2": {
+                    "title": "Paso 2",
+                    "description": "Crea una solicitud"
+                },
+                "step3": {
+                    "title": "Paso 3",
+                    "description": "Recibe tu diseño"
+                }
+            }
+        },
+        "benefits": {
+            "title": "Beneficios",
+            "subtitle": "Nuestros beneficios",
+            "description": "Descubre los beneficios de nuestro servicio"
+        },
+        "pricing": {
+            "title": "Precios",
+            "subtitle": "Planes que se adaptan a ti",
+            "description": "Elige el plan que mejor se adapte a tus necesidades",
+            "plans": {
+                "basic": {
+                    "title": "Básico",
+                    "price": "29",
+                    "period": "/mes",
+                    "description": "Perfecto para empezar",
+                    "features": [
+                        "1 diseño al mes",
+                        "Tiempo de entrega: 5 días",
+                        "Revisiones ilimitadas",
+                        "Soporte por email"
+                    ],
+                    "cta": "Empezar ahora"
+                },
+                "pro": {
+                    "title": "Profesional",
+                    "price": "79",
+                    "period": "/mes",
+                    "description": "Para negocios en crecimiento",
+                    "features": [
+                        "3 diseños al mes",
+                        "Tiempo de entrega: 3 días",
+                        "Revisiones ilimitadas",
+                        "Soporte prioritario"
+                    ],
+                    "cta": "Empezar ahora",
+                    "popular": true
+                },
+                "enterprise": {
+                    "title": "Empresa",
+                    "price": "199",
+                    "period": "/mes",
+                    "description": "Para equipos grandes",
+                    "features": [
+                        "10 diseños al mes",
+                        "Tiempo de entrega: 2 días",
+                        "Revisiones ilimitadas",
+                        "Soporte 24/7"
+                    ],
+                    "cta": "Contactar ventas"
+                }
+            }
+        },
+        "testimonials": {
+            "title": "Testimonios",
+            "subtitle": "Lo que dicen nuestros clientes",
+            "description": "Descubre por qué nuestros clientes confían en nosotros",
+            "items": [
+                {
+                    "text": "El mejor servicio de diseño que he probado. Rápido, profesional y con resultados increíbles.",
+                    "author": "María García",
+                    "position": "CEO de StartupX",
+                    "image": "/testimonials/avatar1.jpg"
+                },
+                {
+                    "text": "Han transformado completamente nuestra marca. El proceso fue muy sencillo y el resultado superó nuestras expectativas.",
+                    "author": "Carlos Rodríguez",
+                    "position": "Director de Marketing, TechCorp",
+                    "image": "/testimonials/avatar2.jpg"
+                },
+                {
+                    "text": "Excelente relación calidad-precio. Los diseños son de primera calidad y el servicio al cliente es excepcional.",
+                    "author": "Ana Martínez",
+                    "position": "Fundadora de CreativeHub",
+                    "image": "/testimonials/avatar3.jpg"
+                }
+            ]
+        }
     }
 }

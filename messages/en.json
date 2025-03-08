@@ -14,8 +14,13 @@
         "noNotifications": "No notifications"
     },
     "home": {
-        "title": "Home",
-        "description": "Welcome to our home page"
+        "hero": {
+            "title": "Home",
+            "description": "Welcome to our home page"
+        },
+        "customers": {
+            "title": "Companies that trust us"
+        }
     },
     "howItWorks": {
         "title": "How it works",
