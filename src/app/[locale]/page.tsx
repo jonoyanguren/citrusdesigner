@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
-export default function Home() {
+export default function HomePage() {
   const router = useRouter();
   const t = useTranslations("common");
 
