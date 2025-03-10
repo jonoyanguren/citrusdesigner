@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
 import { addNotification } from "@/lib/notifications";
+import { checkActiveSubscription } from "@/lib/subscriptions";
 
 export async function POST(body: Request) {
   try {
@@ -10,6 +11,18 @@ export async function POST(body: Request) {
 
     if (!decodedToken) {
       return NextResponse.json({ error: "Token no válido" }, { status: 401 });
+    }
+
+    if (!userId) {
+      const hasActiveSubscription = await checkActiveSubscription(
+        decodedToken.userId
+      );
+      if (!hasActiveSubscription) {
+        return NextResponse.json(
+          { error: "Necesitas una suscripción activa para crear peticiones" },
+          { status: 403 }
+        );
+      }
     }
 
     if (userId && decodedToken.role !== "admin") {
