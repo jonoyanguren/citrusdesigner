@@ -3,7 +3,7 @@ import Link from "next/link";
 import { EmptyState } from "@/components/EmptyState";
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { RiClipboardLine } from "react-icons/ri";
 interface RequestWithFeedback extends Omit<Request, "status"> {
   status: RequestStatus;
@@ -43,6 +43,7 @@ const STATUS_ACTIONS = {
 
 export function RequestsTab({ requests }: Props) {
   const router = useRouter();
+  const { locale } = useParams();
   const [requestsState, setRequests] = useState(requests);
 
   useEffect(() => {
@@ -57,7 +58,7 @@ export function RequestsTab({ requests }: Props) {
         action={
           <Button
             variant="secondary"
-            onClick={() => router.push("/dashboard/create-request")}
+            onClick={() => router.push(`/${locale}/dashboard/create-request`)}
           >
             Crear Petición
           </Button>
@@ -72,7 +73,7 @@ export function RequestsTab({ requests }: Props) {
         <h2 className="text-xl font-semibold">Mis Peticiones</h2>
         <Button
           variant="secondary"
-          onClick={() => router.push("/dashboard/create-request")}
+          onClick={() => router.push(`/${locale}/dashboard/create-request`)}
         >
           Crear Petición
         </Button>

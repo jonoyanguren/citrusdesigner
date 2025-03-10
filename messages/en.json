@@ -1,4 +1,12 @@
 {
+    "navigation": {
+        "home": "Home",
+        "howItWorks": "How it works",
+        "pricing": "Pricing",
+        "contact": "Contact",
+        "login": "Login",
+        "register": "Register"
+    },
     "common": {
         "welcome": "Welcome to Citrus Designer",
         "platform": "The perfect platform to bring your designs to life",
@@ -157,5 +165,111 @@
             "terms": "Terms and Conditions"
         },
         "copyright": "All rights reserved"
+    },
+    "projects": {
+        "title": "Our Projects",
+        "description": "Discover some of our most successful projects and see how we've helped other businesses achieve their goals",
+        "items": [
+            {
+                "id": "1",
+                "title": "Brand Redesign",
+                "description": "Complete brand redesign for a tech startup, including logo, color palette, and brand guidelines",
+                "image": "/projects/project1.jpg",
+                "tags": [
+                    {
+                        "id": "branding",
+                        "name": "Branding"
+                    },
+                    {
+                        "id": "design",
+                        "name": "Design"
+                    }
+                ]
+            },
+            {
+                "id": "2",
+                "title": "Marketing Campaign",
+                "description": "Series of social media designs for a successful marketing campaign",
+                "image": "/projects/project2.jpg",
+                "tags": [
+                    {
+                        "id": "social",
+                        "name": "Social Media"
+                    },
+                    {
+                        "id": "marketing",
+                        "name": "Marketing"
+                    }
+                ]
+            },
+            {
+                "id": "3",
+                "title": "Website Design",
+                "description": "Modern and responsive website design for an e-commerce platform",
+                "image": "/projects/project3.jpg",
+                "tags": [
+                    {
+                        "id": "web",
+                        "name": "Web"
+                    },
+                    {
+                        "id": "ui",
+                        "name": "UI/UX"
+                    }
+                ]
+            },
+            {
+                "id": "4",
+                "title": "Product Packaging",
+                "description": "Innovative packaging design for a premium cosmetics line",
+                "image": "/projects/project4.jpg",
+                "tags": [
+                    {
+                        "id": "packaging",
+                        "name": "Packaging"
+                    },
+                    {
+                        "id": "product",
+                        "name": "Product"
+                    }
+                ]
+            }
+        ],
+        "cta": {
+            "title": "Ready to start your project?",
+            "primaryButton": "Book a free call",
+            "secondaryButton": "View pricing"
+        }
+    },
+    "aboutCitrus": {
+        "cta": {
+            "title": "Ready to start your project?",
+            "primaryButton": "Book a free call",
+            "secondaryButton": "View pricing"
+        },
+        "features": {
+            "title": "Our specialties",
+            "items": [
+                {
+                    "title": "Design Systems",
+                    "description": "We create scalable and consistent design systems"
+                },
+                {
+                    "title": "User Experience",
+                    "description": "We design user-centered experiences"
+                },
+                {
+                    "title": "Responsive Design",
+                    "description": "Interfaces that adapt to all devices"
+                },
+                {
+                    "title": "Prototyping",
+                    "description": "High-fidelity interactive prototypes"
+                }
+            ]
+        },
+        "contact": {
+            "doubtsButton": "Got questions? Contact us"
+        }
     }
 }

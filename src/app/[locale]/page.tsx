@@ -3,23 +3,33 @@ import Button from "@/components/Button";
 import CustomersCarousel from "@/components/CustomersCarousel";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Hero from "@/components/Hero";
+
+interface Plan {
+  title: string;
+  price: string;
+  period: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular?: boolean;
+}
 
 export default function HomePage() {
   const t = useTranslations("home");
 
+  // Type assertion for the plans
+  const plans = t.raw("pricing.plans") as Record<string, Plan>;
+
   return (
     <div className="min-h-screen">
-      {/* Hero section */}
-      <section className="flex flex-col gap-4 bg-green-50 w-full py-16 md:py-24">
-        <h1 className="text-4xl font-bold mb-6 text-center">
-          {t("hero.title")}
-        </h1>
-        <p className="text-xl text-center mb-8">{t("hero.description")}</p>
-        <div className="flex gap-4 justify-center">
-          <Button>{t("hero.cta")}</Button>
-          <Button variant="secondary">{t("hero.ctaSecondary")}</Button>
-        </div>
-      </section>
+      <Hero
+        namespace="home"
+        buttons={[
+          { text: "hero.cta", variant: "primary", href: "/pricing" },
+          { text: "hero.ctaSecondary", variant: "secondary", href: "/contact" },
+        ]}
+      />
 
       {/* Customers carousel section*/}
       <CustomersCarousel />
@@ -57,7 +67,7 @@ export default function HomePage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {Object.entries(t.raw("pricing.plans")).map(([key, plan]) => (
+            {Object.entries(plans).map(([key, plan]) => (
               <div
                 key={key}
                 className={`bg-white rounded-lg shadow-lg p-8 relative ${

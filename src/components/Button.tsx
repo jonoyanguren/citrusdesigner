@@ -1,11 +1,13 @@
 import { ButtonHTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
+import Link from "next/link";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: "primary" | "secondary" | "danger" | "text";
   fullWidth?: boolean;
   isLoading?: boolean;
+  href?: string;
 }
 
 export default function Button({
@@ -15,6 +17,7 @@ export default function Button({
   isLoading = false,
   className,
   disabled,
+  href,
   ...props
 }: ButtonProps) {
   const baseStyles =
@@ -30,9 +33,24 @@ export default function Button({
 
   const width = fullWidth ? "w-full" : "";
 
+  const buttonClasses = twMerge(
+    baseStyles,
+    variants[variant],
+    width,
+    className
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className={buttonClasses}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <button
-      className={twMerge(baseStyles, variants[variant], width, className)}
+      className={buttonClasses}
       disabled={isLoading || disabled}
       {...props}
     >

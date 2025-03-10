@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import AdminNavigation from "./navigation/AdminNavigation";
 import UserNavigation from "./navigation/UserNavigation";
@@ -9,6 +10,7 @@ import NotificationsMenu from "./navigation/NotificationsMenu";
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, setUser } = useAuth();
+  const t = useTranslations("navigation");
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -40,19 +42,19 @@ export default function Navigation() {
         </Link>
         <div className="flex gap-6 items-center">
           <Link href="/" className="hover:opacity-70 transition-opacity">
-            Inicio
+            {t("home")}
           </Link>
           <Link
-            href="/how-it-works"
+            href="/about-citrus"
             className="hover:opacity-70 transition-opacity"
           >
-            Cómo funciona
+            {t("howItWorks")}
           </Link>
           <Link href="/pricing" className="hover:opacity-70 transition-opacity">
-            Precios
+            {t("pricing")}
           </Link>
           <Link href="/contact" className="hover:opacity-70 transition-opacity">
-            Contacto
+            {t("contact")}
           </Link>
           <div className="border-l border-foreground/10 mx-2" />
           {user ? (
@@ -80,13 +82,13 @@ export default function Navigation() {
                 href="/auth/login"
                 className="hover:opacity-70 transition-opacity"
               >
-                Iniciar sesión
+                {t("login")}
               </Link>
               <Link
                 href="/auth/register"
                 className="px-4 py-1 bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
               >
-                Registrarse
+                {t("register")}
               </Link>
             </>
           )}

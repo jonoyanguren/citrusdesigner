@@ -22,6 +22,8 @@ export default function CustomerDetails() {
     undefined
   );
 
+  const { locale } = useParams();
+
   useEffect(() => {
     const fetchUser = async () => {
       const response = await fetch(`/api/admin/users/${id}`);
@@ -46,14 +48,14 @@ export default function CustomerDetails() {
         <h1 className="text-3xl font-bold">Detalles del cliente</h1>
         {loggedUser?.role === "admin" ? (
           <Link
-            href="/admin/create-request"
+            href={`/${locale}/admin/create-request`}
             className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
           >
             Crear petición
           </Link>
         ) : (
           <Link
-            href="/dashboard/create-request"
+            href={`/${locale}/dashboard/create-request`}
             className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
           >
             Crear petición

@@ -25,13 +25,11 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params,
-}: Readonly<{
+  params: { locale },
+}: {
   children: React.ReactNode;
-  params: Promise<{ locale: "en" | "es" }>;
-}>) {
-  const { locale } = await params;
-
+  params: { locale: string };
+}) {
   if (!routing.locales.includes(locale)) {
     notFound();
   }
@@ -44,7 +42,7 @@ export default async function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
             <Navigation />
             <main>{children}</main>
