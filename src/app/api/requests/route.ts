@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
 import { addNotification } from "@/lib/notifications";
-import { checkActiveSubscription } from "@/lib/subscriptions";
+import { checkActiveSubscription } from "@/lib/subscription";
 
 export async function POST(body: Request) {
   try {

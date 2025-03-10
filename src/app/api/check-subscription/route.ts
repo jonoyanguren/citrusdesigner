@@ -1,35 +1,32 @@
 import { NextResponse } from "next/server";
 import { verifyToken } from "@/lib/users";
-import prisma from "@/lib/prisma";
+import { checkActiveSubscription } from "@/lib/subscription";
 
 export async function GET() {
   try {
-    const session = await verifyToken();
+    const decodedToken = await verifyToken();
 
-    if (!session || !session.userId) {
-      return NextResponse.json({ hasActiveSubscription: false });
+    if (!decodedToken) {
+      return NextResponse.json({ error: "Token no válido" }, { status: 401 });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { id: session.userId },
-      include: {
-        subscriptions: {
-          where: {
-            status: "active",
-          },
-        },
-      },
-    });
+    const hasActiveSubscription = await checkActiveSubscription(
+      decodedToken.userId
+    );
 
-    if (!user) {
-      return NextResponse.json({ hasActiveSubscription: false });
+    if (!hasActiveSubscription) {
+      return NextResponse.json(
+        { hasActiveSubscription: false },
+        { status: 403 }
+      );
     }
 
-    const hasActiveSubscription = user?.subscriptions.length > 0;
-
-    return NextResponse.json({ hasActiveSubscription });
+    return NextResponse.json({ hasActiveSubscription: true });
   } catch (error) {
-    console.error("Error checking subscription:", error);
-    return NextResponse.json({ hasActiveSubscription: false });
+    console.error("Error al verificar la suscripción:", error);
+    return NextResponse.json(
+      { error: "Error al verificar la suscripción" },
+      { status: 500 }
+    );
   }
 }
