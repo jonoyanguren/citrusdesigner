@@ -278,5 +278,29 @@
             "primaryButton": "Agenda una llamada gratis",
             "secondaryButton": "Ver precios"
         }
+    },
+    "dashboard": {
+        "invoices": {
+            "title": "Mis Facturas",
+            "empty": {
+                "title": "No hay facturas",
+                "description": "No se han encontrado facturas para mostrar."
+            },
+            "table": {
+                "number": "Número",
+                "date": "Fecha",
+                "amount": "Importe",
+                "status": "Estado",
+                "actions": "Acciones"
+            },
+            "status": {
+                "paid": "Pagada",
+                "open": "Pendiente",
+                "void": "Anulada"
+            },
+            "actions": {
+                "download": "Descargar PDF"
+            }
+        }
     }
 }

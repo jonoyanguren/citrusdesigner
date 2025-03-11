@@ -271,5 +271,29 @@
         "contact": {
             "doubtsButton": "Got questions? Contact us"
         }
+    },
+    "dashboard": {
+        "invoices": {
+            "title": "My Invoices",
+            "empty": {
+                "title": "No invoices",
+                "description": "No invoices found to display."
+            },
+            "table": {
+                "number": "Number",
+                "date": "Date",
+                "amount": "Amount",
+                "status": "Status",
+                "actions": "Actions"
+            },
+            "status": {
+                "paid": "Paid",
+                "open": "Pending",
+                "void": "Void"
+            },
+            "actions": {
+                "download": "Download PDF"
+            }
+        }
     }
 }

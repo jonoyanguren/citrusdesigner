@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import { useTranslations } from "next-intl";
 
 interface Invoice {
   id: string;
@@ -15,6 +16,8 @@ interface Props {
 }
 
 export function InvoicesTab({ invoices }: Props) {
+  const t = useTranslations("dashboard.invoices");
+
   const formatDate = (timestamp: number) => {
     return new Date(timestamp * 1000).toLocaleDateString("es-ES", {
       year: "numeric",
@@ -47,36 +50,36 @@ export function InvoicesTab({ invoices }: Props) {
   if (!invoices?.length) {
     return (
       <div className="text-center py-12">
-        <h3 className="text-lg font-medium text-gray-900">No hay facturas</h3>
-        <p className="mt-2 text-sm text-gray-500">
-          No se han encontrado facturas para mostrar.
-        </p>
+        <h3 className="text-lg font-medium text-gray-900">
+          {t("empty.title")}
+        </h3>
+        <p className="mt-2 text-sm text-gray-500">{t("empty.description")}</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold">Mis Facturas</h2>
+      <h2 className="text-xl font-semibold">{t("title")}</h2>
 
       <div className="bg-white shadow-sm rounded-lg overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Número
+                {t("table.number")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Fecha
+                {t("table.date")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Importe
+                {t("table.amount")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Estado
+                {t("table.status")}
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Acciones
+                {t("table.actions")}
               </th>
             </tr>
           </thead>
@@ -100,11 +103,7 @@ export function InvoicesTab({ invoices }: Props) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={getStatusBadgeClass(invoice.status)}>
-                    {invoice.status === "paid"
-                      ? "Pagada"
-                      : invoice.status === "open"
-                      ? "Pendiente"
-                      : "Anulada"}
+                    {t(`status.${invoice.status}`)}
                   </span>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -116,7 +115,7 @@ export function InvoicesTab({ invoices }: Props) {
                       }
                       className="text-blue-600 hover:text-blue-800"
                     >
-                      Descargar PDF
+                      {t("actions.download")}
                     </Button>
                   )}
                 </td>
