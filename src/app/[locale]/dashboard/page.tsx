@@ -1,10 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, useParams } from "next/navigation";
 import { User, Subscription, Request } from "@prisma/client";
 import { SubscriptionsTab } from "@/components/dashboard/SubscriptionsTab";
 import { RequestsTab } from "@/components/dashboard/RequestsTab";
 import { ProfileTab } from "@/components/dashboard/ProfileTab";
+import { InvoicesTab } from "@/components/dashboard/InvoicesTab";
 
 interface UserWithSubscriptions extends User {
   subscriptions: (Subscription & {
@@ -29,18 +30,22 @@ interface RequestWithFeedback extends Request {
 
 const MENU_ITEMS = [
   { name: "Mis suscripciones", id: "subscriptions" },
+  { name: "Mis facturas", id: "invoices" },
   { name: "Mis peticiones", id: "requests" },
   { name: "Mi perfil", id: "profile" },
 ];
 
 export default function DashboardPage() {
   const searchParams = useSearchParams();
+  const params = useParams();
+  const locale = params.locale as string;
   const initialTab = searchParams.get("tab") || "subscriptions";
   const [activeTab, setActiveTab] = useState(initialTab);
   const [user, setUser] = useState<UserWithSubscriptions | null>(null);
   const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
   const [requests, setRequests] = useState<RequestWithFeedback[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [invoices, setInvoices] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -55,14 +60,14 @@ export default function DashboardPage() {
         setSubscriptions(profile.subscriptions);
       } catch (error) {
         console.error("Error fetching user:", error);
-        router.push("/auth/login");
+        router.push(`/${locale}/auth/login`);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchUser();
-  }, [router]);
+  }, [router, locale]);
 
   useEffect(() => {
     if (activeTab === "requests") {
@@ -82,8 +87,26 @@ export default function DashboardPage() {
     }
   }, [activeTab]);
 
+  useEffect(() => {
+    if (activeTab === "invoices") {
+      const fetchInvoices = async () => {
+        try {
+          const response = await fetch("/api/invoices");
+          if (response.ok) {
+            const data = await response.json();
+            setInvoices(data);
+          }
+        } catch (error) {
+          console.error("Error fetching invoices:", error);
+        }
+      };
+
+      fetchInvoices();
+    }
+  }, [activeTab]);
+
   if (user?.hasToChangePassword) {
-    router.push("/dashboard/change-password-first-time");
+    router.push(`/${locale}/dashboard/change-password-first-time`);
   }
 
   if (isLoading) {
@@ -98,6 +121,8 @@ export default function DashboardPage() {
     switch (activeTab) {
       case "subscriptions":
         return <SubscriptionsTab subscriptions={subscriptions} />;
+      case "invoices":
+        return <InvoicesTab invoices={invoices} />;
       case "requests":
         return <RequestsTab requests={requests} isAdmin={false} />;
       case "profile":
@@ -121,7 +146,10 @@ export default function DashboardPage() {
               {MENU_ITEMS.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => setActiveTab(item.id)}
+                  onClick={() => {
+                    setActiveTab(item.id);
+                    router.push(`/${locale}/dashboard?tab=${item.id}`);
+                  }}
                   className={`pb-4 px-1 border-b-2 text-sm font-medium ${
                     activeTab === item.id
                       ? "border-blue-500 text-blue-600"

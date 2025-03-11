@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { NextIntlClientProvider } from "next-intl";
+import { LocaleType } from "@/types/locale";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,7 @@ export default async function RootLayout({
   params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: LocaleType };
 }) {
   if (!routing.locales.includes(locale)) {
     notFound();
