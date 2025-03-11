@@ -161,7 +161,7 @@ export function RequestsTab({ requests }: Props) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Link
-                    href={`/dashboard/requests/${request.id}`}
+                    href={`/${locale}/dashboard/requests/${request.id}`}
                     className="text-blue-600 hover:text-blue-800 font-medium"
                   >
                     Ver detalle

@@ -5,6 +5,7 @@ import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
 import * as Popover from "@radix-ui/react-popover";
 import { EmptyState } from "@/components/EmptyState";
+import { useParams } from "next/navigation";
 
 interface Props {
   requests: RequestWithFeedback[];
@@ -109,6 +110,7 @@ function FigmaUrlDialog({ onSubmit, onClose }: FigmaUrlDialogProps) {
 }
 
 export function AdminRequests({ requests }: Props) {
+  const { locale } = useParams();
   const [requestsState, setRequestsState] = useState(requests);
   const [nameFilter, setNameFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("ALL");
@@ -320,7 +322,7 @@ export function AdminRequests({ requests }: Props) {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <Link
-                      href={`/dashboard/requests/${request.id}`}
+                      href={`/${locale}/dashboard/requests/${request.id}`}
                       className="text-blue-600 hover:text-blue-800"
                     >
                       Ver detalle

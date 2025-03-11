@@ -1,11 +1,14 @@
 import { User } from "@prisma/client";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 interface Props {
   users: User[];
 }
 
 export function UsersList({ users }: Props) {
+  const { locale } = useParams();
+  console.log("LOCALE", locale);
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">Usuarios</h2>
@@ -44,7 +47,7 @@ export function UsersList({ users }: Props) {
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <Link
-                    href={`/admin/customer-details/${user.id}`}
+                    href={`/${locale}/admin/customer-details/${user.id}`}
                     className="text-blue-600 hover:text-blue-800"
                   >
                     Ver detalles
