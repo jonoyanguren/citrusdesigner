@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "danger" | "text";
+  variant?: "primary" | "secondary" | "outline";
   fullWidth?: boolean;
   isLoading?: boolean;
   href?: string;
@@ -17,18 +17,17 @@ export default function Button({
   isLoading = false,
   className,
   disabled,
-  href,
+  href = "",
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "px-4 py-2 cursor-pointer rounded-lg transition-opacity disabled:opacity-50 disabled:cursor-not-allowed";
+    "px-4 py-2 cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed rounded-full";
 
   const variants = {
-    primary: "bg-foreground text-background hover:opacity-90",
-    secondary:
-      "border border-foreground hover:bg-foreground hover:text-background transition-colors",
-    danger: "bg-red-500 text-white hover:opacity-90",
-    text: "text-foreground hover:opacity-90",
+    primary: "bg-blue-600 text-white hover:bg-blue-800",
+    secondary: "bg-black text-white",
+    outline:
+      "border border-gray-300 text-gray-900 hover:border-gray-900 bg-white",
   };
 
   const width = fullWidth ? "w-full" : "";
@@ -39,6 +38,8 @@ export default function Button({
     width,
     className
   );
+
+  console.log(buttonClasses);
 
   if (href) {
     return (

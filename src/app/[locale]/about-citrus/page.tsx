@@ -5,6 +5,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import { Link } from "@/i18n/navigation";
 import FeatureItem from "@/components/FeatureItem";
 import { motion } from "framer-motion";
+import CTASection from "@/components/CTASection";
 
 export default function HowItWorks() {
   const t = useTranslations("aboutCitrus");
@@ -31,24 +32,7 @@ export default function HowItWorks() {
       </div>
       <ProjectsSection />
 
-      {/* CTA Section */}
-      <div className="m-20 w-4/5 rounded-2xl bg-yellow-50 p-20 text-left">
-        <h2 className="text-4xl font-bold mb-8">{t("cta.title")}</h2>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-          <Link
-            href="/calendar"
-            className="inline-block px-8 py-4 bg-green-600 text-white font-semibold rounded-full hover:bg-green-700 transition-colors"
-          >
-            {t("cta.primaryButton")}
-          </Link>
-          <Link
-            href="/pricing"
-            className="inline-block px-8 py-4 border-2 border-green-600 text-green-600 font-semibold rounded-full hover:bg-green-50 transition-colors"
-          >
-            {t("cta.secondaryButton")}
-          </Link>
-        </div>
-      </div>
+      <CTASection />
 
       {/* Features Section */}
       <div className="w-full bg-green-800 py-12 overflow-hidden">

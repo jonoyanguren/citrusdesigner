@@ -2,6 +2,7 @@
     "navigation": {
         "home": "Inicio",
         "howItWorks": "Cómo funciona",
+        "ourStory": "Nuestra historia",
         "pricing": "Precios",
         "contact": "Contacto",
         "login": "Iniciar sesión",
@@ -14,6 +15,11 @@
         "logout": "Cerrar sesión",
         "createRequest": "Crear solicitud",
         "noNotifications": "No hay notificaciones"
+    },
+    "cta": {
+        "title": "¿Listo para exprimir juntos todo el potencial creativo?",
+        "primaryButton": "Suscríbete",
+        "secondaryButton": "Reserva un 1:1"
     },
     "home": {
         "hero": {
@@ -166,6 +172,25 @@
             "doubtsButton": "¿Tienes dudas? Contáctanos"
         }
     },
+    "ourStory": {
+        "title": "Nuestra historia",
+        "subtitle": "Llevamos el diseño al siguiente nivel con un modelo de suscripción ágil y flexible. Somos tu equipo crativo de confianza, listo para escalar contigo.",
+        "description": "Un equipo ayudándote a",
+        "descriptionThin": "democratizar el diseño",
+        "text": {
+            "p1": "El año era 2024. Jon y Andrea llevaban años trabajando en tecnología y diseño, combinando su vida nómada con sus carreras en remoto.",
+            "p2": "Mientras recorrían Europa en su autocaravana, se dieron cuenta de un problema recurrente: startups y empresas emergentes luchaban por encontrar servicios de diseño de calidad sin compromisos a largo plazo ni complicaciones.",
+            "p3": "Fue entonces cuando nació la idea de Citrus Designer: un modelo de suscripción para diseño, ágil y sin ataduras, igual que un SaaS.",
+            "p4": "Creemos en las relaciones a largo plazo, en ser un partner estratégico que entiende tu negocio y te ayuda a escalar con soluciones visuales potentes.",
+            "pbold": "Citrus Designer no es solo un servicio; es la unión de nuestra experiencia, nuestra visión y nuestra forma de vida. Queremos que el diseño sea accesible, flexible y escalable, sin complicaciones.",
+            "pfinal": "Si buscas un equipo que se preocupe tanto por tu marca como tú mismo, aquí estamos. 🍊"
+        },
+        "valueProposition": {
+            "title": "Propuesta de valor",
+            "description": "Eficiencia y calidad, sin complicaciones",
+            "text": "En Citrus Designer utilizamos tecnología desarrollada por nosotros para hacer el proceso más ágil y eficiente, permitiéndome dedicar el tiempo a crear diseños de alta calidad. Cada proyecto recibe un trato personalizado, asegurando que el resultado final no solo sea rápido, sino también único y adaptado a tus necesidades."
+        }
+    },
     "footer": {
         "company": {
             "title": "Citrus Designer",
@@ -205,8 +230,10 @@
         "copyright": "Todos los derechos reservados"
     },
     "projects": {
-        "title": "Nuestros Proyectos",
-        "description": "Descubre algunos de nuestros proyectos más exitosos y cómo hemos ayudado a otras empresas a alcanzar sus objetivos",
+        "tag": "Casos de éxito",
+        "title": "Algunos de nuestros",
+        "titleThin": "proyectos favoritos",
+        "description": "De startups a grandes empresas, descubre algunos proyectos en los colaboramos para transformar experiencias visuales de alto impacto. ",
         "items": [
             {
                 "id": "1",
@@ -272,12 +299,7 @@
                     }
                 ]
             }
-        ],
-        "cta": {
-            "title": "¿Listo para empezar tu proyecto?",
-            "primaryButton": "Agenda una llamada gratis",
-            "secondaryButton": "Ver precios"
-        }
+        ]
     },
     "dashboard": {
         "invoices": {
