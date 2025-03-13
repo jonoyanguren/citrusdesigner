@@ -57,7 +57,8 @@ export async function getActiveProducts(): Promise<StripeProduct[]> {
 
 export async function createCheckoutSession(
   priceId: string,
-  customerId?: string
+  customerId?: string,
+  locale: string = "es"
 ) {
   if (!stripeSecretKey) {
     throw new Error("Stripe secret key is not configured");
@@ -73,8 +74,8 @@ export async function createCheckoutSession(
           quantity: 1,
         },
       ],
-      success_url: `${process.env.NEXT_PUBLIC_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_URL}/pricing`,
+      success_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/pricing`,
       customer: customerId,
     });
 

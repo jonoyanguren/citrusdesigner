@@ -191,6 +191,65 @@
             "text": "En Citrus Designer utilizamos tecnología desarrollada por nosotros para hacer el proceso más ágil y eficiente, permitiéndome dedicar el tiempo a crear diseños de alta calidad. Cada proyecto recibe un trato personalizado, asegurando que el resultado final no solo sea rápido, sino también único y adaptado a tus necesidades."
         }
     },
+    "pricing": {
+        "title": "Precios",
+        "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
+        "products": {
+            "title": "Modelo de precios",
+            "description": "Tu plan perfecto está solo a",
+            "descriptionThin": "1-click...",
+            "secondaryText": "Elije entre una de nuestras subscripciones mensuales. Empieza ya mismo sin necesidad de contrato - pausa y cancélalo en cualquier momento."
+        },
+        "loading": "Procesando...",
+        "subscribe": "Suscríbete ahora",
+        "bookACall": "Reserva una llamada gratis",
+        "month": "mes",
+        "badge": {
+            "availableSpots": "2 sitios libres"
+        },
+        "customPrice": "Personalizadas",
+        "customPriceDescription": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas.",
+        "features": {
+            "title": "Lo que incluye ",
+            "Standard": [
+                "Una petición a la vez",
+                "Revisiones ilimitadas",
+                "Entrega en 24-48 horas",
+                "Diseñador dedicado"
+            ],
+            "Pro": [
+                "Una petición a la vez",
+                "Revisiones ilimitadas",
+                "Entrega en 24-48 horas",
+                "Soporte prioritario"
+            ],
+            "Enterprise": [
+                "Diseño personalizado",
+                "Tiempo de entrega: 1 día",
+                "Revisiones ilimitadas",
+                "Soporte prioritario"
+            ]
+        },
+        "services": {
+            "title": "Servicios incluidos",
+            "Standard": [
+                "Ejecución completa de UI",
+                "Ejecución complete de UX"
+            ],
+            "Pro": [
+                "Ejecución completa de UI",
+                "Ejecución complete de UX",
+                "Prototipos en Figma",
+                "Arhivos figma listos para desarrollo"
+            ],
+            "Enterprise": [
+                "Diseño personalizado",
+                "Tiempo de entrega: 1 día",
+                "Revisiones ilimitadas",
+                "Soporte prioritario"
+            ]
+        }
+    },
     "footer": {
         "company": {
             "title": "Citrus Designer",
