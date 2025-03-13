@@ -13,7 +13,7 @@ export default function SectionTitle({
 }) {
   return (
     <div
-      className={`flex flex-col gap-4 text-gray-900 p-12 w-full text-center ${
+      className={`flex flex-col gap-4 text-gray-900 p-12 w-full text-center text-lg ${
         textLeft ? "text-left" : "text-center"
       }`}
     >

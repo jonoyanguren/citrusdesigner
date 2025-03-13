@@ -295,5 +295,26 @@
                 "download": "Download PDF"
             }
         }
+    },
+    "pricing": {
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "description": "Everything you need to",
+            "descriptionThin": "know",
+            "questions": {
+                "q1": "What's included in the subscription?",
+                "q2": "How fast do you deliver the designs?",
+                "q3": "Can I cancel my subscription anytime?",
+                "q4": "Do you offer refunds?",
+                "q5": "What design tools do you use?"
+            },
+            "answers": {
+                "a1": "Our subscription includes UI/UX design, brand design, marketing materials, and any other design needs you might have. All plans come with unlimited revisions and a dedicated designer.",
+                "a2": "Depending on your plan, we deliver designs within 24-48 hours. Enterprise plans get even faster delivery times with same-day turnaround for urgent requests.",
+                "a3": "Yes! Our subscriptions are flexible - you can cancel, pause, or modify your plan at any time without any penalties or hidden fees.",
+                "a4": "We offer a 100% satisfaction guarantee. If you're not happy with the designs, we'll work to make it right or provide a refund for that specific request.",
+                "a5": "We primarily work with Figma for UI/UX design, along with the Adobe Creative Suite for other design needs. All files are delivered in formats ready for development or production."
+            }
+        }
     }
 }

@@ -79,7 +79,9 @@ export default function OurStory() {
 
       <ProjectsSection />
 
-      <CTASection />
+      <div className="max-w-7xl mx-auto">
+        <CTASection />
+      </div>
     </div>
   );
 }

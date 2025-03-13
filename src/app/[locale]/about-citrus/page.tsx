@@ -32,7 +32,9 @@ export default function HowItWorks() {
       </div>
       <ProjectsSection />
 
-      <CTASection />
+      <div className="max-w-7xl mx-auto">
+        <CTASection />
+      </div>
 
       {/* Features Section */}
       <div className="w-full bg-green-800 py-12 overflow-hidden">

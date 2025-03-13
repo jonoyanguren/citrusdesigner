@@ -3,6 +3,9 @@ import Title from "@/components/Title";
 import PricingList from "@/components/PricingList";
 import { useTranslations } from "next-intl";
 import SectionTitle from "@/components/SectionTitle";
+import Faq from "@/components/Faq";
+import CTASection from "@/components/CTASection";
+
 export default function Pricing() {
   const t = useTranslations("pricing");
   return (
@@ -18,8 +21,11 @@ export default function Pricing() {
       <div className="mb-16">
         <PricingList />
       </div>
+      <Faq />
 
-      {/* <Faq /> */}
+      <div className="max-w-7xl mx-auto">
+        <CTASection />
+      </div>
     </div>
   );
 }
