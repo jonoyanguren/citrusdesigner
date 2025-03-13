@@ -6,6 +6,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import AdminNavigation from "./navigation/AdminNavigation";
 import UserNavigation from "./navigation/UserNavigation";
 import NotificationsMenu from "./navigation/NotificationsMenu";
+import NavigationMobile from "./navigation/NavigationMobile";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +41,12 @@ export default function Navigation() {
         <Link href="/" className="font-bold text-xl">
           Citrus Designer
         </Link>
-        <div className="flex gap-6 items-center">
+
+        {/* Mobile Navigation */}
+        <NavigationMobile />
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex gap-6 items-center">
           <Link href="/" className="hover:opacity-70 transition-opacity">
             {t("home")}
           </Link>
