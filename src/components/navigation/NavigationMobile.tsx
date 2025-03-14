@@ -85,7 +85,7 @@ export default function NavigationMobile() {
                   {t("home")}
                 </Link>
                 <Link
-                  href="/about-citrus"
+                  href="/how-it-works"
                   className="hover:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
                   onClick={() => setIsOpen(false)}
                 >

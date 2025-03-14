@@ -51,7 +51,7 @@ export default function Navigation() {
             {t("home")}
           </Link>
           <Link
-            href="/about-citrus"
+            href="/how-it-works"
             className="hover:opacity-70 transition-opacity"
           >
             {t("howItWorks")}

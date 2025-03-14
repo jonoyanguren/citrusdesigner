@@ -128,6 +128,44 @@
             ]
         }
     },
+    "howItWorks": {
+        "title": "Un proceso ágil y sin reuniones innecesarias",
+        "description": "Transformar tu visión es sencillo y rápido. Desde las suscripción hasta la entrega final, cada paso ha sido optimizado para ofrecer resultados de alta calidad sin complicaciones.",
+        "steps": {
+            "title": "Nuestra forma de trabajar",
+            "description": "Un proceso tecnológico con",
+            "descriptionThin": "toque personal",
+            "secondaryText": "Desde la suscripción hasta la entrega final, el proceso ha sido diseñado para maximizar la eficiencia. La tecnología se encarga de lo operativo, mientras que yo me concentro en aportar creatividad y atención personalizada a cada proyecto.",
+            "steps": [
+                {
+                    "title": "Escoge un plan",
+                    "description": "Elije el plan  que mejor se adapte a sus necesidades.  Al suscribirte, obtienes acceso al portal privado que agiliza cada etapa del trabajo."
+                },
+                {
+                    "title": "Se crea el proyecto",
+                    "description": "Se crea el proyecto en nuestra plataforma. Integramos Figma para que puedas seguir en tiempo real cada avance y visualizar todas las actualizaciones directamente desde tu portal."
+                },
+                {
+                    "title": "Haz una petición",
+                    "description": "Envía tu requerimiento de diseño. Nuestro sistema intuitivo te permite detallar tus necesidades en pocos clics. Solo se puede añadir una petición a la vez ."
+                },
+                {
+                    "title": "Diseño en proceso",
+                    "description": "Transformamos tu solicitud de diseño en algo excepcinal. El proceso nos permite optimizar el flujo de trabajo, garantizando rapidez y calidad del proceso."
+                },
+                {
+                    "title": "Revisión en Figma",
+                    "description": "Todos los diseños se integran directamente en Figma. Sin necesidad de descargar archivos, podrás ver y revisar tu diseño."
+                }
+            ]
+        },
+        "beforeAndAfter": {
+            "title": "Antes y después",
+            "description": "Observa la transformación de",
+            "descriptionThin": "ideas en diseños",
+            "secondaryText": "Explora ejemplos ficticios que demuestran el impacto de nuestro proceso con resultados de alta calidad en cuestión de tiempo."
+        }
+    },
     "aboutCitrus": {
         "hero": {
             "title": "Cómo funciona Citrus Designer",
