@@ -1,143 +1,69 @@
 "use client";
+
+import Title from "@/components/Title";
+import { useTranslations } from "next-intl";
+import { MdOutlineMail } from "react-icons/md";
+import { IoCalendarClearOutline } from "react-icons/io5";
+import { FaWhatsapp } from "react-icons/fa";
+
 import Button from "@/components/Button";
-import { useEffect, useState } from "react";
+import CalendarButton from "@/components/CalendarButton";
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const t = useTranslations("contact");
+  const { openCalendly, CalendlyScripts } = CalendarButton();
 
-  useEffect(() => {
-    const fetchContacts = async () => {
-      const response = await fetch("/api/contact");
-      const data = await response.json();
-    };
-    fetchContacts();
-  }, []);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("loading");
-
-    try {
-      // Verificar que la ruta es correcta
-      const apiUrl = "/api/contact";
-
-      const response = await fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          // Agregar un header personalizado para debug
-          "X-Debug": "true",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      // Intentar leer el cuerpo de la respuesta
-      const responseText = await response.text();
-
-      let data;
-      try {
-        data = JSON.parse(responseText);
-      } catch (parseError) {
-        console.error("Error parsing response:", parseError);
-        throw new Error("Invalid JSON response");
-      }
-
-      if (!response.ok) {
-        throw new Error(data.error || "Error al enviar el mensaje");
-      }
-
-      setStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Submission error:", error);
-      setStatus("error");
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+  const openWhatsApp = () => {
+    const phoneNumber = "34620682321";
+    const message = encodeURIComponent(
+      "Hola, me gustaría más información sobre Citrus Designer"
+    );
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-8">
-      <main className="max-w-2xl w-full mt-16">
-        <h1 className="text-3xl font-bold mb-8">Contacto</h1>
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="name" className="block mb-2">
-              Nombre
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full p-2 rounded border border-foreground/20 bg-background"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="email" className="block mb-2">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full p-2 rounded border border-foreground/20 bg-background"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="message" className="block mb-2">
-              Mensaje
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              rows={4}
-              className="w-full p-2 rounded border border-foreground/20 bg-background"
-              required
-            ></textarea>
-          </div>
-          <Button
-            type="submit"
-            disabled={status === "loading"}
-            className="w-full"
-          >
-            {status === "loading" ? "Enviando..." : "Enviar mensaje"}
-          </Button>
+    <div className="min-h-screen flex flex-col items-center">
+      <Title title={t("title")} description={t("description")} />
+      {CalendlyScripts}
 
-          {status === "success" && (
-            <p className="text-green-500 text-center">
-              ¡Mensaje enviado con éxito!
-            </p>
-          )}
-          {status === "error" && (
-            <p className="text-red-500 text-center">
-              Error al enviar el mensaje. Por favor, intenta nuevamente.
-            </p>
-          )}
-        </form>
-      </main>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Email Card */}
+          <div className="bg-white border border-gray-300 rounded-lg p-8">
+            <MdOutlineMail className="text-4xl mb-4 text-primary" />
+            <h3 className="text-2xl font-bold mb-4">{t("email.title")}</h3>
+            <p className="text-gray-600 mb-6">{t("email.description")}</p>
+            <Button
+              variant="outline"
+              onClick={() => {
+                window.open("mailto:contact@citrusdesigner.com", "_blank");
+              }}
+            >
+              {t("email.button")}
+            </Button>
+          </div>
+
+          {/* WhatsApp Card */}
+          <div className="bg-white border border-gray-300 rounded-lg p-8">
+            <FaWhatsapp className="text-4xl mb-4 text-[#25D366]" />
+            <h3 className="text-2xl font-bold mb-4">{t("chat.title")}</h3>
+            <p className="text-gray-600 mb-6">{t("chat.description")}</p>
+            <Button variant="outline" onClick={openWhatsApp}>
+              {t("chat.button")}
+            </Button>
+          </div>
+
+          {/* Meeting Card */}
+          <div className="bg-white border border-gray-300 rounded-lg p-8">
+            <IoCalendarClearOutline className="text-4xl mb-4 text-primary" />
+            <h3 className="text-2xl font-bold mb-4">{t("meeting.title")}</h3>
+            <p className="text-gray-600 mb-6">{t("meeting.description")}</p>
+            <Button variant="outline" onClick={openCalendly}>
+              {t("meeting.button")}
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

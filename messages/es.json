@@ -270,6 +270,25 @@
             }
         }
     },
+    "contact": {
+        "title": "Contacto",
+        "description": "Estamos aquí para ayudarte y responder cualquier pregunta que puedas tener. ¡Esperamos saber de ti!",
+        "email": {
+            "title": "Mándanos un email",
+            "description": "¿Tienes dudas o necesitas más información? Escríbenos y te responderemos lo antes posible.",
+            "button": "Enviar email"
+        },
+        "chat": {
+            "title": "Chatea con nosotros",
+            "description": "¿Prefieres algo más rápido? Conéctate con nosotros en el chat y resolvemos tus dudas al momento.",
+            "button": "Chatea ahora"
+        },
+        "meeting": {
+            "title": "Reserva una 1:1",
+            "description": "Hablemos sobre tu proyecto. Agenda una sesión personalizada y encuentra la mejor solución para tu diseño.",
+            "button": "Agendar reunión"
+        }
+    },
     "footer": {
         "company": {
             "title": "Citrus Designer",
