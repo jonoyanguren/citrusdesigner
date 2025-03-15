@@ -5,6 +5,16 @@ import { useEffect, useState } from "react";
 import Button from "@/components/Button";
 import { useParams, useRouter } from "next/navigation";
 import { RiClipboardLine } from "react-icons/ri";
+import { useTranslations } from "next-intl";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHeaderCell,
+  TableCell,
+} from "@/components/ui/Table";
+
 interface RequestWithFeedback extends Omit<Request, "status"> {
   status: RequestStatus;
   timeToComplete: string | null;
@@ -20,47 +30,38 @@ interface RequestWithFeedback extends Omit<Request, "status"> {
 
 interface Props {
   requests: RequestWithFeedback[];
+  isAdmin?: boolean;
 }
 
-const STATUS_ACTIONS = {
-  PENDING: {
-    label: "Pendiente",
-    color: "bg-yellow-100 text-yellow-800",
-  },
-  ACCEPTED: {
-    label: "Aceptado",
-    color: "bg-blue-100 text-blue-800",
-  },
-  WORKING: {
-    label: "En proceso",
-    color: "bg-purple-100 text-purple-800",
-  },
-  DONE: {
-    label: "Completado",
-    color: "bg-green-100 text-green-800",
-  },
+const STATUS_COLORS = {
+  PENDING: "bg-yellow-100 text-yellow-800",
+  ACCEPTED: "bg-blue-100 text-blue-800",
+  WORKING: "bg-purple-100 text-purple-800",
+  DONE: "bg-green-100 text-green-800",
 } as const;
 
-export function RequestsTab({ requests }: Props) {
+export function RequestsTab({ requests, isAdmin = false }: Props) {
   const router = useRouter();
   const { locale } = useParams();
   const [requestsState, setRequests] = useState(requests);
+  const t = useTranslations("dashboard.requests");
 
   useEffect(() => {
     setRequests(requests);
   }, [requests]);
+
   if (!requests?.length) {
     return (
       <EmptyState
         icon={<RiClipboardLine size={48} />}
-        title="No hay peticiones"
-        description="Este usuario aún no ha realizado ninguna petición."
+        title={t("empty.title")}
+        description={t("empty.description")}
         action={
           <Button
             variant="secondary"
             onClick={() => router.push(`/${locale}/dashboard/create-request`)}
           >
-            Crear Petición
+            {t("create.submit")}
           </Button>
         }
       />
@@ -70,108 +71,70 @@ export function RequestsTab({ requests }: Props) {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold">Mis Peticiones</h2>
+        <h2 className="text-xl font-semibold">{t("title")}</h2>
         <Button
           variant="secondary"
           onClick={() => router.push(`/${locale}/dashboard/create-request`)}
         >
-          Crear Petición
+          {t("create.submit")}
         </Button>
       </div>
 
-      <div className="bg-white shadow-sm rounded-lg overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Nombre
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Estado
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Fecha
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Tiempo estimado
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Feedback
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Acciones
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {requestsState.map((request) => (
-              <tr key={request.id}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900">
-                    {request.name}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div
-                    className={`text-sm text-gray-900 text-center rounded-full px-2 py-1 ${
-                      STATUS_ACTIONS[request.status].color
-                    }`}
-                  >
-                    {STATUS_ACTIONS[request.status].label}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {new Date(request.createdAt).toLocaleDateString()}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {request.timeToComplete
-                      ? `${request.timeToComplete} días`
-                      : "Sin estimación"}
-                  </div>
-                </td>
-                <td className="px-6 py-4">
-                  {request.feedback && request.feedback.length > 0 ? (
-                    <div className="text-sm text-gray-900">
-                      {request.feedback.length} feedbacks
-                    </div>
-                  ) : (
-                    <div className="text-sm text-gray-900">Sin feedback</div>
-                  )}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <Link
-                    href={`/${locale}/dashboard/requests/${request.id}`}
-                    className="text-blue-600 hover:text-blue-800 font-medium"
-                  >
-                    Ver detalle
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell>{t("detail.name")}</TableHeaderCell>
+            <TableHeaderCell>{t("detail.createdAt")}</TableHeaderCell>
+            <TableHeaderCell>{t("detail.status")}</TableHeaderCell>
+            <TableHeaderCell>{t("detail.estimatedTime")}</TableHeaderCell>
+            <TableHeaderCell>{t("detail.feedback.title")}</TableHeaderCell>
+            <TableHeaderCell>{t("detail.actions")}</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {requestsState.map((request) => (
+            <TableRow key={request.id}>
+              <TableCell>{request.name}</TableCell>
+              <TableCell>
+                {new Date(request.createdAt).toLocaleDateString(locale)}
+              </TableCell>
+              <TableCell>
+                <div
+                  className={`text-sm text-center rounded-full px-2 py-1 ${
+                    STATUS_COLORS[request.status]
+                  }`}
+                >
+                  {t(`status.${request.status}`)}
+                </div>
+              </TableCell>
+              <TableCell>
+                {request.timeToComplete
+                  ? t("detail.estimatedDays", {
+                      days: request.timeToComplete,
+                    })
+                  : t("detail.noEstimate")}
+              </TableCell>
+              <TableCell>
+                {request.feedback && request.feedback.length > 0
+                  ? t("detail.feedback.count", {
+                      count: request.feedback.length,
+                    })
+                  : t("detail.feedback.empty")}
+              </TableCell>
+              <TableCell>
+                <Link
+                  href={`/${locale}/${
+                    isAdmin ? "admin" : "dashboard"
+                  }/requests/${request.id}`}
+                  className="text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  {t("detail.viewDetails")}
+                </Link>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 }

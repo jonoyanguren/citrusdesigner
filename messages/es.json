@@ -2,11 +2,61 @@
     "navigation": {
         "home": "Inicio",
         "howItWorks": "Cómo funciona",
+        "theDesignerBehind": "El diseñador detrás",
         "ourStory": "Nuestra historia",
         "pricing": "Precios",
         "contact": "Contacto",
         "login": "Iniciar sesión",
         "register": "Registrarse"
+    },
+    "designerBehind": {
+        "title": "Sobre mí",
+        "subtitle": "Apasionada del diseño y la experiencia de usuario. Me encanta crear soluciones visuales que no solo se vean bien, sino que sean intuitivas y funcionales.",
+        "whoAmI": {
+            "title": "Quien soy",
+            "description": "La mente creativa",
+            "descriptionThin": "detrás de Citrus Designer"
+        },
+        "text": {
+            "title": "👋🏼 ¡Hola!",
+            "p1": "Soy Andrea, diseñadora certificada en diseño UX/UI y con más de 8 años de experiencia en diseño, innovación y research. He trabajado para grandes empresas y startups tecnológicas en entornos ágiles y multiculturales, lo que me ha permitido perfeccionar un enfoque que combina creatividad con eficiencia.",
+            "p2": "Mi pasión es simplificar procesos y entregar resultados impecables, evitando reuniones innecesarias para centrarme en lo que realmente importa: el diseño de tu marca. Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles.",
+            "p3": "Además, me encanta compartir mi conocimiento y experiencia. Lidero la comunidad de Friends of Figma Bilbao, imparto talleres y charlas y mentorizo a nuevos talentos en ADPList para que descubran su potencial y transformen el mundo del diseño.",
+            "pbold": "Si buscas un enfoque fresco y profesional que combine pasión, innovación y resultados medibles, ¡estoy aquí para ayudarte a llevar tus diseños al siguiente nivel!"
+        },
+        "expertise": {
+            "title": "Experiencia",
+            "description": "Una década transformando espacios",
+            "text": "Mi experiencia abarca desde proyectos residenciales hasta comerciales, siempre con un enfoque en crear espacios que no solo sean hermosos, sino también funcionales y significativos para quienes los habitan."
+        },
+        "skills": {
+            "skill1": {
+                "title": "Diseño de Interiores",
+                "description": "Especializada en espacios residenciales y comerciales con un enfoque en la funcionalidad y la estética."
+            },
+            "skill2": {
+                "title": "Diseño Digital",
+                "description": "Integración de herramientas digitales para visualización y planificación de espacios."
+            },
+            "skill3": {
+                "title": "Gestión de Proyectos",
+                "description": "Coordinación eficiente de proyectos desde la conceptualización hasta la ejecución."
+            },
+            "skill4": {
+                "title": "Sostenibilidad",
+                "description": "Compromiso con prácticas de diseño sostenible y materiales eco-friendly."
+            }
+        },
+        "philosophy": {
+            "title": "Filosofía de Diseño",
+            "description": "Creando Espacios que Cuentan Historias",
+            "text": "Mi enfoque se centra en crear espacios que no solo sean visualmente atractivos, sino que también reflejen la personalidad y necesidades de quienes los habitan. Cada proyecto es una oportunidad para contar una historia única.",
+            "points": {
+                "point1": "Diseño centrado en el usuario: Cada decisión se toma pensando en quienes habitarán el espacio.",
+                "point2": "Innovación sostenible: Incorporación de soluciones eco-friendly sin comprometer el diseño.",
+                "point3": "Atención al detalle: Cuidado meticuloso en cada aspecto del proyecto, desde la planificación hasta la ejecución."
+            }
+        }
     },
     "common": {
         "welcome": "Bienvenido a Citrus Designer",
@@ -164,50 +214,6 @@
             "description": "Observa la transformación de",
             "descriptionThin": "ideas en diseños",
             "secondaryText": "Explora ejemplos ficticios que demuestran el impacto de nuestro proceso con resultados de alta calidad en cuestión de tiempo."
-        }
-    },
-    "aboutCitrus": {
-        "hero": {
-            "title": "Cómo funciona Citrus Designer",
-            "description": "Descubre cómo funciona nuestro servicio de diseño por suscripción"
-        },
-        "valueProposition": {
-            "valueProposition": "Propuesta de valor",
-            "title": "Eficiencia y calidad, sin complicaciones",
-            "description": "En Citrus Designer utilizamos tecnología desarrollada por nosotros para hacer el proceso más ágil y eficiente, permitiéndome dedicar el tiempo a crear diseños de alta calidad. Cada proyecto recibe un trato personalizado, asegurando que el resultado final no solo sea rápido, sino también único y adaptado a tus necesidades."
-        },
-        "calendar": {
-            "scheduleTitle": "Agenda una cita",
-            "directScheduleTitle": "¿Prefieres agendar directamente?"
-        },
-        "cta": {
-            "title": "¿Listo para empezar tu proyecto?",
-            "primaryButton": "Agenda una llamada gratis",
-            "secondaryButton": "Ver precios"
-        },
-        "features": {
-            "title": "Nuestras especialidades",
-            "items": [
-                {
-                    "title": "Design Systems",
-                    "description": "Creamos sistemas de diseño escalables y coherentes"
-                },
-                {
-                    "title": "User Experience",
-                    "description": "Diseñamos experiencias centradas en el usuario"
-                },
-                {
-                    "title": "Responsive Design",
-                    "description": "Interfaces adaptables a todos los dispositivos"
-                },
-                {
-                    "title": "Prototyping",
-                    "description": "Prototipos interactivos de alta fidelidad"
-                }
-            ]
-        },
-        "contact": {
-            "doubtsButton": "¿Tienes dudas? Contáctanos"
         }
     },
     "ourStory": {
@@ -438,6 +444,14 @@
         ]
     },
     "dashboard": {
+        "title": "Panel de control",
+        "welcome": "Bienvenido",
+        "menu": {
+            "subscriptions": "Mis suscripciones",
+            "invoices": "Mis facturas",
+            "requests": "Mis peticiones",
+            "profile": "Mi perfil"
+        },
         "invoices": {
             "title": "Mis Facturas",
             "empty": {
@@ -458,6 +472,50 @@
             },
             "actions": {
                 "download": "Descargar PDF"
+            }
+        },
+        "requests": {
+            "title": "Mis Peticiones",
+            "empty": {
+                "title": "No hay peticiones",
+                "description": "No se han encontrado peticiones para mostrar."
+            },
+            "create": {
+                "title": "Crear Nueva Petición",
+                "name": "Nombre de la petición",
+                "description": "Descripción de la petición",
+                "submit": "Crear Petición",
+                "cancel": "Cancelar",
+                "loading": "Cargando...",
+                "subscription": {
+                    "required": "Suscripción Requerida",
+                    "message": "Necesitas una suscripción activa para crear peticiones.",
+                    "cta": "Ver Planes de Suscripción"
+                }
+            },
+            "detail": {
+                "title": "Detalle de la Petición",
+                "name": "Nombre",
+                "request": "Petición",
+                "figma": "Ver diseño en Figma",
+                "status": "Estado",
+                "createdAt": "Fecha de creación",
+                "estimatedTime": "Tiempo estimado",
+                "estimatedDays": "{days} días",
+                "noEstimate": "Sin estimación",
+                "feedback": {
+                    "title": "Feedback",
+                    "empty": "No hay feedback disponible",
+                    "count": "{count} comentarios"
+                },
+                "actions": "Acciones",
+                "viewDetails": "Ver detalle"
+            },
+            "status": {
+                "PENDING": "Pendiente",
+                "ACCEPTED": "Aceptado",
+                "WORKING": "En proceso",
+                "DONE": "Completado"
             }
         }
     }

@@ -85,6 +85,9 @@ export async function GET() {
       where: {
         userId: decodedToken.userId,
       },
+      include: {
+        feedback: true,
+      },
     });
 
     return NextResponse.json(requests);

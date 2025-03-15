@@ -6,6 +6,14 @@ import { es } from "date-fns/locale";
 import * as Popover from "@radix-ui/react-popover";
 import { EmptyState } from "@/components/EmptyState";
 import { useParams } from "next/navigation";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHeaderCell,
+  TableCell,
+} from "@/components/ui/Table";
 
 interface Props {
   requests: RequestWithFeedback[];
@@ -111,7 +119,8 @@ function FigmaUrlDialog({ onSubmit, onClose }: FigmaUrlDialogProps) {
 
 export function AdminRequests({ requests }: Props) {
   const { locale } = useParams();
-  const [requestsState, setRequestsState] = useState(requests);
+  const [requestsState, setRequestsState] =
+    useState<RequestWithFeedback[]>(requests);
   const [nameFilter, setNameFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("ALL");
   const [selectedRequest, setSelectedRequest] = useState<{
@@ -131,8 +140,8 @@ export function AdminRequests({ requests }: Props) {
   const updateRequestStatus = async (
     requestId: string,
     newStatus: RequestStatus,
-    timeToComplete?: string | null,
-    figmaUrl?: string | null
+    timeToComplete: string | null = null,
+    figmaUrl: string | null = null
   ) => {
     try {
       const response = await fetch(`/api/admin/requests/${requestId}/status`, {
@@ -235,104 +244,94 @@ export function AdminRequests({ requests }: Props) {
           }
         />
       ) : (
-        <div className="bg-white shadow-sm rounded-lg overflow-hidden">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                  Usuario
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                  Fecha
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                  Estado
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                  Acciones
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {filteredRequests.map((request) => (
-                <tr key={request.id}>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">
-                      {request.name}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">
-                      {getRelativeTime(request.createdAt)}
-                    </div>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <Popover.Root>
-                      <Popover.Trigger asChild>
-                        <button
-                          className={`px-3 py-1 text-xs font-semibold rounded-full ${getStatusColor(
-                            request.status as RequestStatus
-                          )}`}
-                        >
-                          {getStatusLabel(request.status as RequestStatus)}
-                        </button>
-                      </Popover.Trigger>
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHeaderCell>Usuario</TableHeaderCell>
+              <TableHeaderCell>Fecha</TableHeaderCell>
+              <TableHeaderCell>Estado</TableHeaderCell>
+              <TableHeaderCell>Acciones</TableHeaderCell>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {filteredRequests.map((request) => (
+              <TableRow key={request.id}>
+                <TableCell>
+                  <div className="text-sm font-medium text-gray-900">
+                    {request.name}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="text-sm text-gray-500">
+                    {getRelativeTime(request.createdAt)}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <Popover.Root>
+                    <Popover.Trigger asChild>
+                      <button
+                        className={`px-3 py-1 text-xs font-semibold rounded-full ${getStatusColor(
+                          request.status as RequestStatus
+                        )}`}
+                      >
+                        {getStatusLabel(request.status as RequestStatus)}
+                      </button>
+                    </Popover.Trigger>
 
-                      <Popover.Portal>
-                        <Popover.Content
-                          className="bg-white rounded-lg shadow-lg p-2 min-w-[160px] z-50"
-                          sideOffset={5}
-                        >
-                          <div className="flex flex-col gap-1">
-                            {getAvailableStatuses(
-                              request.status as RequestStatus
-                            ).map(([status, { label, color }]) => (
-                              <button
-                                key={status}
-                                onClick={() => {
-                                  if (status === "WORKING") {
-                                    setSelectedRequest({
-                                      id: request.id,
-                                      action: status as RequestStatus,
-                                    });
-                                    setShowTimeDialog(true);
-                                  } else if (status === "DONE") {
-                                    setSelectedRequest({
-                                      id: request.id,
-                                      action: status as RequestStatus,
-                                    });
-                                    setShowFigmaDialog(true);
-                                  } else {
-                                    updateRequestStatus(
-                                      request.id,
-                                      status as RequestStatus
-                                    );
-                                  }
-                                }}
-                                className={`text-left px-3 py-2 text-sm rounded hover:bg-gray-100 ${color}`}
-                              >
-                                Cambiar a {label}
-                              </button>
-                            ))}
-                          </div>
-                          <Popover.Arrow className="fill-white" />
-                        </Popover.Content>
-                      </Popover.Portal>
-                    </Popover.Root>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap">
-                    <Link
-                      href={`/${locale}/dashboard/requests/${request.id}`}
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      Ver detalle
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                    <Popover.Portal>
+                      <Popover.Content
+                        className="bg-white rounded-lg shadow-lg p-2 min-w-[160px] z-50"
+                        sideOffset={5}
+                      >
+                        <div className="flex flex-col gap-1">
+                          {getAvailableStatuses(
+                            request.status as RequestStatus
+                          ).map(([status, { label, color }]) => (
+                            <button
+                              key={status}
+                              onClick={() => {
+                                if (status === "WORKING") {
+                                  setSelectedRequest({
+                                    id: request.id,
+                                    action: status as RequestStatus,
+                                  });
+                                  setShowTimeDialog(true);
+                                } else if (status === "DONE") {
+                                  setSelectedRequest({
+                                    id: request.id,
+                                    action: status as RequestStatus,
+                                  });
+                                  setShowFigmaDialog(true);
+                                } else {
+                                  updateRequestStatus(
+                                    request.id,
+                                    status as RequestStatus
+                                  );
+                                }
+                              }}
+                              className={`text-left px-3 py-2 text-sm rounded hover:bg-gray-100 ${color}`}
+                            >
+                              Cambiar a {label}
+                            </button>
+                          ))}
+                        </div>
+                        <Popover.Arrow className="fill-white" />
+                      </Popover.Content>
+                    </Popover.Portal>
+                  </Popover.Root>
+                </TableCell>
+                <TableCell>
+                  <Link
+                    href={`/${locale}/dashboard/requests/${request.id}`}
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    Ver detalle
+                  </Link>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
       )}
 
       {showTimeDialog && selectedRequest && (

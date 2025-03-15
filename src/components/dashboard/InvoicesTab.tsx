@@ -1,5 +1,13 @@
 import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHeaderCell,
+  TableCell,
+} from "@/components/ui/Table";
 
 interface Invoice {
   id: string;
@@ -62,68 +70,44 @@ export function InvoicesTab({ invoices }: Props) {
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">{t("title")}</h2>
 
-      <div className="bg-white shadow-sm rounded-lg overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                {t("table.number")}
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                {t("table.date")}
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                {t("table.amount")}
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                {t("table.status")}
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                {t("table.actions")}
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {invoices.map((invoice) => (
-              <tr key={invoice.id}>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm font-medium text-gray-900">
-                    {invoice.number}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {formatDate(invoice.created)}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">
-                    {formatAmount(invoice.amount_paid, invoice.currency)}
-                  </div>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  <span className={getStatusBadgeClass(invoice.status)}>
-                    {t(`status.${invoice.status}`)}
-                  </span>
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {invoice.invoice_pdf && (
-                    <Button
-                      variant="text"
-                      onClick={() =>
-                        window.open(invoice.invoice_pdf!, "_blank")
-                      }
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      {t("actions.download")}
-                    </Button>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderCell>{t("table.number")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.date")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.amount")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.status")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.actions")}</TableHeaderCell>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {invoices.map((invoice) => (
+            <TableRow key={invoice.id}>
+              <TableCell>{invoice.number}</TableCell>
+              <TableCell>{formatDate(invoice.created)}</TableCell>
+              <TableCell>
+                {formatAmount(invoice.amount_paid, invoice.currency)}
+              </TableCell>
+              <TableCell>
+                <span className={getStatusBadgeClass(invoice.status)}>
+                  {t(`status.${invoice.status}`)}
+                </span>
+              </TableCell>
+              <TableCell>
+                {invoice.invoice_pdf && (
+                  <Button
+                    variant="outline"
+                    onClick={() => window.open(invoice.invoice_pdf!, "_blank")}
+                    className="text-blue-600 hover:text-blue-800"
+                  >
+                    {t("actions.download")}
+                  </Button>
+                )}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </div>
   );
 }

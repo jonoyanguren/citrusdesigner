@@ -6,6 +6,11 @@ import { SubscriptionsTab } from "@/components/dashboard/SubscriptionsTab";
 import { RequestsTab } from "@/components/dashboard/RequestsTab";
 import { ProfileTab } from "@/components/dashboard/ProfileTab";
 import { InvoicesTab } from "@/components/dashboard/InvoicesTab";
+import { useTranslations } from "next-intl";
+
+import { FaListUl, FaUser } from "react-icons/fa6";
+import { CgFileDocument } from "react-icons/cg";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 
 interface UserWithSubscriptions extends User {
   subscriptions: (Subscription & {
@@ -28,17 +33,11 @@ interface RequestWithFeedback extends Request {
   }[];
 }
 
-const MENU_ITEMS = [
-  { name: "Mis suscripciones", id: "subscriptions" },
-  { name: "Mis facturas", id: "invoices" },
-  { name: "Mis peticiones", id: "requests" },
-  { name: "Mi perfil", id: "profile" },
-];
-
 export default function DashboardPage() {
   const searchParams = useSearchParams();
   const params = useParams();
   const locale = params.locale as string;
+  const t = useTranslations("dashboard");
   const initialTab = searchParams.get("tab") || "subscriptions";
   const [activeTab, setActiveTab] = useState(initialTab);
   const [user, setUser] = useState<UserWithSubscriptions | null>(null);
@@ -47,6 +46,21 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [invoices, setInvoices] = useState([]);
   const router = useRouter();
+
+  const MENU_ITEMS = [
+    {
+      name: t("menu.subscriptions"),
+      id: "subscriptions",
+      icon: <FaListUl />,
+    },
+    { name: t("menu.invoices"), id: "invoices", icon: <CgFileDocument /> },
+    {
+      name: t("menu.requests"),
+      id: "requests",
+      icon: <AiOutlineCloudUpload />,
+    },
+    { name: t("menu.profile"), id: "profile", icon: <FaUser /> },
+  ];
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -124,7 +138,7 @@ export default function DashboardPage() {
       case "invoices":
         return <InvoicesTab invoices={invoices} />;
       case "requests":
-        return <RequestsTab requests={requests} isAdmin={false} />;
+        return <RequestsTab requests={requests} />;
       case "profile":
         return <ProfileTab user={user} />;
     }
@@ -136,8 +150,10 @@ export default function DashboardPage() {
         {/* Header with Navigation */}
         <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold">Dashboard</h1>
-            <p className="text-foreground/60">Bienvenido, {user?.name}</p>
+            <h1 className="text-3xl font-bold">{t("title")}</h1>
+            <p className="text-foreground/60">
+              {t("welcome")}, {user?.name}
+            </p>
           </div>
 
           {/* Navigation Menu */}
@@ -150,12 +166,13 @@ export default function DashboardPage() {
                     setActiveTab(item.id);
                     router.push(`/${locale}/dashboard?tab=${item.id}`);
                   }}
-                  className={`pb-4 px-1 border-b-2 text-sm font-medium ${
+                  className={`pb-2 px-1 border-b-2 text-sm font-medium flex items-center gap-2 ${
                     activeTab === item.id
                       ? "border-blue-500 text-blue-600"
                       : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                   }`}
                 >
+                  {item.icon}
                   {item.name}
                 </button>
               ))}

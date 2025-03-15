@@ -273,6 +273,14 @@
         }
     },
     "dashboard": {
+        "title": "Dashboard",
+        "welcome": "Welcome",
+        "menu": {
+            "subscriptions": "My Subscriptions",
+            "invoices": "My Invoices",
+            "requests": "My Requests",
+            "profile": "My Profile"
+        },
         "invoices": {
             "title": "My Invoices",
             "empty": {
@@ -293,6 +301,50 @@
             },
             "actions": {
                 "download": "Download PDF"
+            }
+        },
+        "requests": {
+            "title": "My Requests",
+            "empty": {
+                "title": "No requests",
+                "description": "No requests found to display."
+            },
+            "create": {
+                "title": "Create New Request",
+                "name": "Request name",
+                "description": "Request description",
+                "submit": "Create Request",
+                "cancel": "Cancel",
+                "loading": "Loading...",
+                "subscription": {
+                    "required": "Subscription Required",
+                    "message": "You need an active subscription to create requests.",
+                    "cta": "View Subscription Plans"
+                }
+            },
+            "detail": {
+                "title": "Request Details",
+                "name": "Name",
+                "request": "Request",
+                "figma": "View design in Figma",
+                "status": "Status",
+                "createdAt": "Created at",
+                "estimatedTime": "Estimated time",
+                "estimatedDays": "{days} days",
+                "noEstimate": "No estimate",
+                "feedback": {
+                    "title": "Feedback",
+                    "empty": "No feedback available",
+                    "count": "{count} comments"
+                },
+                "actions": "Actions",
+                "viewDetails": "View details"
+            },
+            "status": {
+                "PENDING": "Pending",
+                "ACCEPTED": "Accepted",
+                "WORKING": "In Progress",
+                "DONE": "Completed"
             }
         }
     },
