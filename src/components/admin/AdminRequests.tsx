@@ -247,6 +247,7 @@ export function AdminRequests({ requests }: Props) {
         <Table>
           <TableHeader>
             <TableRow>
+              <TableHeaderCell>Petición</TableHeaderCell>
               <TableHeaderCell>Usuario</TableHeaderCell>
               <TableHeaderCell>Fecha</TableHeaderCell>
               <TableHeaderCell>Estado</TableHeaderCell>
@@ -259,6 +260,11 @@ export function AdminRequests({ requests }: Props) {
                 <TableCell>
                   <div className="text-sm font-medium text-gray-900">
                     {request.name}
+                  </div>
+                </TableCell>
+                <TableCell>
+                  <div className="text-sm text-gray-500">
+                    {request.user.name}
                   </div>
                 </TableCell>
                 <TableCell>

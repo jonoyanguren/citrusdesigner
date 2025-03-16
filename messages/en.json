@@ -346,6 +346,27 @@
                 "WORKING": "In Progress",
                 "DONE": "Completed"
             }
+        },
+        "requestDetail": {
+            "title": "Request Detail",
+            "name": "Name",
+            "request": "Request",
+            "figmaDesign": "Figma Design",
+            "viewFigma": "View Figma design",
+            "status": "Status",
+            "statuses": {
+                "PENDING": "Pending",
+                "ACCEPTED": "Accepted",
+                "WORKING": "In Progress",
+                "DONE": "Completed"
+            },
+            "estimatedTime": "Estimated time",
+            "creationDate": "Creation date",
+            "feedback": {
+                "title": "Feedback",
+                "noFeedback": "No feedback yet",
+                "you": "You"
+            }
         }
     },
     "pricing": {

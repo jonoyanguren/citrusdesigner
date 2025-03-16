@@ -517,6 +517,31 @@
                 "WORKING": "En proceso",
                 "DONE": "Completado"
             }
+        },
+        "requestDetail": {
+            "title": "Detalle de la Petición",
+            "name": "Nombre",
+            "request": "Petición",
+            "date": "Fecha",
+            "addFeedback": "Añadir Feedback",
+            "sending": "Enviando...",
+            "sendFeedback": "Enviar Feedback",
+            "figmaDesign": "Diseño en Figma",
+            "viewFigma": "Ver diseño en Figma",
+            "status": "Estado",
+            "statuses": {
+                "PENDING": "Pendiente",
+                "ACCEPTED": "Aceptado",
+                "WORKING": "En proceso",
+                "DONE": "Completado"
+            },
+            "estimatedTime": "Tiempo estimado",
+            "creationDate": "Fecha de creación",
+            "feedback": {
+                "title": "Feedback",
+                "noFeedback": "No hay feedback todavía",
+                "you": "Tú"
+            }
         }
     }
 }

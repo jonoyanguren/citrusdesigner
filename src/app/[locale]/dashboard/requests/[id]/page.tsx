@@ -1,22 +1,17 @@
 import { getBaseUrl } from "@/lib/utils";
-import { FeedbackForm } from "@/components/FeedbackForm";
-import { Suspense } from "react";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
-
-type Feedback = {
-  id: string;
-  feedback: string;
-  createdAt: Date;
-  user: {
-    name: string;
-    role: "user" | "admin";
-  };
-};
+import { getLocale, getTranslations } from "next-intl/server";
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import { StatusBadgeServer } from "@/components/StatusBadgeServer";
+import { FeedbackList } from "@/components/FeedbackList";
+import { verifyToken } from "@/lib/users";
+import { IoArrowBack } from "react-icons/io5";
+import Link from "next/link";
 
 async function getRequest(id: string | undefined) {
   if (!id) {
-    notFound(); // Redirige a 404 si el id no está definido
+    notFound();
   }
 
   const baseUrl = getBaseUrl();
@@ -36,8 +31,10 @@ async function revalidate(formData: FormData) {
 }
 
 export async function generateMetadata({ params }: { params: { id: string } }) {
+  const { id } = await params;
+
   return {
-    title: `Solicitud ${params.id}`,
+    title: `Solicitud ${id}`,
   };
 }
 
@@ -46,45 +43,77 @@ export default async function RequestDetail({
 }: {
   params: { id: string };
 }) {
-  const id = await params.id; // Esperamos el id
+  const { id } = await params;
+
+  const locale = await getLocale();
+  console.log("locale", locale);
+  const t = await getTranslations("dashboard.requestDetail");
 
   if (!id) {
     notFound();
   }
 
   const request = await getRequest(id);
+  const decodedUser = await verifyToken();
+
+  if (!decodedUser) {
+    return notFound();
+  }
+
+  const loggedUser = {
+    name: decodedUser.email,
+    role: decodedUser.role as "user" | "admin",
+  };
 
   return (
-    <div className="max-w-4xl mx-auto py-8 px-4 mt-24">
-      <h1 className="text-2xl font-bold mb-6">Detalle de la Petición</h1>
+    <div className="max-w-4xl mx-auto py-8 px-4 mt-2">
+      <Link
+        href={`/${locale}/dashboard?tab=requests`}
+        className="flex items-center gap-2 mb-4 cursor-pointer"
+      >
+        <IoArrowBack className="text-2xl text-gray-900" />
+        <p className="text-gray-900">Volver</p>
+      </Link>
 
       <div className="bg-white shadow rounded-lg p-6 space-y-6">
+        {/* Title */}
+        <div className="flex items-center gap-2">
+          <AiOutlineCloudUpload className="text-2xl text-gray-900" />
+          <h1 className="text-xl font-medium">{t("title")}</h1>
+        </div>
+
+        {/* Name */}
         <div>
-          <h2 className="text-lg font-semibold mb-2">Nombre</h2>
+          <h2 className="text-lg font-semibold mb-2">{t("name")}</h2>
           <p className="text-gray-700">{request.name}</p>
         </div>
 
+        {/* Date */}
         <div>
-          <h2 className="text-lg font-semibold mb-2">Petición</h2>
-          <div
-            className="text-gray-700 max-h-[600px] overflow-y-auto pr-4 [&>h1]:text-[1.875rem] [&>h1]:font-bold [&>h1]:mt-6 [&>h1]:mb-3 [&>h1]:text-gray-900
-              [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-5 [&>h2]:mb-3 [&>h2]:text-gray-800
-              [&>p]:mb-4 [&>p]:leading-7 [&>p]:text-gray-600
-              [&>a]:text-blue-600 [&>a]:underline hover:[&>a]:text-blue-800 [&>a]:transition-colors
-              [&>strong]:font-semibold [&>strong]:text-gray-800
-              [&>em]:italic
-              [&>ul]:list-disc [&>ul]:ml-6 [&>ul]:mb-4
-              [&>ol]:list-decimal [&>ol]:ml-6 [&>ol]:mb-4
-              [&>li]:mb-2 [&>li]:text-gray-600
-              [&>img]:max-w-full [&>img]:h-auto [&>img]:rounded-lg [&>img]:my-4
-              scrollbar-hide hover:scrollbar-default"
-            dangerouslySetInnerHTML={{ __html: request.request }}
+          <h2 className="text-lg font-semibold mb-2">{t("date")}</h2>
+          <p className="text-gray-700">
+            {new Date(request.createdAt).toLocaleString("es-ES", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+          </p>
+        </div>
+
+        {/* Status */}
+        <div>
+          <h2 className="text-lg font-semibold mb-2">{t("status")}</h2>
+          <StatusBadgeServer
+            status={request.status}
+            showEstimatedTime={true}
+            estimatedTime={request.timeToComplete}
           />
         </div>
 
+        {/* Figma Design */}
         {request.figmaUrl && (
           <div>
-            <h2 className="text-lg font-semibold mb-2">Diseño en Figma</h2>
+            <h2 className="text-lg font-semibold mb-2">{t("figmaDesign")}</h2>
             <a
               href={request.figmaUrl}
               target="_blank"
@@ -119,111 +148,44 @@ export default async function RequestDetail({
                   fill="#A259FF"
                 />
               </svg>
-              Ver diseño en Figma
+              {t("viewFigma")}
             </a>
           </div>
         )}
 
+        {/* Request */}
         <div>
-          <h2 className="text-lg font-semibold mb-2">Estado</h2>
-          <div className="flex items-center gap-4">
-            <span
-              className={`px-2 py-1 text-sm font-semibold rounded-full ${
-                request.status === "PENDING"
-                  ? "bg-yellow-100 text-yellow-800"
-                  : request.status === "ACCEPTED"
-                  ? "bg-green-100 text-green-800"
-                  : request.status === "WORKING"
-                  ? "bg-purple-100 text-purple-800"
-                  : request.status === "DONE"
-                  ? "bg-blue-100 text-blue-800"
-                  : "bg-red-100 text-red-800"
-              }`}
-            >
-              {request.status === "PENDING"
-                ? "Pendiente"
-                : request.status === "ACCEPTED"
-                ? "Aceptado"
-                : request.status === "WORKING"
-                ? "En proceso"
-                : request.status === "DONE"
-                ? "Completado"
-                : request.status}
-            </span>
-            {request.status === "WORKING" && request.timeToComplete && (
-              <span className="text-sm text-gray-600">
-                Tiempo estimado: {request.timeToComplete}
-              </span>
-            )}
-          </div>
+          <h2 className="text-lg font-semibold mb-2">{t("request")}</h2>
+          <div
+            className="text-gray-700 max-h-[600px] overflow-y-auto pr-4 [&>h1]:text-[1.875rem] [&>h1]:font-bold [&>h1]:mt-6 [&>h1]:mb-3 [&>h1]:text-gray-900
+              [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-5 [&>h2]:mb-3 [&>h2]:text-gray-800
+              [&>p]:mb-4 [&>p]:leading-7 [&>p]:text-gray-600
+              [&>a]:text-blue-600 [&>a]:underline hover:[&>a]:text-blue-800 [&>a]:transition-colors
+              [&>strong]:font-semibold [&>strong]:text-gray-800
+              [&>em]:italic
+              [&>ul]:list-disc [&>ul]:ml-6 [&>ul]:mb-4
+              [&>ol]:list-decimal [&>ol]:ml-6 [&>ol]:mb-4
+              [&>li]:mb-2 [&>li]:text-gray-600
+              [&>img]:max-w-full [&>img]:h-auto [&>img]:rounded-lg [&>img]:my-4
+              scrollbar-hide hover:scrollbar-default"
+            dangerouslySetInnerHTML={{ __html: request.request }}
+          />
         </div>
 
-        <div>
-          <h2 className="text-lg font-semibold mb-2">Fecha de creación</h2>
-          <p className="text-gray-700">
-            {new Date(request.createdAt).toLocaleDateString()}
-          </p>
-        </div>
+        <hr className="border-t border-gray-200" />
 
-        <div>
-          <h2 className="text-lg font-semibold mb-4">Feedback</h2>
-          {request.feedback.length > 0 ? (
-            <div className="space-y-4">
-              {request.feedback.map((fb: Feedback) => (
-                <div
-                  key={fb.id}
-                  className={`p-4 rounded-lg max-w-[80%] ${
-                    fb.user.role === "admin"
-                      ? "bg-blue-50 ml-auto"
-                      : "bg-gray-50"
-                  }`}
-                >
-                  <div
-                    className={`flex justify-between items-center mb-2 ${
-                      fb.user.role === "admin" ? "flex-row-reverse" : ""
-                    }`}
-                  >
-                    <span
-                      className={`font-medium ${
-                        fb.user.role === "admin"
-                          ? "text-blue-700"
-                          : "text-gray-700"
-                      }`}
-                    >
-                      {fb.user.name}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {new Date(fb.createdAt).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <div
-                    className="max-h-[400px] overflow-y-auto pr-4 [&>h1]:text-[1.875rem] [&>h1]:font-bold [&>h1]:mt-6 [&>h1]:mb-3 [&>h1]:text-gray-900
-                    [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:mt-5 [&>h2]:mb-3 [&>h2]:text-gray-800
-                    [&>p]:mb-4 [&>p]:leading-7 [&>p]:text-gray-600
-                    [&>a]:text-blue-600 [&>a]:underline hover:[&>a]:text-blue-800 [&>a]:transition-colors
-                    [&>strong]:font-semibold [&>strong]:text-gray-800
-                    [&>em]:italic
-                    [&>ul]:list-disc [&>ul]:ml-6 [&>ul]:mb-4
-                    [&>ol]:list-decimal [&>ol]:ml-6 [&>ol]:mb-4
-                    [&>li]:mb-2 [&>li]:text-gray-600
-                    scrollbar-hide hover:scrollbar-default"
-                    dangerouslySetInnerHTML={{ __html: fb.feedback }}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-gray-500">No hay feedback disponible</p>
-          )}
-
-          <Suspense>
-            <FeedbackForm
-              requestId={id}
-              revalidate={revalidate}
-              path={`/dashboard/requests/${id}`}
-            />
-          </Suspense>
-        </div>
+        {/* Feedback */}
+        <FeedbackList
+          feedback={request.feedback}
+          requestId={id}
+          revalidate={revalidate}
+          translations={{
+            title: t("feedback.title"),
+            noFeedback: t("feedback.noFeedback"),
+            you: t("feedback.you"),
+          }}
+          loggedUser={loggedUser}
+        />
       </div>
     </div>
   );

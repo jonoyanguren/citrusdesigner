@@ -39,8 +39,6 @@ export default function Button({
     className
   );
 
-  console.log(buttonClasses);
-
   if (href) {
     return (
       <Link href={href} className={buttonClasses}>

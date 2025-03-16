@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import { RichText } from "./RichText";
 import Button from "./Button";
 import { processContentWithImages } from "@/lib/utils/imageProcessing";
+import { useTranslations } from "next-intl";
 
 interface FeedbackFormProps {
   requestId: string;
@@ -16,6 +17,7 @@ export function FeedbackForm({
   revalidate,
   path,
 }: FeedbackFormProps) {
+  const t = useTranslations("dashboard.requestDetail");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState("");
   const editorRef = useRef<{ clearContent: () => void } | null>(null);
@@ -59,7 +61,7 @@ export function FeedbackForm({
     <form onSubmit={handleSubmit} className="mt-6">
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          Añadir Feedback
+          {t("addFeedback")}
         </label>
         <RichText
           ref={editorRef}
@@ -67,8 +69,8 @@ export function FeedbackForm({
           onChange={(content) => setFeedback(content)}
         />
       </div>
-      <Button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Enviando..." : "Enviar Feedback"}
+      <Button variant="secondary" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? t("sending") : t("sendFeedback")}
       </Button>
     </form>
   );

@@ -10,10 +10,13 @@ import {
   BiListUl,
   BiListOl,
   BiSolidQuoteAltLeft,
+  BiExpand,
+  BiCollapse,
 } from "react-icons/bi";
 import { TbH1, TbH2 } from "react-icons/tb";
 import "./RichText.css";
-import React, { forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
+import Button from "./Button";
 
 const CustomImage = Image.extend({
   addProseMirrorPlugins() {
@@ -120,10 +123,12 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
       editorProps: {
         attributes: {
           class:
-            "prose prose-sm sm:prose lg:prose-lg xl:prose-xl h-full w-full focus:outline-none",
+            "prose prose-sm sm:prose lg:prose-lg xl:prose-xl w-full focus:outline-none",
         },
       },
     });
+
+    const [bigArea, setBigArea] = useState(false);
 
     React.useEffect(() => {
       if (editor && value !== undefined) {
@@ -147,7 +152,11 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
     };
 
     return (
-      <div className="border rounded-lg border-gray-200 h-[500px] flex flex-col">
+      <div
+        className={`border rounded-lg border-gray-200 flex flex-col ${
+          bigArea ? "h-[500px]" : "h-[300px]"
+        }`}
+      >
         <div className="flex flex-wrap gap-2 p-3 border-b border-gray-200 bg-gray-50">
           <button
             onMouseDown={handleButtonMouseDown}
@@ -236,10 +245,25 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
           >
             <BiSolidQuoteAltLeft size={20} />
           </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setBigArea(!bigArea);
+              editor.chain().focus().run();
+            }}
+            className="p-2 rounded hover:bg-gray-200 transition-colors"
+          >
+            {bigArea ? <BiCollapse size={20} /> : <BiExpand size={20} />}
+          </button>
         </div>
 
         <div className="flex-grow overflow-y-auto">
-          <EditorContent editor={editor} className="h-full p-4" />
+          <EditorContent
+            editor={editor}
+            className="h-full p-4"
+            onClick={() => editor.chain().focus().run()}
+          />
         </div>
       </div>
     );
