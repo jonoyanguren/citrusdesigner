@@ -367,6 +367,46 @@
                 "noFeedback": "No feedback yet",
                 "you": "You"
             }
+        },
+        "subscriptions": {
+            "title": "Subscriptions",
+            "empty": {
+                "title": "No active subscriptions",
+                "description": "You currently don't have any active subscriptions."
+            },
+            "table": {
+                "plan": "Plan",
+                "amount": "Amount",
+                "startDate": "Start date",
+                "endDate": "End date",
+                "status": "Status",
+                "actions": "Actions"
+            },
+            "status": {
+                "active": "Active",
+                "canceled": "Canceled",
+                "incomplete": "Incomplete",
+                "unknown": "Unknown"
+            },
+            "actions": {
+                "cancel": "Cancel",
+                "reactivate": "Reactivate",
+                "noActions": "No actions available",
+                "hasActiveSubscription": "You already have an active subscription"
+            },
+            "modal": {
+                "title": "Cancel subscription",
+                "description": "Are you sure you want to cancel your subscription? This action cannot be undone.",
+                "confirm": "Yes, cancel",
+                "cancel": "No, keep it",
+                "reactivating": "Reactivating...",
+                "reactivateTitle": "Reactivate subscription",
+                "reactivateDescription": "Are you sure you want to reactivate your subscription?",
+                "reactivateConfirm": "Yes, reactivate",
+                "reactivateCancel": "No, cancel"
+            },
+            "maxSubscriptionsReached": "Unable to reactivate subscription because the maximum number of active subscriptions has been reached",
+            "joinWaitlist": "Join the waitlist"
         }
     },
     "pricing": {

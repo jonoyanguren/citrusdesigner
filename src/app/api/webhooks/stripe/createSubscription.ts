@@ -5,8 +5,8 @@ import { hashSync } from "bcrypt";
 
 export async function createSubscription(invoice: Stripe.Invoice) {
   try {
-    if (!invoice.customer_email) {
-      throw new Error("No customer email found");
+    if (!invoice.customer) {
+      throw new Error("No customer found in invoice");
     }
 
     const subscription = await stripe.subscriptions.retrieve(
@@ -16,26 +16,41 @@ export async function createSubscription(invoice: Stripe.Invoice) {
       }
     );
 
-    let user = await prisma.user.findUnique({
-      where: { email: invoice.customer_email },
+    let user = await prisma.user.findFirst({
+      where: {
+        subscriptions: {
+          some: {
+            stripeUserId: invoice.customer as string,
+          },
+        },
+      },
     });
 
-    // If user not found, create new user
-    if (!user?.id) {
-      console.info("User not found, creating new user", invoice.customer_email);
-      const newUser = await prisma.user.create({
-        data: {
-          email: invoice.customer_email,
-          name: invoice.customer_email.split("@")[0],
-          password: hashSync("Password123", 10),
-          hasToChangePassword: true,
-        },
+    if (!user && invoice.customer_email) {
+      user = await prisma.user.findUnique({
+        where: { email: invoice.customer_email },
       });
 
-      user = newUser;
+      if (!user?.id) {
+        console.info(
+          "User not found, creating new user",
+          invoice.customer_email
+        );
+        user = await prisma.user.create({
+          data: {
+            email: invoice.customer_email,
+            name: invoice.customer_email.split("@")[0],
+            password: hashSync("Password123", 10),
+            hasToChangePassword: true,
+          },
+        });
+      }
     }
 
-    // Create new subscription
+    if (!user) {
+      throw new Error("No se pudo encontrar o crear el usuario");
+    }
+
     console.info("Creating new subscription for user", user.email);
     const data = {
       stripeSubscriptionId: subscription.id,
@@ -47,7 +62,11 @@ export async function createSubscription(invoice: Stripe.Invoice) {
         .id,
     };
 
+    // Crear nueva suscripción
+    console.log("Creating new subscription with data:", data);
     const newSubscription = await prisma.subscription.create({ data });
+    console.log("Subscription created:", newSubscription);
+
     return newSubscription;
   } catch (error) {
     console.error("Error creating subscription:", error);

@@ -542,6 +542,46 @@
                 "noFeedback": "No hay feedback todavía",
                 "you": "Tú"
             }
+        },
+        "subscriptions": {
+            "title": "Suscripciones",
+            "empty": {
+                "title": "No tienes suscripciones activas",
+                "description": "Actualmente no tienes ninguna suscripción activa."
+            },
+            "table": {
+                "plan": "Plan",
+                "amount": "Importe",
+                "startDate": "Fecha de inicio",
+                "endDate": "Fecha de fin",
+                "status": "Estado",
+                "actions": "Acciones"
+            },
+            "status": {
+                "active": "Activa",
+                "canceled": "Cancelada",
+                "incomplete": "Incompleta",
+                "unknown": "Desconocido"
+            },
+            "actions": {
+                "cancel": "Cancelar",
+                "reactivate": "Reactivar",
+                "noActions": "Sin acciones disponibles",
+                "hasActiveSubscription": "Ya tienes una suscripción activa"
+            },
+            "modal": {
+                "title": "Cancelar suscripción",
+                "description": "¿Estás seguro de que quieres cancelar tu suscripción? Esta acción no se puede deshacer.",
+                "confirm": "Sí, cancelar",
+                "cancel": "No, mantener",
+                "reactivating": "Reactivando...",
+                "reactivateTitle": "Reactivar suscripción",
+                "reactivateDescription": "¿Estás seguro de que quieres reactivar tu suscripción?",
+                "reactivateConfirm": "Sí, reactivar",
+                "reactivateCancel": "No, cancelar"
+            },
+            "maxSubscriptionsReached": "No es posible reactivar la suscripción porque se ha alcanzado el límite máximo de suscripciones activas",
+            "joinWaitlist": "Unirse a la lista de espera"
         }
     }
 }

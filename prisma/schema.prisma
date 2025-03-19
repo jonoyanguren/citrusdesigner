@@ -28,7 +28,7 @@ model Project {
 
 model Subscription {
     id                   String   @id @default(cuid())
-    stripeUserId         String   @unique
+    stripeUserId         String
     userId               String
     user                 User     @relation(fields: [userId], references: [id])
     stripeSubscriptionId String   @unique // ID de la suscripción de Stripe
@@ -39,6 +39,7 @@ model Subscription {
     updatedAt            DateTime @updatedAt
 
     @@index([userId])
+    @@index([stripeUserId])
 }
 
 model User {

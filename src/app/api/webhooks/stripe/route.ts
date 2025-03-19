@@ -31,6 +31,17 @@ export async function POST(request: NextRequest) {
     );
 
     switch (event.type) {
+      case "checkout.session.completed":
+        const session = event.data.object as Stripe.Checkout.Session;
+        if (session.mode === "subscription") {
+          const invoice = await stripe.invoices.retrieve(
+            session.invoice as string
+          );
+          await createSubscription(invoice);
+          console.info("✅ Subscription created from checkout session");
+        }
+        break;
+
       case "customer.subscription.created":
         const subscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription created:", subscription.id);
@@ -46,18 +57,18 @@ export async function POST(request: NextRequest) {
         console.info("📦 Subscription deleted:", deletedSubscription.id);
         break;
 
-      case "invoice.payment_succeeded":
-        const invoice = event.data.object as Stripe.Invoice;
+      // case "invoice.payment_succeeded":
+      //   const invoice = event.data.object as Stripe.Invoice;
 
-        if (invoice.billing_reason === "subscription_create") {
-          try {
-            await createSubscription(invoice);
-            console.info("✅ Subscription created:");
-          } catch (error) {
-            console.error("❌ Error creating subscription:", error);
-          }
-        }
-        break;
+      //   if (invoice.billing_reason === "subscription_create") {
+      //     try {
+      //       await createSubscription(invoice);
+      //       console.info("✅ Subscription created from invoice");
+      //     } catch (error) {
+      //       console.error("❌ Error creating subscription:", error);
+      //     }
+      //   }
+      //   break;
 
       default:
         console.info(`🤔 Unhandled event type: ${event.type}`);
