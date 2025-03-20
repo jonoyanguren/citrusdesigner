@@ -28,7 +28,11 @@ export default function HowItWorks() {
   const steps = t.raw("steps.steps") as Step[];
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <Title title={t("title")} description={t("description")} />
+      <Title
+        title={t("title")}
+        description={t("description")}
+        highlightIndexes={[3]}
+      />
 
       <div className="max-w-2xl mx-auto">
         <div className="flex flex-col md:flex-row items-center md:items-start justify-evenly relative px-4 md:px-0 gap-8 md:gap-0">
@@ -112,13 +116,17 @@ export default function HowItWorks() {
       </div>
 
       {/* Lime Message */}
-      <LimeMessage message={t("limeMessage")} />
+      <LimeMessage message={t("limeMessage")} highlightIndexes={[13]} />
 
       {/* Benefits */}
       <Benefits />
 
       {/* Before and after */}
-      <Title title={t("beforeAndAfter.title")} highlightIndexes={[4]} />
+      <Title
+        tag={"Before and after"}
+        title={t("beforeAndAfter.title")}
+        highlightIndexes={[4]}
+      />
       <div className="relative">
         <Image
           className="absolute -top-8 -left-6"
@@ -155,7 +163,7 @@ export default function HowItWorks() {
 
       <Spacer space={16} />
 
-      <OrangeMessage message={t("orangeMessage")} />
+      <OrangeMessage message={t("orangeMessage")} highlightIndexes={[5, 6]} />
 
       <OurProjects />
 

@@ -4,29 +4,45 @@ interface LimeMessageProps {
   message: string;
   children?: ReactNode;
   className?: string;
+  highlightIndexes?: number[];
 }
 
 export function LimeMessage({
   message,
   children,
   className = "",
+  highlightIndexes = [],
 }: LimeMessageProps) {
+  const words = message.split(" ");
+
   return (
     <div
       className={`w-full relative px-6 bg-lime-50 rounded-lg py-20 overflow-hidden ${className}`}
     >
       {/* Decorative ring bubbles */}
-      <div className="absolute left-12 top-8 w-16 h-16 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute left-24 bottom-12 w-20 h-20 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute -left-6 top-1/2 w-12 h-12 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute left-12 top-8 w-12 h-12 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute left-24 bottom-12 w-16 h-16 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute -left-6 top-1/2 w-10 h-10 rounded-full border-4 border-orange-400"></div>
 
-      <div className="absolute right-16 top-10 w-14 h-14 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute right-20 bottom-16 w-24 h-24 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute -right-4 top-1/3 w-16 h-16 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute right-16 top-10 w-12 h-12 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute right-20 bottom-16 w-20 h-20 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute -right-4 top-1/3 w-14 h-14 rounded-full border-4 border-orange-400"></div>
 
       {/* Main content */}
-      <div className="relative z-10 text-gray-900 text-center max-w-4xl mx-auto text-2xl font-regular">
-        {message}
+      <div className="relative z-10 text-gray-900 text-center max-w-4xl mx-auto text-3xl font-regular">
+        {words.map((word, index) => (
+          <span key={index}>
+            <span
+              className={
+                highlightIndexes.includes(index)
+                  ? "bg-orange-400 text-white px-2"
+                  : ""
+              }
+            >
+              {word}
+            </span>{" "}
+          </span>
+        ))}
         {children}
       </div>
       <div className="absolute bottom-8 right-8 w-40 h-40">{lime}</div>
