@@ -82,8 +82,8 @@
             "title": "Empresas que confían en nosotros"
         },
         "howItWorks": {
-            "title": "Cómo funciona",
-            "subtitle": "Nuestro proceso es simple y fácil",
+            "title": "Así es como funcionamos",
+            "subtitle": "Nuestro proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
             "description": "Descubre cómo funciona nuestro servicio",
             "steps": {
                 "step1": {
@@ -179,42 +179,58 @@
         }
     },
     "howItWorks": {
-        "title": "Un proceso ágil y sin reuniones innecesarias",
-        "description": "Transformar tu visión es sencillo y rápido. Desde las suscripción hasta la entrega final, cada paso ha sido optimizado para ofrecer resultados de alta calidad sin complicaciones.",
+        "title": "Así es como funcionamos",
+        "description": "Nuestro proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
         "steps": {
             "title": "Nuestra forma de trabajar",
             "description": "Un proceso tecnológico con",
             "descriptionThin": "toque personal",
             "secondaryText": "Desde la suscripción hasta la entrega final, el proceso ha sido diseñado para maximizar la eficiencia. La tecnología se encarga de lo operativo, mientras que yo me concentro en aportar creatividad y atención personalizada a cada proyecto.",
+            "infiniteDesigns": "Peticiones ilimitadas",
             "steps": [
                 {
                     "title": "Escoge un plan",
-                    "description": "Elije el plan  que mejor se adapte a sus necesidades.  Al suscribirte, obtienes acceso al portal privado que agiliza cada etapa del trabajo."
-                },
-                {
-                    "title": "Se crea el proyecto",
-                    "description": "Se crea el proyecto en nuestra plataforma. Integramos Figma para que puedas seguir en tiempo real cada avance y visualizar todas las actualizaciones directamente desde tu portal."
+                    "description": "Escoge la suscripción que mejor se adapte a sus necesidades"
                 },
                 {
                     "title": "Haz una petición",
-                    "description": "Envía tu requerimiento de diseño. Nuestro sistema intuitivo te permite detallar tus necesidades en pocos clics. Solo se puede añadir una petición a la vez ."
+                    "description": "Solicita tu diseño desde nuestro portal"
                 },
                 {
-                    "title": "Diseño en proceso",
-                    "description": "Transformamos tu solicitud de diseño en algo excepcinal. El proceso nos permite optimizar el flujo de trabajo, garantizando rapidez y calidad del proceso."
+                    "title": "Recibe tu diseño",
+                    "description": "Recibe tus diseños en un plazo de 24/48 h"
+                }
+            ]
+        },
+        "limeMessage": "Utilizamos un modelo innovador donde la calidad y la rapidez son nuestra prioridad. Andrea es la mente creativa detrás de cada proyecto, no contratamos a diseñadores externos.",
+        "benefits": {
+            "title": "Nuestros beneficios en la coctelera",
+            "benefits": [
+                {
+                    "title": "Software propio",
+                    "description": "Gestiona fácilmente las peticiones desde nuestro software interno"
                 },
                 {
-                    "title": "Revisión en Figma",
-                    "description": "Todos los diseños se integran directamente en Figma. Sin necesidad de descargar archivos, podrás ver y revisar tu diseño."
+                    "title": "Fast Delivery",
+                    "description": "Entregamos tus diseños en un plazo de 24/48 horas"
+                },
+                {
+                    "title": "Diseños de calidad",
+                    "description": "Diseño de nivel senior justo cuando lo necesites"
+                },
+                {
+                    "title": "Peticiones ilimitadas",
+                    "description": "Todas las peticiones que quieras al mes, 1 petición a la vez."
                 }
             ]
         },
         "beforeAndAfter": {
-            "title": "Antes y después",
+            "title": "Descubre la magia del cambio",
             "description": "Observa la transformación de",
             "descriptionThin": "ideas en diseños",
             "secondaryText": "Explora ejemplos ficticios que demuestran el impacto de nuestro proceso con resultados de alta calidad en cuestión de tiempo."
-        }
+        },
+        "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos."
     },
     "ourStory": {
         "title": "Nuestra historia",
@@ -372,9 +388,7 @@
         "copyright": "Todos los derechos reservados"
     },
     "projects": {
-        "tag": "Casos de éxito",
-        "title": "Algunos de nuestros",
-        "titleThin": "proyectos favoritos",
+        "title": "Algunos de nuestros proyectos favoritos",
         "description": "De startups a grandes empresas, descubre algunos proyectos en los colaboramos para transformar experiencias visuales de alto impacto. ",
         "items": [
             {
@@ -583,5 +597,37 @@
             "maxSubscriptionsReached": "No es posible reactivar la suscripción porque se ha alcanzado el límite máximo de suscripciones activas",
             "joinWaitlist": "Unirse a la lista de espera"
         }
+    },
+    "testimonials": {
+        "title": "Lo que dicen nuestros clientes...",
+        "testimonials": [
+            {
+                "text": "Citrus Designer ha transformado por completo nuestra marca. Su proceso ágil y la calidad de los diseños superaron todas nuestras expectativas. La comunicación fue impecable y los resultados llegaron incluso antes de lo prometido.",
+                "name": "Laura Martínez",
+                "role": "Directora de Marketing en TechFlow"
+            },
+            {
+                "text": "Como startup, necesitábamos un servicio de diseño flexible que pudiera crecer con nosotros. Encontramos exactamente eso y más. La consistencia en la calidad y la rapidez de entrega nos han permitido movernos más rápido que nunca.",
+                "name": "Carlos Ruiz",
+                "role": "CEO de InnovateLab"
+            },
+            {
+                "text": "La mejor decisión que tomamos fue trabajar con Citrus Designer. Su modelo de suscripción nos da la libertad de solicitar diseños cuando los necesitamos, sin compromisos a largo plazo. Los resultados siempre son excepcionales.",
+                "name": "Ana García",
+                "role": "Fundadora de GrowthBox"
+            }
+        ]
+    },
+    "features": {
+        "title": "Todo lo que necesitas en la misma coctelera",
+        "items": [
+            "Diseño Responsivo",
+            "Diseño de Aplicaciones",
+            "Experiencia de Usuario",
+            "Flujos de Usuario",
+            "Arquitectura de Información",
+            "Sistemas de Diseño",
+            "Y Mucho Más"
+        ]
     }
 }

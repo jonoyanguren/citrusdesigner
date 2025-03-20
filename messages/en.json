@@ -429,5 +429,22 @@
                 "a5": "We primarily work with Figma for UI/UX design, along with the Adobe Creative Suite for other design needs. All files are delivered in formats ready for development or production."
             }
         }
+    },
+    "testimonials": {
+        "testimonial1": {
+            "text": "Citrus Designer has completely transformed our brand. Their agile process and design quality exceeded all our expectations. Communication was flawless and results arrived even earlier than promised.",
+            "name": "Laura Martinez",
+            "role": "Marketing Director at TechFlow"
+        },
+        "testimonial2": {
+            "text": "As a startup, we needed a flexible design service that could grow with us. We found exactly that and more. The consistency in quality and quick delivery have allowed us to move faster than ever.",
+            "name": "Carlos Ruiz",
+            "role": "CEO at InnovateLab"
+        },
+        "testimonial3": {
+            "text": "Working with Citrus Designer was the best decision we made. Their subscription model gives us the freedom to request designs when we need them, without long-term commitments. The results are always exceptional.",
+            "name": "Ana Garcia",
+            "role": "Founder of GrowthBox"
+        }
     }
 }
