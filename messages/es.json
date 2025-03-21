@@ -1,13 +1,12 @@
 {
     "navigation": {
-        "home": "Inicio",
         "howItWorks": "Cómo funciona",
-        "theDesignerBehind": "El diseñador detrás",
-        "ourStory": "Nuestra historia",
+        "theDesignerBehind": "Sobre mí",
         "pricing": "Precios",
         "contact": "Contacto",
         "login": "Iniciar sesión",
-        "register": "Registrarse"
+        "register": "Registrarse",
+        "bookCall": "Reserva un 1:1"
     },
     "designerBehind": {
         "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."

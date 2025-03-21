@@ -119,9 +119,11 @@ export default function DashboardPage() {
     }
   }, [activeTab]);
 
-  if (user?.hasToChangePassword) {
-    router.push(`/${locale}/dashboard/change-password-first-time`);
-  }
+  useEffect(() => {
+    if (user?.hasToChangePassword) {
+      router.push(`/${locale}/dashboard/change-password-first-time`);
+    }
+  }, [user, router, locale]);
 
   if (isLoading) {
     return (

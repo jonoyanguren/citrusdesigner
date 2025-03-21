@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "primary" | "secondary" | "outline";
+  variant?: "primary" | "secondary" | "outline" | "text";
   fullWidth?: boolean;
   isLoading?: boolean;
   href?: string;
@@ -28,6 +28,7 @@ export default function Button({
     secondary: "bg-black text-white",
     outline:
       "border border-gray-300 text-gray-900 hover:border-gray-900 bg-white",
+    text: "text-gray-900 hover:text-gray-900",
   };
 
   const width = fullWidth ? "w-full" : "";

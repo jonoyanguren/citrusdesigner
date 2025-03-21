@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "@/i18n/navigation";
 import Button from "@/components/Button";
+import { useTranslations } from "next-intl";
 
 interface Notification {
   id: string;
@@ -13,6 +14,33 @@ interface Notification {
 export default function NotificationsMenu() {
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const t = useTranslations("common");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsNotificationsOpen(false);
+      }
+    };
+
+    if (isNotificationsOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isNotificationsOpen]);
+
+  const handleButtonClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsNotificationsOpen(!isNotificationsOpen);
+  };
+
+  const handleMenuClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+  };
 
   useEffect(() => {
     const fetchNotifications = async () => {
@@ -48,12 +76,12 @@ export default function NotificationsMenu() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={menuRef}>
       <Button
         id="notifications-button"
         variant="text"
-        onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
-        className="p-2 hover:opacity-70 transition-opacity"
+        onClick={handleButtonClick}
+        className="hover:opacity-70 transition-opacity p-2 border border-gray-300 rounded-full"
       >
         <svg
           className="w-6 h-6"
@@ -69,7 +97,7 @@ export default function NotificationsMenu() {
           />
         </svg>
         {notifications.length > 0 && (
-          <span className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+          <span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
             {notifications.length}
           </span>
         )}
@@ -77,6 +105,7 @@ export default function NotificationsMenu() {
       {isNotificationsOpen && (
         <div
           id="notifications-menu"
+          onClick={handleMenuClick}
           className="absolute right-0 mt-2 w-80 py-2 bg-background rounded-lg shadow-lg"
         >
           {notifications.length > 0 ? (
@@ -99,16 +128,22 @@ export default function NotificationsMenu() {
                         <Link
                           href={notification.action}
                           className="text-xs text-primary hover:underline ml-2"
-                          onClick={() => setIsNotificationsOpen(false)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setIsNotificationsOpen(false);
+                          }}
                         >
-                          Ver más
+                          {t("viewMore")}
                         </Link>
                       )}
                     </div>
                   </div>
                   <Button
                     variant="text"
-                    onClick={() => handleMarkAsRead(notification.id)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleMarkAsRead(notification.id);
+                    }}
                     className="text-xs text-foreground/50 hover:text-foreground ml-2"
                   >
                     <svg
@@ -130,7 +165,7 @@ export default function NotificationsMenu() {
             ))
           ) : (
             <div className="px-4 py-3 text-center text-foreground/50">
-              No hay notificaciones
+              {t("noNotifications")}
             </div>
           )}
         </div>

@@ -1,6 +1,9 @@
 import { Link } from "@/i18n/navigation";
 import Button from "@/components/Button";
 import { User } from "@prisma/client";
+import { useTranslations } from "next-intl";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Props = {
   user: User;
@@ -15,11 +18,80 @@ export default function UserNavigation({
   setIsMenuOpen,
   onLogout,
 }: Props) {
+  const t = useTranslations("common");
+  const buttonRef = useRef<HTMLDivElement>(null);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, right: 0 });
+
+  useEffect(() => {
+    const handleClick = (event: MouseEvent) => {
+      if (
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("click", handleClick);
+      // Calculate menu position
+      if (buttonRef.current) {
+        const rect = buttonRef.current.getBoundingClientRect();
+        setMenuPosition({
+          top: rect.bottom + window.scrollY + 8,
+          right: window.innerWidth - rect.right,
+        });
+      }
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, [isMenuOpen, setIsMenuOpen]);
+
+  const handleButtonClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const menuContent = isMenuOpen && (
+    <div
+      id="user-menu"
+      style={{
+        position: "fixed",
+        top: menuPosition.top,
+        right: menuPosition.right,
+      }}
+      className="w-48 py-2 bg-background rounded-lg shadow-lg bg-white"
+    >
+      <Link
+        href="/dashboard"
+        className="block w-full text-left px-4 py-2 hover:bg-foreground/5"
+        onClick={() => {
+          setIsMenuOpen(false);
+        }}
+      >
+        {t("dashboard")}
+      </Link>
+      <Button
+        variant="text"
+        onClick={(e) => {
+          e.stopPropagation();
+          onLogout();
+        }}
+        className="w-full text-left px-4 py-2 text-red-500"
+      >
+        {t("logout")}
+      </Button>
+    </div>
+  );
+
   return (
-    <div className="relative">
+    <div className="relative" ref={buttonRef}>
       <Button
         id="user-menu-button"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
+        variant="outline"
+        onClick={handleButtonClick}
         className="flex items-center gap-2 hover:opacity-70 transition-opacity"
       >
         <span>{user.name}</span>
@@ -39,27 +111,8 @@ export default function UserNavigation({
           />
         </svg>
       </Button>
-      {isMenuOpen && (
-        <div
-          id="user-menu"
-          className="absolute right-0 mt-2 w-48 py-2 bg-background rounded-lg shadow-lg"
-        >
-          <Link
-            href="/dashboard"
-            className="block px-4 py-2 hover:bg-foreground/5"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Dashboard
-          </Link>
-          <Button
-            variant="text"
-            onClick={onLogout}
-            className="w-full text-left px-4 py-2 text-red-500"
-          >
-            Cerrar sesión
-          </Button>
-        </div>
-      )}
+      {typeof document !== "undefined" &&
+        createPortal(menuContent, document.body)}
     </div>
   );
 }

@@ -7,11 +7,14 @@ import AdminNavigation from "./navigation/AdminNavigation";
 import UserNavigation from "./navigation/UserNavigation";
 import NotificationsMenu from "./navigation/NotificationsMenu";
 import NavigationMobile from "./navigation/NavigationMobile";
+import Button from "./Button";
+import { useParams } from "next/navigation";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, setUser } = useAuth();
   const t = useTranslations("navigation");
+  const { locale } = useParams();
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -47,9 +50,6 @@ export default function Navigation() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex gap-6 items-center">
-          <Link href="/" className="hover:opacity-70 transition-opacity">
-            {t("home")}
-          </Link>
           <Link
             href="/how-it-works"
             className="hover:opacity-70 transition-opacity"
@@ -68,7 +68,7 @@ export default function Navigation() {
           <Link href="/contact" className="hover:opacity-70 transition-opacity">
             {t("contact")}
           </Link>
-          <div className="border-l border-foreground/10 mx-2" />
+          <div className="border-l w-[1px] h-8 border-gray-300" />
           {user ? (
             <div className="flex items-center gap-4">
               <NotificationsMenu />
@@ -90,18 +90,14 @@ export default function Navigation() {
             </div>
           ) : (
             <>
-              <Link
-                href="/auth/login"
+              <Button
+                variant="outline"
+                href={`/${locale}/auth/login`}
                 className="hover:opacity-70 transition-opacity"
               >
                 {t("login")}
-              </Link>
-              <Link
-                href="/auth/register"
-                className="px-4 py-1 bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
-              >
-                {t("register")}
-              </Link>
+              </Button>
+              <Button href={`/${locale}/contact`}>{t("bookCall")}</Button>
             </>
           )}
         </div>
