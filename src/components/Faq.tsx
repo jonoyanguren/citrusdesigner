@@ -39,7 +39,7 @@ export default function Faq() {
             {[1, 2, 3, 4, 5].map((id) => (
               <div
                 key={id}
-                className="border border-gray-200 rounded-lg overflow-hidden"
+                className="border border-gray-200 rounded-lg overflow-hidden bg-white"
               >
                 <button
                   className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50 transition-colors"
@@ -53,7 +53,7 @@ export default function Faq() {
                   </span>
                 </button>
                 {isFaqOpen(id) && (
-                  <div className="p-4 bg-gray-50 border-t border-gray-200">
+                  <div className="p-4 bg-white border-t border-gray-200">
                     <p className="text-gray-600">{t(`answers.a${id}`)}</p>
                   </div>
                 )}

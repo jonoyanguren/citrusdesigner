@@ -276,8 +276,8 @@
         }
     },
     "contact": {
-        "title": "Contacto",
-        "description": "Estamos aquí para ayudarte y responder cualquier pregunta que puedas tener. ¡Esperamos saber de ti!",
+        "title": "¿Cómo podemos ayudarte?",
+        "description": "Elige cómo prefieres contactarnos y responderemos a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
         "email": {
             "title": "Mándanos un email",
             "description": "¿Tienes dudas o necesitas más información? Escríbenos y te responderemos lo antes posible.",
