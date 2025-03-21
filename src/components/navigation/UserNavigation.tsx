@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import { useRouter } from "@/i18n/navigation";
 import Button from "@/components/Button";
 import { User } from "@prisma/client";
 import { useTranslations } from "next-intl";
@@ -19,6 +19,7 @@ export default function UserNavigation({
   onLogout,
 }: Props) {
   const t = useTranslations("common");
+  const router = useRouter();
   const buttonRef = useRef<HTMLDivElement>(null);
   const [menuPosition, setMenuPosition] = useState({ top: 0, right: 0 });
 
@@ -54,6 +55,11 @@ export default function UserNavigation({
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const handleDashboardClick = () => {
+    setIsMenuOpen(false);
+    router.push("/dashboard");
+  };
+
   const menuContent = isMenuOpen && (
     <div
       id="user-menu"
@@ -64,15 +70,12 @@ export default function UserNavigation({
       }}
       className="w-48 py-2 bg-background rounded-lg shadow-lg bg-white"
     >
-      <Link
-        href="/dashboard"
+      <button
+        onClick={handleDashboardClick}
         className="block w-full text-left px-4 py-2 hover:bg-foreground/5"
-        onClick={() => {
-          setIsMenuOpen(false);
-        }}
       >
         {t("dashboard")}
-      </Link>
+      </button>
       <Button
         variant="text"
         onClick={(e) => {

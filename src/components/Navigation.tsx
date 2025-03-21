@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import AdminNavigation from "./navigation/AdminNavigation";
@@ -15,6 +15,7 @@ export default function Navigation() {
   const { user, setUser } = useAuth();
   const t = useTranslations("navigation");
   const { locale } = useParams();
+  const router = useRouter();
 
   useEffect(() => {
     setIsMenuOpen(false);
@@ -30,8 +31,7 @@ export default function Navigation() {
 
       if (response.ok) {
         setUser(null);
-        const baseUrl = window.location.origin;
-        window.location.href = baseUrl;
+        router.push("/");
       }
     } catch (error) {
       console.error("Error logging out:", error);
