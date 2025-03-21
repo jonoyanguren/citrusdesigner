@@ -4,6 +4,7 @@ import PricingList from "@/components/PricingList";
 import { useTranslations } from "next-intl";
 import Faq from "@/components/Faq";
 import Image from "next/image";
+import CustomersCarousel from "@/components/CustomersCarousel";
 
 export default function Pricing() {
   const t = useTranslations("pricing");
@@ -23,7 +24,12 @@ export default function Pricing() {
       <div className="w-[80%] mb-16">
         <PricingList />
       </div>
-      <Faq />
+      <div className="w-full">
+        <CustomersCarousel />
+      </div>
+      <div className="mt-32">
+        <Faq />
+      </div>
     </div>
   );
 }
