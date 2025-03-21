@@ -10,53 +10,7 @@
         "register": "Registrarse"
     },
     "designerBehind": {
-        "title": "Sobre mí",
-        "subtitle": "Apasionada del diseño y la experiencia de usuario. Me encanta crear soluciones visuales que no solo se vean bien, sino que sean intuitivas y funcionales.",
-        "whoAmI": {
-            "title": "Quien soy",
-            "description": "La mente creativa",
-            "descriptionThin": "detrás de Citrus Designer"
-        },
-        "text": {
-            "title": "👋🏼 ¡Hola!",
-            "p1": "Soy Andrea, diseñadora certificada en diseño UX/UI y con más de 8 años de experiencia en diseño, innovación y research. He trabajado para grandes empresas y startups tecnológicas en entornos ágiles y multiculturales, lo que me ha permitido perfeccionar un enfoque que combina creatividad con eficiencia.",
-            "p2": "Mi pasión es simplificar procesos y entregar resultados impecables, evitando reuniones innecesarias para centrarme en lo que realmente importa: el diseño de tu marca. Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles.",
-            "p3": "Además, me encanta compartir mi conocimiento y experiencia. Lidero la comunidad de Friends of Figma Bilbao, imparto talleres y charlas y mentorizo a nuevos talentos en ADPList para que descubran su potencial y transformen el mundo del diseño.",
-            "pbold": "Si buscas un enfoque fresco y profesional que combine pasión, innovación y resultados medibles, ¡estoy aquí para ayudarte a llevar tus diseños al siguiente nivel!"
-        },
-        "expertise": {
-            "title": "Experiencia",
-            "description": "Una década transformando espacios",
-            "text": "Mi experiencia abarca desde proyectos residenciales hasta comerciales, siempre con un enfoque en crear espacios que no solo sean hermosos, sino también funcionales y significativos para quienes los habitan."
-        },
-        "skills": {
-            "skill1": {
-                "title": "Diseño de Interiores",
-                "description": "Especializada en espacios residenciales y comerciales con un enfoque en la funcionalidad y la estética."
-            },
-            "skill2": {
-                "title": "Diseño Digital",
-                "description": "Integración de herramientas digitales para visualización y planificación de espacios."
-            },
-            "skill3": {
-                "title": "Gestión de Proyectos",
-                "description": "Coordinación eficiente de proyectos desde la conceptualización hasta la ejecución."
-            },
-            "skill4": {
-                "title": "Sostenibilidad",
-                "description": "Compromiso con prácticas de diseño sostenible y materiales eco-friendly."
-            }
-        },
-        "philosophy": {
-            "title": "Filosofía de Diseño",
-            "description": "Creando Espacios que Cuentan Historias",
-            "text": "Mi enfoque se centra en crear espacios que no solo sean visualmente atractivos, sino que también reflejen la personalidad y necesidades de quienes los habitan. Cada proyecto es una oportunidad para contar una historia única.",
-            "points": {
-                "point1": "Diseño centrado en el usuario: Cada decisión se toma pensando en quienes habitarán el espacio.",
-                "point2": "Innovación sostenible: Incorporación de soluciones eco-friendly sin comprometer el diseño.",
-                "point3": "Atención al detalle: Cuidado meticuloso en cada aspecto del proyecto, desde la planificación hasta la ejecución."
-            }
-        }
+        "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."
     },
     "common": {
         "welcome": "Bienvenido a Citrus Designer",
@@ -99,6 +53,27 @@
         "aboutTheDesigner": {
             "title": "¿Quién está detrás?",
             "description": "Esta es Andrea, la diseñadora detrás de Citrus Design. Con más de 8 años de experiencia, transforma ideas en experiencias únicas y memorables.",
+            "principles": {
+                "title": "Mis principios de diseño",
+                "items": [
+                    {
+                        "title": "Cuanto más sencillo, mejor",
+                        "description": "Me encanta desarmar problemas complejos y, usando mi enfoque analítico, convertirlos en un diseño simple, claro y con mucho significado."
+                    },
+                    {
+                        "title": "User-Centered Design",
+                        "description": "Me gusta meterme de lleno en lo que la gente realmente necesita y cómo actúa, para crear experiencias intuitivas, útiles y con sentido."
+                    },
+                    {
+                        "title": "Diseño coherente",
+                        "description": "Uso patrones y componentes consistentes para que todo tenga sentido y haga la experiencia del usuario lo más fluida posible."
+                    },
+                    {
+                        "title": "Crecimiento constante",
+                        "description": "Siempre estoy explorando nuevas tendencias, herramientas y enfoques para mantener mi diseño fresco, relevante y en constante evolución."
+                    }
+                ]
+            },
             "items": [
                 {
                     "title": "Certificada en UX/UI",
@@ -198,25 +173,6 @@
             "secondaryText": "Explora ejemplos ficticios que demuestran el impacto de nuestro proceso con resultados de alta calidad en cuestión de tiempo."
         },
         "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos."
-    },
-    "ourStory": {
-        "title": "Nuestra historia",
-        "subtitle": "Llevamos el diseño al siguiente nivel con un modelo de suscripción ágil y flexible. Somos tu equipo crativo de confianza, listo para escalar contigo.",
-        "description": "Un equipo ayudándote a",
-        "descriptionThin": "democratizar el diseño",
-        "text": {
-            "p1": "El año era 2024. Jon y Andrea llevaban años trabajando en tecnología y diseño, combinando su vida nómada con sus carreras en remoto.",
-            "p2": "Mientras recorrían Europa en su autocaravana, se dieron cuenta de un problema recurrente: startups y empresas emergentes luchaban por encontrar servicios de diseño de calidad sin compromisos a largo plazo ni complicaciones.",
-            "p3": "Fue entonces cuando nació la idea de Citrus Designer: un modelo de suscripción para diseño, ágil y sin ataduras, igual que un SaaS.",
-            "p4": "Creemos en las relaciones a largo plazo, en ser un partner estratégico que entiende tu negocio y te ayuda a escalar con soluciones visuales potentes.",
-            "pbold": "Citrus Designer no es solo un servicio; es la unión de nuestra experiencia, nuestra visión y nuestra forma de vida. Queremos que el diseño sea accesible, flexible y escalable, sin complicaciones.",
-            "pfinal": "Si buscas un equipo que se preocupe tanto por tu marca como tú mismo, aquí estamos. 🍊"
-        },
-        "valueProposition": {
-            "title": "Propuesta de valor",
-            "description": "Eficiencia y calidad, sin complicaciones",
-            "text": "En Citrus Designer utilizamos tecnología desarrollada por nosotros para hacer el proceso más ágil y eficiente, permitiéndome dedicar el tiempo a crear diseños de alta calidad. Cada proyecto recibe un trato personalizado, asegurando que el resultado final no solo sea rápido, sino también único y adaptado a tus necesidades."
-        }
     },
     "pricing": {
         "title": "Precios",
