@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { isAdmin } from "@/lib/users";
 
 export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const { id } = await params;
   try {
     const adminCheck = await isAdmin();
 
@@ -15,9 +15,7 @@ export async function GET(
     }
 
     const user = await prisma.user.findUnique({
-      where: {
-        id: id,
-      },
+      where: { id },
       select: {
         id: true,
         name: true,
@@ -26,17 +24,11 @@ export async function GET(
         createdAt: true,
         requests: {
           take: 10,
-          orderBy: {
-            createdAt: "desc",
-          },
+          orderBy: { createdAt: "desc" },
           include: {
             feedback: {
               include: {
-                user: {
-                  select: {
-                    name: true,
-                  },
-                },
+                user: { select: { name: true } },
               },
             },
           },

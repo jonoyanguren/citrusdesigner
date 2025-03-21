@@ -3,7 +3,7 @@ import * as SibApiV3Sdk from "@sendinblue/client";
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 apiInstance.setApiKey(
   SibApiV3Sdk.TransactionalEmailsApiApiKeys.apiKey,
-  process.env.SENDINBLUE_API_KEY
+  process.env.SENDINBLUE_API_KEY || ""
 );
 
 interface EmailData {
@@ -28,7 +28,7 @@ export async function sendEmail({ to, subject, text, html }: EmailData) {
 
     const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
     console.info("Email sent:", data);
-    return { success: true, messageId: data.messageId };
+    return { success: true, messageId: data.body.messageId };
   } catch (error) {
     console.error("Error sending email:", error);
     throw error;

@@ -5,9 +5,10 @@ import { addNotification } from "@/lib/notifications";
 
 export async function POST(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const session = await verifyToken();
     if (!session) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
@@ -25,7 +26,7 @@ export async function POST(
     const newFeedback = await prisma.feedback.create({
       data: {
         feedback,
-        requestId: params.id,
+        requestId: id,
         userId: session.userId,
       },
       include: {
@@ -35,7 +36,7 @@ export async function POST(
 
     const [requestData, adminUser] = await Promise.all([
       prisma.request.findUnique({
-        where: { id: params.id },
+        where: { id },
         select: { userId: true, name: true },
       }),
       prisma.user.findFirst({
@@ -53,7 +54,7 @@ export async function POST(
         title: "Has recibido un feedback",
         message:
           "En la petición " + requestData.name + " has recibido un feedback",
-        action: `/dashboard/requests/${params.id}`,
+        action: `/dashboard/requests/${id}`,
       });
     } else {
       await addNotification({
@@ -61,7 +62,7 @@ export async function POST(
         title: "Has recibido un feedback",
         message:
           "En la petición " + requestData.name + " has recibido un feedback",
-        action: `/admin/requests/${params.id}`,
+        action: `/admin/requests/${id}`,
       });
     }
 
@@ -77,12 +78,13 @@ export async function POST(
 
 export async function GET(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const feedback = await prisma.feedback.findMany({
       where: {
-        requestId: params.id,
+        requestId: id,
       },
       include: {
         user: {

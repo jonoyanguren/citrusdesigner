@@ -30,18 +30,10 @@ async function revalidate(formData: FormData) {
   revalidatePath(path);
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const { id } = await params;
-
-  return {
-    title: `Solicitud ${id}`,
-  };
-}
-
 export default async function RequestDetail({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 

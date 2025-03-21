@@ -22,7 +22,7 @@ const MAX_ACTIVE_SUBSCRIPTIONS = parseInt(
   process.env.NEXT_PUBLIC_MAX_PROJECTS || "100"
 );
 
-interface StripeSubscription {
+export interface StripeSubscription {
   id: string;
   status: string;
   current_period_start: number;

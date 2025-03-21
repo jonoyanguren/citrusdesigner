@@ -22,8 +22,11 @@ export async function GET(
       subscription: {
         plan: {
           product: {
-            name: (session.subscription as Stripe.Subscription).plan?.product
-              ?.name,
+            name:
+              (
+                (session.subscription as Stripe.Subscription).items.data[0]
+                  ?.price.product as Stripe.Product
+              )?.name || "",
           },
         },
       },

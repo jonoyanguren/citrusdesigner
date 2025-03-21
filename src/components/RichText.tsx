@@ -16,7 +16,6 @@ import {
 import { TbH1, TbH2 } from "react-icons/tb";
 import "./RichText.css";
 import React, { forwardRef, useState } from "react";
-import Button from "./Button";
 
 const CustomImage = Image.extend({
   addProseMirrorPlugins() {

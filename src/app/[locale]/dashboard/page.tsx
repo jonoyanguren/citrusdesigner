@@ -2,7 +2,10 @@
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
 import { User, Subscription, Request } from "@prisma/client";
-import { SubscriptionsTab } from "@/components/dashboard/SubscriptionsTab";
+import {
+  SubscriptionsTab,
+  StripeSubscription,
+} from "@/components/dashboard/SubscriptionsTab";
 import { RequestsTab } from "@/components/dashboard/RequestsTab";
 import { ProfileTab } from "@/components/dashboard/ProfileTab";
 import { InvoicesTab } from "@/components/dashboard/InvoicesTab";
@@ -41,7 +44,7 @@ export default function DashboardPage() {
   const initialTab = searchParams.get("tab") || "subscriptions";
   const [activeTab, setActiveTab] = useState(initialTab);
   const [user, setUser] = useState<UserWithSubscriptions | null>(null);
-  const [subscriptions, setSubscriptions] = useState<Subscription[]>([]);
+  const [subscriptions, setSubscriptions] = useState<StripeSubscription[]>([]);
   const [requests, setRequests] = useState<RequestWithFeedback[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [invoices, setInvoices] = useState([]);

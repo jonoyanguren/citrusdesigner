@@ -33,16 +33,18 @@ export default function Footer() {
               {t("quickLinks.title")}
             </h3>
             <ul className="space-y-2">
-              {t.raw("quickLinks.items").map((item: any) => (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {item.text}
-                  </Link>
-                </li>
-              ))}
+              {t
+                .raw("quickLinks.items")
+                .map((item: { href: string; text: string }) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="text-gray-400 hover:text-white transition-colors"
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                ))}
             </ul>
           </div>
 

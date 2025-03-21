@@ -1,14 +1,16 @@
 "use client";
 import { useTranslations } from "next-intl";
 import ProjectCard from "./ProjectCard";
-import { useEffect, useState } from "react";
 
 interface Project {
   id: string;
   title: string;
   description: string;
   image: string;
-  tags: string[];
+  tags: {
+    id: string;
+    name: string;
+  }[];
 }
 
 export default function ProjectsSection() {

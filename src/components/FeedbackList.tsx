@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import { FeedbackForm } from "./FeedbackForm";
-import { AiFillAccountBook } from "react-icons/ai";
 import { IoChatbubblesOutline } from "react-icons/io5";
 
 type Feedback = {

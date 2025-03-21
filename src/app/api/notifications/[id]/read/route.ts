@@ -4,9 +4,11 @@ import { verifyToken } from "@/lib/users";
 
 export async function PUT(
   request: Request,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  if (!params?.id) {
+  const { id } = await params;
+
+  if (!id) {
     return NextResponse.json(
       { error: "Request ID is required" },
       { status: 400 }
@@ -20,7 +22,7 @@ export async function PUT(
     }
 
     const notification = await prisma.notification.findUnique({
-      where: { id: params.id },
+      where: { id },
     });
 
     if (!notification || notification.userId !== session.userId) {
@@ -28,7 +30,7 @@ export async function PUT(
     }
 
     const updatedNotification = await prisma.notification.update({
-      where: { id: params.id },
+      where: { id },
       data: { read: true },
     });
 

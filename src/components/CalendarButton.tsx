@@ -1,6 +1,5 @@
 "use client";
 
-import { ReactElement } from "react";
 import Script from "next/script";
 
 interface CalendlyWindow extends Window {
@@ -9,7 +8,7 @@ interface CalendlyWindow extends Window {
   };
 }
 
-export default function CalendarButton() {
+export function useCalendly() {
   const openCalendly = () => {
     const calendlyWindow = window as CalendlyWindow;
     if (calendlyWindow.Calendly) {
@@ -19,19 +18,28 @@ export default function CalendarButton() {
     }
   };
 
-  return {
-    openCalendly,
-    CalendlyScripts: (
-      <>
-        <Script
-          src="https://assets.calendly.com/assets/external/widget.js"
-          strategy="afterInteractive"
-        />
-        <link
-          href="https://assets.calendly.com/assets/external/widget.css"
-          rel="stylesheet"
-        />
-      </>
-    ),
-  };
+  return { openCalendly };
+}
+
+export default function CalendarButton() {
+  const { openCalendly } = useCalendly();
+
+  return (
+    <>
+      <Script
+        src="https://assets.calendly.com/assets/external/widget.js"
+        strategy="afterInteractive"
+      />
+      <link
+        href="https://assets.calendly.com/assets/external/widget.css"
+        rel="stylesheet"
+      />
+      <button
+        onClick={openCalendly}
+        className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        Programar una llamada
+      </button>
+    </>
+  );
 }

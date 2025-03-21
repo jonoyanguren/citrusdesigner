@@ -12,7 +12,6 @@ import { LimeMessage } from "@/components/LimeMessage";
 import { OrangeMessage } from "@/components/OrangeMessage";
 import Benefits from "@/components/Benefits";
 import { OurProjects } from "@/components/OurProjects";
-import { Testimonials } from "@/components/Testimonials";
 import { Features } from "@/components/Features";
 import Steps from "@/components/Steps";
 

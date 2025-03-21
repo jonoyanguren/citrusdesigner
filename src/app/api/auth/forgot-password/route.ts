@@ -33,6 +33,7 @@ export async function POST(request: Request) {
     await sendEmail({
       to: email,
       subject: "Restablecer contraseña",
+      text: `Has solicitado restablecer tu contraseña. Haz clic en el siguiente enlace: ${resetUrl}\n\nEste enlace expirará en 1 hora.\n\nSi no solicitaste restablecer tu contraseña, ignora este email.`,
       html: `
         <h1>Restablecer contraseña</h1>
         <p>Has solicitado restablecer tu contraseña. Haz clic en el siguiente enlace:</p>

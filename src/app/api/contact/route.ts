@@ -6,6 +6,7 @@ export async function GET() {
     const contacts = await prisma.contact.findMany();
     return NextResponse.json(contacts);
   } catch (error) {
+    console.error("Error fetching contacts:", error);
     return NextResponse.json(
       { error: "Error fetching contacts" },
       { status: 500 }
@@ -38,6 +39,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ success: true, data: contact });
   } catch (error) {
+    console.error("Error creating contact:", error);
     return NextResponse.json(
       { success: false, error: "Error creating contact" },
       { status: 500 }
@@ -45,6 +47,6 @@ export async function POST(request: Request) {
   }
 }
 
-export async function OPTIONS(request: Request) {
+export async function OPTIONS() {
   return NextResponse.json({}, { status: 200 });
 }

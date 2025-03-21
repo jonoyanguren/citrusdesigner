@@ -16,13 +16,7 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen">
-      <Hero
-        namespace="home"
-        buttons={[
-          { text: "hero.cta", variant: "primary", href: "/pricing" },
-          { text: "hero.ctaSecondary", variant: "secondary", href: "/contact" },
-        ]}
-      />
+      <Hero />
 
       {/* Customers carousel section*/}
       <CustomersCarousel />

@@ -4,11 +4,11 @@ import Title from "@/components/Title";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Button from "@/components/Button";
-import CalendarButton from "@/components/CalendarButton";
+import { useCalendly } from "@/components/CalendarButton";
 
 export default function Contact() {
   const t = useTranslations("contact");
-  const { openCalendly, CalendlyScripts } = CalendarButton();
+  const { openCalendly } = useCalendly();
 
   const openWhatsApp = () => {
     const phoneNumber = "34620682321";
@@ -21,7 +21,6 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Title title={t("title")} description={t("description")} />
-      {CalendlyScripts}
 
       <div className="container mx-auto px-4 py-12 relative mt-12">
         <div className="absolute -top-20 -z-10">
