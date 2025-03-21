@@ -23,10 +23,10 @@ export default function ProductCard({
     : "border-2 border-neutral-300 bg-white";
   return (
     <div
-      className={`${highlightStyles} rounded-xl pt-8 pb-4 px-8 flex flex-col min-h-[700px] gap-6 text-lg relative overflow-hidden shadow-xl`}
+      className={`${highlightStyles} rounded-xl pt-8 pb-4 px-8 flex flex-col min-h-[700px] gap-6 text-lg relative shadow-xl`}
     >
       {isHighlighted && (
-        <div className="absolute -right-[40px] top-[32px] bg-yellow-300 text-black px-12 py-1 rotate-45 text-sm font-medium">
+        <div className="absolute -right-[30px] -top-[15px] bg-yellow-300 rounded-full border border-neutral-900 text-black px-12 py-1 rotate-[10deg] text-sm font-medium">
           {t("badge.availableSpots")}
         </div>
       )}

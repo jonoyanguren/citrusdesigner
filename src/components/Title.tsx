@@ -1,10 +1,8 @@
 export default function Title({
-  tag,
   title,
   description = "",
   highlightIndexes = [],
 }: {
-  tag: string;
   title: string;
   description?: string;
   highlightIndexes?: number[];
@@ -25,11 +23,11 @@ export default function Title({
   };
 
   return (
-    <div className="text-gray-900 p-8 max-w-6xl mx-auto my-4">
+    <div className="text-gray-900 p-8 max-w-4xl mx-auto my-4">
       <h1 className="text-5xl font-bold mb-4 text-center">
         {highlightTitle(title)}
       </h1>
-      <p className="text-xl">{description}</p>
+      <p className="text-xl text-center text-gray-400">{description}</p>
     </div>
   );
 }

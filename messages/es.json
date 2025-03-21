@@ -106,8 +106,8 @@
             "description": "Descubre los beneficios de nuestro servicio"
         },
         "pricing": {
-            "title": "Precios",
-            "subtitle": "Planes que se adaptan a ti",
+            "title": "Tu plan perfecto a 1 sólo click",
+            "subtitle": "Elije entre una de nuestras subscripciones mensuales. Empieza ya mismo sin necesidad de contrato - pausa y cancélalo en cualquier momento.",
             "description": "Elige el plan que mejor se adapte a tus necesidades",
             "plans": {
                 "basic": {
@@ -254,6 +254,26 @@
     "pricing": {
         "title": "Precios",
         "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
+        "benefits": {
+            "title": "Beneficios incluidos en todos los planes",
+            "items": [
+                {
+                    "title": "Cancela cuando quieras",
+                    "description": "Sin ataduras, tú decides el momento de irte.",
+                    "icon": "sparkles"
+                },
+                {
+                    "title": "Pruébalo una semana gratis",
+                    "description": "Descubre todas las ventajas sin coste alguno durante 7 días.",
+                    "icon": "lightning"
+                },
+                {
+                    "title": "Agenda una sesión si dudas",
+                    "description": "Agenda una sesión personalizada para resolver tus preguntas.",
+                    "icon": "shield"
+                }
+            ]
+        },
         "products": {
             "title": "Modelo de precios",
             "description": "Tu plan perfecto está solo a",
@@ -310,10 +330,12 @@
             ]
         },
         "faq": {
-            "title": "FAQs",
-            "description": "Preguntas",
-            "descriptionThin": "frecuentes",
-            "secondaryText": "Resolvemos tus dudas desde cómo funciona el proceso hasta y todo sobre tu viaje.",
+            "title": "Preguntas frecuentes",
+            "infoBox": {
+                "title": "¿Aun tienes más preguntas?",
+                "description": "Ponte en contacto con nosotros, estaremos encantados de resolver todas tus preguntas :)",
+                "cta": "Contáctanos"
+            },
             "questions": {
                 "q1": "¿Qué incluye la suscripción?",
                 "q2": "¿Cuánto tardan en entregar los diseños?",
