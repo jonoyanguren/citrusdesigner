@@ -9,6 +9,8 @@ import Steps from "@/components/Steps";
 import Benefits from "@/components/Benefits";
 import { OrangeMessage } from "@/components/OrangeMessage";
 import { Testimonials } from "@/components/Testimonials";
+import { AboutTheDesigner } from "@/components/AboutTheDesigner";
+
 export default function HomePage() {
   const t = useTranslations("home");
 
@@ -57,6 +59,7 @@ export default function HomePage() {
           <PricingList />
         </div>
 
+        <AboutTheDesigner />
         <OrangeMessage message={t("orangeMessage")} highlightIndexes={[5, 6]} />
 
         <Testimonials />

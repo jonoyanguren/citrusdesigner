@@ -73,10 +73,12 @@
     },
     "home": {
         "hero": {
-            "title": "Inicio",
-            "description": "Bienvenido a nuestra página de inicio",
-            "cta": "Empieza tu suscripción ahora",
-            "ctaSecondary": "Reserva una llamada gratis"
+            "titleBegin": "Exprime tu tiempo con una ",
+            "titleMiddle": "suscripción",
+            "titleEnd": "UX/UI que refresque tu producto",
+            "cta": "Suscríbete hoy mismo",
+            "ctaSecondary": "Agenda una llamada",
+            "description": "Obtén diseño ilimitado de alta calidad cuando lo necesites con nuestras suscripciones de diseño."
         },
         "customers": {
             "title": "Empresas que confían en nosotros"
@@ -93,6 +95,28 @@
             "title": "Beneficios",
             "subtitle": "Nuestros beneficios",
             "description": "Descubre los beneficios de nuestro servicio"
+        },
+        "aboutTheDesigner": {
+            "title": "¿Quién está detrás?",
+            "description": "Esta es Andrea, la diseñadora detrás de Citrus Design. Con más de 8 años de experiencia, transforma ideas en experiencias únicas y memorables.",
+            "items": [
+                {
+                    "title": "Certificada en UX/UI",
+                    "description": "Respaldada por formación de vanguardia y contínua."
+                },
+                {
+                    "title": "Reconocida en Forbes",
+                    "description": "Reconocida por mi impacto e innovación en el mundo digital."
+                },
+                {
+                    "title": "Lider de Friends of Figma",
+                    "description": "Impulso la comunidad de Figma para revolucionar el diseño colaborativo."
+                },
+                {
+                    "title": "Mentora de ADPList",
+                    "description": "Inspiro y guío a la próxima generación de talentos con pasión y experiencia."
+                }
+            ]
         },
         "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos.",
         "testimonials": {

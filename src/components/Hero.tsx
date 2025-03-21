@@ -1,43 +1,40 @@
 "use client";
-import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
+import Button from "./Button";
+import DecorativeElements from "./DecorativeElements";
+import { useParams, useRouter } from "next/navigation";
 
-interface HeroButton {
-  text: string;
-  variant?: "primary" | "secondary";
-  href?: string;
-}
-
-interface HeroProps {
-  namespace: string;
-  showButtons?: boolean;
-  buttons?: HeroButton[];
-  className?: string;
-}
-
-export default function Hero({
-  namespace,
-  showButtons = true,
-  buttons = [],
-  className = "",
-}: HeroProps) {
-  const t = useTranslations(namespace);
+export default function Hero() {
+  const t = useTranslations("home.hero");
+  const router = useRouter();
+  const { locale } = useParams();
 
   return (
-    <section
-      className={`flex flex-col gap-4 bg-green-50 w-full py-16 md:py-24 ${className}`}
-    >
-      <h1 className="text-4xl font-bold mb-6 text-center">{t("hero.title")}</h1>
-      <p className="text-xl text-center mb-8">{t("hero.description")}</p>
-      {showButtons && buttons.length > 0 && (
-        <div className="flex gap-4 justify-center">
-          {buttons.map((button, index) => (
-            <Button key={index} variant={button.variant} href={button.href}>
-              {t(button.text)}
-            </Button>
-          ))}
+    <section className="p-24 relative" suppressHydrationWarning>
+      <DecorativeElements />
+      <div className="max-w-3xl mx-auto bg-white">
+        <h1 className="text-5xl leading-[64px] font-bold mb-6 text-center">
+          {t("titleBegin")}{" "}
+          <span className="bg-orange-400 text-white mx-2 px-2 font-['Caveat'] font-bold text-6xl leading-none rotate-[-2deg] inline-block rounded-sm">
+            {t("titleMiddle")}
+          </span>
+          {t("titleEnd")}
+        </h1>
+        <p className="max-w-xl mx-auto text-xl text-gray-500 text-center mb-6">
+          {t("description")}
+        </p>
+        <div className="flex justify-center gap-8">
+          <Button onClick={() => router.push(`/${locale}/pricing`)}>
+            {t("cta")}
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => router.push(`/${locale}/contact`)}
+          >
+            {t("ctaSecondary")}
+          </Button>
         </div>
-      )}
+      </div>
     </section>
   );
 }

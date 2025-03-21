@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Patrick_Hand } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "@/contexts/AuthContext";
@@ -17,6 +17,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const patrickHand = Patrick_Hand({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-hand",
 });
 
 export const metadata: Metadata = {
@@ -41,7 +47,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${patrickHand.variable} antialiased`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
