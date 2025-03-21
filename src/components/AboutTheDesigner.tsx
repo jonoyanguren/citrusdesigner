@@ -40,7 +40,7 @@ const DesignerImage = () => {
       <div className="relative w-[300px] h-[300px]">
         <Image
           className="rounded-[60%_40%_30%_70%/60%_30%_70%_40%] object-cover transition-all duration-300 hover:rounded-[30%_60%_70%_40%/50%_60%_30%_60%]"
-          src="/conMayka.jpeg"
+          src="/avatar.png"
           alt="About the designer"
           fill
           style={{ objectFit: "cover" }}

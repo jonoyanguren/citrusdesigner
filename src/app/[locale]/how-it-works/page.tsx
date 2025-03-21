@@ -84,7 +84,7 @@ export default function HowItWorks() {
 
       <OurProjects />
 
-      <Testimonials />
+      {/* <Testimonials /> */}
       <Features />
     </div>
   );

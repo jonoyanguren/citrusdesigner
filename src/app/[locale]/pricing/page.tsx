@@ -10,9 +10,9 @@ export default function Pricing() {
   const t = useTranslations("pricing");
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center relative">
         <Image
-          className="absolute"
+          className="absolute -left-20 -z-10"
           src="/halfOrange.svg"
           alt="halfOrange"
           width={100}
