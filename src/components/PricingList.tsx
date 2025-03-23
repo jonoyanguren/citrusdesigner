@@ -45,7 +45,6 @@ export default function PricingList() {
     const fetchProducts = async () => {
       try {
         const response = await getProducts();
-        setShowWaitlist(true);
         if (response.waitlist) {
           setShowWaitlist(true);
         } else {

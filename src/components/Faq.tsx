@@ -5,9 +5,12 @@ import Button from "./Button";
 import Image from "next/image";
 import { PiChatsCircle } from "react-icons/pi";
 import { OrangeBlob } from "./OrangeBlob";
+import { HiOutlineMinusCircle, HiOutlinePlusCircle } from "react-icons/hi";
 
 type FaqItem = {
   id: number;
+  title: string;
+  answer: string;
   isOpen: boolean;
 };
 
@@ -15,11 +18,13 @@ export default function Faq() {
   const t = useTranslations("pricing.faq");
   const [openFaqs, setOpenFaqs] = useState<FaqItem[]>([]);
 
+  const faqs = t.raw("items") as FaqItem[];
+
   const toggleFaq = (id: number) => {
     if (openFaqs.find((faq) => faq.id === id)) {
       setOpenFaqs(openFaqs.filter((faq) => faq.id !== id));
     } else {
-      setOpenFaqs([...openFaqs, { id, isOpen: true }]);
+      setOpenFaqs([...openFaqs, faqs.find((f) => f.id === id)!]);
     }
   };
 
@@ -36,25 +41,29 @@ export default function Faq() {
           </h3>
           {/* FAQ Section - Left side (3/5) */}
           <div className="space-y-4">
-            {[1, 2, 3, 4, 5].map((id) => (
+            {faqs.map((faq) => (
               <div
-                key={id}
-                className="border border-gray-200 rounded-lg overflow-hidden bg-white"
+                key={faq.id}
+                className="border-2 border-gray-900 rounded-lg overflow-hidden bg-white"
               >
                 <button
-                  className="w-full flex justify-between items-center p-4 text-left hover:bg-gray-50 transition-colors"
-                  onClick={() => toggleFaq(id)}
+                  className="w-full flex justify-between items-center p-4 text-left transition-colors"
+                  onClick={() => toggleFaq(faq.id)}
                 >
-                  <span className="font-medium text-gray-900">
-                    {t(`questions.q${id}`)}
+                  <span className="text-lg font-medium text-gray-900">
+                    {faq.title}
                   </span>
                   <span className="text-2xl text-gray-500">
-                    {isFaqOpen(id) ? "-" : "+"}
+                    {isFaqOpen(faq.id) ? (
+                      <HiOutlineMinusCircle className="w-6 h-6" />
+                    ) : (
+                      <HiOutlinePlusCircle className="w-6 h-6" />
+                    )}
                   </span>
                 </button>
-                {isFaqOpen(id) && (
-                  <div className="p-4 bg-white border-t border-gray-200">
-                    <p className="text-gray-600">{t(`answers.a${id}`)}</p>
+                {isFaqOpen(faq.id) && (
+                  <div className="px-4 pb-4 bg-white">
+                    <p className="text-gray-600">{faq.answer}</p>
                   </div>
                 )}
               </div>

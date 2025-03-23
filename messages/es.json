@@ -260,20 +260,33 @@
                 "description": "Ponte en contacto con nosotros, estaremos encantados de resolver todas tus preguntas :)",
                 "cta": "Contáctanos"
             },
-            "questions": {
-                "q1": "¿Qué incluye la suscripción?",
-                "q2": "¿Cuánto tardan en entregar los diseños?",
-                "q3": "¿Puedo cancelar mi suscripción en cualquier momento?",
-                "q4": "¿Ofrecen reembolsos?",
-                "q5": "¿Qué herramientas de diseño utilizan?"
-            },
-            "answers": {
-                "a1": "Nuestra suscripción incluye diseño UI/UX, diseño de marca, materiales de marketing y cualquier otra necesidad de diseño que puedas tener. Todos los planes incluyen revisiones ilimitadas y un diseñador dedicado.",
-                "a2": "Dependiendo de tu plan, entregamos los diseños en 24-48 horas. Los planes Enterprise tienen tiempos de entrega aún más rápidos con entregas el mismo día para solicitudes urgentes.",
-                "a3": "¡Sí! Nuestras suscripciones son flexibles: puedes cancelar, pausar o modificar tu plan en cualquier momento sin penalizaciones ni costos ocultos.",
-                "a4": "Ofrecemos una garantía de satisfacción del 100%. Si no estás satisfecho con los diseños, trabajaremos para solucionarlo o proporcionaremos un reembolso para esa solicitud específica.",
-                "a5": "Trabajamos principalmente con Figma para diseño UI/UX, junto con Adobe Creative Suite para otras necesidades de diseño. Todos los archivos se entregan en formatos listos para desarrollo o producción."
-            }
+            "items": [
+                {
+                    "id": 1,
+                    "title": "¿Cómo puedo hacer peticiones de diseño?",
+                    "answer": "Una vez te suscribas a uno de nuestros planes, dentro del perfil hay una sección llamada “Peticiones” en la que podrás ir subiendo tus peticiones. Recuerda que sólo puedes tener activa una a la vez hasta que se cierre la petición en curso."
+                },
+                {
+                    "id": 2,
+                    "title": "¿Cúando recibiré los diseños?",
+                    "answer": "Depende de la complejidad de la petición, lo normal es que recibas los diseños en un plazo de 2-3 días laborables."
+                },
+                {
+                    "id": 3,
+                    "title": "¿Puedo cambiar mi plan más adelante?",
+                    "answer": "Si, lo único que tendrías que hacer es desuscribirte, esperar al final de tu suscripción actual y volver a  suscribirte al plan que tu elijas."
+                },
+                {
+                    "id": 4,
+                    "title": "¿Como funciona la facturación?",
+                    "answer": "El primer día de ejecución de la primera suscripción y en ciclos mensuales de renovación podrás descargar la factura desde la pestaña “Facturación” dentro del área privada de cliente."
+                },
+                {
+                    "id": 5,
+                    "title": "¿Hay alguna política de reembolsos si no me gusta el servicio?",
+                    "answer": "Puedes probar una de nuestras suscripción durante una semana y si no estás satisfecho con el servicio te devolvemos el dinero."
+                }
+            ]
         }
     },
     "contact": {
