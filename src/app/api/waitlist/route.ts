@@ -9,7 +9,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
-    // Validar formato de email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -18,7 +17,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Verificar si el email ya existe en la lista de espera
     const existingEntry = await prisma.waitlistEntry.findUnique({
       where: { email },
     });
@@ -30,7 +28,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Crear nueva entrada en la lista de espera
     const waitlistEntry = await prisma.waitlistEntry.create({
       data: { email },
     });

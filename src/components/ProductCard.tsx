@@ -3,19 +3,23 @@ import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
 import { FaCheckCircle } from "react-icons/fa";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 interface ProductCardProps {
   product: StripeProduct;
   isLoading: boolean;
   onSubscribe: (priceId: string, productName: string) => void;
+  showWaitlist: boolean;
 }
 
 export default function ProductCard({
   product,
   isLoading,
   onSubscribe,
+  showWaitlist,
 }: ProductCardProps) {
   const t = useTranslations("pricing");
+  const { locale } = useParams();
   const isHighlighted = product.name === "Pro";
 
   const highlightStyles = isHighlighted
@@ -76,22 +80,33 @@ export default function ProductCard({
           </div>
         </>
       )}
-      <div className="mt-auto flex flex-col gap-4">
-        <Button
-          variant="secondary"
-          fullWidth
-          isLoading={isLoading}
-          onClick={() => onSubscribe(product.priceId, product.name)}
-        >
-          {isLoading ? t("loading") : t("subscribe")}
-        </Button>
-        <Link
-          href="/pricing"
-          className="text-center text-lg text-medium text-neutral-900 underline"
-        >
-          {t("bookACall")}
-        </Link>
-      </div>
+      {!showWaitlist ? (
+        <div className="mt-auto flex flex-col gap-4">
+          <Button
+            variant="secondary"
+            fullWidth
+            isLoading={isLoading}
+            onClick={() => onSubscribe(product.priceId, product.name)}
+          >
+            {isLoading ? t("loading") : t("subscribe")}
+          </Button>
+          <Link
+            href="/pricing"
+            className="text-center text-lg text-medium text-neutral-900 underline"
+          >
+            {t("bookACall")}
+          </Link>
+        </div>
+      ) : (
+        <div className="mt-auto flex flex-col gap-4">
+          <Button
+            href={`/${locale}/waitlist`}
+            className="font-bold text-center"
+          >
+            {t("waitlistButton")}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

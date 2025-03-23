@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import type { StripeProduct } from "@/lib/stripe";
-import WaitlistMessage from "@/components/WaitlistMessage";
 import LoadingPricing from "@/components/LoadingPricing";
 import { useParams } from "next/navigation";
 import ProductCard from "./ProductCard";
@@ -46,6 +45,7 @@ export default function PricingList() {
     const fetchProducts = async () => {
       try {
         const response = await getProducts();
+        setShowWaitlist(true);
         if (response.waitlist) {
           setShowWaitlist(true);
         } else {
@@ -105,10 +105,6 @@ export default function PricingList() {
     return <div className="text-red-500">{error}</div>;
   }
 
-  if (showWaitlist) {
-    return <WaitlistMessage />;
-  }
-
   if (isLoadingProducts) {
     return <LoadingPricing />;
   }
@@ -127,6 +123,7 @@ export default function PricingList() {
               product={product}
               isLoading={isLoading === product.name}
               onSubscribe={handleSubscribe}
+              showWaitlist={showWaitlist}
             />
           ))}
         <ProductCard
@@ -142,6 +139,7 @@ export default function PricingList() {
           }}
           isLoading={false}
           onSubscribe={handleSubscribe}
+          showWaitlist={showWaitlist}
         />
       </div>
       {/* Benefits */}
@@ -149,9 +147,11 @@ export default function PricingList() {
         {t.raw("benefits.items").map((benefit: Benefit, index: number) => (
           <div
             key={index}
-            className="bg-white p-8 rounded-lg border border-gray-300"
+            className={`bg-white p-8 rounded-lg border border-gray-300`}
           >
-            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+            <div
+              className={`w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4`}
+            >
               {benefit.icon === "sparkles" && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

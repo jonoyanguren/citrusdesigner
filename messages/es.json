@@ -38,7 +38,8 @@
         },
         "pricing": {
             "title": "Precios",
-            "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento."
+            "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
+            "waitlistMessage": "Estamos en la lista de espera. Te notificaremos cuando se lance la suscripción."
         },
         "howItWorks": {
             "title": "Así es como funcionamos",
@@ -176,6 +177,7 @@
     "pricing": {
         "title": "Precios",
         "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
+        "waitlistButton": "Plazas ocupadas",
         "benefits": {
             "title": "Beneficios incluidos en todos los planes",
             "items": [
@@ -185,8 +187,8 @@
                     "icon": "sparkles"
                 },
                 {
-                    "title": "Pruébalo una semana gratis",
-                    "description": "Descubre todas las ventajas sin coste alguno durante 7 días.",
+                    "title": "Pruébalo una semana",
+                    "description": "Si no estás satisfecho en la primera semana, te devolvemos el dinero.",
                     "icon": "lightning"
                 },
                 {
@@ -292,6 +294,15 @@
             "description": "Hablemos sobre tu proyecto. Agenda una sesión personalizada y encuentra la mejor solución para tu diseño.",
             "button": "Agendar reunión"
         }
+    },
+    "waitlist": {
+        "title": "Únete a la lista de espera",
+        "description": "Queremos dar el mejor servicio a todo el mundo, por lo que no cogemos muchas suscripciones a la vez. Únete a nuestra lista de espera y te notificaremos cuando se quede un sitio libre en nuestra plataforma 🎉",
+        "emailPlaceholder": "Tu email",
+        "joinWaitlist": "Unirme a la lista de espera",
+        "successTitle": "¡Ya estás en la lista de espera!",
+        "successDescription": "Pronto recibirás un correo de confirmación con tu posición actual. Si se libera un sitio, te avisaremos por email y tendrás X días para completar tu suscripción. De no hacerlo en ese plazo, tu puesto pasará al siguiente usuario.",
+        "successButton": "Volver al inicio"
     },
     "footer": {
         "company": {
