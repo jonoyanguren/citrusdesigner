@@ -23,7 +23,7 @@ export default function Title({
   };
 
   return (
-    <div className="text-gray-900 p-8 max-w-4xl mx-auto my-4">
+    <div className="text-gray-900 p-2 md:p-8 mx-0 md:mx-auto md:max-w-4xl my-0 md:my-4">
       <h1 className="text-5xl font-bold mb-4 text-center">
         {highlightTitle(title)}
       </h1>

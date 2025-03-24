@@ -1,15 +1,14 @@
 "use client";
 import CustomersCarousel from "@/components/CustomersCarousel";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Hero from "@/components/Hero";
-import PricingList from "@/components/PricingList";
 import Title from "@/components/Title";
 import Steps from "@/components/Steps";
 import Benefits from "@/components/Benefits";
 import { OrangeMessage } from "@/components/OrangeMessage";
 import { Testimonials } from "@/components/Testimonials";
 import { AboutTheDesigner } from "@/components/AboutTheDesigner";
+import { Pricing } from "@/components/Pricing";
 
 export default function HomePage() {
   const t = useTranslations("home");
@@ -34,24 +33,7 @@ export default function HomePage() {
         {/* Benefits */}
         <Benefits />
 
-        {/* Pricing section */}
-        <div className="flex flex-row items-center mx-16">
-          <Image
-            className="absolute"
-            src="/halfOrange.svg"
-            alt="halfOrange"
-            width={100}
-            height={100}
-          />
-          <Title
-            title={t("pricing.title")}
-            description={t("pricing.description")}
-          />
-        </div>
-
-        <div className="mx-16 mb-16">
-          <PricingList />
-        </div>
+        <Pricing />
 
         <AboutTheDesigner />
         <OrangeMessage message={t("orangeMessage")} highlightIndexes={[5, 6]} />

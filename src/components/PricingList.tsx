@@ -142,7 +142,7 @@ export default function PricingList() {
         />
       </div>
       {/* Benefits */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-20">
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8 md:mt-20">
         {t.raw("benefits.items").map((benefit: Benefit, index: number) => (
           <div
             key={index}

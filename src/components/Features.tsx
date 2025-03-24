@@ -7,12 +7,12 @@ export const Features = () => {
   return (
     <div className="relative">
       {/* Straw */}
-      <div className="absolute -left-24 top-24 -rotate-[60deg] z-20">
+      <div className="hidden md:block absolute -left-24 top-24 -rotate-[60deg] z-20">
         <Image src="/straw.png" alt="Straw" width={255} height={255} />
       </div>
 
       {/* Main container with waves */}
-      <div className="max-w-6xl mx-auto bg-yellow-50 w-full pt-24 pb-8 px-4 relative rounded-2xl mt-32 mb-16 overflow-hidden">
+      <div className="max-w-6xl w-[90%] mx-auto bg-yellow-50 md:w-full pt-12 md:pt-24 pb-8 px-8 md:px-4 relative rounded-2xl mt-4 md:mt-32 mb-8 md:mb-16 overflow-hidden">
         {/* Waves */}
         <div className="absolute inset-0 z-0">
           <div className="wave-container">
@@ -24,25 +24,33 @@ export const Features = () => {
         {/* Content */}
         <div className="relative z-10">
           {/* Fresh */}
-          <div className="float-right">
-            <Image src="/fresh.png" alt="fresh" width={200} height={200} />
+          <div className="absolute right-0 -bottom-8 md:bottom-0 md:relative md:float-right mb-4 md:mb-0">
+            <Image
+              src="/fresh.png"
+              alt="fresh"
+              width={200}
+              height={200}
+              className="w-32 md:w-auto"
+            />
           </div>
 
           {/* Text */}
-          <div className="max-w-3xl ml-32">
-            <h2 className="text-xl font-bold text-left mb-8 text-gray-900">
+          <div className="max-w-3xl ml-0 md:ml-32 pr-16 md:pr-0">
+            <h2 className="text-lg md:text-xl font-bold text-left mb-6 md:mb-8 text-gray-900">
               {t("title")}
             </h2>
 
             {/* Features */}
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="bg-white py-2 px-4 rounded-full border border-black text-center inline-block mr-3 mb-3"
-              >
-                <p className="text-sm text-gray-900">{feature}</p>
-              </div>
-            ))}
+            <div className="flex flex-wrap gap-2 md:gap-3">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white py-2 px-2 md:px-4 rounded-full border border-black text-center"
+                >
+                  <p className="text-sm text-gray-900">{feature}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

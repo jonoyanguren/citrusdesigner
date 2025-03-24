@@ -1,35 +1,6 @@
 "use client";
-import Title from "@/components/Title";
-import PricingList from "@/components/PricingList";
-import { useTranslations } from "next-intl";
-import Faq from "@/components/Faq";
-import Image from "next/image";
-import CustomersCarousel from "@/components/CustomersCarousel";
+import { Pricing } from "@/components/Pricing";
 
-export default function Pricing() {
-  const t = useTranslations("pricing");
-  return (
-    <div className="min-h-screen flex flex-col items-center">
-      <div className="flex flex-row items-center relative">
-        <Image
-          className="absolute -left-20 -z-10"
-          src="/halfOrange.svg"
-          alt="halfOrange"
-          width={100}
-          height={100}
-        />
-        <Title title={t("title")} description={t("description")} />
-      </div>
-      {/* Products */}
-      <div className="w-[80%] mb-16">
-        <PricingList />
-      </div>
-      <div className="w-full">
-        <CustomersCarousel />
-      </div>
-      <div className="mt-32">
-        <Faq />
-      </div>
-    </div>
-  );
+export default function PricingPage() {
+  return <Pricing />;
 }

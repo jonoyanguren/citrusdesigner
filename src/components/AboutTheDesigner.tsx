@@ -7,23 +7,30 @@ export const AboutTheDesigner = () => {
   const items = t.raw("items");
 
   return (
-    <div className="max-w-7xl mx-auto mb-24">
+    <div className="max-w-7xl mx-auto mb-12 md:mb-24">
       <Title title={t("title")} description={t("description")} />
-      <div className="flex md:flex-row flex-col items-center justify-center gap-24">
+      <div className="flex md:flex-row flex-col items-center justify-center gap-8 md:gap-24">
         <DesignerImage />
-        <div className="flex-1">
+        <div className="flex-1 flex flex-col items-center md:items-start gap-6 md:gap-0 mt-4 md:mt-0">
           {items.map(
             (item: { title: string; description: string }, index: number) => (
-              <div key={item.title} className="flex flex-row items-center">
+              <div
+                key={item.title}
+                className="flex flex-col md:flex-row items-center justify-center md:justify-start w-full gap-2 md:gap-0"
+              >
                 <Image
                   src={`/aboutTheDesigner/aboutTheDesigner${index + 1}.svg`}
                   alt={item.title}
                   width={40}
                   height={40}
                 />
-                <div className="p-4">
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
+                <div className="p-2 md:p-4 text-center md:text-left">
+                  <h3 className="text-base md:text-lg font-bold">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-500">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             )
@@ -37,7 +44,7 @@ export const AboutTheDesigner = () => {
 const DesignerImage = () => {
   return (
     <div className="relative flex-1 flex justify-center">
-      <div className="relative w-[300px] h-[300px]">
+      <div className="relative w-[200px] h-[200px] md:w-[300px] md:h-[300px]">
         <Image
           className="rounded-[60%_40%_30%_70%/60%_30%_70%_40%] object-cover transition-all duration-300 hover:rounded-[30%_60%_70%_40%/50%_60%_30%_60%]"
           src="/avatar.png"
@@ -47,10 +54,11 @@ const DesignerImage = () => {
         />
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="315"
-          height="315"
+          width="215"
+          height="215"
           viewBox="0 0 386 396"
           fill="none"
+          className="md:w-[315px] md:h-[315px]"
         >
           <path
             fillRule="evenodd"
@@ -60,7 +68,7 @@ const DesignerImage = () => {
           />
         </svg>
         {/* Dots */}
-        <div className="absolute -bottom-4 -right-4">
+        <div className="absolute -bottom-4 -right-4 scale-75 md:scale-100">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="96"
@@ -87,7 +95,7 @@ const DesignerImage = () => {
           </svg>
         </div>
         {/*Spiral */}
-        <div className="absolute -top-10 -left-8 -z-10">
+        <div className="absolute -top-10 -left-8 -z-10 scale-75 md:scale-100">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="150"
