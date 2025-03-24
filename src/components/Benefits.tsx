@@ -15,7 +15,7 @@ export default function Benefits() {
     <>
       <Title title={t("benefits.title")} highlightIndexes={[1]} />
       <div className="max-w-5xl w-full mx-auto px-4 pb-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {benefits.map((benefit, index) => (
             <div key={benefit.title} className="flex flex-col items-center p-4">
               <Image

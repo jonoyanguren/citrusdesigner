@@ -29,12 +29,8 @@ export default function HomePage() {
         />
 
         <Steps />
-
-        {/* Benefits */}
         <Benefits />
-
         <Pricing />
-
         <AboutTheDesigner />
         <OrangeMessage message={t("orangeMessage")} highlightIndexes={[5, 6]} />
 
