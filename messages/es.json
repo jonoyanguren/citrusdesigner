@@ -363,67 +363,23 @@
         "items": [
             {
                 "id": "1",
-                "title": "Rediseño de Marca",
-                "description": "Rediseño completo de marca para una startup tecnológica, incluyendo logo, paleta de colores y guía de marca",
-                "image": "/projects/project1.jpg",
-                "tags": [
-                    {
-                        "id": "branding",
-                        "name": "Branding"
-                    },
-                    {
-                        "id": "design",
-                        "name": "Diseño"
-                    }
-                ]
+                "title": "Competize",
+                "description": "Rediseño de la web para hacerlo más visual y responsive."
             },
             {
                 "id": "2",
-                "title": "Campaña de Marketing",
-                "description": "Serie de diseños para redes sociales en una campaña de marketing exitosa",
-                "image": "/projects/project2.jpg",
-                "tags": [
-                    {
-                        "id": "social",
-                        "name": "Redes Sociales"
-                    },
-                    {
-                        "id": "marketing",
-                        "name": "Marketing"
-                    }
-                ]
+                "title": "Tenvinilo",
+                "description": "Mejora de la experiencia de usuario del proceso de compra."
             },
             {
                 "id": "3",
-                "title": "Diseño Web",
-                "description": "Diseño moderno y responsive para una plataforma de comercio electrónico",
-                "image": "/projects/project3.jpg",
-                "tags": [
-                    {
-                        "id": "web",
-                        "name": "Web"
-                    },
-                    {
-                        "id": "ui",
-                        "name": "UI/UX"
-                    }
-                ]
+                "title": "Freakit",
+                "description": "Rediseño de la app y diseño de nuevas funcionalidades."
             },
             {
                 "id": "4",
-                "title": "Packaging de Producto",
-                "description": "Diseño innovador de packaging para una línea de cosméticos premium",
-                "image": "/projects/project4.jpg",
-                "tags": [
-                    {
-                        "id": "packaging",
-                        "name": "Packaging"
-                    },
-                    {
-                        "id": "product",
-                        "name": "Producto"
-                    }
-                ]
+                "title": "Gureik",
+                "description": "Diseño de la web de delivery de la cadena de restauración multimarca."
             }
         ]
     },

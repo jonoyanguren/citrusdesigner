@@ -24,6 +24,7 @@ export const OurProjects = () => {
     align: "start",
     loop: true,
     slidesToScroll: 1,
+    containScroll: "trimSnaps",
   });
 
   const scrollPrev = useCallback(() => {
@@ -66,17 +67,17 @@ export const OurProjects = () => {
 
           {/* Right side - Carousel */}
           <div className="overflow-hidden lg:col-span-2" ref={emblaRef}>
-            <div className="flex gap-6">
-              {projects.map((project) => (
+            <div className="flex">
+              {projects.map((project, index) => (
                 <div
                   key={project.id}
-                  className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_calc(60%-0px)]"
+                  className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] mr-6"
+                  style={{ scrollSnapAlign: "start" }}
                 >
                   <ProjectCard
                     title={project.title}
                     description={project.description}
-                    image={project.image}
-                    tags={project.tags}
+                    index={index}
                   />
                 </div>
               ))}
