@@ -9,7 +9,7 @@ export const AboutTheDesigner = () => {
   return (
     <div className="max-w-7xl mx-auto mb-24">
       <Title title={t("title")} description={t("description")} />
-      <div className="flex flex-row items-center justify-center gap-24">
+      <div className="flex md:flex-row flex-col items-center justify-center gap-24">
         <DesignerImage />
         <div className="flex-1">
           {items.map(

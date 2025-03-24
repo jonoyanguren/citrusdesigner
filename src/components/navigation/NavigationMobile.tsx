@@ -1,14 +1,19 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
-import { motion, AnimatePresence } from "framer-motion";
+import { createPortal } from "react-dom";
 
 export default function NavigationMobile() {
   const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { user, setUser } = useAuth();
   const t = useTranslations("navigation");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -29,52 +34,54 @@ export default function NavigationMobile() {
   };
 
   return (
-    <div className="lg:hidden">
-      {/* Hamburger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="p-2 focus:outline-none border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
-        aria-label="Menu"
-      >
-        <div className="w-6 flex flex-col gap-1.5">
-          <span
-            className={`block h-0.5 w-full bg-gray-600 transition-transform duration-300 ${
-              isOpen ? "rotate-45 translate-y-2" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-full bg-gray-600 transition-opacity duration-300 ${
-              isOpen ? "opacity-0" : ""
-            }`}
-          />
-          <span
-            className={`block h-0.5 w-full bg-gray-600 transition-transform duration-300 ${
-              isOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
-          />
-        </div>
-      </button>
+    <>
+      <div className="lg:hidden bg-white">
+        {/* Hamburger Button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="p-2 focus:outline-none border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+          aria-label="Menu"
+        >
+          <div className="w-6 flex flex-col gap-1.5">
+            <span
+              className={`block h-0.5 w-full bg-gray-600 transition-transform duration-300 ${
+                isOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-full bg-gray-600 transition-opacity duration-300 ${
+                isOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-full bg-gray-600 transition-transform duration-300 ${
+                isOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
+      {/* Mobile Menu - Using Portal */}
+      {isOpen &&
+        mounted &&
+        createPortal(
           <>
             {/* Overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 z-40"
+            <div
+              className={`fixed inset-0 bg-black/20 z-[9998] transition-opacity duration-300 ${
+                isOpen ? "opacity-100" : "opacity-0"
+              }`}
               onClick={() => setIsOpen(false)}
             />
 
             {/* Menu */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="absolute top-full right-0 w-full bg-white shadow-lg z-50 rounded-b-lg max-w-md mx-auto"
+            <div
+              className={`fixed top-[60px] right-0 w-full bg-white shadow-lg z-[9999] rounded-b-lg max-w-md mx-auto transition-all duration-300 ${
+                isOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 -translate-y-4"
+              }`}
             >
               <div className="flex flex-col p-4">
                 <Link
@@ -90,13 +97,6 @@ export default function NavigationMobile() {
                   onClick={() => setIsOpen(false)}
                 >
                   {t("howItWorks")}
-                </Link>
-                <Link
-                  href="/our-story"
-                  className="hover:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {t("ourStory")}
                 </Link>
                 <Link
                   href="/pricing"
@@ -146,10 +146,10 @@ export default function NavigationMobile() {
                   )}
                 </div>
               </div>
-            </motion.div>
-          </>
+            </div>
+          </>,
+          document.body
         )}
-      </AnimatePresence>
-    </div>
+    </>
   );
 }

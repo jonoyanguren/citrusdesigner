@@ -1,12 +1,14 @@
 {
     "navigation": {
+        "home": "Inicio",
         "howItWorks": "Cómo funciona",
         "theDesignerBehind": "Sobre mí",
         "pricing": "Precios",
         "contact": "Contacto",
         "login": "Iniciar sesión",
         "register": "Registrarse",
-        "bookCall": "Reserva un 1:1"
+        "bookCall": "Reserva un 1:1",
+        "logout": "Cerrar sesión"
     },
     "designerBehind": {
         "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."
@@ -100,22 +102,22 @@
             "description": "Descubre por qué nuestros clientes confían en nosotros",
             "items": [
                 {
-                    "text": "El mejor servicio de diseño que he probado. Rápido, profesional y con resultados increíbles.",
-                    "author": "María García",
-                    "position": "CEO de StartupX",
-                    "image": "/testimonials/avatar1.jpg"
+                    "text": "Andrea es una profesional con quién es fácil comunicarse y enseguida entiende lo que la empresa busca y aporta nuevas ideas y puntos de vista que son claramente enriquecedores.",
+                    "author": "Joel Pascual",
+                    "position": "CEO, Tenvinilo",
+                    "logo": "/logos/logo1.png"
                 },
                 {
-                    "text": "Han transformado completamente nuestra marca. El proceso fue muy sencillo y el resultado superó nuestras expectativas.",
-                    "author": "Carlos Rodríguez",
-                    "position": "Director de Marketing, TechCorp",
-                    "image": "/testimonials/avatar2.jpg"
+                    "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
+                    "author": "Jagoba Ormaetxea",
+                    "position": "CEO, Gureik",
+                    "logo": "/logos/logo2.png"
                 },
                 {
-                    "text": "Excelente relación calidad-precio. Los diseños son de primera calidad y el servicio al cliente es excepcional.",
-                    "author": "Ana Martínez",
-                    "position": "Fundadora de CreativeHub",
-                    "image": "/testimonials/avatar3.jpg"
+                    "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
+                    "author": "Nacho Kleinman",
+                    "position": "CEO y Co-fundador, Culpass",
+                    "logo": "/logos/logo3.png"
                 }
             ]
         }
@@ -264,7 +266,7 @@
                 {
                     "id": 1,
                     "title": "¿Cómo puedo hacer peticiones de diseño?",
-                    "answer": "Una vez te suscribas a uno de nuestros planes, dentro del perfil hay una sección llamada “Peticiones” en la que podrás ir subiendo tus peticiones. Recuerda que sólo puedes tener activa una a la vez hasta que se cierre la petición en curso."
+                    "answer": "Una vez te suscribas a uno de nuestros planes, dentro del perfil hay una sección llamada Peticiones en la que podrás ir subiendo tus peticiones. Recuerda que sólo puedes tener activa una a la vez hasta que se cierre la petición en curso."
                 },
                 {
                     "id": 2,
@@ -279,7 +281,7 @@
                 {
                     "id": 4,
                     "title": "¿Como funciona la facturación?",
-                    "answer": "El primer día de ejecución de la primera suscripción y en ciclos mensuales de renovación podrás descargar la factura desde la pestaña “Facturación” dentro del área privada de cliente."
+                    "answer": "El primer día de ejecución de la primera suscripción y en ciclos mensuales de renovación podrás descargar la factura desde la pestaña Facturación dentro del área privada de cliente."
                 },
                 {
                     "id": 5,
@@ -568,21 +570,24 @@
     },
     "testimonials": {
         "title": "Lo que dicen nuestros clientes...",
-        "testimonials": [
+        "items": [
             {
-                "text": "Citrus Designer ha transformado por completo nuestra marca. Su proceso ágil y la calidad de los diseños superaron todas nuestras expectativas. La comunicación fue impecable y los resultados llegaron incluso antes de lo prometido.",
-                "name": "Laura Martínez",
-                "role": "Directora de Marketing en TechFlow"
+                "text": "Andrea es una profesional con quién es fácil comunicarse y enseguida entiende lo que la empresa busca y aporta nuevas ideas y puntos de vista que son claramente enriquecedores.",
+                "author": "Joel Pascual",
+                "position": "CEO, Tenvinilo",
+                "logo": "/logos/logo1.png"
             },
             {
-                "text": "Como startup, necesitábamos un servicio de diseño flexible que pudiera crecer con nosotros. Encontramos exactamente eso y más. La consistencia en la calidad y la rapidez de entrega nos han permitido movernos más rápido que nunca.",
-                "name": "Carlos Ruiz",
-                "role": "CEO de InnovateLab"
+                "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
+                "author": "Jagoba Ormaetxea",
+                "position": "CEO, Gureik",
+                "logo": "/logos/logo2.png"
             },
             {
-                "text": "La mejor decisión que tomamos fue trabajar con Citrus Designer. Su modelo de suscripción nos da la libertad de solicitar diseños cuando los necesitamos, sin compromisos a largo plazo. Los resultados siempre son excepcionales.",
-                "name": "Ana García",
-                "role": "Fundadora de GrowthBox"
+                "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
+                "author": "Nacho Kleinman",
+                "position": "CEO y Co-fundador, Culpass",
+                "logo": "/logos/logo3.png"
             }
         ]
     },

@@ -4,16 +4,16 @@ import { useTranslations } from "next-intl";
 import Title from "./Title";
 
 interface Testimonial {
-  logo: string;
   text: string;
-  name: string;
-  role: string;
-  quoteColor: string;
+  author: string;
+  position: string;
+  logo: string;
 }
 
 export const Testimonials = () => {
   const t = useTranslations("testimonials");
-  const testimonials = t.raw("testimonials") as Testimonial[];
+  const testimonials = t.raw("items") as Testimonial[];
+
   const quoteColors = ["text-orange-400", "text-yellow-400", "text-blue-400"];
 
   return (
@@ -25,10 +25,10 @@ export const Testimonials = () => {
             key={index}
             className="bg-white rounded-lg shadow-lg p-6 flex flex-col items-start text-left"
           >
-            <div className="w-24 h-24 relative">
+            <div className="w-40 h-24 relative">
               <Image
                 src={`/testimonials/testimonial${index + 1}.png`}
-                alt={`${testimonial.name}'s company logo`}
+                alt={`${testimonial.author}'s company logo`}
                 fill
                 className="object-contain"
               />
@@ -38,8 +38,8 @@ export const Testimonials = () => {
               {testimonial.text}
             </p>
             <div>
-              <p className="font-medium text-gray-900">{testimonial.name}</p>
-              <p className="text-gray-500">{testimonial.role}</p>
+              <p className="font-medium text-gray-900">{testimonial.author}</p>
+              <p className="text-gray-500">{testimonial.position}</p>
             </div>
           </div>
         ))}

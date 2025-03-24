@@ -1,0 +1,22 @@
+{
+    "testimonials": [
+        {
+            "text": "Andrea es una profesional con quién es fácil comunicarse y enseguida entiende lo que la empresa busca y aporta nuevas ideas y puntos de vista que son claramente enriquecedores.",
+            "author": "Joel Pascual",
+            "position": "CEO, Tenvinilo",
+            "logo": "/logos/logo1.png"
+        },
+        {
+            "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
+            "author": "Jagoba Ormaetxea",
+            "position": "CEO, Gureik",
+            "logo": "/logos/logo2.png"
+        },
+        {
+            "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
+            "author": "Nacho Kleinman",
+            "position": "CEO y Co-fundador, Culpass",
+            "logo": "/logos/logo3.png"
+        }
+    ]
+}

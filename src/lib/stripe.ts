@@ -24,13 +24,11 @@ export interface StripeProduct {
 
 export async function getActiveProducts(): Promise<StripeProduct[]> {
   try {
-    // Obtener todos los productos activos
     const products = await stripe.products.list({
       active: true,
       expand: ["data.default_price"],
     });
 
-    // Mapear los productos a nuestro formato
     const formattedProducts = products.data
       .filter((product) => product.default_price)
       .map((product) => {

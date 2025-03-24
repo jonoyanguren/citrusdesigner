@@ -1,40 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const logos = [
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/facebook.svg",
-    alt: "Facebook",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/disney.svg",
-    alt: "Disney",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/airbnb.svg",
-    alt: "Airbnb",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/apple.svg",
-    alt: "Apple",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/spark.svg",
-    alt: "Spark",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/samsung.svg",
-    alt: "Samsung",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/quora.svg",
-    alt: "Quora",
-  },
-  {
-    src: "https://cruip-tutorials.vercel.app/logo-carousel/sass.svg",
-    alt: "Sass",
-  },
-];
+const logos = Array.from({ length: 8 }, (_, index) => index + 1);
 
 export default function CustomersCarousel() {
   return (
@@ -46,8 +13,8 @@ export default function CustomersCarousel() {
               {logos.map((logo, index) => (
                 <li key={index}>
                   <Image
-                    src={logo.src}
-                    alt={logo.alt}
+                    src={`/logos/logo${index + 1}.png`}
+                    alt={`Logo ${index + 1}`}
                     width={150}
                     height={75}
                     className="object-contain max-w-none"
@@ -62,8 +29,8 @@ export default function CustomersCarousel() {
               {logos.map((logo, index) => (
                 <li key={`clone-${index}`}>
                   <Image
-                    src={logo.src}
-                    alt={logo.alt}
+                    src={`/logos/logo${index + 1}.png`}
+                    alt={`Logo ${index + 1}`}
                     width={150}
                     height={75}
                     className="object-contain max-w-none"
