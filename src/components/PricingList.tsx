@@ -7,7 +7,7 @@ import { useParams } from "next/navigation";
 import ProductCard from "./ProductCard";
 import { OrangeBlob } from "./OrangeBlob";
 import { useTranslations } from "next-intl";
-import CustomersCarousel from "./CustomersCarousel";
+
 type ProductsResponse = {
   waitlist: boolean;
   products?: StripeProduct[];
