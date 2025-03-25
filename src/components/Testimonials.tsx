@@ -17,7 +17,7 @@ export const Testimonials = () => {
   const quoteColors = ["text-orange-400", "text-yellow-400", "text-blue-400"];
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 py-16 text-center">
+    <div className="w-full max-w-7xl mx-auto px-4 py-0 pb-16 md:py-16 text-center">
       <Title title={t("title")} />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((testimonial, index) => (

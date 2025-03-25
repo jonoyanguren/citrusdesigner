@@ -41,8 +41,10 @@ export const OurProjects = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Left side - Description */}
           <div className="flex flex-col justify-center lg:col-span-1">
-            <h2 className="text-5xl font-bold mb-6">{t("projects.title")}</h2>
-            <p className="text-2xl text-gray-400 mb-8">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              {t("projects.title")}
+            </h2>
+            <p className="text-base md:text-2xl text-gray-400 mb-8">
               {t("projects.description")}
             </p>
 

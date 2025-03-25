@@ -2,38 +2,34 @@
 
 import { useMemo } from "react";
 
-export default function DecorativeElements() {
+export default function MobileDecorativeElements() {
   return (
-    <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none h-full w-full -z-10">
-      {/* Confeti amarillo izquierda */}
-      <div className="absolute left-[20%] top-1/4 w-2 h-2 bg-yellow-300 rounded-full transform rotate-45" />
-      <div className="absolute left-[25%] top-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full transform rotate-45" />
-      <div className="absolute left-[30%] top-1/2 w-2.5 h-2.5 bg-yellow-300 rounded-full transform rotate-45" />
-
-      {/* Confeti naranja derecha */}
-      <div className="absolute right-[20%] top-1/3 w-2 h-2 bg-orange-400 rounded-full transform rotate-45" />
-      <div className="absolute right-[25%] top-1/2 w-1.5 h-1.5 bg-orange-400 rounded-full transform rotate-45" />
-      <div className="absolute right-[30%] top-2/3 w-2.5 h-2.5 bg-orange-400 rounded-full transform rotate-45" />
-
-      {/* Espirales izquierda */}
+    <div className="md:hidden absolute inset-0 overflow-hidden pointer-events-none h-full w-full -z-10">
+      {/* Espirales arriba */}
       <Spiral
-        className="absolute left-[15%] top-1/4 w-28 h-28"
-        style={{ transform: "scale(0.7)" }}
-      />
-      <Spiral
-        className="absolute left-[20%] top-2/3 w-24 h-24"
-        style={{ transform: "scale(0.5)" }}
-      />
-
-      {/* Espirales derecha */}
-      <Spiral
-        className="absolute right-[15%] top-1/3 w-32 h-32"
+        className="absolute left-[20%] top-0 w-32 h-32"
         style={{ transform: "scale(0.6)" }}
       />
       <Spiral
-        className="absolute right-[20%] top-3/4 w-20 h-20"
+        className="absolute right-[20%] top-10 w-24 h-24"
         style={{ transform: "scale(0.4)" }}
       />
+
+      {/* Espirales abajo */}
+      <Spiral
+        className="absolute left-[25%] bottom-0 w-28 h-28"
+        style={{ transform: "scale(0.5)" }}
+      />
+      <Spiral
+        className="absolute right-[25%] bottom-10 w-20 h-20"
+        style={{ transform: "scale(0.3)" }}
+      />
+
+      {/* Confeti */}
+      <div className="absolute left-[15%] top-1/4 w-2 h-2 bg-yellow-300 rounded-full transform rotate-45" />
+      <div className="absolute right-[15%] top-1/4 w-2 h-2 bg-orange-400 rounded-full transform rotate-45" />
+      <div className="absolute left-[30%] bottom-1/4 w-1.5 h-1.5 bg-yellow-300 rounded-full transform rotate-45" />
+      <div className="absolute right-[30%] bottom-1/4 w-1.5 h-1.5 bg-orange-400 rounded-full transform rotate-45" />
     </div>
   );
 }

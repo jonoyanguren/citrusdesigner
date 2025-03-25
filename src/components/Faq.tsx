@@ -34,9 +34,9 @@ export default function Faq() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 mb-16">
-      <div className="mt-8 flex gap-8 relative">
-        <div className="w-3/5">
-          <h3 className="text-5xl font-semibold text-gray-900 mb-8">
+      <div className="mt-0 md:mt-8 flex flex-col md:flex-row gap-8 relative">
+        <div className="w-full md:w-3/5">
+          <h3 className="text-3xl md:text-5xl font-semibold text-gray-900 mb-8">
             {t("title")}
           </h3>
           {/* FAQ Section - Left side (3/5) */}
@@ -72,9 +72,9 @@ export default function Faq() {
         </div>
 
         {/* Info Box - Right side (2/5) */}
-        <div className="w-2/5 relative mt-16">
+        <div className="w-full md:w-2/5 relative mt-16">
           <div className="bg-neutral-900 text-white border rounded-lg p-6 flex flex-col relative">
-            <div className="absolute w-full h-full -z-10 -top-32 -left-10">
+            <div className="absolute w-full h-full -z-10 -top-16 md:-top-32 -left-10">
               <OrangeBlob />
             </div>
             <div className="flex items-start justify-between mb-8">

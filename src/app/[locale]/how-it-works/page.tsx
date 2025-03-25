@@ -20,17 +20,18 @@ export default function HowItWorks() {
 
   return (
     <div className="min-h-screen flex flex-col items-center">
-      <Title
-        title={t("title")}
-        description={t("description")}
-        highlightIndexes={[3]}
-      />
+      <div className="px-4">
+        <Title
+          title={t("title")}
+          description={t("description")}
+          highlightIndexes={[3]}
+        />
 
-      <Steps />
+        <Steps />
+      </div>
 
       <Spacer space={16} />
 
-      {/* Customers carousel */}
       <div className="w-full">
         <CustomersCarousel />
       </div>
@@ -45,7 +46,7 @@ export default function HowItWorks() {
       <Title title={t("beforeAndAfter.title")} highlightIndexes={[4]} />
       <div className="relative">
         <Image
-          className="absolute -top-8 -left-6"
+          className="hidden md:block absolute -top-8 -left-6"
           src="/halfOrange.svg"
           alt="Before and after"
           width={100}

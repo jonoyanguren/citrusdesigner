@@ -36,7 +36,7 @@ export default function Steps() {
         {steps.map((step, index) => (
           <div
             key={step.title}
-            className="w-full md:w-1/2 flex flex-col items-center gap-6 py-6 px-2"
+            className="w-full md:w-1/2 flex flex-col items-center gap-4 md:gap-6 py-6 px-2"
           >
             <div className="flex items-start gap-3 justify-center relative -ml-8">
               <p

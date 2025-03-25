@@ -56,7 +56,7 @@ export function OrangeMessage({
       {generateRandomConfetti(20)}
       <div className="max-w-4xl mx-auto relative">
         {/* Main content */}
-        <div className="relative z-10 text-center text-3xl font-bold bg-orange-400 px-6">
+        <div className="relative z-10 text-center text-2xl md:text-3xl font-bold bg-orange-400 px-2 md:px-6">
           {words.map((word, index) => (
             <span key={index}>
               <span

@@ -20,16 +20,16 @@ export function LimeMessage({
       className={`w-full relative px-6 bg-lime-50 rounded-lg py-20 overflow-hidden ${className}`}
     >
       {/* Decorative ring bubbles */}
-      <div className="absolute left-12 top-8 w-12 h-12 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute left-24 bottom-12 w-16 h-16 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute -left-6 top-1/2 w-10 h-10 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute left-8 top-6 w-8 h-8 md:w-12 md:h-12 rounded-full border-2 md:border-4 border-orange-400"></div>
+      <div className="absolute left-16 bottom-8 w-10 h-10 md:w-16 md:h-16 rounded-full border-2 md:border-4 border-orange-400"></div>
+      <div className="absolute -left-4 top-1/2 w-6 h-6 md:w-10 md:h-10 rounded-full border-2 md:border-4 border-orange-400"></div>
 
-      <div className="absolute right-16 top-10 w-12 h-12 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute right-20 bottom-16 w-20 h-20 rounded-full border-4 border-orange-400"></div>
-      <div className="absolute -right-4 top-1/3 w-14 h-14 rounded-full border-4 border-orange-400"></div>
+      <div className="absolute right-10 top-6 w-8 h-8 md:w-12 md:h-12 rounded-full border-2 md:border-4 border-orange-400"></div>
+      <div className="absolute right-12 bottom-10 w-12 h-12 md:w-20 md:h-20 rounded-full border-2 md:border-4 border-orange-400"></div>
+      <div className="absolute -right-2 top-1/3 w-8 h-8 md:w-14 md:h-14 rounded-full border-2 md:border-4 border-orange-400"></div>
 
       {/* Main content */}
-      <div className="relative z-10 text-gray-900 text-center max-w-4xl mx-auto text-3xl font-regular">
+      <div className="relative z-10 text-gray-900 text-center max-w-4xl mx-auto text-2xl md:text-3xl font-regular">
         {words.map((word, index) => (
           <span key={index}>
             <span
@@ -45,7 +45,9 @@ export function LimeMessage({
         ))}
         {children}
       </div>
-      <div className="absolute bottom-8 right-8 w-40 h-40">{lime}</div>
+      <div className="absolute bottom-4 right-4 w-24 h-24 md:w-40 md:h-40">
+        {lime}
+      </div>
     </div>
   );
 }

@@ -106,6 +106,13 @@ export default function NavigationMobile() {
                   {t("pricing")}
                 </Link>
                 <Link
+                  href="/the-designer-behind"
+                  className="hover:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {t("theDesignerBehind")}
+                </Link>
+                <Link
                   href="/contact"
                   className="hover:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
                   onClick={() => setIsOpen(false)}
