@@ -2,75 +2,38 @@
 
 import { useMemo } from "react";
 
-const getRandomPosition = () => {
-  const zone = Math.floor(Math.random() * 8);
-
-  const zones = [
-    { left: "0-30%", top: "0-30%" },
-    { left: "30-70%", top: "0-30%" },
-    { left: "70-100%", top: "0-30%" },
-    { left: "0-30%", top: "30-70%" },
-    { left: "70-100%", top: "30-70%" },
-    { left: "0-30%", top: "70-100%" },
-    { left: "30-70%", top: "70-100%" },
-    { left: "70-100%", top: "70-100%" },
-  ];
-
-  const selectedZone = zones[zone];
-  const [leftMin, leftMax] = selectedZone.left
-    .split("-")
-    .map((v) => parseInt(v));
-  const [topMin, topMax] = selectedZone.top.split("-").map((v) => parseInt(v));
-
-  return {
-    left: `${leftMin + Math.random() * (leftMax - leftMin)}%`,
-    top: `${topMin + Math.random() * (topMax - topMin)}%`,
-  };
-};
-
-const getRandomSize = () => {
-  const sizes = ["w-1 h-1", "w-2 h-2", "w-3 h-3", "w-1.5 h-1.5", "w-2.5 h-2.5"];
-  return sizes[Math.floor(Math.random() * sizes.length)];
-};
-
 export default function DecorativeElements() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none h-full w-full -z-10">
-      {/* Confeti amarillo */}
-      {[...Array(5)].map((_, i) => (
-        <div
-          key={`yellow-${i}`}
-          className={`absolute ${getRandomSize()} bg-yellow-300 rounded-full transform rotate-45`}
-          style={getRandomPosition()}
-        />
-      ))}
+      {/* Confeti amarillo izquierda */}
+      <div className="absolute left-[20%] top-1/4 w-2 h-2 bg-yellow-300 rounded-full transform rotate-45" />
+      <div className="absolute left-[25%] top-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full transform rotate-45" />
+      <div className="absolute left-[30%] top-1/2 w-2.5 h-2.5 bg-yellow-300 rounded-full transform rotate-45" />
 
-      {/* Confeti naranja */}
-      {[...Array(5)].map((_, i) => (
-        <div
-          key={`orange-${i}`}
-          className={`absolute ${getRandomSize()} bg-orange-400 rounded-full transform rotate-45`}
-          style={getRandomPosition()}
-        />
-      ))}
+      {/* Confeti naranja derecha */}
+      <div className="absolute right-[20%] top-1/3 w-2 h-2 bg-orange-400 rounded-full transform rotate-45" />
+      <div className="absolute right-[25%] top-1/2 w-1.5 h-1.5 bg-orange-400 rounded-full transform rotate-45" />
+      <div className="absolute right-[30%] top-2/3 w-2.5 h-2.5 bg-orange-400 rounded-full transform rotate-45" />
 
-      {/* Espirales */}
-      {[...Array(6)].map((_, i) => (
-        <Spiral
-          key={`spiral-${i}`}
-          className={`absolute ${
-            [
-              "w-24 h-24",
-              "w-32 h-32",
-              "w-28 h-28",
-              "w-20 h-20",
-              "w-36 h-36",
-              "w-16 h-16",
-            ][i]
-          }`}
-          style={getRandomPosition()}
-        />
-      ))}
+      {/* Espirales izquierda */}
+      <Spiral
+        className="absolute left-[15%] top-1/4 w-28 h-28"
+        style={{ transform: "scale(0.7)" }}
+      />
+      <Spiral
+        className="absolute left-[20%] top-2/3 w-24 h-24"
+        style={{ transform: "scale(0.5)" }}
+      />
+
+      {/* Espirales derecha */}
+      <Spiral
+        className="absolute right-[15%] top-1/3 w-32 h-32"
+        style={{ transform: "scale(0.6)" }}
+      />
+      <Spiral
+        className="absolute right-[20%] top-3/4 w-20 h-20"
+        style={{ transform: "scale(0.4)" }}
+      />
     </div>
   );
 }
