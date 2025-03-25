@@ -18,7 +18,6 @@ export default function Hero() {
           <span className="bg-orange-400 text-white mx-2 px-2 font-['Caveat'] font-bold text-6xl leading-none rotate-[-2deg] inline-block rounded-sm">
             {t("titleMiddle")}
           </span>
-          {t("titleEnd")}
         </h1>
         <p className="max-w-xl mx-auto text-xl text-gray-500 text-center mb-6">
           {t("description")}

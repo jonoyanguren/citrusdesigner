@@ -28,12 +28,11 @@
     },
     "home": {
         "hero": {
-            "titleBegin": "Exprime tu tiempo con una ",
+            "titleBegin": "Tu diseñador de confianza, en formato",
             "titleMiddle": "suscripción",
-            "titleEnd": "UX/UI que refresque tu producto",
             "cta": "Suscríbete hoy mismo",
             "ctaSecondary": "Agenda una llamada",
-            "description": "Obtén diseño ilimitado de alta calidad cuando lo necesites con nuestras suscripciones de diseño."
+            "description": "Suscríbete los meses que lo necesites y olvídate de contratar full time o buscar un freelance cada vez."
         },
         "customers": {
             "title": "Empresas que confían en nosotros"
