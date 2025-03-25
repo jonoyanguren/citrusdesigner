@@ -1,0 +1,561 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "howItWorks": "Wie es funktioniert",
+        "theDesignerBehind": "Über mich",
+        "pricing": "Preise",
+        "contact": "Kontakt",
+        "login": "Anmelden",
+        "register": "Registrieren",
+        "bookCall": "1:1 Termin buchen",
+        "logout": "Abmelden"
+    },
+    "designerBehind": {
+        "orangeMessage": "Jedes Projekt ist ein einzigartiges Abenteuer, das mich herausfordert, den besten Weg zu finden, um Komplexes zu vereinfachen und Ideen in greifbare Realitäten zu verwandeln."
+    },
+    "common": {
+        "welcome": "Willkommen bei Citrus Designer",
+        "platform": "Die perfekte Plattform, um Ihre Designs zum Leben zu erwecken",
+        "dashboard": "Dashboard",
+        "logout": "Abmelden",
+        "createRequest": "Anfrage erstellen",
+        "noNotifications": "Keine Benachrichtigungen"
+    },
+    "cta": {
+        "title": "Bereit, gemeinsam das kreative Potenzial auszuschöpfen?",
+        "primaryButton": "Abonnieren",
+        "secondaryButton": "1:1 Termin buchen"
+    },
+    "home": {
+        "hero": {
+            "titleBegin": "Ihr vertrauenswürdiger Designer im",
+            "titleMiddle": "Abonnement",
+            "cta": "Jetzt abonnieren",
+            "ctaSecondary": "Termin vereinbaren",
+            "description": "Abonnieren Sie die Monate, die Sie benötigen, und vergessen Sie das Einstellen von Vollzeitkräften oder die Suche nach Freelancern."
+        },
+        "customers": {
+            "title": "Unternehmen, die uns vertrauen"
+        },
+        "pricing": {
+            "title": "Preise",
+            "description": "Wählen Sie den Plan, der am besten zu Ihnen passt. Keine Verträge, kein Stress... Sie können jederzeit kündigen. Vergessen Sie Freelancer oder die Einstellung eines internen Designers.",
+            "waitlistMessage": "Wir sind auf der Warteliste. Wir benachrichtigen Sie, wenn das Abonnement startet."
+        },
+        "howItWorks": {
+            "title": "So funktioniert es",
+            "description": "Entdecken Sie, wie unser Service funktioniert"
+        },
+        "benefits": {
+            "title": "Vorteile",
+            "subtitle": "Unsere Vorteile",
+            "description": "Entdecken Sie die Vorteile unseres Services"
+        },
+        "aboutTheDesigner": {
+            "title": "Wer steckt dahinter?",
+            "description": "Das ist Andrea, die Designerin hinter Citrus Design. Mit über 8 Jahren Erfahrung verwandelt sie Ideen in einzigartige und unvergessliche Erlebnisse.",
+            "principles": {
+                "title": "Meine Design-Prinzipien",
+                "items": [
+                    {
+                        "title": "Je einfacher, desto besser",
+                        "description": "Ich liebe es, komplexe Probleme zu zerlegen und sie mit meinem analytischen Ansatz in einfaches, klares und bedeutungsvolles Design zu verwandeln."
+                    },
+                    {
+                        "title": "Benutzerzentriertes Design",
+                        "description": "Ich tauche tief ein in das, was Menschen wirklich brauchen und wie sie sich verhalten, um intuitive, nützliche und sinnvolle Erlebnisse zu schaffen."
+                    },
+                    {
+                        "title": "Kohärentes Design",
+                        "description": "Ich verwende konsistente Muster und Komponenten, damit alles Sinn ergibt und die Benutzererfahrung so flüssig wie möglich ist."
+                    },
+                    {
+                        "title": "Konstantes Wachstum",
+                        "description": "Ich erkunde ständig neue Trends, Tools und Ansätze, um mein Design frisch, relevant und ständig weiterzuentwickeln."
+                    }
+                ]
+            },
+            "items": [
+                {
+                    "title": "UX/UI zertifiziert",
+                    "description": "Unterstützt durch modernste und kontinuierliche Ausbildung."
+                },
+                {
+                    "title": "Von Forbes anerkannt",
+                    "description": "Anerkannt für meinen Einfluss und Innovation in der digitalen Welt."
+                },
+                {
+                    "title": "Friends of Figma Leader",
+                    "description": "Ich treibe die Figma-Community an, um kollaboratives Design zu revolutionieren."
+                },
+                {
+                    "title": "ADPList Mentorin",
+                    "description": "Ich inspiriere und führe die nächste Generation von Talenten mit Leidenschaft und Erfahrung."
+                }
+            ]
+        },
+        "orangeMessage": "Schöpfen Sie Ihre Zeit aus! Mit unserem unbegrenzten Abonnement vergessen Sie Budgets und Komplikationen, während Sie Ihren Projekten einen erfrischenden Touch verleihen.",
+        "testimonials": {
+            "title": "Testimonials",
+            "subtitle": "Was unsere Kunden sagen",
+            "description": "Entdecken Sie, warum unsere Kunden uns vertrauen",
+            "items": [
+                {
+                    "text": "Andrea ist eine professionelle Designerin, mit der die Kommunikation einfach ist und die schnell versteht, was das Unternehmen sucht, und neue Ideen und Perspektiven einbringt, die eindeutig bereichernd sind.",
+                    "author": "Joel Pascual",
+                    "position": "CEO, Tenvinilo",
+                    "logo": "/logos/logo1.png"
+                },
+                {
+                    "text": "Von Anfang an haben wir Andrea vertraut und das Ergebnis war außergewöhnlich, mit guten Bewertungen, besonders bezüglich der Erfahrung, die der Kunde auf der gesamten Plattform macht.",
+                    "author": "Jagoba Ormaetxea",
+                    "position": "CEO, Gureik",
+                    "logo": "/logos/logo2.png"
+                },
+                {
+                    "text": "Neben ihrer Schnelligkeit und Effizienz versteht Andrea schnell die wenigen Inputs, die angeboten werden, und daraus entsteht ihre Kreativität, um zu einer optimalen Lösung zu gelangen.",
+                    "author": "Nacho Kleinman",
+                    "position": "CEO und Mitgründer, Culpass",
+                    "logo": "/logos/logo3.png"
+                }
+            ]
+        }
+    },
+    "howItWorks": {
+        "title": "So funktioniert es",
+        "description": "Unser Prozess ist einfach und unkompliziert. Vermeiden Sie Meetings und schöpfen Sie Ihre Zeit aus",
+        "steps": {
+            "title": "Unsere Arbeitsweise",
+            "description": "Ein technologischer Prozess mit",
+            "descriptionThin": "persönlicher Note",
+            "secondaryText": "Vom Abonnement bis zur finalen Lieferung wurde der Prozess entwickelt, um Effizienz zu maximieren. Die Technologie übernimmt das Operative, während ich mich darauf konzentriere, Kreativität und persönliche Aufmerksamkeit in jedes Projekt einzubringen.",
+            "infiniteDesigns": "Unbegrenzte Anfragen",
+            "steps": [
+                {
+                    "title": "Plan wählen",
+                    "description": "Wählen Sie das Abonnement, das am besten zu Ihren Bedürfnissen passt"
+                },
+                {
+                    "title": "Anfrage stellen",
+                    "description": "Stellen Sie Ihre Design-Anfrage über unser Portal"
+                },
+                {
+                    "title": "Design erhalten",
+                    "description": "Erhalten Sie Ihre Designs innerhalb von 24/48 Stunden"
+                }
+            ]
+        },
+        "limeMessage": "Wir nutzen ein innovatives Modell, bei dem Qualität und Geschwindigkeit unsere Priorität sind. Andrea ist der kreative Kopf hinter jedem Projekt, wir beschäftigen keine externen Designer.",
+        "benefits": {
+            "title": "Unsere Vorteile im Cocktail-Shaker",
+            "benefits": [
+                {
+                    "title": "Eigene Software",
+                    "description": "Verwalten Sie Anfragen einfach über unsere interne Software"
+                },
+                {
+                    "title": "Schnelle Lieferung",
+                    "description": "Wir liefern Ihre Designs innerhalb von 24/48 Stunden"
+                },
+                {
+                    "title": "Qualitätsdesigns",
+                    "description": "Design auf Senior-Niveau genau dann, wenn Sie es brauchen"
+                },
+                {
+                    "title": "Unbegrenzte Anfragen",
+                    "description": "Alle Anfragen, die Sie pro Monat möchten, 1 Anfrage gleichzeitig."
+                }
+            ]
+        },
+        "beforeAndAfter": {
+            "title": "Entdecken Sie die Magie der Veränderung",
+            "description": "Beobachten Sie die Verwandlung von",
+            "descriptionThin": "Ideen in Designs",
+            "secondaryText": "Entdecken Sie fiktive Beispiele, die die Wirkung unseres Prozesses mit hochwertigen Ergebnissen in kürzester Zeit demonstrieren."
+        },
+        "orangeMessage": "Schöpfen Sie Ihre Zeit aus! Mit unserem unbegrenzten Abonnement vergessen Sie Budgets und Komplikationen, während Sie Ihren Projekten einen erfrischenden Touch verleihen."
+    },
+    "pricing": {
+        "title": "Preise",
+        "description": "Wählen Sie den Plan, der am besten zu Ihnen passt. Keine Verträge, kein Stress... Sie können jederzeit kündigen. Vergessen Sie Freelancer oder die Einstellung eines internen Designers.",
+        "waitlistButton": "Plätze belegt",
+        "benefits": {
+            "title": "In allen Plänen enthaltene Vorteile",
+            "items": [
+                {
+                    "title": "Jederzeit kündbar",
+                    "description": "Keine Verpflichtungen, Sie entscheiden, wann Sie gehen.",
+                    "icon": "sparkles"
+                },
+                {
+                    "title": "Eine Woche testen",
+                    "description": "Wenn Sie in der ersten Woche nicht zufrieden sind, erstatten wir Ihnen das Geld zurück.",
+                    "icon": "lightning"
+                },
+                {
+                    "title": "Termin vereinbaren bei Fragen",
+                    "description": "Vereinbaren Sie eine persönliche Sitzung, um Ihre Fragen zu klären.",
+                    "icon": "shield"
+                }
+            ]
+        },
+        "products": {
+            "title": "Preismodell",
+            "description": "Ihr perfekter Plan ist nur",
+            "descriptionThin": "1 Klick entfernt...",
+            "secondaryText": "Wählen Sie aus einem unserer monatlichen Abonnements. Starten Sie sofort ohne Vertrag - pausieren und kündigen Sie jederzeit."
+        },
+        "loading": "Wird verarbeitet...",
+        "subscribe": "Jetzt abonnieren",
+        "bookACall": "Kostenlosen Termin buchen",
+        "month": "Monat",
+        "badge": {
+            "availableSpots": "2 Plätze verfügbar"
+        },
+        "customPrice": "Individuell",
+        "customPriceDescription": "Für Unternehmen, die deutlich leistungsfähigere Designs benötigen, haben wir das, was Sie brauchen.",
+        "features": {
+            "title": "Was ist enthalten ",
+            "Standard": [
+                "Eine Anfrage gleichzeitig",
+                "Unbegrenzte Revisionen",
+                "Lieferung in 24-48 Stunden",
+                "Dedizierter Designer"
+            ],
+            "Pro": [
+                "Eine Anfrage gleichzeitig",
+                "Unbegrenzte Revisionen",
+                "Lieferung in 24-48 Stunden",
+                "Prioritäts-Support"
+            ],
+            "Enterprise": [
+                "Individuelles Design",
+                "Lieferzeit: 1 Tag",
+                "Unbegrenzte Revisionen",
+                "Prioritäts-Support"
+            ]
+        },
+        "services": {
+            "title": "Enthaltene Services",
+            "Standard": [
+                "Komplette UI-Ausführung",
+                "Komplette UX-Ausführung"
+            ],
+            "Pro": [
+                "Komplette UI-Ausführung",
+                "Komplette UX-Ausführung",
+                "Figma-Prototypen",
+                "Entwicklungsfertige Figma-Dateien"
+            ],
+            "Enterprise": [
+                "Individuelles Design",
+                "Lieferzeit: 1 Tag",
+                "Unbegrenzte Revisionen",
+                "Prioritäts-Support"
+            ]
+        },
+        "faq": {
+            "title": "Häufig gestellte Fragen",
+            "infoBox": {
+                "title": "Noch weitere Fragen?",
+                "description": "Kontaktieren Sie uns, wir beantworten gerne alle Ihre Fragen :)",
+                "cta": "Kontaktieren Sie uns"
+            },
+            "items": [
+                {
+                    "id": 1,
+                    "title": "Wie kann ich Design-Anfragen stellen?",
+                    "answer": "Sobald Sie eines unserer Abonnements abgeschlossen haben, gibt es in Ihrem Profil einen Bereich namens Anfragen, wo Sie Ihre Anfragen einreichen können. Denken Sie daran, dass Sie nur eine aktive Anfrage haben können, bis die aktuelle Anfrage abgeschlossen ist."
+                },
+                {
+                    "id": 2,
+                    "title": "Wann erhalte ich die Designs?",
+                    "answer": "Es hängt von der Komplexität der Anfrage ab, normalerweise erhalten Sie die Designs innerhalb von 2-3 Werktagen."
+                },
+                {
+                    "id": 3,
+                    "title": "Kann ich meinen Plan später ändern?",
+                    "answer": "Ja, Sie müssen sich nur abmelden, bis zum Ende Ihres aktuellen Abonnements warten und sich dann wieder für den von Ihnen gewählten Plan anmelden."
+                },
+                {
+                    "id": 4,
+                    "title": "Wie funktioniert die Abrechnung?",
+                    "answer": "Am ersten Tag der Ausführung des ersten Abonnements und in monatlichen Verlängerungszyklen können Sie die Rechnung im Rechnungsbereich des privaten Kundenbereichs herunterladen."
+                },
+                {
+                    "id": 5,
+                    "title": "Gibt es eine Rückerstattungsrichtlinie, wenn mir der Service nicht gefällt?",
+                    "answer": "Sie können eines unserer Abonnements eine Woche lang testen, und wenn Sie mit dem Service nicht zufrieden sind, erstatten wir Ihnen das Geld zurück."
+                }
+            ]
+        }
+    },
+    "contact": {
+        "title": "Wie können wir Ihnen helfen?",
+        "description": "Wählen Sie, wie Sie uns am liebsten kontaktieren möchten, und wir beantworten alle Ihre Fragen, oder wenn Sie möchten, vereinbaren Sie ein 20-minütiges Einführungsgespräch.",
+        "email": {
+            "title": "Senden Sie uns eine E-Mail",
+            "description": "Haben Sie Fragen oder benötigen Sie weitere Informationen? Schreiben Sie uns, und wir melden uns bei Ihnen, sobald wie möglich.",
+            "button": "E-Mail senden"
+        },
+        "chat": {
+            "title": "Chatten Sie mit uns",
+            "description": "Lieber etwas Schnelleres? Verbinden Sie sich mit uns im Chat, und wir klären Ihre Fragen sofort.",
+            "button": "Jetzt chatten"
+        },
+        "meeting": {
+            "title": "1:1 Termin buchen",
+            "description": "Lassen Sie uns über Ihr Projekt sprechen. Vereinbaren Sie eine persönliche Sitzung und finden Sie die beste Lösung für Ihr Design.",
+            "button": "Termin vereinbaren"
+        }
+    },
+    "waitlist": {
+        "title": "Warteliste beitreten",
+        "description": "Wir möchten allen den besten Service bieten, daher nehmen wir nicht viele Abonnements gleichzeitig an. Treten Sie unserer Warteliste bei, und wir benachrichtigen Sie, wenn ein Platz auf unserer Plattform frei wird 🎉",
+        "emailPlaceholder": "Ihre E-Mail",
+        "joinWaitlist": "Warteliste beitreten",
+        "successTitle": "Sie sind bereits auf der Warteliste!",
+        "successDescription": "Sie erhalten bald eine Bestätigungs-E-Mail mit Ihrer aktuellen Position. Wenn ein Platz frei wird, benachrichtigen wir Sie per E-Mail, und Sie haben X Tage Zeit, Ihr Abonnement abzuschließen. Wenn Sie dies nicht innerhalb dieses Zeitraums tun, geht Ihr Platz an den nächsten Benutzer über.",
+        "successButton": "Zurück zur Startseite"
+    },
+    "footer": {
+        "company": {
+            "title": "Citrus Designer",
+            "description": "Wir verwandeln Ihre Ideen in außergewöhnliche Designs. Einfacher und effektiver Design-Service im Abonnement."
+        },
+        "quickLinks": {
+            "title": "Schnelllinks",
+            "items": [
+                {
+                    "text": "Startseite",
+                    "href": "/"
+                },
+                {
+                    "text": "Wie es funktioniert",
+                    "href": "/#how-it-works"
+                },
+                {
+                    "text": "Preise",
+                    "href": "/#pricing"
+                },
+                {
+                    "text": "Kontakt",
+                    "href": "/contact"
+                }
+            ]
+        },
+        "contact": {
+            "title": "Kontakt",
+            "email": "info@citrusdesigner.com",
+            "phone": "+34 900 123 456",
+            "address": "Calle Principal 123, Madrid"
+        },
+        "legal": {
+            "privacy": "Datenschutzerklärung",
+            "terms": "Nutzungsbedingungen"
+        },
+        "copyright": "Alle Rechte vorbehalten"
+    },
+    "projects": {
+        "title": "Einige unserer Lieblingsprojekte",
+        "description": "Von Startups bis zu großen Unternehmen, entdecken Sie einige Projekte, bei denen wir zusammengearbeitet haben, um visuelle Erlebnisse mit hoher Wirkung zu transformieren.",
+        "items": [
+            {
+                "id": "1",
+                "title": "Competize",
+                "description": "Website-Redesign, um sie visueller und responsiver zu gestalten."
+            },
+            {
+                "id": "2",
+                "title": "Tenvinilo",
+                "description": "Verbesserung der Benutzererfahrung im Kaufprozess."
+            },
+            {
+                "id": "3",
+                "title": "Freakit",
+                "description": "App-Redesign und Design neuer Funktionen."
+            },
+            {
+                "id": "4",
+                "title": "Gureik",
+                "description": "Design der Lieferwebsite für die Multi-Marken-Restaurantkette."
+            }
+        ]
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "welcome": "Willkommen",
+        "menu": {
+            "subscriptions": "Meine Abonnements",
+            "invoices": "Meine Rechnungen",
+            "requests": "Meine Anfragen",
+            "profile": "Mein Profil"
+        },
+        "invoices": {
+            "title": "Meine Rechnungen",
+            "empty": {
+                "title": "Keine Rechnungen",
+                "description": "Keine Rechnungen zum Anzeigen gefunden."
+            },
+            "table": {
+                "number": "Nummer",
+                "date": "Datum",
+                "amount": "Betrag",
+                "status": "Status",
+                "actions": "Aktionen"
+            },
+            "status": {
+                "paid": "Bezahlt",
+                "open": "Offen",
+                "void": "Ungültig"
+            },
+            "actions": {
+                "download": "PDF herunterladen"
+            }
+        },
+        "requests": {
+            "title": "Meine Anfragen",
+            "empty": {
+                "title": "Keine Anfragen",
+                "description": "Keine Anfragen zum Anzeigen gefunden."
+            },
+            "create": {
+                "title": "Neue Anfrage erstellen",
+                "name": "Anfragename",
+                "description": "Anfragebeschreibung",
+                "submit": "Anfrage erstellen",
+                "cancel": "Abbrechen",
+                "loading": "Wird geladen...",
+                "subscription": {
+                    "required": "Abonnement erforderlich",
+                    "message": "Sie benötigen ein aktives Abonnement, um Anfragen zu erstellen.",
+                    "cta": "Abonnementpläne anzeigen"
+                }
+            },
+            "detail": {
+                "title": "Anfragedetails",
+                "name": "Name",
+                "request": "Anfrage",
+                "figma": "Design in Figma anzeigen",
+                "status": "Status",
+                "createdAt": "Erstellt am",
+                "estimatedTime": "Geschätzte Zeit",
+                "estimatedDays": "{days} Tage",
+                "noEstimate": "Keine Schätzung",
+                "feedback": {
+                    "title": "Feedback",
+                    "empty": "Kein Feedback verfügbar",
+                    "count": "{count} Kommentare"
+                },
+                "actions": "Aktionen",
+                "viewDetails": "Details anzeigen"
+            },
+            "status": {
+                "PENDING": "Ausstehend",
+                "ACCEPTED": "Akzeptiert",
+                "WORKING": "In Bearbeitung",
+                "DONE": "Abgeschlossen"
+            }
+        },
+        "requestDetail": {
+            "title": "Anfragedetail",
+            "name": "Name",
+            "request": "Anfrage",
+            "date": "Datum",
+            "addFeedback": "Feedback hinzufügen",
+            "sending": "Wird gesendet...",
+            "sendFeedback": "Feedback senden",
+            "figmaDesign": "Figma Design",
+            "viewFigma": "Design in Figma anzeigen",
+            "status": "Status",
+            "statuses": {
+                "PENDING": "Ausstehend",
+                "ACCEPTED": "Akzeptiert",
+                "WORKING": "In Bearbeitung",
+                "DONE": "Abgeschlossen"
+            },
+            "estimatedTime": "Geschätzte Zeit",
+            "creationDate": "Erstellungsdatum",
+            "feedback": {
+                "title": "Feedback",
+                "noFeedback": "Noch kein Feedback",
+                "you": "Sie"
+            }
+        },
+        "subscriptions": {
+            "title": "Abonnements",
+            "empty": {
+                "title": "Keine aktiven Abonnements",
+                "description": "Sie haben derzeit keine aktiven Abonnements."
+            },
+            "table": {
+                "plan": "Plan",
+                "amount": "Betrag",
+                "startDate": "Startdatum",
+                "endDate": "Enddatum",
+                "status": "Status",
+                "actions": "Aktionen"
+            },
+            "status": {
+                "active": "Aktiv",
+                "canceled": "Gekündigt",
+                "incomplete": "Unvollständig",
+                "unknown": "Unbekannt"
+            },
+            "actions": {
+                "cancel": "Kündigen",
+                "reactivate": "Reaktivieren",
+                "noActions": "Keine Aktionen verfügbar",
+                "hasActiveSubscription": "Sie haben bereits ein aktives Abonnement"
+            },
+            "modal": {
+                "title": "Abonnement kündigen",
+                "description": "Sind Sie sicher, dass Sie Ihr Abonnement kündigen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+                "confirm": "Ja, kündigen",
+                "cancel": "Nein, beibehalten",
+                "reactivating": "Wird reaktiviert...",
+                "reactivateTitle": "Abonnement reaktivieren",
+                "reactivateDescription": "Sind Sie sicher, dass Sie Ihr Abonnement reaktivieren möchten?",
+                "reactivateConfirm": "Ja, reaktivieren",
+                "reactivateCancel": "Nein, abbrechen"
+            },
+            "maxSubscriptionsReached": "Reaktivierung des Abonnements nicht möglich, da die maximale Anzahl aktiver Abonnements erreicht wurde",
+            "joinWaitlist": "Warteliste beitreten"
+        }
+    },
+    "testimonials": {
+        "title": "Was unsere Kunden sagen...",
+        "items": [
+            {
+                "text": "Andrea ist eine professionelle Designerin, mit der die Kommunikation einfach ist und die schnell versteht, was das Unternehmen sucht, und neue Ideen und Perspektiven einbringt, die eindeutig bereichernd sind.",
+                "author": "Joel Pascual",
+                "position": "CEO, Tenvinilo",
+                "logo": "/logos/logo1.png"
+            },
+            {
+                "text": "Von Anfang an haben wir Andrea vertraut und das Ergebnis war außergewöhnlich, mit guten Bewertungen, besonders bezüglich der Erfahrung, die der Kunde auf der gesamten Plattform macht.",
+                "author": "Jagoba Ormaetxea",
+                "position": "CEO, Gureik",
+                "logo": "/logos/logo2.png"
+            },
+            {
+                "text": "Neben ihrer Schnelligkeit und Effizienz versteht Andrea schnell die wenigen Inputs, die angeboten werden, und daraus entsteht ihre Kreativität, um zu einer optimalen Lösung zu gelangen.",
+                "author": "Nacho Kleinman",
+                "position": "CEO und Mitgründer, Culpass",
+                "logo": "/logos/logo3.png"
+            }
+        ]
+    },
+    "features": {
+        "title": "Alles, was Sie brauchen, im gleichen Cocktail-Shaker",
+        "items": [
+            "Responsives Design",
+            "App-Design",
+            "Benutzererfahrung",
+            "Benutzerabläufe",
+            "Informationsarchitektur",
+            "Design-Systeme",
+            "Und Vieles Mehr"
+        ]
+    }
+}
