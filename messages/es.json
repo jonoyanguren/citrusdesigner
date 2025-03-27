@@ -566,5 +566,52 @@
             "Sistemas de Diseño",
             "Y Mucho Más"
         ]
+    },
+    "auth": {
+        "login": {
+            "title": "Iniciar sesión",
+            "description": "¡Bienvenido de nuevo! Por favor, introduce tus datos.",
+            "email": "Email",
+            "password": "Contraseña",
+            "submitButton": "Iniciar sesión",
+            "submitButtonLoading": "Iniciando sesión...",
+            "forgotPassword": "¿Olvidaste tu contraseña?",
+            "noAccount": "¿No tienes cuenta?",
+            "register": "Registrarse",
+            "errors": {
+                "invalidCredentials": "Credenciales inválidas",
+                "serverError": "Error de configuración del servidor",
+                "authFailed": "Error de autenticación"
+            }
+        },
+        "forgotPassword": {
+            "title": "Olvidé mi contraseña",
+            "description": "Introduce tu email y te enviaremos un enlace para restablecer tu contraseña.",
+            "email": "Email",
+            "submitButton": "Enviar enlace",
+            "submitButtonLoading": "Enviando...",
+            "backToLogin": "Volver al inicio de sesión",
+            "errors": {
+                "emailRequired": "El email es requerido",
+                "requestError": "Error al procesar la solicitud",
+                "success": "Enlace de restablecimiento enviado a tu email"
+            }
+        },
+        "resetPassword": {
+            "title": "Restablecer contraseña",
+            "description": "Ingresa tu nueva contraseña",
+            "newPassword": "Nueva contraseña",
+            "confirmPassword": "Confirmar contraseña",
+            "submitButton": "Restablecer contraseña",
+            "submitButtonLoading": "Restableciendo...",
+            "backToLogin": "Volver al inicio de sesión",
+            "errors": {
+                "invalidToken": "Token no válido",
+                "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+                "passwordsDontMatch": "Las contraseñas no coinciden",
+                "resetError": "Error al restablecer la contraseña",
+                "success": "Contraseña actualizada exitosamente. Redirigiendo..."
+            }
+        }
     }
 }

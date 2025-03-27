@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { useTranslations } from "next-intl";
 
 export default function ResetPasswordPage() {
   const [password, setPassword] = useState("");
@@ -13,20 +14,28 @@ export default function ResetPasswordPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
+  const t = useTranslations("auth.resetPassword");
+  const { locale } = useParams();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     setError("");
 
-    if (password !== confirmPassword) {
-      setError("Las contraseñas no coinciden");
+    if (!token) {
+      setError(t("errors.invalidToken"));
       setIsLoading(false);
       return;
     }
 
-    if (!token) {
-      setError("Token no válido");
+    if (password.length < 8) {
+      setError(t("errors.passwordTooShort"));
+      setIsLoading(false);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError(t("errors.passwordsDontMatch"));
       setIsLoading(false);
       return;
     }
@@ -38,18 +47,19 @@ export default function ResetPasswordPage() {
         body: JSON.stringify({ token, password }),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Error al restablecer la contraseña");
+        throw new Error(data.error || t("errors.resetError"));
       }
 
-      router.push("/auth/login?reset=true");
+      // Show success message before redirecting
+      setError(t("errors.success"));
+      setTimeout(() => {
+        router.push(`${locale}/auth/login?reset=true`);
+      }, 2000);
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Error al restablecer la contraseña"
-      );
+      setError(err instanceof Error ? err.message : t("errors.resetError"));
     } finally {
       setIsLoading(false);
     }
@@ -59,13 +69,19 @@ export default function ResetPasswordPage() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold">Restablecer contraseña</h2>
-          <p className="mt-2 text-foreground/60">Ingresa tu nueva contraseña</p>
+          <h2 className="text-3xl font-bold">{t("title")}</h2>
+          <p className="mt-2 text-foreground/60">{t("description")}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           {error && (
-            <div className="bg-red-500/10 text-red-500 p-3 rounded-lg text-sm">
+            <div
+              className={`p-3 rounded-lg text-sm ${
+                error.includes("exitosamente")
+                  ? "bg-green-500/10 text-green-500"
+                  : "bg-red-500/10 text-red-500"
+              }`}
+            >
               {error}
             </div>
           )}
@@ -74,7 +90,7 @@ export default function ResetPasswordPage() {
             <Input
               id="password"
               type="password"
-              label="Nueva contraseña"
+              label={t("newPassword")}
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -83,7 +99,7 @@ export default function ResetPasswordPage() {
             <Input
               id="confirmPassword"
               type="password"
-              label="Confirmar contraseña"
+              label={t("confirmPassword")}
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -91,12 +107,12 @@ export default function ResetPasswordPage() {
           </div>
 
           <Button type="submit" fullWidth isLoading={isLoading}>
-            {isLoading ? "Restableciendo..." : "Restablecer contraseña"}
+            {isLoading ? t("submitButtonLoading") : t("submitButton")}
           </Button>
 
           <p className="text-center text-sm">
             <Link href="/auth/login" className="hover:underline">
-              Volver al inicio de sesión
+              {t("backToLogin")}
             </Link>
           </p>
         </form>

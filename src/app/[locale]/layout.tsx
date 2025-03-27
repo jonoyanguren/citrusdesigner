@@ -28,6 +28,7 @@ const patrickHand = Patrick_Hand({
 export const metadata: Metadata = {
   title: "Citrus Designer",
   description: "Diseño de interfaces de usuario con IA",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default async function RootLayout({
@@ -37,7 +38,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: LocaleType };
 }) {
-  const { locale } = await params;
+  const { locale } = params;
   if (!routing.locales.includes(locale)) {
     notFound();
   }
@@ -45,15 +46,16 @@ export default async function RootLayout({
   const messages = (await import(`../../../messages/${locale}.json`)).default;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
+      <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${patrickHand.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${patrickHand.variable} antialiased min-h-screen flex flex-col`}
         suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
             <Navigation />
-            <main>{children}</main>
+            <main className="flex-grow">{children}</main>
             <Footer />
           </AuthProvider>
         </NextIntlClientProvider>

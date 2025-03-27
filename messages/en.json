@@ -566,5 +566,52 @@
             "Design Systems",
             "And Much More"
         ]
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "description": "Welcome back! Please enter your details.",
+            "email": "Email",
+            "password": "Password",
+            "submitButton": "Login",
+            "submitButtonLoading": "Logging in...",
+            "forgotPassword": "Forgot password?",
+            "noAccount": "Don't have an account?",
+            "register": "Register",
+            "errors": {
+                "invalidCredentials": "Invalid credentials",
+                "serverError": "Server configuration error",
+                "authFailed": "Authentication failed"
+            }
+        },
+        "forgotPassword": {
+            "title": "Forgot password",
+            "description": "Enter your email address and we'll send you a link to reset your password.",
+            "email": "Email",
+            "submitButton": "Send reset link",
+            "submitButtonLoading": "Sending...",
+            "backToLogin": "Back to login",
+            "errors": {
+                "emailRequired": "Email is required",
+                "requestError": "Error processing request",
+                "success": "Reset link sent to your email"
+            }
+        },
+        "resetPassword": {
+            "title": "Reset password",
+            "description": "Enter your new password",
+            "newPassword": "New password",
+            "confirmPassword": "Confirm password",
+            "submitButton": "Reset password",
+            "submitButtonLoading": "Resetting...",
+            "backToLogin": "Back to login",
+            "errors": {
+                "invalidToken": "Invalid token",
+                "passwordTooShort": "Password must be at least 8 characters",
+                "passwordsDontMatch": "Passwords do not match",
+                "resetError": "Error resetting password",
+                "success": "Password updated successfully. Redirecting..."
+            }
+        }
     }
 }
