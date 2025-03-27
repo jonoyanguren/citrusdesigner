@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { createPortal } from "react-dom";
+import LanguageSelector from "./LanguageSelector";
 
 export default function NavigationMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -121,6 +122,9 @@ export default function NavigationMobile() {
                 </Link>
 
                 <div className="border-t border-gray-200 mt-2 pt-2">
+                  <div className="px-4 py-2">
+                    <LanguageSelector />
+                  </div>
                   {user ? (
                     <>
                       <div className="text-sm text-gray-600 px-4 py-2">

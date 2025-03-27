@@ -10,7 +10,7 @@ interface EmailData {
   to: string;
   subject: string;
   text: string;
-  html?: string;
+  html: string;
 }
 
 export async function sendEmail({ to, subject, text, html }: EmailData) {
@@ -19,7 +19,7 @@ export async function sendEmail({ to, subject, text, html }: EmailData) {
 
     sendSmtpEmail.to = [{ email: to }];
     sendSmtpEmail.subject = subject;
-    sendSmtpEmail.htmlContent = html || text;
+    sendSmtpEmail.htmlContent = html;
     sendSmtpEmail.textContent = text;
     sendSmtpEmail.sender = {
       name: "Citrus Designer",

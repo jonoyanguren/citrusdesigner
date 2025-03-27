@@ -3,6 +3,8 @@ import { stripe } from "@/lib/stripe";
 import { headers } from "next/headers";
 import Stripe from "stripe";
 import { createSubscription } from "./createSubscription";
+import { emailTemplates } from "@/lib/email-templates";
+import prisma from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
   try {
@@ -55,20 +57,29 @@ export async function POST(request: NextRequest) {
       case "customer.subscription.deleted":
         const deletedSubscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription deleted:", deletedSubscription.id);
+
+        // Buscar el usuario y enviar email de cancelación
+        const user = await prisma.user.findFirst({
+          where: {
+            subscriptions: {
+              some: {
+                stripeSubscriptionId: deletedSubscription.id,
+              },
+            },
+          },
+        });
+
+        if (user) {
+          // Calcular la fecha de fin del período actual
+          const endDate = new Date(
+            deletedSubscription.current_period_end * 1000
+          );
+          await emailTemplates.sendSubscriptionCancelledEmail(
+            user.email,
+            endDate
+          );
+        }
         break;
-
-      // case "invoice.payment_succeeded":
-      //   const invoice = event.data.object as Stripe.Invoice;
-
-      //   if (invoice.billing_reason === "subscription_create") {
-      //     try {
-      //       await createSubscription(invoice);
-      //       console.info("✅ Subscription created from invoice");
-      //     } catch (error) {
-      //       console.error("❌ Error creating subscription:", error);
-      //     }
-      //   }
-      //   break;
 
       default:
         console.info(`🤔 Unhandled event type: ${event.type}`);

@@ -7,6 +7,7 @@ import AdminNavigation from "./navigation/AdminNavigation";
 import UserNavigation from "./navigation/UserNavigation";
 import NotificationsMenu from "./navigation/NotificationsMenu";
 import NavigationMobile from "./navigation/NavigationMobile";
+import LanguageSelector from "./navigation/LanguageSelector";
 import Button from "./Button";
 import { useParams } from "next/navigation";
 
@@ -69,6 +70,7 @@ export default function Navigation() {
             {t("contact")}
           </Link>
           <div className="border-l w-[1px] h-8 border-gray-300" />
+          <LanguageSelector />
           {user ? (
             <div className="flex items-center gap-4">
               <NotificationsMenu />

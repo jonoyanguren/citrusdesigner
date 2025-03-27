@@ -8,7 +8,8 @@
         "login": "Iniciar sesión",
         "register": "Registrarse",
         "bookCall": "Reserva un 1:1",
-        "logout": "Cerrar sesión"
+        "logout": "Cerrar sesión",
+        "selectLanguage": "Seleccionar idioma"
     },
     "designerBehind": {
         "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."
@@ -20,6 +21,14 @@
         "logout": "Cerrar sesión",
         "createRequest": "Crear solicitud",
         "noNotifications": "No hay notificaciones"
+    },
+    "changePassword": {
+        "title": "Cambiar contraseña",
+        "description": "Es la primera vez que entras, así que por seguridad, cambia tu contraseña",
+        "newPassword": "Nueva contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "submitButton": "Cambiar contraseña",
+        "error": "Las contraseñas no coinciden"
     },
     "cta": {
         "title": "¿Listo para exprimir juntos todo el potencial creativo?",

@@ -2,6 +2,7 @@ import { stripe } from "@/lib/stripe";
 import prisma from "@/lib/prisma";
 import type Stripe from "stripe";
 import { hashSync } from "bcrypt";
+import { emailTemplates } from "@/lib/email-templates";
 
 export async function createSubscription(invoice: Stripe.Invoice) {
   try {
@@ -36,14 +37,20 @@ export async function createSubscription(invoice: Stripe.Invoice) {
           "User not found, creating new user",
           invoice.customer_email
         );
+        // Generar una contraseña temporal
+        const temporaryPassword = Math.random().toString(36).slice(-8);
+
         user = await prisma.user.create({
           data: {
             email: invoice.customer_email,
             name: invoice.customer_email.split("@")[0],
-            password: hashSync("Password123", 10),
+            password: hashSync(temporaryPassword, 10),
             hasToChangePassword: true,
           },
         });
+
+        // Enviar email de bienvenida con la contraseña temporal
+        await emailTemplates.sendWelcomeEmail(user.email, temporaryPassword);
       }
     }
 

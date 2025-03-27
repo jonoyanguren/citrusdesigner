@@ -8,7 +8,8 @@
         "login": "Login",
         "register": "Register",
         "bookCall": "Book a 1:1",
-        "logout": "Logout"
+        "logout": "Logout",
+        "selectLanguage": "Select language"
     },
     "designerBehind": {
         "orangeMessage": "Each project is a unique adventure that challenges me to find the best way to simplify the complex and transform ideas into tangible realities."
@@ -20,6 +21,14 @@
         "logout": "Logout",
         "createRequest": "Create request",
         "noNotifications": "No notifications"
+    },
+    "changePassword": {
+        "title": "Change password",
+        "description": "This is your first time logging in, so for security reasons, please change your password",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password",
+        "submitButton": "Change password",
+        "error": "Passwords do not match"
     },
     "cta": {
         "title": "Ready to squeeze out all the creative potential together?",

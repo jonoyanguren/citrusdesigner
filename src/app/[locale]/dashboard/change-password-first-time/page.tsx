@@ -3,10 +3,13 @@ import { makeApiRequest } from "@/lib/api";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 export default function ChangePasswordFirstTime() {
   const router = useRouter();
+  const t = useTranslations("changePassword");
+  const { locale } = useParams();
   const [formData, setFormData] = useState({
     password: "",
     confirmPassword: "",
@@ -20,7 +23,7 @@ export default function ChangePasswordFirstTime() {
     e.preventDefault();
     setError("");
     if (formData.password !== formData.confirmPassword) {
-      setError("Las contraseñas no coinciden");
+      setError(t("error"));
       return;
     }
 
@@ -30,7 +33,7 @@ export default function ChangePasswordFirstTime() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        router.push("/dashboard");
+        router.push(`${locale}/dashboard`);
       }
     } catch (error) {
       console.error(error);
@@ -44,16 +47,13 @@ export default function ChangePasswordFirstTime() {
           onSubmit={handleSubmit}
           className="mt-8 space-y-6 border bg-white p-8 rounded-lg w-full max-w-md"
         >
-          <h2 className="text-2xl font-bold">Cambiar contraseña</h2>
-          <p className="text-foreground/60">
-            Es la primera vez que entras, así que por seguridad, cambia tu
-            contraseña
-          </p>
+          <h2 className="text-2xl font-bold">{t("title")}</h2>
+          <p className="text-foreground/60">{t("description")}</p>
           <Input
             id="password"
             name="password"
             type="password"
-            label="Nueva contraseña"
+            label={t("newPassword")}
             required
             value={formData.password}
             onChange={handleChange}
@@ -62,12 +62,12 @@ export default function ChangePasswordFirstTime() {
             id="confirmPassword"
             name="confirmPassword"
             type="password"
-            label="Confirmar contraseña"
+            label={t("confirmPassword")}
             required
             value={formData.confirmPassword}
             onChange={handleChange}
           />
-          <Button type="submit">Cambiar contraseña</Button>
+          <Button type="submit">{t("submitButton")}</Button>
           {error && <p className="text-red-500">{error}</p>}
         </form>
       </div>
