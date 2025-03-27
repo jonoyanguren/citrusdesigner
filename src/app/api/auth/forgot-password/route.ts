@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     });
 
     // Enviar email usando el template
-    await emailTemplates.sendPasswordResetEmail(email, resetToken, locale);
+    await emailTemplates.sendPasswordResetEmail(email, resetToken);
 
     return NextResponse.json({ message: "Email enviado" });
   } catch (error) {
