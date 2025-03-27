@@ -5,7 +5,7 @@ import { emailTemplates } from "@/lib/email-templates";
 
 export async function POST(request: Request) {
   try {
-    const { email, locale = "es" } = await request.json();
+    const { email } = await request.json();
 
     if (!email) {
       return NextResponse.json(
