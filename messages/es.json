@@ -40,7 +40,7 @@
             "titleBegin": "Tu diseñador de confianza, en formato",
             "titleMiddle": "suscripción",
             "cta": "Suscríbete hoy mismo",
-            "ctaSecondary": "Agenda una llamada",
+            "ctaSecondary": "Contacta con nosotros",
             "description": "Suscríbete los meses que lo necesites y olvídate de contratar full time o buscar un freelance cada vez."
         },
         "customers": {
@@ -216,7 +216,7 @@
         },
         "loading": "Procesando...",
         "subscribe": "Suscríbete ahora",
-        "bookACall": "Reserva una llamada gratis",
+        "bookACall": "Agenda un 1:1",
         "month": "mes",
         "badge": {
             "availableSpots": "2 sitios libres"
@@ -337,19 +337,19 @@
             "items": [
                 {
                     "text": "Inicio",
-                    "href": "/"
+                    "href": "/es"
                 },
                 {
                     "text": "Cómo funciona",
-                    "href": "/#how-it-works"
+                    "href": "/es/how-it-works"
                 },
                 {
                     "text": "Precios",
-                    "href": "/#pricing"
+                    "href": "/es/pricing"
                 },
                 {
                     "text": "Contacto",
-                    "href": "/contact"
+                    "href": "/es/contact"
                 }
             ]
         },
@@ -613,5 +613,9 @@
                 "success": "Contraseña actualizada exitosamente. Redirigiendo..."
             }
         }
+    },
+    "calendar": {
+        "schedule_call": "Agendar un 1:1",
+        "loading": "Cargando..."
     }
 }

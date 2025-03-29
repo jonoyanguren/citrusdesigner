@@ -23,7 +23,7 @@ export default function Contact() {
       <Title title={t("title")} description={t("description")} />
 
       <div className="container mx-auto px-4 py-12 relative mt-12">
-        <div className="absolute -top-20 -z-10 w-full">
+        <div className="absolute -top-10 md:-top-20 -z-10 w-full">
           <BlobOrange />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -1,16 +1,18 @@
 "use client";
 import { useState, useEffect } from "react";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { createPortal } from "react-dom";
-import LanguageSelector from "./LanguageSelector";
+import CalendarButton from "../CalendarButton";
+import Button from "../Button";
 
 export default function NavigationMobile() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { user, setUser } = useAuth();
   const t = useTranslations("navigation");
+  const pathname = usePathname();
 
   useEffect(() => {
     setMounted(true);
@@ -123,7 +125,43 @@ export default function NavigationMobile() {
 
                 <div className="border-t border-gray-200 mt-2 pt-2">
                   <div className="px-4 py-2">
-                    <LanguageSelector />
+                    <div className="flex items-center justify-center gap-4">
+                      <Link
+                        href={pathname}
+                        locale="es"
+                        className="hover:opacity-70 transition-opacity"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        ES
+                      </Link>
+                      <div className="h-4 w-[1px] bg-gray-300" />
+                      <Link
+                        href={pathname}
+                        locale="en"
+                        className="hover:opacity-70 transition-opacity"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        EN
+                      </Link>
+                      <div className="h-4 w-[1px] bg-gray-300" />
+                      <Link
+                        href={pathname}
+                        locale="de"
+                        className="hover:opacity-70 transition-opacity"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        DE
+                      </Link>
+                      <div className="h-4 w-[1px] bg-gray-300" />
+                      <Link
+                        href={pathname}
+                        locale="jp"
+                        className="hover:opacity-70 transition-opacity"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        JP
+                      </Link>
+                    </div>
                   </div>
                   {user ? (
                     <>
@@ -139,20 +177,17 @@ export default function NavigationMobile() {
                     </>
                   ) : (
                     <div className="flex flex-col gap-2 p-2">
-                      <Link
+                      <Button
+                        variant="outline"
                         href="/auth/login"
-                        className="hover:bg-gray-50 transition-colors py-3 px-4 rounded-lg"
+                        className="text-center m-4"
                         onClick={() => setIsOpen(false)}
                       >
                         {t("login")}
-                      </Link>
-                      <Link
-                        href="/auth/register"
-                        className="bg-foreground text-background py-3 px-4 rounded-lg hover:opacity-90 transition-opacity text-center"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {t("register")}
-                      </Link>
+                      </Button>
+                      <div className="w-full px-4">
+                        <CalendarButton />
+                      </div>
                     </div>
                   )}
                 </div>

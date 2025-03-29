@@ -9,6 +9,7 @@ import NotificationsMenu from "./navigation/NotificationsMenu";
 import NavigationMobile from "./navigation/NavigationMobile";
 import LanguageSelector from "./navigation/LanguageSelector";
 import Button from "./Button";
+import CalendarButton from "./CalendarButton";
 import { useParams } from "next/navigation";
 
 export default function Navigation() {
@@ -99,7 +100,7 @@ export default function Navigation() {
               >
                 {t("login")}
               </Button>
-              <Button href={`/${locale}/contact`}>{t("bookCall")}</Button>
+              <CalendarButton />
             </>
           )}
         </div>

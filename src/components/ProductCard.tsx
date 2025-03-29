@@ -2,8 +2,8 @@ import { StripeProduct } from "@/lib/stripe";
 import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
 import { FaCheckCircle } from "react-icons/fa";
-import Link from "next/link";
 import { useParams } from "next/navigation";
+import CalendarButton from "./CalendarButton";
 
 interface ProductCardProps {
   product: StripeProduct;
@@ -82,20 +82,17 @@ export default function ProductCard({
       )}
       {!showWaitlist ? (
         <div className="mt-auto flex flex-col gap-4">
-          <Button
-            variant="secondary"
-            fullWidth
-            isLoading={isLoading}
-            onClick={() => onSubscribe(product.priceId, product.name)}
-          >
-            {isLoading ? t("loading") : t("subscribe")}
-          </Button>
-          <Link
-            href="/pricing"
-            className="text-center text-lg text-medium text-neutral-900 underline"
-          >
-            {t("bookACall")}
-          </Link>
+          {product.id !== "enterprise" && (
+            <Button
+              variant="secondary"
+              fullWidth
+              isLoading={isLoading}
+              onClick={() => onSubscribe(product.priceId, product.name)}
+            >
+              {isLoading ? t("loading") : t("subscribe")}
+            </Button>
+          )}
+          <CalendarButton variant="text" />
         </div>
       ) : (
         <div className="mt-auto flex flex-col gap-4">

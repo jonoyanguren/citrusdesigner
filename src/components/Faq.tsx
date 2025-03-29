@@ -6,7 +6,7 @@ import Image from "next/image";
 import { PiChatsCircle } from "react-icons/pi";
 import { OrangeBlob } from "./OrangeBlob";
 import { HiOutlineMinusCircle, HiOutlinePlusCircle } from "react-icons/hi";
-
+import { useParams } from "next/navigation";
 type FaqItem = {
   id: number;
   title: string;
@@ -16,6 +16,7 @@ type FaqItem = {
 
 export default function Faq() {
   const t = useTranslations("pricing.faq");
+  const { locale } = useParams();
   const [openFaqs, setOpenFaqs] = useState<FaqItem[]>([]);
 
   const faqs = t.raw("items") as FaqItem[];
@@ -86,11 +87,15 @@ export default function Faq() {
             <p className="text-white mb-4 flex-grow">
               {t("infoBox.description")}
             </p>
-            <Button variant="outline" className="mt-6">
+            <Button
+              variant="outline"
+              className="mt-6 text-center"
+              href={`/${locale}/contact`}
+            >
               {t("infoBox.cta")}
             </Button>
             <Image
-              className="absolute -bottom-20 -right-10 rotate-180"
+              className="hidden md:block absolute -bottom-20 -right-10 rotate-180"
               src="/halfOrange.svg"
               alt="halfOrange"
               width={150}

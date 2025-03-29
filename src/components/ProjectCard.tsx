@@ -26,7 +26,7 @@ export default function ProjectCard({
           src={`/projects/project${index + 1}.png`}
           alt={title}
           fill
-          className="object-cover rounded-lg"
+          className="rounded-lg"
         />
       </div>
     </div>

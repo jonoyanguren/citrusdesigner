@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Button from "./Button";
+import { useTranslations } from "next-intl";
 
 interface CalendlyApi {
   initPopupWidget: (options: { url: string }) => void;
@@ -16,22 +18,41 @@ export function useCalendly() {
   const [isCalendlyReady, setIsCalendlyReady] = useState(false);
 
   useEffect(() => {
-    // Cargar el script de Calendly
     const loadCalendlyScript = () => {
+      // Check if script is already loaded
+      if (
+        document.querySelector(
+          'script[src="https://assets.calendly.com/assets/external/widget.js"]'
+        )
+      ) {
+        setIsCalendlyReady(true);
+        return;
+      }
+
+      // Load Calendly script
       const script = document.createElement("script");
       script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.async = true;
       script.onload = () => {
-        console.log("Script de Calendly cargado exitosamente");
+        console.log("Calendly script loaded successfully");
         setIsCalendlyReady(true);
+      };
+      script.onerror = (error) => {
+        console.error("Error loading Calendly script:", error);
       };
       document.body.appendChild(script);
 
-      // Cargar los estilos
-      const link = document.createElement("link");
-      link.href = "https://assets.calendly.com/assets/external/widget.css";
-      link.rel = "stylesheet";
-      document.head.appendChild(link);
+      // Load Calendly styles
+      if (
+        !document.querySelector(
+          'link[href="https://assets.calendly.com/assets/external/widget.css"]'
+        )
+      ) {
+        const link = document.createElement("link");
+        link.href = "https://assets.calendly.com/assets/external/widget.css";
+        link.rel = "stylesheet";
+        document.head.appendChild(link);
+      }
     };
 
     if (typeof window !== "undefined") {
@@ -42,60 +63,54 @@ export function useCalendly() {
       }
     }
 
-    return () => {
-      // Limpiar script y estilos al desmontar
-      const script = document.querySelector(
-        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
-      );
-      const link = document.querySelector(
-        'link[href="https://assets.calendly.com/assets/external/widget.css"]'
-      );
-      script?.remove();
-      link?.remove();
-    };
+    // No cleanup on unmount to keep the script loaded
+    return () => {};
   }, []);
 
   const openCalendly = () => {
     try {
-      console.log("Iniciando openCalendly...");
-
       if (typeof window === "undefined") {
-        console.error("Window no está disponible");
+        console.error("Window is not available");
         return;
       }
 
       if (!window.Calendly) {
-        console.error("Calendly aún no está disponible");
+        console.error("Calendly is not available");
         return;
       }
 
-      console.log("Abriendo widget de Calendly...");
-      window.Calendly.initPopupWidget({
-        url: "https://calendly.com/acegarras/30min",
-      });
-      console.log("Widget de Calendly abierto exitosamente");
+      // Add a small delay to ensure the widget is ready
+      setTimeout(() => {
+        if (window.Calendly) {
+          window.Calendly.initPopupWidget({
+            url: "https://calendly.com/acegarras/30min",
+          });
+        }
+      }, 100);
     } catch (error) {
-      console.error("Error al abrir Calendly:", error);
+      console.error("Error opening Calendly:", error);
     }
   };
 
   return { openCalendly, isCalendlyReady };
 }
 
-export default function CalendarButton() {
+export default function CalendarButton({
+  variant = "primary",
+}: {
+  variant?: "primary" | "text";
+}) {
+  const t = useTranslations("calendar");
   const { openCalendly, isCalendlyReady } = useCalendly();
 
   return (
-    <button
+    <Button
+      className="w-full"
+      variant={variant}
       onClick={openCalendly}
       disabled={!isCalendlyReady}
-      className={`px-6 py-3 rounded-lg transition-colors ${
-        isCalendlyReady
-          ? "bg-blue-600 text-white hover:bg-blue-700"
-          : "bg-gray-400 cursor-not-allowed"
-      }`}
     >
-      {isCalendlyReady ? "Programar una llamada" : "Cargando..."}
-    </button>
+      {isCalendlyReady ? t("schedule_call") : t("loading")}
+    </Button>
   );
 }

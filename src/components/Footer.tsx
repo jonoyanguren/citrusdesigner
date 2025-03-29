@@ -15,7 +15,7 @@ export default function Footer() {
             </h3>
             <p className="text-gray-400 mb-4">{t("company.description")}</p>
             <div className="flex space-x-4">
-              <Link href="#" className="hover:text-white transition-colors">
+              <Link href="/" className="hover:text-white transition-colors">
                 Twitter
               </Link>
               <Link href="#" className="hover:text-white transition-colors">
