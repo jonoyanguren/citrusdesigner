@@ -12,7 +12,10 @@
     "db:push": "prisma db push",
     "db:studio": "prisma studio",
     "db:generate": "prisma generate",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "add-admin": "ts-node scripts/add-admin.ts",
+    "create-user:dev": "chmod +x ./curls/create-user.sh && ENV=dev ./curls/create-user.sh",
+    "create-user:prod": "chmod +x ./curls/create-user.sh && ENV=prod ./curls/create-user.sh"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",

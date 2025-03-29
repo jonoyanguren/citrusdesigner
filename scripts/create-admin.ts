@@ -1,34 +1,72 @@
-const { PrismaClient } = require("@prisma/client");
-const { hash } = require("bcrypt");
-require("dotenv").config();
+import { PrismaClient } from "@prisma/client";
+import { hash } from "bcrypt";
+import dotenv from "dotenv";
 
-const prisma = new PrismaClient();
+dotenv.config();
+
+if (!process.env.DATABASE_URL) {
+  console.error("Error: DATABASE_URL no está definido en el archivo .env");
+  process.exit(1);
+}
 
 if (!process.env.ADMIN_PASSWORD) {
   console.error("Error: ADMIN_PASSWORD no está definido en el archivo .env");
   process.exit(1);
 }
 
-async function main() {
-  try {
-    const hashedPassword = await hash(process.env.ADMIN_PASSWORD!, 10);
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
+    },
+  },
+});
 
-    await prisma.user.upsert({
-      where: { email: "acegarras@gmail.com" },
+async function createUser(
+  email: string,
+  name: string,
+  password: string,
+  role: "admin" | "user" = "user"
+) {
+  try {
+    const hashedPassword = await hash(password, 10);
+
+    const user = await prisma.user.upsert({
+      where: { email },
       update: {
-        role: "admin",
+        role,
       },
       create: {
-        email: "acegarras@gmail.com",
-        name: "Andrea",
+        email,
+        name,
         password: hashedPassword,
-        role: "admin",
+        role,
       },
     });
 
-    console.info("Admin user created successfully");
+    console.info(`Usuario ${role} creado exitosamente:`, user.email);
+    return user;
   } catch (error) {
-    console.error("Error creating admin:", error);
+    console.error("Error creando usuario:", error);
+    throw error;
+  }
+}
+
+async function main() {
+  try {
+    // Crear usuario administrador
+    await createUser(
+      "acegarras@gmail.com",
+      "Andrea",
+      process.env.ADMIN_PASSWORD!,
+      "admin"
+    );
+
+    // Aquí puedes agregar más usuarios si lo necesitas
+    // await createUser("otro@email.com", "Otro Usuario", "contraseña123");
+  } catch (error) {
+    console.error("Error en el proceso:", error);
+    process.exit(1);
   } finally {
     await prisma.$disconnect();
   }
