@@ -48,7 +48,12 @@ export async function POST(request: Request) {
     });
 
     // No enviar la contraseña en la respuesta
-    const { password: _, ...userWithoutPassword } = user;
+    const userWithoutPassword = {
+      id: user.id,
+      email: user.email,
+      name: user.name,
+      role: user.role,
+    };
 
     return NextResponse.json(
       { message: "Usuario creado exitosamente", user: userWithoutPassword },

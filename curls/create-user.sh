@@ -8,10 +8,10 @@ if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
 fi
 
 if [ "$ENV" = "prod" ]; then
-    URL="https://citrusdesigner.vercel.app/api/create-user"
+    URL="https://citrusdesigner.vercel.app/api/users/create"
     echo "Creando usuario en producción..."
 elif [ "$ENV" = "dev" ]; then
-    URL="http://localhost:3000/api/create-user"
+    URL="http://localhost:3000/api/users/create"
     echo "Creando usuario en desarrollo..."
 else
     echo "Error: Entorno no especificado"
