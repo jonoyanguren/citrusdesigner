@@ -24,22 +24,16 @@ export async function POST(request: Request) {
       );
     }
 
-    // Verificar si el usuario ya existe
-    const existingUser = await prisma.user.findUnique({
-      where: { email },
-    });
-
-    if (existingUser) {
-      return NextResponse.json(
-        { error: "El usuario ya existe" },
-        { status: 400 }
-      );
-    }
-
-    // Crear el usuario
+    // Crear o actualizar el usuario
     const hashedPassword = await hash(password, 10);
-    const user = await prisma.user.create({
-      data: {
+    const user = await prisma.user.upsert({
+      where: { email },
+      update: {
+        name,
+        password: hashedPassword,
+        role: role || "user",
+      },
+      create: {
         email,
         name,
         password: hashedPassword,
@@ -56,13 +50,16 @@ export async function POST(request: Request) {
     };
 
     return NextResponse.json(
-      { message: "Usuario creado exitosamente", user: userWithoutPassword },
+      {
+        message: "Usuario creado/actualizado exitosamente",
+        user: userWithoutPassword,
+      },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error creando usuario:", error);
+    console.error("Error creando/actualizando usuario:", error);
     return NextResponse.json(
-      { error: "Error al crear el usuario" },
+      { error: "Error al crear/actualizar el usuario" },
       { status: 500 }
     );
   } finally {

@@ -1,118 +1,118 @@
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Contact {
-    id        String   @id @default(uuid())
-    name      String
-    email     String
-    message   String
-    createdAt DateTime @default(now())
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  message   String
+  createdAt DateTime @default(now())
 }
 
 model Project {
-    id          String   @id @default(uuid())
-    title       String
-    description String?
-    imageUrl    String?
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    userId      String?
-    user        User?    @relation(fields: [userId], references: [id])
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
 }
 
 model Subscription {
-    id                   String   @id @default(cuid())
-    stripeUserId         String
-    userId               String
-    user                 User     @relation(fields: [userId], references: [id])
-    stripeSubscriptionId String   @unique // ID de la suscripción de Stripe
-    status               String // active, canceled, etc.
-    priceId              String // ID del precio en Stripe
-    productId            String // ID del producto en Stripe
-    createdAt            DateTime @default(now())
-    updatedAt            DateTime @updatedAt
+  id                   String   @id @default(cuid())
+  stripeUserId         String
+  userId               String
+  stripeSubscriptionId String   @unique
+  status               String
+  priceId              String
+  productId            String
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  user                 User     @relation(fields: [userId], references: [id])
 
-    @@index([userId])
-    @@index([stripeUserId])
+  @@index([userId])
+  @@index([stripeUserId])
 }
 
 model User {
-    id                  String         @id @default(cuid())
-    name                String
-    email               String         @unique
-    password            String
-    role                String         @default("user")
-    resetToken          String?
-    hasToChangePassword Boolean        @default(false)
-    resetTokenExpiry    DateTime?
-    createdAt           DateTime       @default(now())
-    updatedAt           DateTime       @updatedAt
-    projects            Project[]
-    subscriptions       Subscription[]
-    requests            Request[]
-    feedback            Feedback[]
-    Notification        Notification[]
-}
-
-enum RequestStatus {
-    PENDING
-    ACCEPTED
-    WORKING
-    DONE
+  id                  String         @id @default(cuid())
+  name                String
+  email               String         @unique
+  password            String
+  role                String         @default("user")
+  resetToken          String?
+  hasToChangePassword Boolean        @default(false)
+  resetTokenExpiry    DateTime?
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+  feedback            Feedback[]
+  Notification        Notification[]
+  projects            Project[]
+  requests            Request[]
+  subscriptions       Subscription[]
 }
 
 model Request {
-    id             String        @id @default(cuid())
-    name           String
-    request        String
-    userId         String
-    status         RequestStatus @default(PENDING)
-    timeToComplete String?
-    createdAt      DateTime      @default(now())
-    updatedAt      DateTime      @updatedAt
-    user           User          @relation(fields: [userId], references: [id])
-    feedback       Feedback[]
-    figmaUrl       String?
+  id             String        @id @default(cuid())
+  name           String
+  request        String
+  userId         String
+  status         RequestStatus @default(PENDING)
+  timeToComplete String?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  figmaUrl       String?
+  feedback       Feedback[]
+  user           User          @relation(fields: [userId], references: [id])
 
-    @@index([userId])
+  @@index([userId])
 }
 
 model Feedback {
-    id        String   @id @default(cuid())
-    feedback  String
-    createdAt DateTime @default(now())
-    userId    String
-    requestId String
-    user      User     @relation(fields: [userId], references: [id])
-    request   Request  @relation(fields: [requestId], references: [id])
+  id        String   @id @default(cuid())
+  feedback  String
+  createdAt DateTime @default(now())
+  userId    String
+  requestId String
+  request   Request  @relation(fields: [requestId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 
-    @@index([userId])
-    @@index([requestId])
+  @@index([userId])
+  @@index([requestId])
 }
 
 model Notification {
-    id        String   @id @default(cuid())
-    userId    String
-    title     String
-    message   String
-    action    String?
-    read      Boolean  @default(false)
-    createdAt DateTime @default(now())
-    user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id        String   @id @default(cuid())
+  userId    String
+  title     String
+  message   String
+  action    String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-    @@index([userId])
+  @@index([userId])
 }
 
 model WaitlistEntry {
-    id        String   @id @default(cuid())
-    email     String   @unique
-    createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
 
-    @@map("waitlist_entries")
+  @@map("waitlist_entries")
+}
+
+enum RequestStatus {
+  PENDING
+  ACCEPTED
+  WORKING
+  DONE
 }
