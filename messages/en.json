@@ -613,5 +613,27 @@
                 "success": "Password updated successfully. Redirecting..."
             }
         }
+    },
+    "success": {
+        "verifying": "Verifying your subscription...",
+        "error": {
+            "title": "Error processing payment",
+            "message": "Please contact support if the problem persists.",
+            "backToHome": "Back to home"
+        },
+        "success": {
+            "title": "Payment completed!",
+            "subtitle": "Thank you for subscribing to {planName}",
+            "details": {
+                "title": "Subscription details",
+                "email": "Email: {email}",
+                "plan": "Plan: {planName}"
+            },
+            "confirmation": "We've sent a confirmation email to your email address.",
+            "actions": {
+                "goHome": "Go to home",
+                "contactSupport": "Contact support"
+            }
+        }
     }
 }

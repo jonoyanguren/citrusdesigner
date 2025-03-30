@@ -1,7 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
+import Button from "@/components/Button";
+import { IoMdCheckmark } from "react-icons/io";
 
 interface CheckoutSession {
   customer: {
@@ -23,6 +26,8 @@ function SuccessPage() {
   const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
+  const t = useTranslations("success");
+  const { locale } = useParams();
 
   useEffect(() => {
     if (!sessionId) {
@@ -55,9 +60,7 @@ function SuccessPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-semibold mb-4">
-            Verificando tu suscripción...
-          </h2>
+          <h2 className="text-2xl font-semibold mb-4">{t("verifying")}</h2>
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground mx-auto"></div>
         </div>
       </div>
@@ -69,16 +72,14 @@ function SuccessPage() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h2 className="text-2xl font-semibold mb-4 text-red-500">
-            {error || "Error al procesar el pago"}
+            {t("error.title")}
           </h2>
-          <p className="mb-8">
-            Por favor, contacta con soporte si el problema persiste.
-          </p>
+          <p className="mb-8">{t("error.message")}</p>
           <Link
             href="/"
             className="px-6 py-3 bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
           >
-            Volver al inicio
+            {t("error.backToHome")}
           </Link>
         </div>
       </div>
@@ -87,58 +88,24 @@ function SuccessPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="max-w-md w-full text-center">
+      <div className="max-w-5xl w-full text-center">
         <div className="mb-8">
-          <svg
-            className="w-16 h-16 text-green-500 mx-auto mb-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-          <h1 className="text-3xl font-bold mb-2">¡Pago completado!</h1>
-          <p className="text-foreground/60 mb-6">
-            Gracias por suscribirte a {session.subscription.plan.product.name}
-          </p>
-        </div>
-
-        <div className="bg-foreground/5 rounded-lg p-6 mb-8">
-          <h2 className="font-semibold mb-4">Detalles de la suscripción</h2>
-          <div className="space-y-2 text-sm">
-            <p>
-              <span className="text-foreground/60">Email: </span>
-              {session.customer.email}
-            </p>
-            <p>
-              <span className="text-foreground/60">Plan: </span>
-              {session.subscription.plan.product.name}
-            </p>
+          <div className="bg-orange-400 w-fit rounded-full p-4 mx-auto mb-8">
+            <IoMdCheckmark className="text-white mx-auto" size={100} />
           </div>
+          <h1 className="text-3xl font-bold mb-2">{t("success.title")}</h1>
+          <p className="mt-4 text-xl">
+            {t("success.details.email")}{" "}
+            <b className="font-bold">{session.customer.email}</b>
+          </p>
         </div>
 
         <div className="space-y-4">
-          <p className="text-sm text-foreground/60">
-            Hemos enviado un email de confirmación a tu correo electrónico.
-          </p>
           <div className="flex gap-4 justify-center">
-            <Link
-              href="/"
-              className="px-6 py-3 bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
-            >
-              Ir al inicio
-            </Link>
-            <Link
-              href="/contact"
-              className="px-6 py-3 border border-foreground rounded-lg hover:bg-foreground/5 transition-colors"
-            >
-              Contactar soporte
-            </Link>
+            <Button href="/">{t("success.actions.goHome")}</Button>
+            <Button href={`/${locale}/contact`} variant="outline">
+              {t("success.actions.contactSupport")}
+            </Button>
           </div>
         </div>
       </div>

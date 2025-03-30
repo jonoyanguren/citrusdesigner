@@ -617,5 +617,27 @@
     "calendar": {
         "schedule_call": "Agendar 1:1",
         "loading": "Cargando..."
+    },
+    "success": {
+        "verifying": "Verificando tu suscripción...",
+        "error": {
+            "title": "Error al procesar el pago",
+            "message": "Por favor, contacta con soporte si el problema persiste.",
+            "backToHome": "Volver al inicio"
+        },
+        "success": {
+            "title": "¡Pago completado!",
+            "subtitle": "Gracias por suscribirte a {planName}",
+            "details": {
+                "title": "Detalles de la suscripción",
+                "email": "Hemos enviado un email de confirmación a",
+                "plan": "Plan: {planName}"
+            },
+            "confirmation": "Hemos enviado un email de confirmación a tu correo electrónico.",
+            "actions": {
+                "goHome": "Ir al inicio",
+                "contactSupport": "Contactar soporte"
+            }
+        }
     }
 }
