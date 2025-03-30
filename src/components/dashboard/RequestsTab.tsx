@@ -123,9 +123,7 @@ export function RequestsTab({ requests, isAdmin = false }: Props) {
               </TableCell>
               <TableCell>
                 <Link
-                  href={`/${locale}/${
-                    isAdmin ? "admin" : "dashboard"
-                  }/requests/${request.id}`}
+                  href={`/${locale}/dashboard/requests/${request.id}`}
                   className="text-blue-600 hover:text-blue-800 font-medium"
                 >
                   {t("detail.viewDetails")}

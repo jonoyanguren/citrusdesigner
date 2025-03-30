@@ -92,16 +92,16 @@ export default function Navigation() {
               )}
             </div>
           ) : (
-            <>
+            <div className="flex items-center gap-4 min-w-[300px]">
               <Button
                 variant="outline"
                 href={`/${locale}/auth/login`}
-                className="hover:opacity-70 transition-opacity"
+                fullWidth
               >
                 {t("login")}
               </Button>
               <CalendarButton />
-            </>
+            </div>
           )}
         </div>
       </div>

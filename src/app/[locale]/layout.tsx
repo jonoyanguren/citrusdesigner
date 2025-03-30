@@ -28,7 +28,11 @@ const patrickHand = Patrick_Hand({
 export const metadata: Metadata = {
   title: "Citrus Designer",
   description: "Diseño de interfaces de usuario con IA",
-  viewport: "width=device-width, initial-scale=1",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default async function RootLayout({
@@ -38,7 +42,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: LocaleType };
 }) {
-  const { locale } = params;
+  const { locale } = await params;
   if (!routing.locales.includes(locale)) {
     notFound();
   }

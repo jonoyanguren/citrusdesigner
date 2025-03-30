@@ -105,7 +105,7 @@ export default function CalendarButton({
 
   return (
     <Button
-      className="w-full"
+      fullWidth
       variant={variant}
       onClick={openCalendly}
       disabled={!isCalendlyReady}
