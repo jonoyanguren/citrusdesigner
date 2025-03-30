@@ -20,7 +20,8 @@
         "dashboard": "Panel de control",
         "logout": "Cerrar sesión",
         "createRequest": "Crear solicitud",
-        "noNotifications": "No hay notificaciones"
+        "noNotifications": "No hay notificaciones",
+        "viewMore": "Ver más"
     },
     "changePassword": {
         "title": "Cambiar contraseña",
