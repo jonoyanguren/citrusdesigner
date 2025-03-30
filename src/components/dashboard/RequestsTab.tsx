@@ -40,7 +40,7 @@ const STATUS_COLORS = {
   DONE: "bg-green-100 text-green-800",
 } as const;
 
-export function RequestsTab({ requests, isAdmin = false }: Props) {
+export function RequestsTab({ requests }: Props) {
   const router = useRouter();
   const { locale } = useParams();
   const [requestsState, setRequests] = useState(requests);
