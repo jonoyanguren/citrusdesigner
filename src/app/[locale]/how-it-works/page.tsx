@@ -14,6 +14,7 @@ import Benefits from "@/components/Benefits";
 import { OurProjects } from "@/components/OurProjects";
 import { Features } from "@/components/Features";
 import Steps from "@/components/Steps";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function HowItWorks() {
   const t = useTranslations("howItWorks");
@@ -57,23 +58,25 @@ export default function HowItWorks() {
           <div className="rounded-lg overflow-hidden shadow-xl">
             <ReactCompareSlider
               itemOne={
-                <ReactCompareSliderImage
-                  src="https://raw.githubusercontent.com/nerdyman/stuff/main/libs/react-compare-slider/demo-images/lady-2.png"
-                  alt="Before"
-                />
+                <ReactCompareSliderImage src="/before.png" alt="Before" />
               }
-              itemTwo={
-                <ReactCompareSliderImage
-                  src="https://raw.githubusercontent.com/nerdyman/stuff/main/libs/react-compare-slider/demo-images/lady-1.png"
-                  alt="After"
-                />
-              }
+              itemTwo={<ReactCompareSliderImage src="/after.png" alt="After" />}
               position={50}
               style={{
                 height: "500px",
               }}
               className="cursor-col-resize"
             />
+          </div>
+          <div className="flex justify-between mt-8">
+            <div className="flex items-center gap-2">
+              <p className="font-bold text-gray-900">{t("before")}</p>
+              <FaArrowRight className="text-gray-900" />
+            </div>
+            <div className="flex items-center gap-2">
+              <FaArrowLeft className="text-gray-900" />
+              <p className="font-bold text-gray-900">{t("after")}</p>
+            </div>
           </div>
         </div>
       </div>

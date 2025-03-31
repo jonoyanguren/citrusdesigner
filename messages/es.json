@@ -134,6 +134,8 @@
     "howItWorks": {
         "title": "Así es como funcionamos",
         "description": "Nuestro proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
+        "before": "Antes",
+        "after": "Después",
         "steps": {
             "title": "Nuestra forma de trabajar",
             "description": "Un proceso tecnológico con",
