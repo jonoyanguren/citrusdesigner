@@ -14,7 +14,6 @@ export default function LoginPage() {
   const [error, setError] = useState("");
   const router = useRouter();
   const t = useTranslations("auth.login");
-
   const { setUser } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -90,7 +89,7 @@ export default function LoginPage() {
                 className="h-4 w-4 border-foreground/20 rounded"
               />
               <label htmlFor="remember" className="ml-2 text-sm">
-                Recordarme
+                {t("rememberMe")}
               </label>
             </div>
 
@@ -108,7 +107,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm">
             {t("noAccount")}{" "}
-            <Link href="/auth/register" className="hover:underline">
+            <Link href="/pricing" className="hover:underline">
               {t("register")}
             </Link>
           </p>

@@ -2,6 +2,9 @@
 import { useState, useEffect } from "react";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import { useTranslations } from "next-intl";
+import { CiMail } from "react-icons/ci";
+import Button from "@/components/Button";
 
 type WaitlistEntry = {
   id: string;
@@ -10,6 +13,7 @@ type WaitlistEntry = {
 };
 
 export default function WaitlistPage() {
+  const t = useTranslations("waitlist.admin");
   const [entries, setEntries] = useState<WaitlistEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,26 +29,37 @@ export default function WaitlistPage() {
         setEntries(data);
       } catch (err) {
         console.error("Error:", err);
-        setError("Error al cargar la lista de espera");
+        setError(t("error"));
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchWaitlist();
-  }, []);
+  }, [t]);
 
   return (
     <div className="p-6 mt-24">
-      <h1 className="text-2xl font-bold mb-6">Lista de Espera</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
 
       {isLoading ? (
-        <div className="text-center">Cargando...</div>
+        <div className="text-center">{t("loading")}</div>
       ) : error ? (
         <div className="text-red-500 text-center">{error}</div>
       ) : entries.length === 0 ? (
-        <div className="text-center text-gray-500">
-          No hay entradas en la lista de espera
+        <div className="text-center py-12">
+          <div className="mx-auto h-12 w-12 text-gray-400">
+            <CiMail className="h-12 w-12" aria-hidden="true" />
+          </div>
+          <h3 className="mt-2 text-sm font-semibold text-gray-900">
+            {t("empty")}
+          </h3>
+          <p className="mt-1 text-sm text-gray-500">{t("emptyDescription")}</p>
+          <div className="mt-6">
+            <Button onClick={() => window.location.reload()}>
+              {t("refresh")}
+            </Button>
+          </div>
         </div>
       ) : (
         <div className="overflow-x-auto">
@@ -52,13 +67,13 @@ export default function WaitlistPage() {
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Email
+                  {t("email")}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Fecha de Registro
+                  {t("registrationDate")}
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Acciones
+                  {t("actions")}
                 </th>
               </tr>
             </thead>
@@ -74,13 +89,12 @@ export default function WaitlistPage() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <button
                       onClick={() => {
-                        // Copiar al portapapeles
                         navigator.clipboard.writeText(entry.email);
-                        alert("Email copiado al portapapeles");
+                        alert(t("emailCopied"));
                       }}
                       className="text-indigo-600 hover:text-indigo-900"
                     >
-                      Copiar email
+                      {t("copyEmail")}
                     </button>
                   </td>
                 </tr>

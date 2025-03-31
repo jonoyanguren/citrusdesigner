@@ -46,7 +46,7 @@ export default function DashboardPage() {
   const [user, setUser] = useState<UserWithSubscriptions | null>(null);
   const [subscriptions, setSubscriptions] = useState<StripeSubscription[]>([]);
   const [requests, setRequests] = useState<RequestWithFeedback[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isTabLoading, setIsTabLoading] = useState(false);
   const [invoices, setInvoices] = useState([]);
   const router = useRouter();
 
@@ -67,6 +67,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     const fetchUser = async () => {
+      setIsTabLoading(true);
       try {
         const userResponse = await fetch("/api/profile");
         if (!userResponse.ok) {
@@ -79,7 +80,7 @@ export default function DashboardPage() {
         console.error("Error fetching user:", error);
         router.push(`/${locale}/auth/login`);
       } finally {
-        setIsLoading(false);
+        setIsTabLoading(false);
       }
     };
 
@@ -88,6 +89,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (activeTab === "requests") {
+      setIsTabLoading(true);
       const fetchRequests = async () => {
         try {
           const response = await fetch("/api/requests");
@@ -97,6 +99,8 @@ export default function DashboardPage() {
           }
         } catch (error) {
           console.error("Error fetching requests:", error);
+        } finally {
+          setIsTabLoading(false);
         }
       };
 
@@ -106,6 +110,7 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (activeTab === "invoices") {
+      setIsTabLoading(true);
       const fetchInvoices = async () => {
         try {
           const response = await fetch("/api/invoices");
@@ -115,6 +120,8 @@ export default function DashboardPage() {
           }
         } catch (error) {
           console.error("Error fetching invoices:", error);
+        } finally {
+          setIsTabLoading(false);
         }
       };
 
@@ -128,22 +135,19 @@ export default function DashboardPage() {
     }
   }, [user, router, locale]);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
-      </div>
-    );
-  }
-
   const renderContent = () => {
     switch (activeTab) {
       case "subscriptions":
-        return <SubscriptionsTab subscriptions={subscriptions} />;
+        return (
+          <SubscriptionsTab
+            subscriptions={subscriptions}
+            isLoading={isTabLoading}
+          />
+        );
       case "invoices":
-        return <InvoicesTab invoices={invoices} />;
+        return <InvoicesTab invoices={invoices} isLoading={isTabLoading} />;
       case "requests":
-        return <RequestsTab requests={requests} />;
+        return <RequestsTab requests={requests} isLoading={isTabLoading} />;
       case "profile":
         return <ProfileTab user={user} />;
     }
@@ -156,9 +160,6 @@ export default function DashboardPage() {
         <div className="space-y-6">
           <div>
             <h1 className="text-3xl font-bold">{t("title")}</h1>
-            <p className="text-foreground/60">
-              {t("welcome")}, {user?.name}
-            </p>
           </div>
 
           {/* Navigation Menu */}

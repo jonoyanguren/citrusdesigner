@@ -56,6 +56,8 @@ export async function GET() {
         created: invoice.created,
         invoice_pdf: invoice.invoice_pdf,
         currency: invoice.currency,
+        subscription_name:
+          invoice.lines.data[0]?.description || "Unknown subscription",
       }))
       .sort((a, b) => b.created - a.created); // Ordenar por fecha, más recientes primero
 

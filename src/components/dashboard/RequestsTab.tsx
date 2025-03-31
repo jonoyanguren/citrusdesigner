@@ -31,6 +31,7 @@ interface RequestWithFeedback extends Omit<Request, "status"> {
 interface Props {
   requests: RequestWithFeedback[];
   isAdmin?: boolean;
+  isLoading?: boolean;
 }
 
 const STATUS_COLORS = {
@@ -40,7 +41,7 @@ const STATUS_COLORS = {
   DONE: "bg-green-100 text-green-800",
 } as const;
 
-export function RequestsTab({ requests }: Props) {
+export function RequestsTab({ requests, isAdmin, isLoading }: Props) {
   const router = useRouter();
   const { locale } = useParams();
   const [requestsState, setRequests] = useState(requests);
@@ -49,6 +50,14 @@ export function RequestsTab({ requests }: Props) {
   useEffect(() => {
     setRequests(requests);
   }, [requests]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[400px] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
+      </div>
+    );
+  }
 
   if (!requests?.length) {
     return (
@@ -72,12 +81,14 @@ export function RequestsTab({ requests }: Props) {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold">{t("title")}</h2>
-        <Button
-          variant="secondary"
-          onClick={() => router.push(`/${locale}/dashboard/create-request`)}
-        >
-          {t("create.submit")}
-        </Button>
+        {!isAdmin && (
+          <Button
+            variant="secondary"
+            onClick={() => router.push(`/${locale}/dashboard/create-request`)}
+          >
+            {t("create.submit")}
+          </Button>
+        )}
       </div>
 
       <Table>

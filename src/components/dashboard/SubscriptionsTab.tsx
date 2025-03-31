@@ -44,9 +44,10 @@ export interface StripeSubscription {
 
 interface Props {
   subscriptions: StripeSubscription[];
+  isLoading?: boolean;
 }
 
-export function SubscriptionsTab({ subscriptions }: Props) {
+export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
   const t = useTranslations("dashboard.subscriptions");
   const { locale } = useParams();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -83,7 +84,6 @@ export function SubscriptionsTab({ subscriptions }: Props) {
         throw new Error(error.error || "Error al cancelar la suscripción");
       }
 
-      // Recargar la página para mostrar el nuevo estado
       window.location.reload();
     } catch (error) {
       console.error("Error:", error);
@@ -161,6 +161,14 @@ export function SubscriptionsTab({ subscriptions }: Props) {
         return `${baseClasses} bg-gray-100 text-gray-800`;
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[400px] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
+      </div>
+    );
+  }
 
   if (!subscriptions?.length) {
     return (

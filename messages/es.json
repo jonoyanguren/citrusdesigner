@@ -326,7 +326,20 @@
         "joinWaitlist": "Unirme a la lista de espera",
         "successTitle": "¡Ya estás en la lista de espera!",
         "successDescription": "Pronto recibirás un correo de confirmación con tu posición actual. Si se libera un sitio, te avisaremos por email y tendrás X días para completar tu suscripción. De no hacerlo en ese plazo, tu puesto pasará al siguiente usuario.",
-        "successButton": "Volver al inicio"
+        "successButton": "Volver al inicio",
+        "admin": {
+            "title": "Lista de Espera",
+            "email": "Email",
+            "registrationDate": "Fecha de Registro",
+            "actions": "Acciones",
+            "copyEmail": "Copiar email",
+            "emailCopied": "Email copiado al portapapeles",
+            "loading": "Cargando...",
+            "error": "Error al cargar la lista de espera",
+            "empty": "No hay entradas en la lista de espera",
+            "emptyDescription": "No hay nadie en la lista de espera en este momento. La lista se actualizará automáticamente cuando alguien se registre.",
+            "refresh": "Actualizar"
+        }
     },
     "footer": {
         "company": {
@@ -401,6 +414,41 @@
             "requests": "Mis peticiones",
             "profile": "Mi perfil"
         },
+        "createRequest": {
+            "title": "Crear Nueva Petición",
+            "adminBadge": "admin",
+            "nameLabel": "Nombre de la petición",
+            "namePlaceholder": "Nombre de la petición",
+            "userLabel": "Usuario",
+            "descriptionLabel": "Descripción de la petición",
+            "buttons": {
+                "cancel": "Cancelar",
+                "create": "Crear Petición"
+            }
+        },
+        "profile": {
+            "title": "Información Personal",
+            "name": "Nombre",
+            "email": "Email",
+            "role": "Rol",
+            "memberSince": "Miembro desde",
+            "password": {
+                "title": "Contraseña",
+                "changeButton": "Cambiar contraseña",
+                "currentPassword": "Contraseña actual",
+                "newPassword": "Nueva contraseña",
+                "confirmPassword": "Confirmar contraseña",
+                "submit": "Actualizar contraseña",
+                "cancel": "Cancelar",
+                "success": "Contraseña actualizada correctamente",
+                "error": "Error al actualizar la contraseña",
+                "validation": {
+                    "required": "Este campo es requerido",
+                    "match": "Las contraseñas no coinciden",
+                    "minLength": "La contraseña debe tener al menos 8 caracteres"
+                }
+            }
+        },
         "invoices": {
             "title": "Mis Facturas",
             "empty": {
@@ -440,7 +488,9 @@
                     "required": "Suscripción Requerida",
                     "message": "Necesitas una suscripción activa para crear peticiones.",
                     "cta": "Ver Planes de Suscripción"
-                }
+                },
+                "namePlaceholder": "Nombre de la petición",
+                "requestLabel": "Descripción de la petición"
             },
             "detail": {
                 "title": "Detalle de la Petición",
@@ -478,6 +528,7 @@
             "figmaDesign": "Diseño en Figma",
             "viewFigma": "Ver diseño en Figma",
             "status": "Estado",
+            "back": "Volver",
             "statuses": {
                 "PENDING": "Pendiente",
                 "ACCEPTED": "Aceptado",
@@ -578,7 +629,8 @@
             "submitButtonLoading": "Iniciando sesión...",
             "forgotPassword": "¿Olvidaste tu contraseña?",
             "noAccount": "¿No tienes cuenta?",
-            "register": "Registrarse",
+            "register": "Suscríbete a uno de nuestros planes",
+            "rememberMe": "Recordarme",
             "errors": {
                 "invalidCredentials": "Credenciales inválidas",
                 "serverError": "Error de configuración del servidor",
@@ -639,6 +691,20 @@
                 "goHome": "Ir al inicio",
                 "contactSupport": "Contactar soporte"
             }
+        }
+    },
+    "customerDetails": {
+        "title": "Detalles del cliente",
+        "createRequest": "Crear petición",
+        "customerInfo": {
+            "title": "Información del cliente",
+            "name": "Nombre",
+            "email": "Email",
+            "role": "Rol",
+            "registrationDate": "Fecha de registro"
+        },
+        "latestRequests": {
+            "title": "Últimas peticiones"
         }
     }
 }

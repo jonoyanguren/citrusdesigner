@@ -6,10 +6,12 @@ import Input from "@/components/Input";
 import { RichText } from "@/components/RichText";
 import Button from "@/components/Button";
 import { processContentWithImages } from "@/lib/utils/imageProcessing";
+import { useTranslations } from "next-intl";
 
 export default function NuevaPeticionPage() {
   const router = useRouter();
   const { locale } = useParams();
+  const t = useTranslations("dashboard.requests.create");
   const [formData, setFormData] = useState({
     name: "",
     request: "",
@@ -54,7 +56,7 @@ export default function NuevaPeticionPage() {
       });
 
       if (response.ok) {
-        router.push("/dashboard?tab=requests");
+        router.push(`/${locale}/dashboard?tab=requests`);
       }
     } catch (error) {
       console.error("Error al crear la petición:", error);
@@ -64,7 +66,7 @@ export default function NuevaPeticionPage() {
   if (isLoading) {
     return (
       <div className="max-w-2xl mx-auto p-6 mt-24">
-        <p className="text-center">Cargando...</p>
+        <p className="text-center">{t("loading")}</p>
       </div>
     );
   }
@@ -73,12 +75,12 @@ export default function NuevaPeticionPage() {
     return (
       <div className="max-w-2xl mx-auto p-6 mt-24">
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Suscripción Requerida</h2>
-          <p className="mb-6">
-            Necesitas una suscripción activa para crear peticiones.
-          </p>
+          <h2 className="text-2xl font-bold mb-4">
+            {t("subscription.required")}
+          </h2>
+          <p className="mb-6">{t("subscription.message")}</p>
           <Button onClick={() => router.push(`/${locale}/pricing`)}>
-            Ver Planes de Suscripción
+            {t("subscription.cta")}
           </Button>
         </div>
       </div>
@@ -87,13 +89,13 @@ export default function NuevaPeticionPage() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 mt-24">
-      <h1 className="text-2xl font-bold mb-6">Crear Nueva Petición</h1>
+      <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <Input
-            label="Nombre de la petición"
-            placeholder="Nombre de la petición"
+            label={t("name")}
+            placeholder={t("namePlaceholder")}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
@@ -101,7 +103,7 @@ export default function NuevaPeticionPage() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-            Descripción de la petición
+            {t("requestLabel")}
           </label>
           <RichText
             initialContent=""
@@ -112,10 +114,14 @@ export default function NuevaPeticionPage() {
         </div>
 
         <div className="flex justify-end space-x-3">
-          <Button type="button" onClick={() => router.back()}>
-            Cancelar
+          <Button
+            variant="secondary"
+            type="button"
+            onClick={() => router.back()}
+          >
+            {t("cancel")}
           </Button>
-          <Button type="submit">Crear Petición</Button>
+          <Button type="submit">{t("submit")}</Button>
         </div>
       </form>
     </div>

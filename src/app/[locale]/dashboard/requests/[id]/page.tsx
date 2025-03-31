@@ -1,13 +1,12 @@
 import { getBaseUrl } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { StatusBadgeServer } from "@/components/StatusBadgeServer";
 import { FeedbackList } from "@/components/FeedbackList";
 import { verifyToken } from "@/lib/users";
-import { IoArrowBack } from "react-icons/io5";
-import Link from "next/link";
+import BackButton from "@/components/BackButton";
 
 async function getRequest(id: string | undefined) {
   if (!id) {
@@ -37,8 +36,6 @@ export default async function RequestDetail({
 }) {
   const { id } = await params;
 
-  const locale = await getLocale();
-  console.log("locale", locale);
   const t = await getTranslations("dashboard.requestDetail");
 
   if (!id) {
@@ -59,13 +56,7 @@ export default async function RequestDetail({
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 mt-2">
-      <Link
-        href={`/${locale}/dashboard?tab=requests`}
-        className="flex items-center gap-2 mb-4 cursor-pointer"
-      >
-        <IoArrowBack className="text-2xl text-gray-900" />
-        <p className="text-gray-900">Volver</p>
-      </Link>
+      <BackButton text={t("back")} />
 
       <div className="bg-white shadow rounded-lg p-6 space-y-6">
         {/* Title */}

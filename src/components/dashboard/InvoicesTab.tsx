@@ -21,10 +21,12 @@ interface Invoice {
 
 interface Props {
   invoices: Invoice[];
+  isLoading?: boolean;
 }
 
-export function InvoicesTab({ invoices }: Props) {
+export function InvoicesTab({ invoices, isLoading }: Props) {
   const t = useTranslations("dashboard.invoices");
+  console.log("Invoices", invoices);
 
   const formatDate = (timestamp: number) => {
     return new Date(timestamp * 1000).toLocaleDateString("es-ES", {
@@ -54,6 +56,14 @@ export function InvoicesTab({ invoices }: Props) {
         return `${baseClasses} bg-gray-100 text-gray-800`;
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-[400px] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
+      </div>
+    );
+  }
 
   if (!invoices?.length) {
     return (

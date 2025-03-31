@@ -33,7 +33,7 @@ export default function ChangePasswordFirstTime() {
         body: JSON.stringify(formData),
       });
       if (response.ok) {
-        router.push(`${locale}/dashboard`);
+        router.push(`/${locale}/dashboard`);
       }
     } catch (error) {
       console.error(error);
