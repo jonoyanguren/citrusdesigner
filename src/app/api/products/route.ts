@@ -53,20 +53,10 @@ export async function GET() {
       getMaxProjects(),
     ]);
 
-    console.log("activeSubscriptions", activeSubscriptions);
-    console.log("maxProjects", maxProjects);
-    if (activeSubscriptions >= maxProjects) {
-      return NextResponse.json({
-        waitlist: true,
-        message: "We are currently at capacity. Please join our waitlist.",
-        activeSubscriptions,
-        maxProjects,
-      });
-    }
-
     const products = await getActiveProducts();
+
     return NextResponse.json({
-      waitlist: false,
+      waitlist: activeSubscriptions >= maxProjects,
       products,
       activeSubscriptions,
       maxProjects,
