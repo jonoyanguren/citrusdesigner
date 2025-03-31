@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import type { StripeProduct } from "@/lib/stripe";
 import LoadingPricing from "@/components/LoadingPricing";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import ProductCard from "./ProductCard";
 import { OrangeBlob } from "./OrangeBlob";
 import { useTranslations } from "next-intl";
+import WaitlistPage from "@/app/[locale]/waitlist/page";
 
 type ProductsResponse = {
   waitlist: boolean;
@@ -114,34 +115,40 @@ export default function PricingList() {
       <div className="absolute inset-0 -z-10 w-full scale-x-[-1]">
         <OrangeBlob />
       </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {products
-          .sort((a, b) => a.price - b.price)
-          .map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              isLoading={isLoading === product.name}
-              onSubscribe={handleSubscribe}
-              showWaitlist={showWaitlist}
-            />
-          ))}
-        <ProductCard
-          key="custom"
-          product={{
-            id: "enterprise",
-            name: "Enterprise",
-            price: 0,
-            description: t("customPriceDescription"),
-            priceId: "custom",
-            features: [],
-            interval: "month",
-          }}
-          isLoading={false}
-          onSubscribe={handleSubscribe}
-          showWaitlist={showWaitlist}
-        />
-      </div>
+      {showWaitlist ? (
+        <div className="bg-white p-8 rounded-lg max-w-7xl mx-auto">
+          <WaitlistPage />
+        </div>
+      ) : (
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {products
+            .sort((a, b) => a.price - b.price)
+            .map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                isLoading={isLoading === product.name}
+                onSubscribe={handleSubscribe}
+                showWaitlist={showWaitlist}
+              />
+            ))}
+          <ProductCard
+            key="custom"
+            product={{
+              id: "enterprise",
+              name: "Enterprise",
+              price: 0,
+              description: t("customPriceDescription"),
+              priceId: "custom",
+              features: [],
+              interval: "month",
+            }}
+            isLoading={false}
+            onSubscribe={handleSubscribe}
+            showWaitlist={showWaitlist}
+          />
+        </div>
+      )}
       {/* Benefits */}
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8 md:mt-20">
         {t.raw("benefits.items").map((benefit: Benefit, index: number) => (

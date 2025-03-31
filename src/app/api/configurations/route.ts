@@ -2,34 +2,8 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const url = new URL(request.url);
-    const path = url.pathname;
-    console.log("Request path:", path);
-
-    // Handle max-projects endpoint
-    if (path.endsWith("/max-projects")) {
-      console.log("Handling max-projects request");
-      const config = await prisma.configuration.findUnique({
-        where: { key: "MAX_PROJECTS" },
-      });
-
-      console.log("Found config:", config);
-
-      if (!config) {
-        console.log("MAX_PROJECTS config not found");
-        return NextResponse.json(
-          { error: "MAX_PROJECTS configuration not found" },
-          { status: 404 }
-        );
-      }
-
-      return NextResponse.json({ value: config.value });
-    }
-
-    // Handle general configurations endpoint
-    console.log("Handling general configurations request");
     const configs = await prisma.configuration.findMany();
     return NextResponse.json(configs);
   } catch (error) {
