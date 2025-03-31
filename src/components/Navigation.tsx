@@ -11,6 +11,7 @@ import LanguageSelector from "./navigation/LanguageSelector";
 import Button from "./Button";
 import CalendarButton from "./CalendarButton";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,7 +45,12 @@ export default function Navigation() {
     <nav className="p-4 bg-background/80 backdrop-blur-sm border-b border-foreground/10 z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/" className="font-bold text-xl">
-          Citrus Designer
+          <Image
+            src="/logo2.png"
+            alt="Citrus Designer"
+            width={150}
+            height={150}
+          />
         </Link>
 
         {/* Mobile Navigation */}

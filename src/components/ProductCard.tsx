@@ -29,11 +29,6 @@ export default function ProductCard({
     <div
       className={`${highlightStyles} rounded-xl pt-8 pb-4 px-8 flex flex-col min-h-[700px] gap-6 text-lg relative shadow-xl`}
     >
-      {isHighlighted && (
-        <div className="text-center md:absolute md:-right-[30px] md:-top-[15px] bg-yellow-300 rounded-full border border-neutral-900 text-black px-12 py-1 md:rotate-[10deg] text-sm font-medium">
-          {t("badge.availableSpots")}
-        </div>
-      )}
       <h2 className="text-2xl font-bold text-center">{product.name}</h2>
       {product.price === 0 ? (
         <div className="text-center">
@@ -96,10 +91,7 @@ export default function ProductCard({
         </div>
       ) : (
         <div className="mt-auto flex flex-col gap-4">
-          <Button
-            href={`/${locale}/waitlist`}
-            className="font-bold text-center"
-          >
+          <Button href={`/${locale}/waitlist`} className="text-center">
             {t("waitlistButton")}
           </Button>
         </div>

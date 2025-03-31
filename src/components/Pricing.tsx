@@ -1,3 +1,4 @@
+import { AvailablePlaces } from "./AvailablePlaces";
 import CustomersCarousel from "./CustomersCarousel";
 import Faq from "./Faq";
 import PricingList from "./PricingList";
@@ -18,6 +19,10 @@ export const Pricing = () => {
           height={100}
         />
         <Title title={t("title")} description={t("description")} />
+      </div>
+
+      <div className="mb-8">
+        <AvailablePlaces />
       </div>
 
       <div className="flex flex-col md:flex-row mx-4 mt-4 md:mt-0 md:mx-16 mb-16">
