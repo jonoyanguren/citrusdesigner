@@ -706,5 +706,43 @@
         "latestRequests": {
             "title": "Últimas peticiones"
         }
+    },
+    "admin": {
+        "users": {
+            "title": "Usuarios",
+            "loading": "Cargando...",
+            "error": "Error: {error}",
+            "table": {
+                "name": "Nombre",
+                "email": "Email",
+                "role": "Rol",
+                "createdAt": "Fecha de registro",
+                "actions": "Acciones",
+                "makeAdmin": "Hacer admin"
+            }
+        },
+        "configuration": {
+            "title": "Configuración del Sistema",
+            "addNew": {
+                "title": "Añadir Nueva Configuración",
+                "key": "Clave",
+                "value": "Valor",
+                "description": "Descripción",
+                "keyPlaceholder": "Ej: MAX_PROJECTS",
+                "valuePlaceholder": "Ej: 100",
+                "descriptionPlaceholder": "Descripción de la configuración",
+                "addButton": "Añadir"
+            },
+            "existing": {
+                "title": "Configuraciones Existentes",
+                "edit": "Editar",
+                "save": "Guardar",
+                "cancel": "Cancelar",
+                "delete": "Eliminar"
+            },
+            "loading": "Cargando...",
+            "error": "Error: {error}",
+            "deleteConfirm": "¿Estás seguro de que quieres eliminar esta configuración?"
+        }
     }
 }

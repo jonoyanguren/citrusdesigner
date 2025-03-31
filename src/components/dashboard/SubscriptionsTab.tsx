@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { loadStripe } from "@stripe/stripe-js";
 import Link from "next/link";
@@ -16,10 +16,6 @@ import { useParams } from "next/navigation";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
-);
-
-const MAX_ACTIVE_SUBSCRIPTIONS = parseInt(
-  process.env.NEXT_PUBLIC_MAX_PROJECTS || "100"
 );
 
 export interface StripeSubscription {
@@ -40,34 +36,65 @@ export interface StripeSubscription {
     }>;
   };
   canceled_at: number | null;
+  cancel_at_period_end: boolean;
 }
 
-interface Props {
-  subscriptions: StripeSubscription[];
-  isLoading?: boolean;
-}
-
-export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
+export function SubscriptionsTab() {
   const t = useTranslations("dashboard.subscriptions");
-  const { locale } = useParams();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isReactivateModalOpen, setIsReactivateModalOpen] = useState(false);
-  const [selectedSubscription, setSelectedSubscription] = useState<
-    string | null
-  >(null);
+  const params = useParams();
+  const [subscriptions, setSubscriptions] = useState<StripeSubscription[]>([]);
+  const [maxProjects, setMaxProjects] = useState(3);
+  const [loading, setLoading] = useState(true);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
+  const [selectedSubscription, setSelectedSubscription] =
+    useState<StripeSubscription | null>(null);
   const [isReactivating, setIsReactivating] = useState(false);
 
   const hasActiveSubscription = subscriptions.some(
-    (sub) => sub.status === "active"
+    (sub) => sub.status === "active" && !sub.cancel_at_period_end
   );
 
   const totalActiveSubscriptions = subscriptions.filter(
-    (sub) => sub.status === "active"
+    (sub) => sub.status === "active" && !sub.cancel_at_period_end
   ).length;
 
+  const fetchSubscriptions = async () => {
+    try {
+      const response = await fetch("/api/subscriptions");
+      if (!response.ok) throw new Error("Failed to fetch subscriptions");
+      return await response.json();
+    } catch (error) {
+      console.error("Error fetching subscriptions:", error);
+      return [];
+    }
+  };
+
+  const fetchMaxProjects = async () => {
+    try {
+      console.log("Fetching max projects...");
+      const response = await fetch("/api/configurations/max-projects");
+      console.log("Response status:", response.status);
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error response:", errorData);
+        throw new Error(errorData.error || "Failed to fetch max projects");
+      }
+
+      const data = await response.json();
+      console.log("Max projects data:", data);
+      return parseInt(data.value, 10);
+    } catch (error) {
+      console.error("Error fetching max projects:", error);
+      return 3; // Default value if there's an error
+    }
+  };
+
   const handleCancelClick = (subscriptionId: string) => {
-    setSelectedSubscription(subscriptionId);
-    setIsModalOpen(true);
+    setSelectedSubscription(
+      subscriptions.find((sub) => sub.id === subscriptionId) || null
+    );
+    setShowConfirmModal(true);
   };
 
   const handleCancelSubscription = async () => {
@@ -92,8 +119,10 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
   };
 
   const handleReactivateClick = (subscriptionId: string) => {
-    setSelectedSubscription(subscriptionId);
-    setIsReactivateModalOpen(true);
+    setSelectedSubscription(
+      subscriptions.find((sub) => sub.id === subscriptionId) || null
+    );
+    setIsReactivating(true);
   };
 
   const handleReactivateSubscription = async () => {
@@ -106,7 +135,7 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ subscriptionId: selectedSubscription }),
+        body: JSON.stringify({ subscriptionId: selectedSubscription.id }),
       });
 
       if (!response.ok) {
@@ -129,7 +158,7 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
       alert("Ha ocurrido un error al reactivar la suscripción");
     } finally {
       setIsReactivating(false);
-      setIsReactivateModalOpen(false);
+      setShowConfirmModal(false);
     }
   };
 
@@ -162,7 +191,27 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
     }
   };
 
-  if (isLoading) {
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        setLoading(true);
+        const [subscriptionsData, maxProjectsValue] = await Promise.all([
+          fetchSubscriptions(),
+          fetchMaxProjects(),
+        ]);
+        setSubscriptions(subscriptionsData);
+        setMaxProjects(maxProjectsValue);
+      } catch (error) {
+        console.error("Error loading data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, []);
+
+  if (loading) {
     return (
       <div className="min-h-[400px] flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
@@ -247,13 +296,13 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
                       <span className="text-sm text-gray-500">
                         {t("actions.hasActiveSubscription")}
                       </span>
-                    ) : totalActiveSubscriptions >= MAX_ACTIVE_SUBSCRIPTIONS ? (
+                    ) : totalActiveSubscriptions >= maxProjects ? (
                       <div className="text-sm">
                         <p className="text-red-600 mb-2">
                           {t("maxSubscriptionsReached")}
                         </p>
                         <Link
-                          href={`/${locale}/pricing`}
+                          href={`/${params.locale}/pricing`}
                           className="text-blue-600 hover:underline"
                         >
                           {t("joinWaitlist")}
@@ -284,8 +333,8 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
       </div>
 
       <ConfirmModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={showConfirmModal}
+        onClose={() => setShowConfirmModal(false)}
         onConfirm={handleCancelSubscription}
         title={t("modal.title")}
         message={t("modal.description")}
@@ -294,8 +343,8 @@ export function SubscriptionsTab({ subscriptions, isLoading }: Props) {
       />
 
       <ConfirmModal
-        isOpen={isReactivateModalOpen}
-        onClose={() => !isReactivating && setIsReactivateModalOpen(false)}
+        isOpen={isReactivating}
+        onClose={() => setIsReactivating(false)}
         onConfirm={handleReactivateSubscription}
         title={t("modal.reactivateTitle")}
         message={t("modal.reactivateDescription")}
