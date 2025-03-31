@@ -39,12 +39,18 @@ export interface StripeSubscription {
   cancel_at_period_end: boolean;
 }
 
-export function SubscriptionsTab() {
+interface SubscriptionsTabProps {
+  subscriptions: StripeSubscription[];
+  isLoading: boolean;
+}
+
+export function SubscriptionsTab({
+  subscriptions,
+  isLoading,
+}: SubscriptionsTabProps) {
   const t = useTranslations("dashboard.subscriptions");
   const params = useParams();
-  const [subscriptions, setSubscriptions] = useState<StripeSubscription[]>([]);
   const [maxProjects, setMaxProjects] = useState(3);
-  const [loading, setLoading] = useState(true);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [selectedSubscription, setSelectedSubscription] =
     useState<StripeSubscription | null>(null);
@@ -58,22 +64,12 @@ export function SubscriptionsTab() {
     (sub) => sub.status === "active" && !sub.cancel_at_period_end
   ).length;
 
-  const fetchSubscriptions = async () => {
-    try {
-      const response = await fetch("/api/subscriptions");
-      if (!response.ok) throw new Error("Failed to fetch subscriptions");
-      return await response.json();
-    } catch (error) {
-      console.error("Error fetching subscriptions:", error);
-      return [];
-    }
-  };
-
   const fetchMaxProjects = async () => {
     try {
       console.log("Fetching max projects...");
       const response = await fetch("/api/configurations/max-projects");
-      console.log("Response status:", response.status);
+      console.log();
+      console.log("RESPONSE MAX", response);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -194,24 +190,17 @@ export function SubscriptionsTab() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        setLoading(true);
-        const [subscriptionsData, maxProjectsValue] = await Promise.all([
-          fetchSubscriptions(),
-          fetchMaxProjects(),
-        ]);
-        setSubscriptions(subscriptionsData);
+        const maxProjectsValue = await fetchMaxProjects();
         setMaxProjects(maxProjectsValue);
       } catch (error) {
         console.error("Error loading data:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
     loadData();
   }, []);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="min-h-[400px] flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>

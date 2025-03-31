@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import type { StripeProduct } from "@/lib/stripe";
 import LoadingPricing from "@/components/LoadingPricing";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import ProductCard from "./ProductCard";
 import { OrangeBlob } from "./OrangeBlob";
 import { useTranslations } from "next-intl";
