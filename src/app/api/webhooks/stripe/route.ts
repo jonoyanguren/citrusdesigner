@@ -5,6 +5,7 @@ import Stripe from "stripe";
 import { createSubscription } from "./createSubscription";
 import { emailTemplates } from "@/lib/email-templates";
 import prisma from "@/lib/prisma";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(request: NextRequest) {
   try {
@@ -74,10 +75,17 @@ export async function POST(request: NextRequest) {
           const endDate = new Date(
             deletedSubscription.current_period_end * 1000
           );
-          await emailTemplates.sendSubscriptionCancelledEmail(
-            user.email,
-            endDate
-          );
+          const { html, text } =
+            emailTemplates.generateSubscriptionCancelledEmail(
+              user.email,
+              endDate
+            );
+          await sendEmail({
+            to: user.email,
+            subject: "Tu suscripción ha sido cancelada",
+            html,
+            text,
+          });
         }
         break;
 

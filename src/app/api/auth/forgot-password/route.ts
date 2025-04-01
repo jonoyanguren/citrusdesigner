@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { randomBytes } from "crypto";
 import { emailTemplates } from "@/lib/email-templates";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -28,8 +29,16 @@ export async function POST(request: Request) {
     });
 
     // Enviar email usando el template
-    await emailTemplates.sendPasswordResetEmail(email, resetToken);
-
+    const { html, text } = emailTemplates.generatePasswordResetEmail(
+      email,
+      resetToken
+    );
+    await sendEmail({
+      to: email,
+      subject: "Restablecer tu contraseña - Citrus Designer",
+      html,
+      text,
+    });
     return NextResponse.json({ message: "Email enviado" });
   } catch (error) {
     console.error("Error en forgot password:", error);

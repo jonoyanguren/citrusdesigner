@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma";
 import type Stripe from "stripe";
 import { hashSync } from "bcrypt";
 import { emailTemplates } from "@/lib/email-templates";
+import { sendEmail } from "@/lib/email";
 
 export async function createSubscription(invoice: Stripe.Invoice) {
   try {
@@ -50,7 +51,16 @@ export async function createSubscription(invoice: Stripe.Invoice) {
         });
 
         // Enviar email de bienvenida con la contraseña temporal
-        await emailTemplates.sendWelcomeEmail(user.email, temporaryPassword);
+        const { html, text } = emailTemplates.generateWelcomeEmail(
+          user.email,
+          temporaryPassword
+        );
+        await sendEmail({
+          to: user.email,
+          subject: "¡Bienvenido a Citrus Designer!",
+          html,
+          text,
+        });
       }
     }
 

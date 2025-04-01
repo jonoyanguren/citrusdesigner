@@ -1,5 +1,3 @@
-import { sendEmail } from "./email";
-
 const baseTemplate = (content: string) => `
 <!DOCTYPE html>
 <html>
@@ -9,10 +7,11 @@ const baseTemplate = (content: string) => `
     <title>Citrus Designer</title>
     <style>
         body {
+            max-width: 800px;
             font-family: Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            margin: 0;
+            margin: 0 auto;
             padding: 0;
         }
         .container {
@@ -21,7 +20,6 @@ const baseTemplate = (content: string) => `
             padding: 20px;
         }
         .header {
-            background-color: #FF6B00;
             color: white;
             padding: 20px;
             text-align: center;
@@ -56,7 +54,9 @@ const baseTemplate = (content: string) => `
 </head>
 <body>
     <div class="header">
-        <h1>Citrus Designer</h1>
+        <img src="${
+          process.env.NEXT_PUBLIC_URL
+        }/logo2.png" alt="Citrus Designer" style="width: 300px;">
     </div>
     <div class="container">
         <div class="content">
@@ -70,9 +70,10 @@ const baseTemplate = (content: string) => `
 </html>
 `;
 
+// Funciones para generar los templates HTML y texto
 export const emailTemplates = {
   // Email de bienvenida con contraseña temporal
-  async sendWelcomeEmail(userEmail: string, temporaryPassword: string) {
+  generateWelcomeEmail(userEmail: string, temporaryPassword: string) {
     const html = baseTemplate(`
       <h2>¡Bienvenido a Citrus Designer!</h2>
       <p>Gracias por suscribirte a nuestro servicio. Estamos emocionados de tenerte con nosotros.</p>
@@ -110,16 +111,11 @@ Inicia sesión aquí: ${process.env.NEXT_PUBLIC_URL}/auth/login
 Si tienes alguna pregunta, no dudes en contactarnos.
 ¡Bienvenido a bordo!`;
 
-    return sendEmail({
-      to: userEmail,
-      subject: "¡Bienvenido a Citrus Designer!",
-      text,
-      html,
-    });
+    return { html, text };
   },
 
   // Email de cancelación de suscripción
-  async sendSubscriptionCancelledEmail(userEmail: string, endDate: Date) {
+  generateSubscriptionCancelledEmail(userEmail: string, endDate: Date) {
     const formattedDate = endDate.toLocaleDateString("es-ES", {
       year: "numeric",
       month: "long",
@@ -161,17 +157,12 @@ Accede a tu panel de control aquí: ${process.env.NEXT_PUBLIC_URL}/dashboard
 Si tienes alguna pregunta, no dudes en contactarnos.
 ¡Gracias por haber sido parte de Citrus Designer!`;
 
-    return sendEmail({
-      to: userEmail,
-      subject: "Tu suscripción ha sido cancelada",
-      text,
-      html,
-    });
+    return { html, text };
   },
 
   // Email de reset de contraseña
-  async sendPasswordResetEmail(userEmail: string, resetToken: string) {
-    const resetUrl = `${process.env.NEXT_PUBLIC_URL}/auth/reset-password?token=${resetToken}`;
+  generatePasswordResetEmail(userEmail: string, resetToken: string) {
+    const resetUrl = `${process.env.NEXT_PUBLIC_URL}/es/auth/reset-password?token=${resetToken}`;
 
     const html = baseTemplate(`
       <h2>Restablecer tu contraseña</h2>
@@ -202,11 +193,6 @@ Restablecer contraseña: ${resetUrl}
 Si no solicitaste restablecer tu contraseña, puedes ignorar este email.
 Por seguridad, te recomendamos cambiar tu contraseña regularmente.`;
 
-    return sendEmail({
-      to: userEmail,
-      subject: "Restablecer tu contraseña - Citrus Designer",
-      text,
-      html,
-    });
+    return { html, text };
   },
 };
