@@ -1,639 +1,754 @@
 {
     "navigation": {
-        "home": "Home",
-        "howItWorks": "How it works",
-        "theDesignerBehind": "About me",
-        "pricing": "Pricing",
-        "contact": "Contact",
-        "login": "Login",
-        "register": "Register",
-        "bookCall": "Book a 1:1",
-        "logout": "Logout",
-        "selectLanguage": "Select language"
+        "home": "Inicio",
+        "howItWorks": "Cómo funciona",
+        "theDesignerBehind": "Sobre mí",
+        "pricing": "Precios",
+        "contact": "Contacto",
+        "login": "Iniciar sesión",
+        "register": "Registrarse",
+        "bookCall": "Reserva un 1:1",
+        "logout": "Cerrar sesión",
+        "selectLanguage": "Seleccionar idioma"
     },
     "designerBehind": {
-        "orangeMessage": "Each project is a unique adventure that challenges me to find the best way to simplify the complex and transform ideas into tangible realities."
+        "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."
     },
     "common": {
-        "welcome": "Welcome to Citrus Designer",
-        "platform": "The perfect platform to bring your designs to life",
-        "dashboard": "Dashboard",
-        "logout": "Logout",
-        "createRequest": "Create request",
-        "noNotifications": "No notifications"
+        "platform": "La plataforma perfecta para dar vida a tus diseños",
+        "dashboard": "Panel de control",
+        "logout": "Cerrar sesión",
+        "createRequest": "Crear solicitud",
+        "noNotifications": "No hay notificaciones",
+        "viewMore": "Ver más"
     },
     "changePassword": {
-        "title": "Change password",
-        "description": "This is your first time logging in, so for security reasons, please change your password",
-        "newPassword": "New password",
-        "confirmPassword": "Confirm password",
-        "submitButton": "Change password",
-        "error": "Passwords do not match"
+        "title": "Cambiar contraseña",
+        "description": "Es la primera vez que entras, así que por seguridad, cambia tu contraseña",
+        "newPassword": "Nueva contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "submitButton": "Cambiar contraseña",
+        "error": "Las contraseñas no coinciden"
     },
     "cta": {
-        "title": "Ready to squeeze out all the creative potential together?",
-        "primaryButton": "Subscribe",
-        "secondaryButton": "Book a 1:1"
+        "title": "¿Listo para exprimir juntos todo el potencial creativo?",
+        "primaryButton": "Suscríbete",
+        "secondaryButton": "Reserva un 1:1"
     },
     "home": {
         "hero": {
-            "titleBegin": "Your trusted designer, in",
-            "titleMiddle": "subscription",
-            "cta": "Subscribe today",
-            "ctaSecondary": "Schedule a call",
-            "description": "Subscribe for the months you need it and forget about hiring full-time or looking for a freelancer each time."
+            "titleBegin": "Tu diseñador de confianza, en formato",
+            "titleMiddle": "suscripción",
+            "cta": "Suscríbete hoy mismo",
+            "ctaSecondary": "Contacta con nosotros",
+            "description": "Suscríbete los meses que lo necesites y olvídate de contratar full time o buscar un freelance cada vez."
         },
         "customers": {
-            "title": "Companies that trust us"
+            "title": "Empresas que confían en nosotros"
         },
         "pricing": {
-            "title": "Pricing",
-            "description": "Choose the plan that best suits you. No contracts, no stress... you can cancel it at any time. Forget about freelancers or hiring an in-house designer.",
-            "waitlistMessage": "We're on the waitlist. We'll notify you when the subscription launches."
+            "title": "Precios",
+            "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
+            "waitlistMessage": "Estamos en la lista de espera. Te notificaremos cuando se lance la suscripción."
         },
         "howItWorks": {
-            "title": "This is how we work",
-            "description": "Discover how our service works"
+            "title": "Así es como funcionamos",
+            "description": "Descubre cómo funciona nuestro servicio"
         },
         "benefits": {
-            "title": "Benefits",
-            "subtitle": "Our benefits",
-            "description": "Discover the benefits of our service"
+            "title": "Beneficios",
+            "subtitle": "Nuestros beneficios",
+            "description": "Descubre los beneficios de nuestro servicio"
         },
         "aboutTheDesigner": {
-            "title": "Who's behind it?",
-            "description": "This is Andrea, the designer behind Citrus Design. With over 8 years of experience, she transforms ideas into unique and memorable experiences.",
+            "title": "¿Quién está detrás?",
+            "description": "Esta es Andrea, la diseñadora detrás de Citrus Design. Con más de 8 años de experiencia, transforma ideas en experiencias únicas y memorables.",
             "principles": {
-                "title": "My design principles",
+                "title": "Mis principios de diseño",
                 "items": [
                     {
-                        "title": "The simpler, the better",
-                        "description": "I love breaking down complex problems and, using my analytical approach, turning them into simple, clear, and meaningful design."
+                        "title": "Cuanto más sencillo, mejor",
+                        "description": "Me encanta desarmar problemas complejos y, usando mi enfoque analítico, convertirlos en un diseño simple, claro y con mucho significado."
                     },
                     {
                         "title": "User-Centered Design",
-                        "description": "I like to dive deep into what people really need and how they behave, to create intuitive, useful, and meaningful experiences."
+                        "description": "Me gusta meterme de lleno en lo que la gente realmente necesita y cómo actúa, para crear experiencias intuitivas, útiles y con sentido."
                     },
                     {
-                        "title": "Coherent design",
-                        "description": "I use consistent patterns and components to make everything make sense and make the user experience as fluid as possible."
+                        "title": "Diseño coherente",
+                        "description": "Uso patrones y componentes consistentes para que todo tenga sentido y haga la experiencia del usuario lo más fluida posible."
                     },
                     {
-                        "title": "Constant growth",
-                        "description": "I'm always exploring new trends, tools, and approaches to keep my design fresh, relevant, and constantly evolving."
+                        "title": "Crecimiento constante",
+                        "description": "Siempre estoy explorando nuevas tendencias, herramientas y enfoques para mantener mi diseño fresco, relevante y en constante evolución."
                     }
                 ]
             },
             "items": [
                 {
-                    "title": "UX/UI Certified",
-                    "description": "Backed by cutting-edge and continuous training."
+                    "title": "Certificada en UX/UI",
+                    "description": "Respaldada por formación de vanguardia y contínua."
                 },
                 {
-                    "title": "Recognized in Forbes",
-                    "description": "Recognized for my impact and innovation in the digital world."
+                    "title": "Reconocida en Forbes",
+                    "description": "Reconocida por mi impacto e innovación en el mundo digital."
                 },
                 {
-                    "title": "Friends of Figma Leader",
-                    "description": "I drive the Figma community to revolutionize collaborative design."
+                    "title": "Lider de Friends of Figma",
+                    "description": "Impulso la comunidad de Figma para revolucionar el diseño colaborativo."
                 },
                 {
-                    "title": "ADPList Mentor",
-                    "description": "I inspire and guide the next generation of talents with passion and experience."
+                    "title": "Mentora de ADPList",
+                    "description": "Inspiro y guío a la próxima generación de talentos con pasión y experiencia."
                 }
             ]
         },
-        "orangeMessage": "Squeeze your time! With our unlimited subscription, forget about budgets and complications while adding a refreshing touch to your projects.",
+        "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos.",
         "testimonials": {
-            "title": "Testimonials",
-            "subtitle": "What our clients say",
-            "description": "Discover why our clients trust us",
+            "title": "Testimonios",
+            "subtitle": "Lo que dicen nuestros clientes",
+            "description": "Descubre por qué nuestros clientes confían en nosotros",
             "items": [
                 {
-                    "text": "Andrea is a professional who is easy to communicate with and quickly understands what the company is looking for, bringing new ideas and perspectives that are clearly enriching.",
+                    "text": "Andrea es una profesional con quién es fácil comunicarse y enseguida entiende lo que la empresa busca y aporta nuevas ideas y puntos de vista que son claramente enriquecedores.",
                     "author": "Joel Pascual",
                     "position": "CEO, Tenvinilo",
                     "logo": "/logos/logo1.png"
                 },
                 {
-                    "text": "From the beginning, we trusted Andrea and the result has been exceptional, achieving good reviews, especially regarding the experience that the client achieves throughout the platform.",
+                    "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
                     "author": "Jagoba Ormaetxea",
                     "position": "CEO, Gureik",
                     "logo": "/logos/logo2.png"
                 },
                 {
-                    "text": "Besides being fast and efficient, Andrea quickly understands the few inputs offered and from there her creativity emerges to reach an optimal solution.",
+                    "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
                     "author": "Nacho Kleinman",
-                    "position": "CEO and Co-founder, Culpass",
+                    "position": "CEO y Co-fundador, Culpass",
                     "logo": "/logos/logo3.png"
                 }
             ]
         }
     },
     "howItWorks": {
-        "title": "This is how we work",
-        "description": "Our process is simple and easy. Avoid meetings and squeeze your time",
+        "title": "Así es como funcionamos",
+        "description": "Nuestro proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
+        "before": "Antes",
+        "after": "Después",
         "steps": {
-            "title": "Our way of working",
-            "description": "A technological process with",
-            "descriptionThin": "personal touch",
-            "secondaryText": "From subscription to final delivery, the process has been designed to maximize efficiency. Technology handles the operational, while I focus on bringing creativity and personalized attention to each project.",
-            "infiniteDesigns": "Unlimited requests",
+            "title": "Nuestra forma de trabajar",
+            "description": "Un proceso tecnológico con",
+            "descriptionThin": "toque personal",
+            "secondaryText": "Desde la suscripción hasta la entrega final, el proceso ha sido diseñado para maximizar la eficiencia. La tecnología se encarga de lo operativo, mientras que yo me concentro en aportar creatividad y atención personalizada a cada proyecto.",
+            "infiniteDesigns": "Peticiones ilimitadas",
             "steps": [
                 {
-                    "title": "Choose a plan",
-                    "description": "Choose the subscription that best suits your needs"
+                    "title": "Escoge un plan",
+                    "description": "Escoge la suscripción que mejor se adapte a sus necesidades"
                 },
                 {
-                    "title": "Make a request",
-                    "description": "Request your design from our portal"
+                    "title": "Haz una petición",
+                    "description": "Solicita tu diseño desde nuestro portal"
                 },
                 {
-                    "title": "Receive your design",
-                    "description": "Receive your designs within 24/48 hours"
+                    "title": "Recibe tu diseño",
+                    "description": "Recibe tus diseños en un plazo de 24/48 h"
                 }
             ]
         },
-        "limeMessage": "We use an innovative model where quality and speed are our priority. Andrea is the creative mind behind each project, we don't hire external designers.",
+        "limeMessage": "Utilizamos un modelo innovador donde la calidad y la rapidez son nuestra prioridad. Andrea es la mente creativa detrás de cada proyecto, no contratamos a diseñadores externos.",
         "benefits": {
-            "title": "Our benefits in the cocktail shaker",
+            "title": "Nuestros beneficios en la coctelera",
             "benefits": [
                 {
-                    "title": "Own software",
-                    "description": "Easily manage requests from our internal software"
+                    "title": "Software propio",
+                    "description": "Gestiona fácilmente las peticiones desde nuestro software interno"
                 },
                 {
                     "title": "Fast Delivery",
-                    "description": "We deliver your designs within 24/48 hours"
+                    "description": "Entregamos tus diseños en un plazo de 24/48 horas"
                 },
                 {
-                    "title": "Quality designs",
-                    "description": "Senior-level design just when you need it"
+                    "title": "Diseños de calidad",
+                    "description": "Diseño de nivel senior justo cuando lo necesites"
                 },
                 {
-                    "title": "Unlimited requests",
-                    "description": "All the requests you want per month, 1 request at a time."
+                    "title": "Peticiones ilimitadas",
+                    "description": "Todas las peticiones que quieras al mes, 1 petición a la vez."
                 }
             ]
         },
         "beforeAndAfter": {
-            "title": "Discover the magic of change",
-            "description": "Watch the transformation of",
-            "descriptionThin": "ideas into designs",
-            "secondaryText": "Explore fictional examples that demonstrate the impact of our process with high-quality results in no time."
+            "title": "Descubre la magia del cambio",
+            "description": "Observa la transformación de",
+            "descriptionThin": "ideas en diseños",
+            "secondaryText": "Explora ejemplos ficticios que demuestran el impacto de nuestro proceso con resultados de alta calidad en cuestión de tiempo."
         },
-        "orangeMessage": "Squeeze your time! With our unlimited subscription, forget about budgets and complications while adding a refreshing touch to your projects."
+        "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos."
     },
     "pricing": {
-        "title": "Pricing",
-        "description": "Choose the plan that best suits you. No contracts, no stress... you can cancel it at any time. Forget about freelancers or hiring an in-house designer.",
-        "waitlistButton": "Spots taken",
+        "title": "Precios",
+        "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes cancélalo en cualquier momento. Olvídate de freelance o contratar a un diseñador in house.",
+        "waitlistButton": "Plazas agotadas",
         "benefits": {
-            "title": "Benefits included in all plans",
+            "title": "Beneficios incluidos en todos los planes",
             "items": [
                 {
-                    "title": "Cancel anytime",
-                    "description": "No strings attached, you decide when to leave.",
+                    "title": "Cancela cuando quieras",
+                    "description": "Sin ataduras, tú decides el momento de irte.",
                     "icon": "sparkles"
                 },
                 {
-                    "title": "Try it for a week",
-                    "description": "If you're not satisfied in the first week, we'll give you your money back.",
+                    "title": "Pruébalo una semana",
+                    "description": "Si no estás satisfecho en la primera semana, te devolvemos el dinero.",
                     "icon": "lightning"
                 },
                 {
-                    "title": "Schedule a session if you have doubts",
-                    "description": "Schedule a personalized session to resolve your questions.",
+                    "title": "Agenda una sesión si dudas",
+                    "description": "Agenda una sesión personalizada para resolver tus preguntas.",
                     "icon": "shield"
                 }
             ]
         },
         "products": {
-            "title": "Pricing model",
-            "description": "Your perfect plan is just",
-            "descriptionThin": "1-click away...",
-            "secondaryText": "Choose from one of our monthly subscriptions. Start right away without a contract - pause and cancel it at any time."
+            "title": "Modelo de precios",
+            "description": "Tu plan perfecto está solo a",
+            "descriptionThin": "1-click...",
+            "secondaryText": "Elije entre una de nuestras subscripciones mensuales. Empieza ya mismo sin necesidad de contrato - pausa y cancélalo en cualquier momento."
         },
-        "loading": "Processing...",
-        "subscribe": "Subscribe now",
-        "bookACall": "Book a free call",
-        "month": "month",
+        "loading": "Procesando...",
+        "subscribe": "Suscríbete ahora",
+        "bookACall": "Agenda un 1:1",
+        "month": "mes",
         "badge": {
-            "availableSpots": "2 spots available"
+            "availableSpots": "2 sitios libres"
         },
-        "customPrice": "Custom",
-        "customPriceDescription": "For companies that require much more powerful designs, we have what you need.",
+        "customPrice": "Personalizadas",
+        "customPriceDescription": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas.",
         "features": {
-            "title": "What's included ",
+            "title": "Lo que incluye ",
             "Standard": [
-                "One request at a time",
-                "Unlimited revisions",
-                "Delivery in 24-48 hours",
-                "Dedicated designer"
+                "Una petición a la vez",
+                "Revisiones ilimitadas",
+                "Entrega en 24-48 horas",
+                "Diseñador dedicado"
             ],
             "Pro": [
-                "One request at a time",
-                "Unlimited revisions",
-                "Delivery in 24-48 hours",
-                "Priority support"
+                "Una petición a la vez",
+                "Revisiones ilimitadas",
+                "Entrega en 24-48 horas",
+                "Soporte prioritario"
             ],
             "Enterprise": [
-                "Custom design",
-                "Delivery time: 1 day",
-                "Unlimited revisions",
-                "Priority support"
+                "Diseño personalizado",
+                "Tiempo de entrega: 1 día",
+                "Revisiones ilimitadas",
+                "Soporte prioritario"
             ]
         },
         "services": {
-            "title": "Included services",
+            "title": "Servicios incluidos",
             "Standard": [
-                "Complete UI execution",
-                "Complete UX execution"
+                "Ejecución completa de UI",
+                "Ejecución complete de UX"
             ],
             "Pro": [
-                "Complete UI execution",
-                "Complete UX execution",
-                "Figma prototypes",
-                "Development-ready Figma files"
+                "Ejecución completa de UI",
+                "Ejecución complete de UX",
+                "Prototipos en Figma",
+                "Arhivos figma listos para desarrollo"
             ],
             "Enterprise": [
-                "Custom design",
-                "Delivery time: 1 day",
-                "Unlimited revisions",
-                "Priority support"
+                "Diseño personalizado",
+                "Tiempo de entrega: 1 día",
+                "Revisiones ilimitadas",
+                "Soporte prioritario"
             ]
         },
         "faq": {
-            "title": "Frequently asked questions",
+            "title": "Preguntas frecuentes",
             "infoBox": {
-                "title": "Still have more questions?",
-                "description": "Get in touch with us, we'll be happy to answer all your questions :)",
-                "cta": "Contact us"
+                "title": "¿Aun tienes más preguntas?",
+                "description": "Ponte en contacto con nosotros, estaremos encantados de resolver todas tus preguntas :)",
+                "cta": "Contáctanos"
             },
             "items": [
                 {
                     "id": 1,
-                    "title": "How can I make design requests?",
-                    "answer": "Once you subscribe to one of our plans, there's a section called Requests in your profile where you can submit your requests. Remember that you can only have one active at a time until the current request is closed."
+                    "title": "¿Cómo puedo hacer peticiones de diseño?",
+                    "answer": "Una vez te suscribas a uno de nuestros planes, dentro del perfil hay una sección llamada Peticiones en la que podrás ir subiendo tus peticiones. Recuerda que sólo puedes tener activa una a la vez hasta que se cierre la petición en curso."
                 },
                 {
                     "id": 2,
-                    "title": "When will I receive the designs?",
-                    "answer": "It depends on the complexity of the request, normally you'll receive the designs within 2-3 business days."
+                    "title": "¿Cúando recibiré los diseños?",
+                    "answer": "Depende de la complejidad de la petición, lo normal es que recibas los diseños en un plazo de 2-3 días laborables."
                 },
                 {
                     "id": 3,
-                    "title": "Can I change my plan later?",
-                    "answer": "Yes, you just need to unsubscribe, wait until the end of your current subscription and subscribe again to the plan you choose."
+                    "title": "¿Puedo cambiar mi plan más adelante?",
+                    "answer": "Si, lo único que tendrías que hacer es desuscribirte, esperar al final de tu suscripción actual y volver a  suscribirte al plan que tu elijas."
                 },
                 {
                     "id": 4,
-                    "title": "How does billing work?",
-                    "answer": "On the first day of execution of the first subscription and in monthly renewal cycles, you can download the invoice from the Billing tab within the private client area."
+                    "title": "¿Como funciona la facturación?",
+                    "answer": "El primer día de ejecución de la primera suscripción y en ciclos mensuales de renovación podrás descargar la factura desde la pestaña Facturación dentro del área privada de cliente."
                 },
                 {
                     "id": 5,
-                    "title": "Is there a refund policy if I don't like the service?",
-                    "answer": "You can try one of our subscriptions for a week and if you're not satisfied with the service, we'll give you your money back."
+                    "title": "¿Hay alguna política de reembolsos si no me gusta el servicio?",
+                    "answer": "Puedes probar una de nuestras suscripción durante una semana y si no estás satisfecho con el servicio te devolvemos el dinero."
                 }
             ]
         }
     },
     "contact": {
-        "title": "How can we help you?",
-        "description": "Choose how you prefer to contact us and we'll answer any questions you may have, or if you prefer, book an introductory 20-minute call.",
+        "title": "¿Cómo podemos ayudarte?",
+        "description": "Elige cómo prefieres contactarnos y responderemos a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
         "email": {
-            "title": "Send us an email",
-            "description": "Have questions or need more information? Write to us and we'll get back to you as soon as possible.",
-            "button": "Send email"
+            "title": "Mándanos un email",
+            "description": "¿Tienes dudas o necesitas más información? Escríbenos y te responderemos lo antes posible.",
+            "button": "Enviar email"
         },
         "chat": {
-            "title": "Chat with us",
-            "description": "Prefer something faster? Connect with us on chat and we'll resolve your doubts right away.",
-            "button": "Chat now"
+            "title": "Chatea con nosotros",
+            "description": "¿Prefieres algo más rápido? Conéctate con nosotros en el chat y resolvemos tus dudas al momento.",
+            "button": "Chatea ahora"
         },
         "meeting": {
-            "title": "Book a 1:1",
-            "description": "Let's talk about your project. Schedule a personalized session and find the best solution for your design.",
-            "button": "Schedule meeting"
+            "title": "Reserva una 1:1",
+            "description": "Hablemos sobre tu proyecto. Agenda una sesión personalizada y encuentra la mejor solución para tu diseño.",
+            "button": "Agendar reunión"
         }
     },
     "waitlist": {
-        "title": "Join the waitlist",
-        "description": "We want to provide the best service to everyone, so we don't take many subscriptions at once. Join our waitlist and we'll notify you when a spot becomes available on our platform 🎉",
-        "emailPlaceholder": "Your email",
-        "joinWaitlist": "Join the waitlist",
-        "successTitle": "You're already on the waitlist!",
-        "successDescription": "You'll soon receive a confirmation email with your current position. If a spot becomes available, we'll notify you by email and you'll have X days to complete your subscription. If you don't do so within that period, your spot will pass to the next user.",
-        "successButton": "Back to home"
+        "title": "Únete a la lista de espera",
+        "description": "Queremos dar el mejor servicio a todo el mundo, por lo que no cogemos muchas suscripciones a la vez. Únete a nuestra lista de espera y te notificaremos cuando se quede un sitio libre en nuestra plataforma 🎉",
+        "emailPlaceholder": "Tu email",
+        "joinWaitlist": "Unirme a la lista de espera",
+        "successTitle": "¡Ya estás en la lista de espera!",
+        "successDescription": "Pronto recibirás un correo de confirmación con tu posición actual. Si se libera un sitio, te avisaremos por email y tendrás X días para completar tu suscripción. De no hacerlo en ese plazo, tu puesto pasará al siguiente usuario.",
+        "successButton": "Volver al inicio",
+        "admin": {
+            "title": "Lista de Espera",
+            "email": "Email",
+            "registrationDate": "Fecha de Registro",
+            "actions": "Acciones",
+            "copyEmail": "Copiar email",
+            "emailCopied": "Email copiado al portapapeles",
+            "loading": "Cargando...",
+            "error": "Error al cargar la lista de espera",
+            "empty": "No hay entradas en la lista de espera",
+            "emptyDescription": "No hay nadie en la lista de espera en este momento. La lista se actualizará automáticamente cuando alguien se registre.",
+            "refresh": "Actualizar"
+        }
     },
     "footer": {
         "company": {
             "title": "Citrus Designer",
-            "description": "We transform your ideas into exceptional designs. Simple and effective design subscription service."
+            "description": "Transformamos tus ideas en diseños excepcionales. Servicio de diseño por suscripción simple y efectivo."
         },
         "quickLinks": {
-            "title": "Quick links",
+            "title": "Enlaces rápidos",
             "items": [
                 {
-                    "text": "Home",
-                    "href": "/"
+                    "text": "Inicio",
+                    "href": "/es"
                 },
                 {
-                    "text": "How it works",
-                    "href": "/#how-it-works"
+                    "text": "Cómo funciona",
+                    "href": "/es/how-it-works"
                 },
                 {
-                    "text": "Pricing",
-                    "href": "/#pricing"
+                    "text": "Precios",
+                    "href": "/es/pricing"
                 },
                 {
-                    "text": "Contact",
-                    "href": "/contact"
+                    "text": "Contacto",
+                    "href": "/es/contact"
                 }
             ]
         },
         "contact": {
-            "title": "Contact",
+            "title": "Contacto",
             "email": "info@citrusdesigner.com",
             "phone": "+34 900 123 456",
             "address": "Calle Principal 123, Madrid"
         },
         "legal": {
-            "privacy": "Privacy Policy",
-            "terms": "Terms and Conditions"
+            "privacy": "Política de privacidad",
+            "terms": "Términos y condiciones"
         },
-        "copyright": "All rights reserved"
+        "copyright": "Todos los derechos reservados"
     },
     "projects": {
-        "title": "Some of our favorite projects",
-        "description": "From startups to large companies, discover some projects where we collaborated to transform high-impact visual experiences.",
+        "title": "Algunos de nuestros proyectos favoritos",
+        "description": "De startups a grandes empresas, descubre algunos proyectos en los colaboramos para transformar experiencias visuales de alto impacto. ",
         "items": [
             {
                 "id": "1",
                 "title": "Competize",
-                "description": "Website redesign to make it more visual and responsive."
+                "description": "Rediseño de la web para hacerlo más visual y responsive."
             },
             {
                 "id": "2",
                 "title": "Tenvinilo",
-                "description": "Improvement of the user experience in the purchase process."
+                "description": "Mejora de la experiencia de usuario del proceso de compra."
             },
             {
                 "id": "3",
                 "title": "Freakit",
-                "description": "App redesign and design of new features."
+                "description": "Rediseño de la app y diseño de nuevas funcionalidades."
             },
             {
                 "id": "4",
                 "title": "Gureik",
-                "description": "Design of the delivery website for the multi-brand restaurant chain."
+                "description": "Diseño de la web de delivery de la cadena de restauración multimarca."
             }
         ]
     },
     "dashboard": {
-        "title": "Dashboard",
-        "welcome": "Welcome",
+        "title": "Panel de control",
+        "welcome": "Bienvenido",
         "menu": {
-            "subscriptions": "My subscriptions",
-            "invoices": "My invoices",
-            "requests": "My requests",
-            "profile": "My profile"
+            "subscriptions": "Mis suscripciones",
+            "invoices": "Mis facturas",
+            "requests": "Mis peticiones",
+            "profile": "Mi perfil"
+        },
+        "createRequest": {
+            "title": "Crear Nueva Petición",
+            "adminBadge": "admin",
+            "nameLabel": "Nombre de la petición",
+            "namePlaceholder": "Nombre de la petición",
+            "userLabel": "Usuario",
+            "descriptionLabel": "Descripción de la petición",
+            "buttons": {
+                "cancel": "Cancelar",
+                "create": "Crear Petición"
+            }
+        },
+        "profile": {
+            "title": "Información Personal",
+            "name": "Nombre",
+            "email": "Email",
+            "role": "Rol",
+            "memberSince": "Miembro desde",
+            "password": {
+                "title": "Contraseña",
+                "changeButton": "Cambiar contraseña",
+                "currentPassword": "Contraseña actual",
+                "newPassword": "Nueva contraseña",
+                "confirmPassword": "Confirmar contraseña",
+                "submit": "Actualizar contraseña",
+                "cancel": "Cancelar",
+                "success": "Contraseña actualizada correctamente",
+                "error": "Error al actualizar la contraseña",
+                "validation": {
+                    "required": "Este campo es requerido",
+                    "match": "Las contraseñas no coinciden",
+                    "minLength": "La contraseña debe tener al menos 8 caracteres"
+                }
+            }
         },
         "invoices": {
-            "title": "My Invoices",
+            "title": "Mis Facturas",
             "empty": {
-                "title": "No invoices",
-                "description": "No invoices found to display."
+                "title": "No hay facturas",
+                "description": "No se han encontrado facturas para mostrar."
             },
             "table": {
-                "number": "Number",
-                "date": "Date",
-                "amount": "Amount",
-                "status": "Status",
-                "actions": "Actions"
+                "number": "Número",
+                "date": "Fecha",
+                "amount": "Importe",
+                "status": "Estado",
+                "actions": "Acciones"
             },
             "status": {
-                "paid": "Paid",
-                "open": "Pending",
-                "void": "Void"
+                "paid": "Pagada",
+                "open": "Pendiente",
+                "void": "Anulada"
             },
             "actions": {
-                "download": "Download PDF"
+                "download": "Descargar PDF"
             }
         },
         "requests": {
-            "title": "My Requests",
+            "title": "Mis Peticiones",
             "empty": {
-                "title": "No requests",
-                "description": "No requests found to display."
+                "title": "No hay peticiones",
+                "description": "No se han encontrado peticiones para mostrar."
             },
             "create": {
-                "title": "Create New Request",
-                "name": "Request name",
-                "description": "Request description",
-                "submit": "Create Request",
-                "cancel": "Cancel",
-                "loading": "Loading...",
+                "title": "Crear Nueva Petición",
+                "name": "Nombre de la petición",
+                "description": "Descripción de la petición",
+                "submit": "Crear Petición",
+                "cancel": "Cancelar",
+                "loading": "Cargando...",
                 "subscription": {
-                    "required": "Subscription Required",
-                    "message": "You need an active subscription to create requests.",
-                    "cta": "View Subscription Plans"
-                }
+                    "required": "Suscripción Requerida",
+                    "message": "Necesitas una suscripción activa para crear peticiones.",
+                    "cta": "Ver Planes de Suscripción"
+                },
+                "namePlaceholder": "Nombre de la petición",
+                "requestLabel": "Descripción de la petición"
             },
             "detail": {
-                "title": "Request Details",
-                "name": "Name",
-                "request": "Request",
-                "figma": "View design in Figma",
-                "status": "Status",
-                "createdAt": "Created at",
-                "estimatedTime": "Estimated time",
-                "estimatedDays": "{days} days",
-                "noEstimate": "No estimate",
+                "title": "Detalle de la Petición",
+                "name": "Nombre",
+                "request": "Petición",
+                "figma": "Ver diseño en Figma",
+                "status": "Estado",
+                "createdAt": "Fecha de creación",
+                "estimatedTime": "Tiempo estimado",
+                "estimatedDays": "{days} días",
+                "noEstimate": "Sin estimación",
                 "feedback": {
                     "title": "Feedback",
-                    "empty": "No feedback available",
-                    "count": "{count} comments"
+                    "empty": "No hay feedback disponible",
+                    "count": "{count} comentarios"
                 },
-                "actions": "Actions",
-                "viewDetails": "View details"
+                "actions": "Acciones",
+                "viewDetails": "Ver detalle"
             },
             "status": {
-                "PENDING": "Pending",
-                "ACCEPTED": "Accepted",
-                "WORKING": "In Progress",
-                "DONE": "Completed"
+                "PENDING": "Pendiente",
+                "ACCEPTED": "Aceptado",
+                "WORKING": "En proceso",
+                "DONE": "Completado"
             }
         },
         "requestDetail": {
-            "title": "Request Detail",
-            "name": "Name",
-            "request": "Request",
-            "date": "Date",
-            "addFeedback": "Add Feedback",
-            "sending": "Sending...",
-            "sendFeedback": "Send Feedback",
-            "figmaDesign": "Figma Design",
-            "viewFigma": "View design in Figma",
-            "status": "Status",
+            "title": "Detalle de la Petición",
+            "name": "Nombre",
+            "request": "Petición",
+            "date": "Fecha",
+            "addFeedback": "Añadir Feedback",
+            "sending": "Enviando...",
+            "sendFeedback": "Enviar Feedback",
+            "figmaDesign": "Diseño en Figma",
+            "viewFigma": "Ver diseño en Figma",
+            "status": "Estado",
+            "back": "Volver",
             "statuses": {
-                "PENDING": "Pending",
-                "ACCEPTED": "Accepted",
-                "WORKING": "In Progress",
-                "DONE": "Completed"
+                "PENDING": "Pendiente",
+                "ACCEPTED": "Aceptado",
+                "WORKING": "En proceso",
+                "DONE": "Completado"
             },
-            "estimatedTime": "Estimated time",
-            "creationDate": "Creation date",
+            "estimatedTime": "Tiempo estimado",
+            "creationDate": "Fecha de creación",
             "feedback": {
                 "title": "Feedback",
-                "noFeedback": "No feedback yet",
-                "you": "You"
+                "noFeedback": "No hay feedback todavía",
+                "you": "Tú"
             }
         },
         "subscriptions": {
-            "title": "Subscriptions",
+            "title": "Suscripciones",
             "empty": {
-                "title": "No active subscriptions",
-                "description": "You currently don't have any active subscriptions."
+                "title": "No tienes suscripciones activas",
+                "description": "Actualmente no tienes ninguna suscripción activa."
             },
             "table": {
                 "plan": "Plan",
-                "amount": "Amount",
-                "startDate": "Start date",
-                "endDate": "End date",
-                "status": "Status",
-                "actions": "Actions"
+                "amount": "Importe",
+                "startDate": "Fecha de inicio",
+                "endDate": "Fecha de fin",
+                "status": "Estado",
+                "actions": "Acciones"
             },
             "status": {
-                "active": "Active",
-                "canceled": "Canceled",
-                "incomplete": "Incomplete",
-                "unknown": "Unknown"
+                "active": "Activa",
+                "canceled": "Cancelada",
+                "incomplete": "Incompleta",
+                "unknown": "Desconocido"
             },
             "actions": {
-                "cancel": "Cancel",
-                "reactivate": "Reactivate",
-                "noActions": "No actions available",
-                "hasActiveSubscription": "You already have an active subscription"
+                "cancel": "Cancelar",
+                "reactivate": "Reactivar",
+                "noActions": "Sin acciones disponibles",
+                "hasActiveSubscription": "Ya tienes una suscripción activa"
             },
             "modal": {
-                "title": "Cancel subscription",
-                "description": "Are you sure you want to cancel your subscription? This action cannot be undone.",
-                "confirm": "Yes, cancel",
-                "cancel": "No, keep it",
-                "reactivating": "Reactivating...",
-                "reactivateTitle": "Reactivate subscription",
-                "reactivateDescription": "Are you sure you want to reactivate your subscription?",
-                "reactivateConfirm": "Yes, reactivate",
-                "reactivateCancel": "No, cancel"
+                "title": "Cancelar suscripción",
+                "description": "¿Estás seguro de que quieres cancelar tu suscripción? Esta acción no se puede deshacer.",
+                "confirm": "Sí, cancelar",
+                "cancel": "No, mantener",
+                "reactivating": "Reactivando...",
+                "reactivateTitle": "Reactivar suscripción",
+                "reactivateDescription": "¿Estás seguro de que quieres reactivar tu suscripción?",
+                "reactivateConfirm": "Sí, reactivar",
+                "reactivateCancel": "No, cancelar"
             },
-            "maxSubscriptionsReached": "Unable to reactivate subscription because the maximum number of active subscriptions has been reached",
-            "joinWaitlist": "Join the waitlist"
+            "maxSubscriptionsReached": "No es posible reactivar la suscripción porque se ha alcanzado el límite máximo de suscripciones activas",
+            "joinWaitlist": "Unirse a la lista de espera"
         }
     },
     "testimonials": {
-        "title": "What our clients say...",
+        "title": "Lo que dicen nuestros clientes...",
         "items": [
             {
-                "text": "Andrea is a professional who is easy to communicate with and quickly understands what the company is looking for, bringing new ideas and perspectives that are clearly enriching.",
+                "text": "Andrea es una profesional con quién es fácil comunicarse y enseguida entiende lo que la empresa busca y aporta nuevas ideas y puntos de vista que son claramente enriquecedores.",
                 "author": "Joel Pascual",
                 "position": "CEO, Tenvinilo",
                 "logo": "/logos/logo1.png"
             },
             {
-                "text": "From the beginning, we trusted Andrea and the result has been exceptional, achieving good reviews, especially regarding the experience that the client achieves throughout the platform.",
+                "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
                 "author": "Jagoba Ormaetxea",
                 "position": "CEO, Gureik",
                 "logo": "/logos/logo2.png"
             },
             {
-                "text": "Besides being fast and efficient, Andrea quickly understands the few inputs offered and from there her creativity emerges to reach an optimal solution.",
+                "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
                 "author": "Nacho Kleinman",
-                "position": "CEO and Co-founder, Culpass",
+                "position": "CEO y Co-fundador, Culpass",
                 "logo": "/logos/logo3.png"
             }
         ]
     },
     "features": {
-        "title": "Everything you need in the same cocktail shaker",
+        "title": "Todo lo que necesitas en la misma coctelera",
         "items": [
-            "Responsive Design",
-            "App Design",
-            "User Experience",
-            "User Flows",
-            "Information Architecture",
-            "Design Systems",
-            "And Much More"
+            "Diseño Responsivo",
+            "Diseño de Aplicaciones",
+            "Experiencia de Usuario",
+            "Flujos de Usuario",
+            "Arquitectura de Información",
+            "Sistemas de Diseño",
+            "Y Mucho Más"
         ]
     },
     "auth": {
         "login": {
-            "title": "Login",
-            "description": "Welcome back! Please enter your details.",
+            "title": "Iniciar sesión",
+            "description": "¡Bienvenido de nuevo! Por favor, introduce tus datos.",
             "email": "Email",
-            "password": "Password",
-            "submitButton": "Login",
-            "submitButtonLoading": "Logging in...",
-            "forgotPassword": "Forgot password?",
-            "noAccount": "Don't have an account?",
-            "register": "Register",
+            "password": "Contraseña",
+            "submitButton": "Iniciar sesión",
+            "submitButtonLoading": "Iniciando sesión...",
+            "forgotPassword": "¿Olvidaste tu contraseña?",
+            "noAccount": "¿No tienes cuenta?",
+            "register": "Suscríbete a uno de nuestros planes",
+            "rememberMe": "Recordarme",
             "errors": {
-                "invalidCredentials": "Invalid credentials",
-                "serverError": "Server configuration error",
-                "authFailed": "Authentication failed"
+                "invalidCredentials": "Credenciales inválidas",
+                "serverError": "Error de configuración del servidor",
+                "authFailed": "Error de autenticación"
             }
         },
         "forgotPassword": {
-            "title": "Forgot password",
-            "description": "Enter your email address and we'll send you a link to reset your password.",
+            "title": "Olvidé mi contraseña",
+            "description": "Introduce tu email y te enviaremos un enlace para restablecer tu contraseña.",
             "email": "Email",
-            "submitButton": "Send reset link",
-            "submitButtonLoading": "Sending...",
-            "backToLogin": "Back to login",
+            "submitButton": "Enviar enlace",
+            "submitButtonLoading": "Enviando...",
+            "backToLogin": "Volver al inicio de sesión",
             "errors": {
-                "emailRequired": "Email is required",
-                "requestError": "Error processing request",
-                "success": "Reset link sent to your email"
+                "emailRequired": "El email es requerido",
+                "requestError": "Error al procesar la solicitud",
+                "success": "Enlace de restablecimiento enviado a tu email"
             }
         },
         "resetPassword": {
-            "title": "Reset password",
-            "description": "Enter your new password",
-            "newPassword": "New password",
-            "confirmPassword": "Confirm password",
-            "submitButton": "Reset password",
-            "submitButtonLoading": "Resetting...",
-            "backToLogin": "Back to login",
+            "title": "Restablecer contraseña",
+            "description": "Ingresa tu nueva contraseña",
+            "newPassword": "Nueva contraseña",
+            "confirmPassword": "Confirmar contraseña",
+            "submitButton": "Restablecer contraseña",
+            "submitButtonLoading": "Restableciendo...",
+            "backToLogin": "Volver al inicio de sesión",
             "errors": {
-                "invalidToken": "Invalid token",
-                "passwordTooShort": "Password must be at least 8 characters",
-                "passwordsDontMatch": "Passwords do not match",
-                "resetError": "Error resetting password",
-                "success": "Password updated successfully. Redirecting..."
+                "invalidToken": "Token no válido",
+                "passwordTooShort": "La contraseña debe tener al menos 8 caracteres",
+                "passwordsDontMatch": "Las contraseñas no coinciden",
+                "resetError": "Error al restablecer la contraseña",
+                "success": "Contraseña actualizada exitosamente. Redirigiendo..."
             }
         }
     },
+    "calendar": {
+        "schedule_call": "Agendar 1:1",
+        "loading": "Cargando..."
+    },
     "success": {
-        "verifying": "Verifying your subscription...",
+        "verifying": "Verificando tu suscripción...",
         "error": {
-            "title": "Error processing payment",
-            "message": "Please contact support if the problem persists.",
-            "backToHome": "Back to home"
+            "title": "Error al procesar el pago",
+            "message": "Por favor, contacta con soporte si el problema persiste.",
+            "backToHome": "Volver al inicio"
         },
         "success": {
-            "title": "Payment completed!",
-            "subtitle": "Thank you for subscribing to {planName}",
+            "title": "¡Pago completado!",
+            "subtitle": "Gracias por suscribirte a {planName}",
             "details": {
-                "title": "Subscription details",
-                "email": "Email: {email}",
+                "title": "Detalles de la suscripción",
+                "email": "Hemos enviado un email de confirmación a",
                 "plan": "Plan: {planName}"
             },
-            "confirmation": "We've sent a confirmation email to your email address.",
+            "confirmation": "Hemos enviado un email de confirmación a tu correo electrónico.",
             "actions": {
-                "goHome": "Go to home",
-                "contactSupport": "Contact support"
+                "goHome": "Ir al inicio",
+                "contactSupport": "Contactar soporte"
             }
         }
+    },
+    "customerDetails": {
+        "title": "Detalles del cliente",
+        "createRequest": "Crear petición",
+        "customerInfo": {
+            "title": "Información del cliente",
+            "name": "Nombre",
+            "email": "Email",
+            "role": "Rol",
+            "registrationDate": "Fecha de registro"
+        },
+        "latestRequests": {
+            "title": "Últimas peticiones"
+        }
+    },
+    "admin": {
+        "users": {
+            "title": "Usuarios",
+            "loading": "Cargando...",
+            "error": "Error: {error}",
+            "table": {
+                "name": "Nombre",
+                "email": "Email",
+                "role": "Rol",
+                "createdAt": "Fecha de registro",
+                "actions": "Acciones",
+                "makeAdmin": "Hacer admin"
+            }
+        },
+        "configuration": {
+            "title": "Configuración del Sistema",
+            "addNew": {
+                "title": "Añadir Nueva Configuración",
+                "key": "Clave",
+                "value": "Valor",
+                "description": "Descripción",
+                "keyPlaceholder": "Ej: MAX_PROJECTS",
+                "valuePlaceholder": "Ej: 100",
+                "descriptionPlaceholder": "Descripción de la configuración",
+                "addButton": "Añadir"
+            },
+            "existing": {
+                "title": "Configuraciones Existentes",
+                "edit": "Editar",
+                "save": "Guardar",
+                "cancel": "Cancelar",
+                "delete": "Eliminar"
+            },
+            "loading": "Cargando...",
+            "error": "Error: {error}",
+            "deleteConfirm": "¿Estás seguro de que quieres eliminar esta configuración?"
+        }
+    },
+    "availablePlaces": {
+        "title": "Sitios disponibles",
+        "loading": "Cargando sitios disponibles...",
+        "noPlaces": "Plazas agotadas"
     }
 }

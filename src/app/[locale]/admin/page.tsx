@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { UsersList } from "@/components/admin/UsersList";
 import { AdminRequests } from "@/components/admin/AdminRequests";
@@ -16,6 +16,7 @@ export default function AdminPage() {
   const [activeTab, setActiveTab] = useState("users");
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const { locale } = useParams();
   const { user, loading } = useAuth();
   const [users, setUsers] = useState([]);
   const [requests, setRequests] = useState([]);
@@ -24,10 +25,10 @@ export default function AdminPage() {
     if (loading) return;
 
     if (!user || user.role !== "admin") {
-      router.replace("/dashboard");
+      router.replace(`/${locale}/dashboard`);
       return;
     }
-  }, [user, loading, router]);
+  }, [user, loading, router, locale]);
 
   useEffect(() => {
     const fetchData = async () => {
