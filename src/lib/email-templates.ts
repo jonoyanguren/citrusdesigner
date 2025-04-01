@@ -263,6 +263,16 @@ const baseTemplate = (content: string, locale: LocaleType = "es") => `
             padding: 20px;
             text-align: center;
             width: 100%;
+            background-color: #ffffff;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header img {
+            width: 300px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
         .content {
             background-color: #ffffff;
@@ -278,10 +288,38 @@ const baseTemplate = (content: string, locale: LocaleType = "es") => `
             display: inline-block;
             padding: 12px 24px;
             background-color: #FF6B00;
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 5px;
             margin: 20px 0;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            -webkit-text-size-adjust: none;
+            mso-hide: all;
+        }
+        /* Gmail-specific button styles */
+        .button a {
+            background-color: #FF6B00;
+            border: 1px solid #FF6B00;
+            border-radius: 5px;
+            color: #ffffff !important;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+            text-decoration: none;
+            -webkit-text-size-adjust: none;
+            mso-hide: all;
+        }
+        /* Fallback for Gmail */
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            .button {
+                background-color: #FF6B00 !important;
+                border: 1px solid #FF6B00 !important;
+            }
         }
         .highlight {
             background-color: #ffedd5;
@@ -309,7 +347,7 @@ const baseTemplate = (content: string, locale: LocaleType = "es") => `
 </head>
 <body>
     <div class="header">
-        <img src="${process.env.NEXT_PUBLIC_URL}/logo2.png" alt="Citrus Designer" style="width: 300px;">
+        <img src="${process.env.NEXT_PUBLIC_URL}/logo2.png" alt="Citrus Designer">
     </div>
     <div class="container">
         <div class="content">
@@ -356,7 +394,7 @@ export const emailTemplates = {
       <p>${t.securityNote[locale]}</p>
       
       <p style="text-align: center;">
-        <a href="${process.env.NEXT_PUBLIC_URL}/${locale}/auth/login" class="button">${t.loginButton[locale]}</a>
+        <a href="${process.env.NEXT_PUBLIC_URL}/${locale}/auth/login" class="button" style="background-color: #FF6B00; border: 1px solid #FF6B00; border-radius: 5px; color: #ffffff !important; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">${t.loginButton[locale]}</a>
       </p>
     `,
       locale
