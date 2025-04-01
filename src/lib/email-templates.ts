@@ -320,7 +320,7 @@ export const emailTemplates = {
       <p>${t.reactivate[locale]}</p>
       
       <p style="text-align: center;">
-        <a href="${process.env.NEXT_PUBLIC_URL}/dashboard" class="button">${t.dashboardButton[locale]}</a>
+        <a href="${process.env.NEXT_PUBLIC_URL}/${locale}/dashboard" class="button">${t.dashboardButton[locale]}</a>
       </p>
       
       <p>${t.thanks[locale]}</p>
@@ -429,15 +429,15 @@ export const emailTemplates = {
 
     const text = `${t.title[locale]}
 
-${t.greeting[locale]} ${userEmail}
+    ${t.greeting[locale]} ${userEmail}
 
-${t.confirmation[locale]}
-${t.access[locale]}
+    ${t.confirmation[locale]}
+    ${t.access[locale]}
 
-${t.dashboardButton[locale]}: ${process.env.NEXT_PUBLIC_URL}/${locale}/dashboard
+    ${t.dashboardButton[locale]}: ${process.env.NEXT_PUBLIC_URL}/${locale}/dashboard
 
-${t.support[locale]}
-${t.thanks[locale]}`;
+    ${t.support[locale]}
+    ${t.thanks[locale]}`;
 
     return {
       html,

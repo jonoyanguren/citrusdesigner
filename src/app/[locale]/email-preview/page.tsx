@@ -1,11 +1,13 @@
 "use client";
 import { emailTemplates } from "@/lib/email-templates";
+import { LocaleType } from "@/types/locale";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function EmailPreviewPage() {
   const [html, setHtml] = useState<string>("");
+  const { locale } = useParams();
 
-  // Usar datos de ejemplo para la vista previa
   const previewData = {
     userEmail: "usuario@ejemplo.com",
     temporaryPassword: "temp123456",
@@ -16,6 +18,7 @@ export default function EmailPreviewPage() {
       const { html } = await emailTemplates.generateWelcomeEmail({
         userEmail: previewData.userEmail,
         temporaryPassword: previewData.temporaryPassword,
+        locale: locale as LocaleType,
       });
       setHtml(html);
     };
