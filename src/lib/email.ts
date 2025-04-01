@@ -13,6 +13,12 @@ interface EmailData {
   html: string;
 }
 
+interface SendinblueError {
+  response?: {
+    body: unknown;
+  };
+}
+
 export async function sendEmail({ to, subject, text, html }: EmailData) {
   try {
     const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
@@ -30,10 +36,11 @@ export async function sendEmail({ to, subject, text, html }: EmailData) {
     return { success: true, messageId: data.body.messageId };
   } catch (error) {
     console.error("❌ Error sending email:", error);
-    if (error.response) {
+    const sendinblueError = error as SendinblueError;
+    if (sendinblueError.response) {
       console.error(
         "❌ Sendinblue error response:",
-        JSON.stringify(error.response.body, null, 2)
+        JSON.stringify(sendinblueError.response.body, null, 2)
       );
     }
     throw error;

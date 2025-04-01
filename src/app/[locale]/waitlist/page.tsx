@@ -19,7 +19,6 @@ export default function WaitlistPage() {
       if (!response.ok) {
         throw new Error("Error al unirse a la lista de espera");
       }
-      const data = await response.json();
       setSuccess(true);
     } catch (error) {
       console.error(error);

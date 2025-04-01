@@ -8,7 +8,8 @@
         "login": "ログイン",
         "register": "新規登録",
         "bookCall": "1:1相談を予約",
-        "logout": "ログアウト"
+        "logout": "ログアウト",
+        "selectLanguage": "言語を選択"
     },
     "designerBehind": {
         "orangeMessage": "各プロジェクトは、複雑なものをシンプルにし、アイデアを具体的な現実に変える最適な方法を見つけるという、ユニークな冒険です。"
@@ -19,7 +20,8 @@
         "dashboard": "ダッシュボード",
         "logout": "ログアウト",
         "createRequest": "リクエストを作成",
-        "noNotifications": "通知はありません"
+        "noNotifications": "通知はありません",
+        "viewMore": "もっと見る"
     },
     "cta": {
         "title": "クリエイティブな可能性を一緒に引き出しませんか？",
@@ -173,7 +175,9 @@
             "descriptionThin": "デザインへの変容",
             "secondaryText": "私たちのプロセスの影響を示す架空の例を探索し、短時間で高品質な結果を実現します。"
         },
-        "orangeMessage": "時間を最大限活用しましょう！無制限のサブスクリプションで、予算や複雑さを忘れ、プロジェクトに爽やかな風を吹き込みます。"
+        "orangeMessage": "時間を最大限活用しましょう！無制限のサブスクリプションで、予算や複雑さを忘れ、プロジェクトに爽やかな風を吹き込みます。",
+        "before": "変更前",
+        "after": "変更後"
     },
     "pricing": {
         "title": "料金",
@@ -557,5 +561,13 @@
             "デザインシステム",
             "その他多数"
         ]
+    },
+    "changePassword": {
+        "title": "パスワードを変更",
+        "description": "初回ログインのため、セキュリティ上の理由でパスワードを変更してください",
+        "newPassword": "新しいパスワード",
+        "confirmPassword": "パスワードを確認",
+        "submitButton": "パスワードを変更",
+        "error": "パスワードが一致しません"
     }
 }

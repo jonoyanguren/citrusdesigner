@@ -8,7 +8,8 @@
         "login": "Anmelden",
         "register": "Registrieren",
         "bookCall": "1:1 Termin buchen",
-        "logout": "Abmelden"
+        "logout": "Abmelden",
+        "selectLanguage": "Sprache auswählen"
     },
     "designerBehind": {
         "orangeMessage": "Jedes Projekt ist ein einzigartiges Abenteuer, das mich herausfordert, den besten Weg zu finden, um Komplexes zu vereinfachen und Ideen in greifbare Realitäten zu verwandeln."
@@ -19,7 +20,8 @@
         "dashboard": "Dashboard",
         "logout": "Abmelden",
         "createRequest": "Anfrage erstellen",
-        "noNotifications": "Keine Benachrichtigungen"
+        "noNotifications": "Keine Benachrichtigungen",
+        "viewMore": "Mehr anzeigen"
     },
     "cta": {
         "title": "Bereit, gemeinsam das kreative Potenzial auszuschöpfen?",
@@ -173,7 +175,9 @@
             "descriptionThin": "Ideen in Designs",
             "secondaryText": "Entdecken Sie fiktive Beispiele, die die Wirkung unseres Prozesses mit hochwertigen Ergebnissen in kürzester Zeit demonstrieren."
         },
-        "orangeMessage": "Schöpfen Sie Ihre Zeit aus! Mit unserem unbegrenzten Abonnement vergessen Sie Budgets und Komplikationen, während Sie Ihren Projekten einen erfrischenden Touch verleihen."
+        "orangeMessage": "Schöpfen Sie Ihre Zeit aus! Mit unserem unbegrenzten Abonnement vergessen Sie Budgets und Komplikationen, während Sie Ihren Projekten einen erfrischenden Touch verleihen.",
+        "before": "Vorher",
+        "after": "Nachher"
     },
     "pricing": {
         "title": "Preise",
@@ -557,5 +561,13 @@
             "Design-Systeme",
             "Und Vieles Mehr"
         ]
+    },
+    "changePassword": {
+        "title": "Passwort ändern",
+        "description": "Da Sie sich zum ersten Mal anmelden, ändern Sie bitte aus Sicherheitsgründen Ihr Passwort",
+        "newPassword": "Neues Passwort",
+        "confirmPassword": "Passwort bestätigen",
+        "submitButton": "Passwort ändern",
+        "error": "Die Passwörter stimmen nicht überein"
     }
 }
