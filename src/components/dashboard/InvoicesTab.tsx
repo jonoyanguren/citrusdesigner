@@ -26,7 +26,6 @@ interface Props {
 
 export function InvoicesTab({ invoices, isLoading }: Props) {
   const t = useTranslations("dashboard.invoices");
-  console.log("Invoices", invoices);
 
   const formatDate = (timestamp: number) => {
     return new Date(timestamp * 1000).toLocaleDateString("es-ES", {

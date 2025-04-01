@@ -6,10 +6,11 @@ import { createSubscription } from "./createSubscription";
 import { emailTemplates } from "@/lib/email-templates";
 import prisma from "@/lib/prisma";
 import { sendEmail } from "@/lib/email";
+import { LocaleType } from "@/types/locale";
 
 export async function POST(request: NextRequest) {
   try {
-    console.log("🔔 Stripe webhook received");
+    console.info("🔔 Stripe webhook received");
     const body = await request.text();
     const headersList = await headers();
     const signature = headersList.get("stripe-signature");
@@ -35,24 +36,38 @@ export async function POST(request: NextRequest) {
 
     switch (event.type) {
       case "checkout.session.completed":
+        console.info("🔔 Processing checkout.session.completed");
         const session = event.data.object as Stripe.Checkout.Session;
+        const checkoutLocale = session.metadata?.locale as string;
+
+        if (!checkoutLocale) {
+          console.error("⚠️ No locale found in checkout session metadata");
+          return NextResponse.json(
+            { error: "No locale found" },
+            { status: 400 }
+          );
+        }
+
         if (session.mode === "subscription") {
           const invoice = await stripe.invoices.retrieve(
             session.invoice as string
           );
-          await createSubscription(invoice);
+
+          // Verificar si la suscripción ya existe
+          const existingSubscription = await prisma.subscription.findUnique({
+            where: {
+              stripeSubscriptionId: invoice.subscription as string,
+            },
+          });
+
+          if (existingSubscription) {
+            console.info("🔔 Subscription already exists, skipping creation");
+            return NextResponse.json({ received: true });
+          }
+
+          await createSubscription(invoice, checkoutLocale);
           console.info("✅ Subscription created from checkout session");
         }
-        break;
-
-      case "customer.subscription.created":
-        const subscription = event.data.object as Stripe.Subscription;
-        console.info("📦 Subscription created:", subscription.id);
-        break;
-
-      case "customer.subscription.updated":
-        const updatedSubscription = event.data.object as Stripe.Subscription;
-        console.info("📦 Subscription updated:", updatedSubscription.id);
         break;
 
       case "customer.subscription.deleted":
@@ -75,14 +90,15 @@ export async function POST(request: NextRequest) {
           const endDate = new Date(
             deletedSubscription.current_period_end * 1000
           );
-          const { html, text } =
-            emailTemplates.generateSubscriptionCancelledEmail(
-              user.email,
-              endDate
-            );
+          const { html, text, subject } =
+            await emailTemplates.generateSubscriptionCancelledEmail({
+              endDate,
+              locale: deletedSubscription.metadata?.locale as LocaleType,
+            });
+
           await sendEmail({
             to: user.email,
-            subject: "Tu suscripción ha sido cancelada",
+            subject,
             html,
             text,
           });

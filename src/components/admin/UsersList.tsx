@@ -16,7 +16,6 @@ interface Props {
 
 export function UsersList({ users }: Props) {
   const { locale } = useParams();
-  console.log("LOCALE", locale);
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-semibold">Usuarios</h2>

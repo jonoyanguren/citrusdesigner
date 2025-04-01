@@ -7,14 +7,9 @@ export async function POST(request: Request) {
   try {
     const { email, password } = await request.json();
 
-    console.log("Received password:", password);
-    console.log("Received email:", email);
-
     const user = await prisma.user.findUnique({
       where: { email },
     });
-
-    console.log("USERRR", user);
 
     if (!user) {
       return NextResponse.json(
@@ -22,14 +17,7 @@ export async function POST(request: Request) {
         { status: 401 }
       );
     }
-
-    console.log("Stored hashed password:", user.password);
-    console.log("Attempting to compare with:", password);
-
     const isPasswordValid = await compare(password, user.password);
-
-    console.log("IS_PASSWORD_VALID", isPasswordValid);
-    console.log("SECRET", process.env.JWT_SECRET);
 
     if (!isPasswordValid) {
       return NextResponse.json(
@@ -45,8 +33,6 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
-
-    console.log("JWT_SECRET", process.env.JWT_SECRET);
 
     const token = jwt.sign(
       {

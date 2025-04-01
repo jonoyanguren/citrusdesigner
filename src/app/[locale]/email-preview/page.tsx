@@ -1,16 +1,27 @@
+"use client";
 import { emailTemplates } from "@/lib/email-templates";
+import { useEffect, useState } from "react";
 
 export default function EmailPreviewPage() {
+  const [html, setHtml] = useState<string>("");
+
   // Usar datos de ejemplo para la vista previa
   const previewData = {
     userEmail: "usuario@ejemplo.com",
     temporaryPassword: "temp123456",
   };
 
-  const { html } = emailTemplates.generateWelcomeEmail(
-    previewData.userEmail,
-    previewData.temporaryPassword
-  );
+  useEffect(() => {
+    const generateEmail = async () => {
+      const { html } = await emailTemplates.generateWelcomeEmail({
+        userEmail: previewData.userEmail,
+        temporaryPassword: previewData.temporaryPassword,
+      });
+      setHtml(html);
+    };
+
+    generateEmail();
+  }, []);
 
   return (
     <div className="p-4">

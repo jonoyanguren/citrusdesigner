@@ -75,6 +75,9 @@ export async function createCheckoutSession(
       success_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/pricing`,
       customer: customerId,
+      metadata: {
+        locale: locale,
+      },
     });
 
     return { sessionId: session.id };

@@ -34,7 +34,6 @@ export function useCalendly() {
       script.src = "https://assets.calendly.com/assets/external/widget.js";
       script.async = true;
       script.onload = () => {
-        console.log("Calendly script loaded successfully");
         setIsCalendlyReady(true);
       };
       script.onerror = (error) => {

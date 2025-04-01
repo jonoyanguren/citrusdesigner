@@ -66,10 +66,7 @@ export function SubscriptionsTab({
 
   const fetchMaxProjects = async () => {
     try {
-      console.log("Fetching max projects...");
       const response = await fetch("/api/configurations/max-projects");
-      console.log();
-      console.log("RESPONSE MAX", response);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -78,7 +75,6 @@ export function SubscriptionsTab({
       }
 
       const data = await response.json();
-      console.log("Max projects data:", data);
       return parseInt(data.value, 10);
     } catch (error) {
       console.error("Error fetching max projects:", error);
@@ -131,7 +127,10 @@ export function SubscriptionsTab({
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ subscriptionId: selectedSubscription.id }),
+        body: JSON.stringify({
+          subscriptionId: selectedSubscription.id,
+          locale: params.locale,
+        }),
       });
 
       if (!response.ok) {

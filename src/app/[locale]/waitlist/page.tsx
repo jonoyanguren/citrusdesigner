@@ -11,7 +11,6 @@ export default function WaitlistPage() {
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async () => {
-    console.log("submit", email);
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
@@ -21,7 +20,6 @@ export default function WaitlistPage() {
         throw new Error("Error al unirse a la lista de espera");
       }
       const data = await response.json();
-      console.log(data);
       setSuccess(true);
     } catch (error) {
       console.error(error);

@@ -28,14 +28,14 @@ async function getMaxProjects() {
     });
 
     if (!config) {
-      console.log("MAX_PROJECTS config not found, returning default value");
+      console.info("MAX_PROJECTS config not found, returning default value");
       return maxProjects;
     }
 
     // Convert value to integer
     const value = parseInt(config.value, 10);
     if (isNaN(value)) {
-      console.log("Invalid MAX_PROJECTS value, returning default value");
+      console.info("Invalid MAX_PROJECTS value, returning default value");
       return maxProjects;
     }
 

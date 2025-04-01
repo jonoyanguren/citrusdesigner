@@ -47,9 +47,7 @@ export default function NuevaPeticionPage() {
   useEffect(() => {
     const fetchUsers = async () => {
       const users = await fetch("/api/users");
-      console.log("USERS", users);
       const data = await users.json();
-      console.log("DATA", data);
       setUsers([{ id: "1", name: "Admin" }, ...data]);
     };
     fetchUsers();

@@ -9,8 +9,6 @@ const intlMiddleware = createMiddleware(routing);
 
 // Wrap the intl middleware with our custom auth logic
 export async function middleware(request: NextRequest) {
-  console.log("🔒 Middleware - Path:", request.nextUrl.pathname);
-
   // No aplicar el middleware durante el login/registro y logout
   if (
     request.nextUrl.pathname.startsWith("/auth") ||
@@ -35,13 +33,9 @@ export async function middleware(request: NextRequest) {
       const secret = new TextEncoder().encode(process.env.JWT_SECRET);
       const { payload } = await jose.jwtVerify(token, secret);
 
-      console.log("👤 Decoded token:", payload);
-
       if (payload.role !== "admin") {
-        console.log("⛔ Not admin - Redirecting to home");
         return NextResponse.redirect(new URL("/", request.url));
       } else {
-        console.log("👤 Admin - Redirecting to admin");
         return NextResponse.next();
       }
     } catch (err) {

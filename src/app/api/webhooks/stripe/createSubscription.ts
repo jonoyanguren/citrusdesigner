@@ -4,89 +4,147 @@ import type Stripe from "stripe";
 import { hashSync } from "bcrypt";
 import { emailTemplates } from "@/lib/email-templates";
 import { sendEmail } from "@/lib/email";
+import { LocaleType } from "@/types/locale";
+import { User } from "@prisma/client";
 
-export async function createSubscription(invoice: Stripe.Invoice) {
-  try {
-    if (!invoice.customer) {
-      throw new Error("No customer found in invoice");
-    }
+const sendWelcomeEmail = async (
+  user: User,
+  temporaryPassword: string,
+  locale: LocaleType
+) => {
+  const { html, text, subject } = await emailTemplates.generateWelcomeEmail({
+    userEmail: user.email,
+    temporaryPassword,
+    locale: locale as LocaleType,
+  });
 
-    const subscription = await stripe.subscriptions.retrieve(
-      invoice.subscription as string,
-      {
-        expand: ["items.data.price.product", "customer"],
-      }
-    );
+  await sendEmail({
+    to: user.email,
+    subject,
+    html,
+    text,
+  });
+};
 
-    let user = await prisma.user.findFirst({
-      where: {
-        subscriptions: {
-          some: {
-            stripeUserId: invoice.customer as string,
-          },
-        },
-      },
+const sendSubscriptionConfirmationEmail = async (
+  user: User,
+  locale: LocaleType
+) => {
+  const { html, text, subject } =
+    await emailTemplates.generateSubscriptionConfirmationEmail({
+      userEmail: user.email,
+      locale: locale as LocaleType,
     });
 
-    if (!user && invoice.customer_email) {
-      user = await prisma.user.findUnique({
-        where: { email: invoice.customer_email },
+  await sendEmail({
+    to: user.email,
+    subject,
+    html,
+    text,
+  });
+};
+
+export async function createSubscription(
+  invoice: Stripe.Invoice,
+  locale: string
+) {
+  const subscription = await stripe.subscriptions.retrieve(
+    invoice.subscription as string,
+    {
+      expand: ["items.data.price.product"],
+    }
+  );
+
+  // Primero verificar si la suscripción ya existe
+  const existingSubscription = await prisma.subscription.findUnique({
+    where: {
+      stripeSubscriptionId: subscription.id,
+    },
+  });
+
+  if (existingSubscription) {
+    console.info("🔔 Subscription already exists, skipping creation");
+    console.info("🔔 Existing subscription details:", {
+      id: existingSubscription.id,
+      status: existingSubscription.status,
+      createdAt: existingSubscription.createdAt,
+    });
+    return existingSubscription;
+  }
+
+  let user = await prisma.user.findFirst({
+    where: {
+      subscriptions: {
+        some: {
+          stripeSubscriptionId: subscription.id,
+        },
+      },
+    },
+  });
+
+  let isNewUser = false;
+
+  if (!user && invoice.customer_email) {
+    console.info("🔔 User not found, searching by email");
+    user = await prisma.user.findUnique({
+      where: { email: invoice.customer_email },
+    });
+
+    if (!user?.id) {
+      console.info(
+        "🔔 User not found, creating new user",
+        invoice.customer_email
+      );
+      // Generar una contraseña temporal
+      const temporaryPassword = Math.random().toString(36).slice(-8);
+
+      user = await prisma.user.create({
+        data: {
+          email: invoice.customer_email,
+          name: invoice.customer_email.split("@")[0],
+          password: hashSync(temporaryPassword, 10),
+          hasToChangePassword: true,
+        },
       });
 
-      if (!user?.id) {
-        console.info(
-          "User not found, creating new user",
-          invoice.customer_email
-        );
-        // Generar una contraseña temporal
-        const temporaryPassword = Math.random().toString(36).slice(-8);
-
-        user = await prisma.user.create({
-          data: {
-            email: invoice.customer_email,
-            name: invoice.customer_email.split("@")[0],
-            password: hashSync(temporaryPassword, 10),
-            hasToChangePassword: true,
-          },
-        });
-
-        // Enviar email de bienvenida con la contraseña temporal
-        const { html, text } = emailTemplates.generateWelcomeEmail(
-          user.email,
-          temporaryPassword
-        );
-        await sendEmail({
-          to: user.email,
-          subject: "¡Bienvenido a Citrus Designer!",
-          html,
-          text,
-        });
-      }
+      console.info("🔔 New user created with ID:", user.id);
+      isNewUser = true;
+      await sendWelcomeEmail(user, temporaryPassword, locale as LocaleType);
+      console.info("🔔 Welcome email sent successfully");
+    } else {
+      console.info("🔔 Found existing user with ID:", user.id);
     }
-
-    if (!user) {
-      throw new Error("No se pudo encontrar o crear el usuario");
-    }
-
-    console.info("Creating new subscription for user", user.email);
-    const data = {
-      stripeSubscriptionId: subscription.id,
-      stripeUserId: invoice.customer as string,
-      userId: user.id,
-      status: subscription.status,
-      priceId: subscription.items.data[0].price.id,
-      productId: (subscription.items.data[0].price.product as Stripe.Product)
-        .id,
-    };
-
-    // Crear nueva suscripción
-    console.log("Creating new subscription with data:", data);
-    const newSubscription = await prisma.subscription.create({ data });
-    console.log("Subscription created:", newSubscription);
-
-    return newSubscription;
-  } catch (error) {
-    console.error("Error creating subscription:", error);
-    throw error;
   }
+
+  if (!user) {
+    throw new Error("No se pudo encontrar o crear el usuario");
+  }
+
+  console.info("🔔 Creating new subscription for user", user.email);
+  const data = {
+    stripeSubscriptionId: subscription.id,
+    stripeUserId: invoice.customer as string,
+    userId: user.id,
+    status: subscription.status,
+    priceId: subscription.items.data[0].price.id,
+    productId: (subscription.items.data[0].price.product as Stripe.Product).id,
+  };
+
+  const newSubscription = await prisma.subscription.create({ data });
+  console.info("🔔 Subscription created:", {
+    id: newSubscription.id,
+    status: newSubscription.status,
+    createdAt: newSubscription.createdAt,
+  });
+
+  // Si no es un usuario nuevo, enviar email de confirmación de suscripción
+  if (!isNewUser) {
+    await sendSubscriptionConfirmationEmail(user, locale as LocaleType);
+    console.info(
+      "🔔 Subscription confirmation email sent successfully to: ",
+      user.email
+    );
+  }
+
+  return newSubscription;
 }

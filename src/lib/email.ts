@@ -22,15 +22,20 @@ export async function sendEmail({ to, subject, text, html }: EmailData) {
     sendSmtpEmail.htmlContent = html;
     sendSmtpEmail.textContent = text;
     sendSmtpEmail.sender = {
-      name: "Citrus Designer",
+      name: "Citrus Designer NEW NEW",
       email: process.env.SENDINBLUE_SENDER_EMAIL,
     };
 
     const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
-    console.info("Email sent:", data);
     return { success: true, messageId: data.body.messageId };
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("❌ Error sending email:", error);
+    if (error.response) {
+      console.error(
+        "❌ Sendinblue error response:",
+        JSON.stringify(error.response.body, null, 2)
+      );
+    }
     throw error;
   }
 }

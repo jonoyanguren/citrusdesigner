@@ -6,7 +6,7 @@ import { sendEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, locale } = await request.json();
 
     if (!email) {
       return NextResponse.json(
@@ -28,14 +28,14 @@ export async function POST(request: Request) {
       },
     });
 
-    // Enviar email usando el template
-    const { html, text } = emailTemplates.generatePasswordResetEmail(
-      email,
-      resetToken
-    );
+    const { html, text, subject } =
+      await emailTemplates.generatePasswordResetEmail({
+        resetToken,
+        locale,
+      });
     await sendEmail({
       to: email,
-      subject: "Restablecer tu contraseña - Citrus Designer",
+      subject,
       html,
       text,
     });

@@ -42,13 +42,11 @@ export default function AdminPage() {
         };
 
         const fetchRequests = async () => {
-          console.log("Iniciando fetch de requests...");
           const response = await fetch("/api/admin/requests");
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data = await response.json();
-          console.log("Requests recibidos:", data);
           setRequests(data);
         };
 

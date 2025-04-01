@@ -10,7 +10,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { subscriptionId } = await request.json();
+    const { subscriptionId, locale } = await request.json();
     if (!subscriptionId) {
       return NextResponse.json(
         { error: "Subscription ID is required" },
@@ -36,7 +36,11 @@ export async function POST(request: Request) {
       );
     }
 
-    const { sessionId } = await createCheckoutSession(priceId, customerId);
+    const { sessionId } = await createCheckoutSession(
+      priceId,
+      customerId,
+      locale
+    );
 
     return NextResponse.json({ sessionId });
   } catch (error) {
