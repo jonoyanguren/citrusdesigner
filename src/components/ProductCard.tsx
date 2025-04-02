@@ -22,6 +22,8 @@ export default function ProductCard({
   const { locale } = useParams();
   const isHighlighted = product.name === "Pro";
 
+  console.log("PRODUCT", product);
+
   const highlightStyles = isHighlighted
     ? "border-4 border-neutral-900 bg-neutral-50"
     : "border-2 border-neutral-300 bg-white";
@@ -36,12 +38,14 @@ export default function ProductCard({
         </div>
       ) : (
         <div className="text-center">
-          <span className="text-4xl font-medium">${product.price}</span>
+          <span className="text-4xl font-medium">
+            {product.price.toLocaleString()} {t("currency")}
+          </span>
           <span className="text-lg text-neutral-500">/{t("month")}</span>
         </div>
       )}
       {product.description && (
-        <p className="text-left">{product.description}</p>
+        <p className="text-left">{t(`descriptions.${product.name}`)}</p>
       )}
       {product.price !== 0 && (
         <>

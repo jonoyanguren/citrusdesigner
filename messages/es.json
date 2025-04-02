@@ -37,28 +37,28 @@
     },
     "home": {
         "hero": {
-            "titleBegin": "Tu diseñador de confianza, en formato",
+            "titleBegin": "Tu diseñadora de confianza, en formato",
             "titleMiddle": "suscripción",
             "cta": "Suscríbete hoy mismo",
-            "ctaSecondary": "Contacta con nosotros",
+            "ctaSecondary": "Contacta conmigo",
             "description": "Suscríbete los meses que lo necesites y olvídate de contratar full time o buscar un freelance cada vez."
         },
         "customers": {
-            "title": "Empresas que confían en nosotros"
+            "title": "Empresas que confían en mí"
         },
         "pricing": {
             "title": "Precios",
             "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
-            "waitlistMessage": "Estamos en la lista de espera. Te notificaremos cuando se lance la suscripción."
+            "waitlistMessage": "Estoy en la lista de espera. Te notificaré cuando se lance la suscripción."
         },
         "howItWorks": {
-            "title": "Así es como funcionamos",
-            "description": "Descubre cómo funciona nuestro servicio"
+            "title": "Así es como funciono",
+            "description": "Descubre cómo funciona mi servicio"
         },
         "benefits": {
             "title": "Beneficios",
-            "subtitle": "Nuestros beneficios",
-            "description": "Descubre los beneficios de nuestro servicio"
+            "subtitle": "Mis beneficios",
+            "description": "Descubre los beneficios de mi servicio"
         },
         "aboutTheDesigner": {
             "title": "¿Quién está detrás?",
@@ -131,12 +131,12 @@
         }
     },
     "howItWorks": {
-        "title": "Así es como funcionamos",
-        "description": "Nuestro proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
+        "title": "Así es como funciona",
+        "description": "Mi proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
         "before": "Antes",
         "after": "Después",
         "steps": {
-            "title": "Nuestra forma de trabajar",
+            "title": "Mi forma de trabajar",
             "description": "Un proceso tecnológico con",
             "descriptionThin": "toque personal",
             "secondaryText": "Desde la suscripción hasta la entrega final, el proceso ha sido diseñado para maximizar la eficiencia. La tecnología se encarga de lo operativo, mientras que yo me concentro en aportar creatividad y atención personalizada a cada proyecto.",
@@ -144,11 +144,11 @@
             "steps": [
                 {
                     "title": "Escoge un plan",
-                    "description": "Escoge la suscripción que mejor se adapte a sus necesidades"
+                    "description": "Escoge la suscripción que mejor se adapte a tus necesidades"
                 },
                 {
                     "title": "Haz una petición",
-                    "description": "Solicita tu diseño desde nuestro portal"
+                    "description": "Solicita tu diseño desde mi portal"
                 },
                 {
                     "title": "Recibe tu diseño",
@@ -156,17 +156,17 @@
                 }
             ]
         },
-        "limeMessage": "Utilizamos un modelo innovador donde la calidad y la rapidez son nuestra prioridad. Andrea es la mente creativa detrás de cada proyecto, no contratamos a diseñadores externos.",
+        "limeMessage": "Utilizo un modelo innovador donde la calidad y la rapidez son mi prioridad. Soy la mente creativa detrás de cada proyecto, no contrato a diseñadores externos.",
         "benefits": {
-            "title": "Nuestros beneficios en la coctelera",
+            "title": "Mis beneficios en la coctelera",
             "benefits": [
                 {
                     "title": "Software propio",
-                    "description": "Gestiona fácilmente las peticiones desde nuestro software interno"
+                    "description": "Gestiona fácilmente las peticiones desde mi software interno"
                 },
                 {
                     "title": "Fast Delivery",
-                    "description": "Entregamos tus diseños en un plazo de 24/48 horas"
+                    "description": "Entregaré tus diseños en un plazo de 24/48 horas"
                 },
                 {
                     "title": "Diseños de calidad",
@@ -200,7 +200,7 @@
                 },
                 {
                     "title": "Pruébalo una semana",
-                    "description": "Si no estás satisfecho en la primera semana, te devolvemos el dinero.",
+                    "description": "Si no estás satisfecho en la primera semana, te devolveré el dinero.",
                     "icon": "lightning"
                 },
                 {
@@ -219,12 +219,18 @@
         "loading": "Procesando...",
         "subscribe": "Suscríbete ahora",
         "bookACall": "Agenda un 1:1",
+        "currency": "€",
         "month": "mes",
         "badge": {
             "availableSpots": "2 sitios libres"
         },
         "customPrice": "Personalizadas",
         "customPriceDescription": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas.",
+        "descriptions": {
+            "Standard": "Ideal para necesidades básicas de diseño",
+            "Pro": "Perfecto para retos de diseño grandes",
+            "Enterprise": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas."
+        },
         "features": {
             "title": "Lo que incluye ",
             "Standard": [
@@ -302,16 +308,16 @@
         }
     },
     "contact": {
-        "title": "¿Cómo podemos ayudarte?",
-        "description": "Elige cómo prefieres contactarnos y responderemos a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
+        "title": "¿Cómo puedo ayudarte?",
+        "description": "Elige cómo prefieres contactarme y responderé a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
         "email": {
-            "title": "Mándanos un email",
-            "description": "¿Tienes dudas o necesitas más información? Escríbenos y te responderemos lo antes posible.",
+            "title": "Mándame un email",
+            "description": "¿Tienes dudas o necesitas más información? Escríbeme y te responderé lo antes posible.",
             "button": "Enviar email"
         },
         "chat": {
-            "title": "Chatea con nosotros",
-            "description": "¿Prefieres algo más rápido? Conéctate con nosotros en el chat y resolvemos tus dudas al momento.",
+            "title": "Chatea conmigo",
+            "description": "¿Prefieres algo más rápido? Conéctate conmigo en el chat y resolvemos tus dudas al momento.",
             "button": "Chatea ahora"
         },
         "meeting": {
@@ -321,8 +327,8 @@
         }
     },
     "waitlist": {
-        "title": "Únete a la lista de espera",
-        "description": "Queremos dar el mejor servicio a todo el mundo, por lo que no cogemos muchas suscripciones a la vez. Únete a nuestra lista de espera y te notificaremos cuando se quede un sitio libre en nuestra plataforma 🎉",
+        "title": "Únete a mi lista de espera",
+        "description": "Quiero dar el mejor servicio a todo el mundo, por lo que no cojo muchas suscripciones a la vez. Únete a mi lista de espera y te notificaré cuando se quede un sitio libre en mi plataforma 🎉",
         "emailPlaceholder": "Tu email",
         "joinWaitlist": "Unirme a la lista de espera",
         "successTitle": "¡Ya estás en la lista de espera!",
@@ -345,7 +351,7 @@
     "footer": {
         "company": {
             "title": "Citrus Designer",
-            "description": "Transformamos tus ideas en diseños excepcionales. Servicio de diseño por suscripción simple y efectivo."
+            "description": "Transformo tus ideas en diseños excepcionales. Servicio de diseño por suscripción simple y efectivo."
         },
         "quickLinks": {
             "title": "Enlaces rápidos",
@@ -381,8 +387,8 @@
         "copyright": "Todos los derechos reservados"
     },
     "projects": {
-        "title": "Algunos de nuestros proyectos favoritos",
-        "description": "De startups a grandes empresas, descubre algunos proyectos en los colaboramos para transformar experiencias visuales de alto impacto. ",
+        "title": "Algunos de mis proyectos favoritos",
+        "description": "De startups a grandes empresas, descubre algunos proyectos en los que he colaborado para transformar experiencias visuales de alto impacto.",
         "items": [
             {
                 "id": "1",
@@ -611,7 +617,7 @@
     "features": {
         "title": "Todo lo que necesitas en la misma coctelera",
         "items": [
-            "Diseño Responsivo",
+            "Diseño Responsive",
             "Diseño de Aplicaciones",
             "Experiencia de Usuario",
             "Flujos de Usuario",

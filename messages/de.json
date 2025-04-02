@@ -30,14 +30,14 @@
     },
     "home": {
         "hero": {
-            "titleBegin": "Ihr vertrauenswürdiger Designer im",
+            "titleBegin": "Ihre vertrauenswürdige Designerin im",
             "titleMiddle": "Abonnement",
             "cta": "Jetzt abonnieren",
             "ctaSecondary": "Termin vereinbaren",
             "description": "Abonnieren Sie die Monate, die Sie benötigen, und vergessen Sie das Einstellen von Vollzeitkräften oder die Suche nach Freelancern."
         },
         "customers": {
-            "title": "Unternehmen, die uns vertrauen"
+            "title": "Unternehmen, die mir vertrauen"
         },
         "pricing": {
             "title": "Preise",
@@ -125,9 +125,9 @@
     },
     "howItWorks": {
         "title": "So funktioniert es",
-        "description": "Unser Prozess ist einfach und unkompliziert. Vermeiden Sie Meetings und schöpfen Sie Ihre Zeit aus",
+        "description": "Mein Prozess ist einfach und unkompliziert. Vermeiden Sie Meetings und schöpfen Sie Ihre Zeit aus",
         "steps": {
-            "title": "Unsere Arbeitsweise",
+            "title": "Meine Arbeitsweise",
             "description": "Ein technologischer Prozess mit",
             "descriptionThin": "persönlicher Note",
             "secondaryText": "Vom Abonnement bis zur finalen Lieferung wurde der Prozess entwickelt, um Effizienz zu maximieren. Die Technologie übernimmt das Operative, während ich mich darauf konzentriere, Kreativität und persönliche Aufmerksamkeit in jedes Projekt einzubringen.",
@@ -147,7 +147,7 @@
                 }
             ]
         },
-        "limeMessage": "Wir nutzen ein innovatives Modell, bei dem Qualität und Geschwindigkeit unsere Priorität sind. Andrea ist der kreative Kopf hinter jedem Projekt, wir beschäftigen keine externen Designer.",
+        "limeMessage": "Ich nutze ein innovatives Modell, bei dem Qualität und Geschwindigkeit meine Priorität sind. Ich bin die kreative Kraft hinter jedem Projekt, ohne externe Designer.",
         "benefits": {
             "title": "Unsere Vorteile im Cocktail-Shaker",
             "benefits": [
@@ -212,12 +212,18 @@
         "loading": "Wird verarbeitet...",
         "subscribe": "Jetzt abonnieren",
         "bookACall": "Kostenlosen Termin buchen",
+        "currency": "€",
         "month": "Monat",
         "badge": {
             "availableSpots": "2 Plätze verfügbar"
         },
         "customPrice": "Individuell",
-        "customPriceDescription": "Für Unternehmen, die deutlich leistungsfähigere Designs benötigen, haben wir das, was Sie brauchen.",
+        "customPriceDescription": "Für Unternehmen, die deutlich leistungsfähigere Designs benötigen, haben wir genau das, was Sie brauchen.",
+        "descriptions": {
+            "Standard": "Ideal für grundlegende Designanforderungen",
+            "Pro": "Perfekt für große Design-Herausforderungen",
+            "Enterprise": "Für Unternehmen, die deutlich leistungsfähigere Designs benötigen, haben wir genau das, was Sie brauchen."
+        },
         "features": {
             "title": "Was ist enthalten ",
             "Standard": [
@@ -295,16 +301,16 @@
         }
     },
     "contact": {
-        "title": "Wie können wir Ihnen helfen?",
-        "description": "Wählen Sie, wie Sie uns am liebsten kontaktieren möchten, und wir beantworten alle Ihre Fragen, oder wenn Sie möchten, vereinbaren Sie ein 20-minütiges Einführungsgespräch.",
+        "title": "Wie kann ich Ihnen helfen?",
+        "description": "Wählen Sie, wie Sie mich am liebsten kontaktieren möchten, und ich beantworte alle Ihre Fragen, oder wenn Sie möchten, vereinbaren Sie ein 20-minütiges Einführungsgespräch.",
         "email": {
-            "title": "Senden Sie uns eine E-Mail",
-            "description": "Haben Sie Fragen oder benötigen Sie weitere Informationen? Schreiben Sie uns, und wir melden uns bei Ihnen, sobald wie möglich.",
+            "title": "Senden Sie mir eine E-Mail",
+            "description": "Haben Sie Fragen oder benötigen Sie weitere Informationen? Schreiben Sie mir, und ich melde mich bei Ihnen, sobald wie möglich.",
             "button": "E-Mail senden"
         },
         "chat": {
-            "title": "Chatten Sie mit uns",
-            "description": "Lieber etwas Schnelleres? Verbinden Sie sich mit uns im Chat, und wir klären Ihre Fragen sofort.",
+            "title": "Chatten Sie mit mir",
+            "description": "Lieber etwas Schnelleres? Verbinden Sie sich mit mir im Chat, und ich kläre Ihre Fragen sofort.",
             "button": "Jetzt chatten"
         },
         "meeting": {
@@ -325,7 +331,7 @@
     "footer": {
         "company": {
             "title": "Citrus Designer",
-            "description": "Wir verwandeln Ihre Ideen in außergewöhnliche Designs. Einfacher und effektiver Design-Service im Abonnement."
+            "description": "Ich verwandle Ihre Ideen in außergewöhnliche Designs. Einfacher und effektiver Design-Service im Abonnement."
         },
         "quickLinks": {
             "title": "Schnelllinks",
