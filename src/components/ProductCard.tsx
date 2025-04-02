@@ -22,8 +22,6 @@ export default function ProductCard({
   const { locale } = useParams();
   const isHighlighted = product.name === "Pro";
 
-  console.log("PRODUCT", product);
-
   const highlightStyles = isHighlighted
     ? "border-4 border-neutral-900 bg-neutral-50"
     : "border-2 border-neutral-300 bg-white";

@@ -1,79 +1,86 @@
 {
     "navigation": {
         "home": "ホーム",
-        "howItWorks": "サービス内容",
-        "theDesignerBehind": "デザイナーについて",
-        "pricing": "料金",
+        "howItWorks": "使い方",
+        "theDesignerBehind": "私について",
+        "pricing": "価格",
         "contact": "お問い合わせ",
         "login": "ログイン",
-        "register": "新規登録",
-        "bookCall": "1:1相談を予約",
+        "register": "登録",
+        "bookCall": "1:1を予約",
         "logout": "ログアウト",
         "selectLanguage": "言語を選択"
     },
     "designerBehind": {
-        "orangeMessage": "各プロジェクトは、複雑なものをシンプルにし、アイデアを具体的な現実に変える最適な方法を見つけるという、ユニークな冒険です。"
+        "orangeMessage": "それぞれのプロジェクトは、複雑なものをシンプルにし、アイデアを具体的な現実に変えるための最良の方法を見つけるという挑戦的な、唯一無二の冒険です。"
     },
     "common": {
-        "welcome": "Citrus Designerへようこそ",
-        "platform": "あなたのデザインを実現する完璧なプラットフォーム",
+        "platform": "あなたのデザインを実現するための完璧なプラットフォーム",
         "dashboard": "ダッシュボード",
         "logout": "ログアウト",
         "createRequest": "リクエストを作成",
         "noNotifications": "通知はありません",
         "viewMore": "もっと見る"
     },
+    "changePassword": {
+        "title": "パスワードを変更",
+        "description": "初回ログインですので、安全のためパスワードを変更してください",
+        "newPassword": "新しいパスワード",
+        "confirmPassword": "パスワードの確認",
+        "submitButton": "パスワードを変更",
+        "error": "パスワードが一致しません"
+    },
     "cta": {
-        "title": "クリエイティブな可能性を一緒に引き出しませんか？",
-        "primaryButton": "サブスクリプション",
-        "secondaryButton": "1:1相談を予約"
+        "title": "一緒に創造的な可能性を引き出す準備はできていますか？",
+        "primaryButton": "購読する",
+        "secondaryButton": "1:1を予約する"
     },
     "home": {
         "hero": {
-            "titleBegin": "信頼できるデザイナーが",
-            "titleMiddle": "サブスクリプションで",
-            "cta": "今すぐ登録",
-            "ctaSecondary": "相談を予約",
-            "description": "必要な月だけサブスクリプションで利用でき、正社員の採用やフリーランスの探し直しの手間を省けます。"
+            "titleBegin": "あなたの信頼できるデザイナー、",
+            "titleMiddle": "サブスクリプション形式",
+            "cta": "今すぐ購読",
+            "ctaSecondary": "お問い合わせ",
+            "description": "必要な期間だけ購読し、フルタイム雇用やフリーランサーを毎回探す手間を省きます。"
         },
         "customers": {
-            "title": "ご利用いただいている企業様"
+            "title": "私を信頼する企業"
         },
         "pricing": {
-            "title": "料金",
-            "description": "あなたに最適なプランを選んでください。契約なし、ストレスなし...いつでもキャンセル可能です。フリーランスや社内デザイナーの採用は不要です。",
-            "waitlistMessage": "現在ウェイトリスト制となっています。サブスクリプション開始時にご案内いたします。"
+            "title": "価格",
+            "description": "あなたに最適なプランを選んでください。契約なし、ストレスなし…いつでも一時停止や解約が可能です。",
+            "waitlistMessage": "ウェイトリストに登録中です。購読開始時に通知します。"
         },
         "howItWorks": {
-            "title": "サービス内容",
-            "description": "私たちのサービスがどのように機能するかご覧ください"
+            "title": "使い方",
+            "description": "私のサービスの仕組みを確認してください"
         },
         "benefits": {
             "title": "メリット",
-            "subtitle": "私たちのメリット",
-            "description": "サービスのメリットをご確認ください"
+            "subtitle": "私のメリット",
+            "description": "私のサービスの利点をご確認ください"
         },
         "aboutTheDesigner": {
             "title": "デザイナーについて",
-            "description": "こちらがCitrus Designのデザイナー、アンドレアです。8年以上の経験を持ち、アイデアをユニークで印象的な体験に変えています。",
+            "description": "こちらはアンドレア、Citrus Designの背後にいるデザイナーです。8年以上の経験を持ち、アイデアをユニークで記憶に残る体験へと変えます。",
             "principles": {
-                "title": "デザインの原則",
+                "title": "私のデザイン原則",
                 "items": [
                     {
-                        "title": "シンプルであるほど良い",
-                        "description": "複雑な問題を分解し、分析的なアプローチで、シンプルで明確で意味のあるデザインに変えることが大好きです。"
+                        "title": "シンプルなほど良い",
+                        "description": "複雑な問題を分解し、分析的アプローチでシンプルで明快、かつ意味深いデザインに変えるのが好きです。"
                     },
                     {
-                        "title": "ユーザー中心のデザイン",
-                        "description": "人々が本当に必要としていることや行動を深く理解し、直感的で有用で意味のある体験を作り出します。"
+                        "title": "ユーザー中心設計",
+                        "description": "人々の本当のニーズと行動を深く理解し、直感的で有用、かつ意味のある体験を創造します。"
                     },
                     {
                         "title": "一貫性のあるデザイン",
-                        "description": "一貫したパターンとコンポーネントを使用して、すべてが意味をなすようにし、ユーザー体験を可能な限りスムーズにします。"
+                        "description": "一貫したパターンとコンポーネントを使用し、すべてが論理的に意味を成し、ユーザー体験がスムーズになるようにします。"
                     },
                     {
                         "title": "継続的な成長",
-                        "description": "デザインを新鮮で関連性のあるものに保つため、常に新しいトレンド、ツール、アプローチを探求しています。"
+                        "description": "常に新しいトレンド、ツール、アプローチを探求し、デザインを新鮮で関連性があり、進化し続けるものにします。"
                     }
                 ]
             },
@@ -83,165 +90,165 @@
                     "description": "最先端の継続的なトレーニングで裏付けられています。"
                 },
                 {
-                    "title": "Forbesで紹介",
+                    "title": "Forbesに紹介",
                     "description": "デジタル世界での影響力と革新性が認められています。"
                 },
                 {
-                    "title": "Friends of Figmaリーダー",
-                    "description": "Figmaコミュニティを牽引し、協力的なデザインを革新しています。"
+                    "title": "Figmaコミュニティリーダー",
+                    "description": "コラボレーティブなデザインを革新するためにFigmaコミュニティを牽引します。"
                 },
                 {
                     "title": "ADPListメンター",
-                    "description": "情熱と経験を持って次の世代の才能を導いています。"
+                    "description": "情熱と経験で次世代の才能を鼓舞し、導きます。"
                 }
             ]
         },
-        "orangeMessage": "時間を最大限活用しましょう！無制限のサブスクリプションで、予算や複雑さを忘れ、プロジェクトに爽やかな風を吹き込みます。",
+        "orangeMessage": "時間を最大限に活用しましょう！無制限サブスクリプションで、予算や複雑さを忘れ、プロジェクトに新鮮なアクセントを加えます。",
         "testimonials": {
             "title": "お客様の声",
-            "subtitle": "お客様からのフィードバック",
-            "description": "お客様が私たちを信頼する理由をご覧ください",
+            "subtitle": "クライアントの声",
+            "description": "なぜお客様が私たちを信頼するのかをご覧ください",
             "items": [
                 {
-                    "text": "アンドレアはコミュニケーションが容易で、企業が求めるものを素早く理解し、新しいアイデアと視点を提供してくれる、明らかに価値のあるプロフェッショナルです。",
+                    "text": "アンドレアは、コミュニケーションが取りやすく、企業の求めるものを即座に理解し、新たなアイデアと視点を提供してくれるプロフェッショナルです。",
                     "author": "Joel Pascual",
                     "position": "CEO, Tenvinilo",
                     "logo": "/logos/logo1.png"
                 },
                 {
-                    "text": "最初からアンドレアを信頼し、結果は素晴らしいものでした。特にプラットフォーム全体での顧客体験に関する良い評価を得ています。",
+                    "text": "最初からアンドレアを信頼し、結果は素晴らしく、特にプラットフォーム全体での顧客体験において高い評価を得ています。",
                     "author": "Jagoba Ormaetxea",
                     "position": "CEO, Gureik",
                     "logo": "/logos/logo2.png"
                 },
                 {
-                    "text": "迅速で効率的なだけでなく、アンドレアは提供された限られた情報を素早く理解し、そこから創造性を発揮して最適な解決策に到達します。",
+                    "text": "迅速かつ効率的で、アンドレアは少ない入力から最適な解決策を生み出す能力があります。",
                     "author": "Nacho Kleinman",
-                    "position": "CEO兼共同創業者, Culpass",
+                    "position": "CEOおよび共同創設者, Culpass",
                     "logo": "/logos/logo3.png"
                 }
             ]
         }
     },
     "howItWorks": {
-        "title": "サービス内容",
-        "description": "私のプロセスはシンプルで簡単です。ミーティングを避け、時間を最大限活用しましょう",
+        "title": "使い方",
+        "description": "私のプロセスはシンプルで簡単です。会議を省き、時間を有効活用しましょう",
+        "before": "前",
+        "after": "後",
         "steps": {
-            "title": "私の働き方",
-            "description": "テクノロジーと",
-            "descriptionThin": "パーソナルタッチ",
-            "secondaryText": "サブスクリプションから最終納品まで、プロセスは効率を最大化するように設計されています。テクノロジーが運用を担当し、私は各プロジェクトに創造性とパーソナルな注意を注いでいます。",
+            "title": "私の作業方法",
+            "description": "テクノロジーを活用したプロセス",
+            "descriptionThin": "パーソナルタッチ付き",
+            "secondaryText": "サブスクリプションから最終納品まで、効率を最大化するために設計されたプロセスです。テクノロジーが運用を担当し、私は各プロジェクトに創造性とパーソナルなケアを注ぎます。",
             "infiniteDesigns": "無制限のリクエスト",
             "steps": [
                 {
-                    "title": "プランを選択",
-                    "description": "あなたのニーズに最適なサブスクリプションを選んでください"
+                    "title": "プランを選ぶ",
+                    "description": "あなたのニーズに合ったサブスクリプションを選んでください"
                 },
                 {
-                    "title": "リクエストを送信",
-                    "description": "ポータルからデザインをリクエスト"
+                    "title": "リクエストを送る",
+                    "description": "ポータルからデザインリクエストを送信してください"
                 },
                 {
                     "title": "デザインを受け取る",
-                    "description": "24-48時間以内にデザインを受け取れます"
+                    "description": "24～48時間以内にデザインを受け取ります"
                 }
             ]
         },
-        "limeMessage": "私は品質とスピードを優先する革新的なモデルを使用しています。私が各プロジェクトのクリエイティブな頭脳であり、外部デザイナーは雇用していません。",
+        "limeMessage": "私は品質とスピードを最優先する革新的なモデルを採用しています。外部のデザイナーは雇わず、すべてのプロジェクトの背後に自分がいます。",
         "benefits": {
-            "title": "カクテルシェーカーの中のメリット",
+            "title": "私の提供するメリット",
             "benefits": [
                 {
-                    "title": "独自ソフトウェア",
-                    "description": "内部ソフトウェアでリクエストを簡単に管理"
+                    "title": "専用ソフトウェア",
+                    "description": "内部ソフトでリクエストを簡単に管理"
                 },
                 {
                     "title": "迅速な納品",
-                    "description": "24-48時間以内にデザインを納品"
+                    "description": "24～48時間以内にデザインをお届けします"
                 },
                 {
                     "title": "高品質なデザイン",
-                    "description": "必要な時にシニアレベルのデザイン"
+                    "description": "必要なときにシニアレベルのデザインを提供"
                 },
                 {
                     "title": "無制限のリクエスト",
-                    "description": "月に必要なだけのリクエスト、一度に1件。"
+                    "description": "月ごとにリクエスト可能（同時は1件ずつ）"
                 }
             ]
         },
         "beforeAndAfter": {
             "title": "変化の魔法を発見",
-            "description": "アイデアから",
-            "descriptionThin": "デザインへの変容",
-            "secondaryText": "私たちのプロセスの影響を示す架空の例を探索し、短時間で高品質な結果を実現します。"
+            "description": "アイデアがデザインに変わる様子を見てください",
+            "descriptionThin": "アイデアがデザインに",
+            "secondaryText": "短期間で高品質な成果をもたらすプロセスの影響を示す架空の例をご覧ください"
         },
-        "orangeMessage": "時間を最大限活用しましょう！無制限のサブスクリプションで、予算や複雑さを忘れ、プロジェクトに爽やかな風を吹き込みます。",
-        "before": "変更前",
-        "after": "変更後"
+        "orangeMessage": "時間を最大限に活用しましょう！無制限サブスクリプションで、予算や複雑さを忘れ、プロジェクトに新鮮なアクセントを加えます。"
     },
     "pricing": {
-        "title": "料金",
-        "description": "あなたに最適なプランを選んでください。契約なし、ストレスなし...いつでもキャンセル可能です。フリーランスや社内デザイナーの採用は不要です。",
-        "waitlistButton": "定員",
+        "title": "価格",
+        "description": "あなたに最適なプランを選んでください。契約なし、ストレスなし…いつでもキャンセル可能です。フリーランサーや社内デザイナーの雇用を忘れましょう。",
+        "waitlistButton": "空きなし",
         "benefits": {
-            "title": "全プランに含まれるメリット",
+            "title": "すべてのプランに含まれるメリット",
             "items": [
                 {
                     "title": "いつでもキャンセル可能",
-                    "description": "縛りなし、あなたが決めるタイミングで退会可能。",
+                    "description": "拘束なし、あなたが決定",
                     "icon": "sparkles"
                 },
                 {
-                    "title": "1週間のトライアル",
-                    "description": "最初の週で満足できない場合は、返金いたします。",
+                    "title": "1週間試用可能",
+                    "description": "初週に満足できなければ返金します",
                     "icon": "lightning"
                 },
                 {
-                    "title": "質問がある場合は相談を予約",
-                    "description": "パーソナルセッションを予約して、質問を解決。",
+                    "title": "質問があればセッション予約",
+                    "description": "疑問解消のためのパーソナルセッションを予約",
                     "icon": "shield"
                 }
             ]
         },
         "products": {
-            "title": "料金プラン",
-            "description": "あなたの完璧なプランは",
-            "descriptionThin": "1クリックで...",
-            "secondaryText": "月額サブスクリプションからお選びください。契約なしで今すぐ開始 - いつでも一時停止・キャンセル可能です。"
+            "title": "料金モデル",
+            "description": "あなたの理想のプランはたった",
+            "descriptionThin": "ワンクリック先に…",
+            "secondaryText": "月額サブスクリプションから選べます。契約不要、いつでも一時停止・キャンセル可能です。"
         },
         "loading": "処理中...",
-        "subscribe": "今すぐ登録",
-        "bookACall": "無料相談を予約",
-        "month": "月",
+        "subscribe": "今すぐ購読",
+        "bookACall": "1:1を予約",
         "currency": "€",
+        "month": "月",
         "badge": {
-            "availableSpots": "残り2枠"
+            "availableSpots": "2枠利用可能"
         },
         "customPrice": "カスタム",
-        "customPriceDescription": "より強力なデザインが必要な企業向けに、必要なものをすべてご用意しています。",
+        "customPriceDescription": "よりパワフルなデザインを必要とする企業向けです。",
         "descriptions": {
-            "Standard": "基本的なデザイン要件に最適",
-            "Pro": "大きなデザインチャレンジに最適",
-            "Enterprise": "より強力なデザインが必要な企業向けに、必要なものをすべてご用意しています。"
+            "Standard": "基本的なデザインニーズに最適",
+            "Pro": "大規模なデザインチャレンジに最適",
+            "Enterprise": "よりパワフルなデザインを必要とする企業向け"
         },
         "features": {
-            "title": "含まれる機能 ",
+            "title": "含まれる内容",
             "Standard": [
                 "同時に1件のリクエスト",
-                "無制限の修正",
-                "24-48時間での納品",
+                "無制限のリビジョン",
+                "24～48時間以内の納品",
                 "専任デザイナー"
             ],
             "Pro": [
                 "同時に1件のリクエスト",
-                "無制限の修正",
-                "24-48時間での納品",
+                "無制限のリビジョン",
+                "24～48時間以内の納品",
                 "優先サポート"
             ],
             "Enterprise": [
                 "カスタムデザイン",
-                "納期：1日",
-                "無制限の修正",
+                "1日以内の納品",
+                "無制限のリビジョン",
                 "優先サポート"
             ]
         },
@@ -259,98 +266,111 @@
             ],
             "Enterprise": [
                 "カスタムデザイン",
-                "納期：1日",
-                "無制限の修正",
+                "1日以内の納品",
+                "無制限のリビジョン",
                 "優先サポート"
             ]
         },
         "faq": {
             "title": "よくある質問",
             "infoBox": {
-                "title": "まだ質問がありますか？",
-                "description": "お問い合わせください。喜んでお答えいたします :)",
+                "title": "まだご質問がありますか？",
+                "description": "お気軽にお問い合わせください。全てのご質問に喜んでお答えします :)",
                 "cta": "お問い合わせ"
             },
             "items": [
                 {
                     "id": 1,
-                    "title": "デザインリクエストはどのように行いますか？",
-                    "answer": "サブスクリプションに登録後、プロフィール内の「リクエスト」セクションでリクエストを提出できます。現在のリクエストが完了するまで、同時に1件のアクティブなリクエストのみ可能です。"
+                    "title": "デザインリクエストはどう送るの？",
+                    "answer": "いずれかのプランに加入すると、プロフィール内の「リクエスト」セクションからリクエストを送信できます。現在のリクエストが完了するまで、同時に1件のみ可能です。"
                 },
                 {
                     "id": 2,
-                    "title": "デザインはいつ届きますか？",
-                    "answer": "リクエストの複雑さによりますが、通常2-3営業日以内にデザインをお届けします。"
+                    "title": "いつデザインが届くの？",
+                    "answer": "リクエストの複雑さにより異なりますが、通常は2～3営業日以内に届きます。"
                 },
                 {
                     "id": 3,
-                    "title": "後でプランを変更できますか？",
-                    "answer": "はい、現在のサブスクリプションの終了まで待ってから、選択したプランに再登録するだけです。"
+                    "title": "後からプランを変更できるの？",
+                    "answer": "はい。現在のサブスクリプションが終了したら、希望のプランに再加入してください。"
                 },
                 {
                     "id": 4,
-                    "title": "支払いはどのように行われますか？",
-                    "answer": "最初のサブスクリプションの実行初日と毎月の更新サイクルで、プライベートクライアントエリア内の請求書タブから請求書をダウンロードできます。"
+                    "title": "請求はどのように行われるの？",
+                    "answer": "初回加入日および毎月の更新日に、クライアントエリア内の請求タブから請求書をダウンロードできます。"
                 },
                 {
                     "id": 5,
-                    "title": "サービスが気に入らない場合の返金ポリシーはありますか？",
-                    "answer": "サブスクリプションを1週間試すことができ、サービスに満足できない場合は返金いたします。"
+                    "title": "サービスが気に入らなかった場合の返金は？",
+                    "answer": "1週間試用し、満足できなければ返金いたします。"
                 }
             ]
         }
     },
     "contact": {
         "title": "どのようにお手伝いできますか？",
-        "description": "お好みの連絡方法を選んでください。すべての質問にお答えします。または、20分の導入相談を予約することもできます。",
+        "description": "ご希望の連絡方法を選んでください。ご質問にお答えするか、20分の導入コールを予約します。",
         "email": {
-            "title": "メールを送信",
-            "description": "質問や追加情報が必要ですか？メールを送信してください。できるだけ早くご返信いたします。",
+            "title": "メールを送る",
+            "description": "ご質問や詳細が必要な場合はご連絡ください。できるだけ早くお返事いたします。",
             "button": "メールを送信"
         },
         "chat": {
-            "title": "チャットで相談",
-            "description": "より早い対応をご希望ですか？チャットで接続し、すぐに質問を解決します。",
+            "title": "チャットする",
+            "description": "もっと早く対応が必要ですか？チャットで接続し、すぐにご質問にお答えします。",
             "button": "今すぐチャット"
         },
         "meeting": {
-            "title": "1:1相談を予約",
-            "description": "プロジェクトについて話し合いましょう。パーソナルセッションを予約し、デザインの最適な解決策を見つけます。",
-            "button": "相談を予約"
+            "title": "1:1を予約",
+            "description": "プロジェクトについてお話ししましょう。パーソナルセッションを予約して、最適なデザインソリューションを見つけましょう。",
+            "button": "ミーティングを予約"
         }
     },
     "waitlist": {
-        "title": "ウェイトリストに登録",
-        "description": "すべての方に最高のサービスを提供したいため、一度に多くのサブスクリプションは受け付けていません。ウェイトリストに登録し、プラットフォームに空きが出た際にご案内いたします 🎉",
+        "title": "ウェイトリストに参加",
+        "description": "最高のサービスを提供するため、一度に多くのサブスクリプションは受け付けていません。ウェイトリストに参加いただくと、空きが出た際に通知します 🎉",
         "emailPlaceholder": "メールアドレス",
-        "joinWaitlist": "ウェイトリストに登録",
-        "successTitle": "ウェイトリストに登録済みです！",
-        "successDescription": "まもなく現在の順番を含む確認メールが届きます。空きが出た場合、メールでお知らせし、X日以内にサブスクリプションを完了する時間があります。その期間内に完了しない場合、次のユーザーに順番が移ります。",
-        "successButton": "ホームに戻る"
+        "joinWaitlist": "ウェイトリストに参加",
+        "successTitle": "あなたはすでにウェイトリストに参加しています！",
+        "successDescription": "確認メールに現在の位置が記載されています。空きが出た場合、メールで通知し、X日以内にサブスクリプションを完了してください。期間内に完了しない場合は、次の方に順番が移ります。",
+        "successButton": "ホームに戻る",
+        "admin": {
+            "title": "ウェイトリスト",
+            "email": "メール",
+            "registrationDate": "登録日",
+            "actions": "操作",
+            "copyEmail": "メールをコピー",
+            "emailCopied": "メールがクリップボードにコピーされました",
+            "loading": "読み込み中...",
+            "error": "ウェイトリストの読み込み中にエラーが発生しました",
+            "empty": "ウェイトリストにエントリーはありません",
+            "emptyDescription": "現在、ウェイトリストに登録している方はいません。登録があると自動で更新されます。",
+            "refresh": "更新"
+        }
     },
     "footer": {
         "company": {
             "title": "Citrus Designer",
-            "description": "あなたのアイデアを素晴らしいデザインに変えます。シンプルで効果的なデザインサブスクリプションサービス。"
+            "description": "あなたのアイデアを卓越したデザインへと変えます。シンプルで効果的なデザイン・サブスクリプションサービスです。"
         },
         "quickLinks": {
             "title": "クイックリンク",
             "items": [
                 {
                     "text": "ホーム",
-                    "href": "/"
+                    "href": "/jp"
                 },
                 {
-                    "text": "サービス内容",
-                    "href": "/#how-it-works"
+                    "text": "使い方",
+                    "href": "/jp/how-it-works"
                 },
                 {
-                    "text": "料金",
-                    "href": "/#pricing"
+                    "text": "価格",
+                    "href": "/jp/pricing"
                 },
                 {
                     "text": "お問い合わせ",
-                    "href": "/contact"
+                    "href": "/jp/contact"
                 }
             ]
         },
@@ -358,7 +378,7 @@
             "title": "お問い合わせ",
             "email": "info@citrusdesigner.com",
             "phone": "+34 900 123 456",
-            "address": "Calle Principal 123, Madrid"
+            "address": "123 メインストリート, マドリード"
         },
         "legal": {
             "privacy": "プライバシーポリシー",
@@ -367,28 +387,28 @@
         "copyright": "全著作権所有"
     },
     "projects": {
-        "title": "お気に入りのプロジェクト",
-        "description": "スタートアップから大企業まで、インパクトのある視覚的体験を変革するために協力したプロジェクトをご紹介します。",
+        "title": "私のお気に入りプロジェクト",
+        "description": "スタートアップから大企業まで、視覚的なインパクトを伴う体験を変革するために協力したプロジェクトをご覧ください。",
         "items": [
             {
                 "id": "1",
                 "title": "Competize",
-                "description": "ウェブサイトをより視覚的でレスポンシブにするリデザイン。"
+                "description": "ウェブサイトのリデザインで、より視覚的かつレスポンシブに。"
             },
             {
                 "id": "2",
                 "title": "Tenvinilo",
-                "description": "購入プロセスのユーザー体験の改善。"
+                "description": "購入プロセスのユーザーエクスペリエンスを改善。"
             },
             {
                 "id": "3",
                 "title": "Freakit",
-                "description": "アプリのリデザインと新機能のデザイン。"
+                "description": "アプリのリデザインと新機能の設計。"
             },
             {
                 "id": "4",
                 "title": "Gureik",
-                "description": "マルチブランドレストランチェーンのデリバリーウェブサイトのデザイン。"
+                "description": "マルチブランドレストランチェーンのデリバリーサイトのデザイン。"
             }
         ]
     },
@@ -396,26 +416,61 @@
         "title": "ダッシュボード",
         "welcome": "ようこそ",
         "menu": {
-            "subscriptions": "マイサブスクリプション",
-            "invoices": "マイ請求書",
-            "requests": "マイリクエスト",
-            "profile": "マイプロフィール"
+            "subscriptions": "私のサブスクリプション",
+            "invoices": "私の請求書",
+            "requests": "私のリクエスト",
+            "profile": "プロフィール"
+        },
+        "createRequest": {
+            "title": "新しいリクエストを作成",
+            "adminBadge": "admin",
+            "nameLabel": "リクエスト名",
+            "namePlaceholder": "リクエスト名",
+            "userLabel": "ユーザー",
+            "descriptionLabel": "リクエストの説明",
+            "buttons": {
+                "cancel": "キャンセル",
+                "create": "リクエストを作成"
+            }
+        },
+        "profile": {
+            "title": "個人情報",
+            "name": "名前",
+            "email": "メール",
+            "role": "役割",
+            "memberSince": "メンバー登録日",
+            "password": {
+                "title": "パスワード",
+                "changeButton": "パスワード変更",
+                "currentPassword": "現在のパスワード",
+                "newPassword": "新しいパスワード",
+                "confirmPassword": "パスワード確認",
+                "submit": "パスワード更新",
+                "cancel": "キャンセル",
+                "success": "パスワードが正常に更新されました",
+                "error": "パスワード更新中にエラーが発生しました",
+                "validation": {
+                    "required": "この項目は必須です",
+                    "match": "パスワードが一致しません",
+                    "minLength": "パスワードは8文字以上必要です"
+                }
+            }
         },
         "invoices": {
-            "title": "マイ請求書",
+            "title": "私の請求書",
             "empty": {
-                "title": "請求書なし",
-                "description": "表示する請求書が見つかりません。"
+                "title": "請求書がありません",
+                "description": "表示する請求書が見つかりませんでした。"
             },
             "table": {
                 "number": "番号",
                 "date": "日付",
                 "amount": "金額",
-                "status": "ステータス",
-                "actions": "アクション"
+                "status": "状態",
+                "actions": "操作"
             },
             "status": {
-                "paid": "支払済",
+                "paid": "支払済み",
                 "open": "未払い",
                 "void": "無効"
             },
@@ -424,46 +479,48 @@
             }
         },
         "requests": {
-            "title": "マイリクエスト",
+            "title": "私のリクエスト",
             "empty": {
-                "title": "リクエストなし",
-                "description": "表示するリクエストが見つかりません。"
+                "title": "リクエストがありません",
+                "description": "表示するリクエストが見つかりませんでした。"
             },
             "create": {
-                "title": "新規リクエスト作成",
+                "title": "新しいリクエストを作成",
                 "name": "リクエスト名",
                 "description": "リクエストの説明",
                 "submit": "リクエストを作成",
                 "cancel": "キャンセル",
                 "loading": "読み込み中...",
                 "subscription": {
-                    "required": "サブスクリプションが必要",
-                    "message": "リクエストを作成するにはアクティブなサブスクリプションが必要です。",
-                    "cta": "サブスクリプションプランを表示"
-                }
+                    "required": "サブスクリプションが必要です",
+                    "message": "リクエスト作成には有効なサブスクリプションが必要です。",
+                    "cta": "サブスクリプションプランを見る"
+                },
+                "namePlaceholder": "リクエスト名",
+                "requestLabel": "リクエストの説明"
             },
             "detail": {
                 "title": "リクエスト詳細",
                 "name": "名前",
                 "request": "リクエスト",
                 "figma": "Figmaでデザインを表示",
-                "status": "ステータス",
+                "status": "状態",
                 "createdAt": "作成日",
-                "estimatedTime": "予想時間",
-                "estimatedDays": "{days}日",
-                "noEstimate": "予想なし",
+                "estimatedTime": "推定時間",
+                "estimatedDays": "{days} 日",
+                "noEstimate": "推定なし",
                 "feedback": {
                     "title": "フィードバック",
-                    "empty": "フィードバックなし",
-                    "count": "{count}件のコメント"
+                    "empty": "フィードバックはありません",
+                    "count": "{count} 件のコメント"
                 },
-                "actions": "アクション",
-                "viewDetails": "詳細を表示"
+                "actions": "操作",
+                "viewDetails": "詳細を見る"
             },
             "status": {
                 "PENDING": "保留中",
                 "ACCEPTED": "承認済み",
-                "WORKING": "作業中",
+                "WORKING": "進行中",
                 "DONE": "完了"
             }
         },
@@ -475,89 +532,90 @@
             "addFeedback": "フィードバックを追加",
             "sending": "送信中...",
             "sendFeedback": "フィードバックを送信",
-            "figmaDesign": "Figmaデザイン",
+            "figmaDesign": "Figmaのデザイン",
             "viewFigma": "Figmaでデザインを表示",
-            "status": "ステータス",
+            "status": "状態",
+            "back": "戻る",
             "statuses": {
                 "PENDING": "保留中",
                 "ACCEPTED": "承認済み",
-                "WORKING": "作業中",
+                "WORKING": "進行中",
                 "DONE": "完了"
             },
-            "estimatedTime": "予想時間",
+            "estimatedTime": "推定時間",
             "creationDate": "作成日",
             "feedback": {
                 "title": "フィードバック",
-                "noFeedback": "フィードバックなし",
+                "noFeedback": "まだフィードバックはありません",
                 "you": "あなた"
             }
         },
         "subscriptions": {
             "title": "サブスクリプション",
             "empty": {
-                "title": "アクティブなサブスクリプションなし",
-                "description": "現在アクティブなサブスクリプションはありません。"
+                "title": "有効なサブスクリプションがありません",
+                "description": "現在、有効なサブスクリプションはありません。"
             },
             "table": {
                 "plan": "プラン",
                 "amount": "金額",
                 "startDate": "開始日",
                 "endDate": "終了日",
-                "status": "ステータス",
-                "actions": "アクション"
+                "status": "状態",
+                "actions": "操作"
             },
             "status": {
-                "active": "アクティブ",
+                "active": "有効",
                 "canceled": "キャンセル済み",
-                "incomplete": "未完了",
+                "incomplete": "不完全",
                 "unknown": "不明"
             },
             "actions": {
                 "cancel": "キャンセル",
-                "reactivate": "再開",
-                "noActions": "アクションなし",
-                "hasActiveSubscription": "すでにアクティブなサブスクリプションがあります"
+                "reactivate": "再有効化",
+                "noActions": "操作はありません",
+                "hasActiveSubscription": "既に有効なサブスクリプションがあります"
             },
             "modal": {
-                "title": "サブスクリプションをキャンセル",
-                "description": "サブスクリプションをキャンセルしてもよろしいですか？このアクションは取り消せません。",
-                "confirm": "はい、キャンセル",
-                "cancel": "いいえ、維持",
-                "reactivating": "再開中...",
-                "reactivateTitle": "サブスクリプションを再開",
-                "reactivateDescription": "サブスクリプションを再開してもよろしいですか？",
-                "reactivateConfirm": "はい、再開",
-                "reactivateCancel": "いいえ、キャンセル"
+                "title": "サブスクリプションのキャンセル",
+                "description": "サブスクリプションをキャンセルしてもよろしいですか？この操作は取り消せません。",
+                "confirm": "はい、キャンセルする",
+                "cancel": "いいえ、維持する",
+                "reactivating": "再有効化中...",
+                "reactivateTitle": "サブスクリプションの再有効化",
+                "reactivateDescription": "サブスクリプションを再有効化してもよろしいですか？",
+                "reactivateConfirm": "はい、再有効化する",
+                "reactivateCancel": "いいえ、キャンセルする"
             },
-            "maxSubscriptionsReached": "アクティブなサブスクリプションの最大数に達したため、再開できません",
-            "joinWaitlist": "ウェイトリストに登録"
+            "maxSubscriptionsReached": "有効なサブスクリプションの最大数に達しているため、再有効化はできません",
+            "joinWaitlist": "ウェイトリストに参加"
         }
     },
     "testimonials": {
         "title": "お客様の声...",
         "items": [
             {
-                "text": "アンドレアはコミュニケーションが容易で、企業が求めるものを素早く理解し、新しいアイデアと視点を提供してくれる、明らかに価値のあるプロフェッショナルです。",
+                "text": "アンドレアは、コミュニケーションが取りやすく、企業の求めるものを即座に理解し、新たなアイデアと視点を提供してくれるプロフェッショナルです。",
                 "author": "Joel Pascual",
                 "position": "CEO, Tenvinilo",
                 "logo": "/logos/logo1.png"
             },
             {
-                "text": "最初からアンドレアを信頼し、結果は素晴らしいものでした。特にプラットフォーム全体での顧客体験に関する良い評価を得ています。",
+                "text": "最初からアンドレアを信頼し、結果は素晴らしく、特にプラットフォーム全体での顧客体験が高く評価されています。",
                 "author": "Jagoba Ormaetxea",
                 "position": "CEO, Gureik",
                 "logo": "/logos/logo2.png"
             },
             {
-                "text": "迅速で効率的なだけでなく、アンドレアは提供された限られた情報を素早く理解し、そこから創造性を発揮して最適な解決策に到達します。",
+                "text": "迅速かつ効率的で、アンドレアは少ない入力から最適な解決策を生み出します。",
                 "author": "Nacho Kleinman",
-                "position": "CEO兼共同創業者, Culpass",
+                "position": "CEOおよび共同創設者, Culpass",
                 "logo": "/logos/logo3.png"
             }
         ]
     },
     "features": {
-        "title": "必要なすべてが同じカクテルシェーカーに",
+        "title": "すべてがひとつに詰まったパッケージ",
         "items": [
             "レスポンシブデザイン",
             "アプリデザイン",
@@ -568,12 +626,135 @@
             "その他多数"
         ]
     },
-    "changePassword": {
-        "title": "パスワードを変更",
-        "description": "初回ログインのため、セキュリティ上の理由でパスワードを変更してください",
-        "newPassword": "新しいパスワード",
-        "confirmPassword": "パスワードを確認",
-        "submitButton": "パスワードを変更",
-        "error": "パスワードが一致しません"
+    "auth": {
+        "login": {
+            "title": "ログイン",
+            "description": "おかえりなさい！情報を入力してください。",
+            "email": "メール",
+            "password": "パスワード",
+            "submitButton": "ログイン",
+            "submitButtonLoading": "ログイン中...",
+            "forgotPassword": "パスワードをお忘れですか？",
+            "noAccount": "アカウントがありませんか？",
+            "register": "プランに登録する",
+            "rememberMe": "ログイン状態を保持",
+            "errors": {
+                "invalidCredentials": "認証情報が無効です",
+                "serverError": "サーバー設定エラー",
+                "authFailed": "認証に失敗しました"
+            }
+        },
+        "forgotPassword": {
+            "title": "パスワードを忘れた",
+            "description": "メールアドレスを入力すると、パスワードリセット用リンクを送信します。",
+            "email": "メール",
+            "submitButton": "リンクを送信",
+            "submitButtonLoading": "送信中...",
+            "backToLogin": "ログインに戻る",
+            "errors": {
+                "emailRequired": "メールは必須です",
+                "requestError": "リクエスト処理中にエラーが発生しました",
+                "success": "リセットリンクをメールに送信しました"
+            }
+        },
+        "resetPassword": {
+            "title": "パスワードをリセット",
+            "description": "新しいパスワードを入力してください",
+            "newPassword": "新しいパスワード",
+            "confirmPassword": "パスワードの確認",
+            "submitButton": "パスワードをリセット",
+            "submitButtonLoading": "リセット中...",
+            "backToLogin": "ログインに戻る",
+            "errors": {
+                "invalidToken": "無効なトークンです",
+                "passwordTooShort": "パスワードは8文字以上必要です",
+                "passwordsDontMatch": "パスワードが一致しません",
+                "resetError": "パスワードリセット中にエラーが発生しました",
+                "success": "パスワードが正常に更新されました。リダイレクト中..."
+            }
+        }
+    },
+    "calendar": {
+        "schedule_call": "1:1の予約",
+        "loading": "読み込み中..."
+    },
+    "success": {
+        "verifying": "サブスクリプションを確認中...",
+        "error": {
+            "title": "支払い処理エラー",
+            "message": "問題が解決しない場合はサポートに連絡してください。",
+            "backToHome": "ホームに戻る"
+        },
+        "success": {
+            "title": "支払い完了！",
+            "subtitle": "{planName}の購読、ありがとうございます",
+            "details": {
+                "title": "サブスクリプション詳細",
+                "email": "確認メールを送信しました：",
+                "plan": "プラン: {planName}"
+            },
+            "confirmation": "確認メールをあなたのメールアドレスに送信しました。",
+            "actions": {
+                "goHome": "ホームへ",
+                "contactSupport": "サポートに連絡"
+            }
+        }
+    },
+    "customerDetails": {
+        "title": "顧客詳細",
+        "createRequest": "リクエストを作成",
+        "customerInfo": {
+            "title": "顧客情報",
+            "name": "名前",
+            "email": "メール",
+            "role": "役割",
+            "registrationDate": "登録日"
+        },
+        "latestRequests": {
+            "title": "最新のリクエスト"
+        }
+    },
+    "admin": {
+        "users": {
+            "title": "ユーザー",
+            "loading": "読み込み中...",
+            "error": "エラー: {error}",
+            "table": {
+                "name": "名前",
+                "email": "メール",
+                "role": "役割",
+                "createdAt": "登録日",
+                "actions": "操作",
+                "makeAdmin": "管理者に設定"
+            }
+        },
+        "configuration": {
+            "title": "システム設定",
+            "addNew": {
+                "title": "新しい設定を追加",
+                "key": "キー",
+                "value": "値",
+                "description": "説明",
+                "keyPlaceholder": "例: MAX_PROJECTS",
+                "valuePlaceholder": "例: 100",
+                "descriptionPlaceholder": "設定の説明",
+                "addButton": "追加"
+            },
+            "existing": {
+                "title": "既存の設定",
+                "edit": "編集",
+                "save": "保存",
+                "cancel": "キャンセル",
+                "delete": "削除"
+            },
+            "loading": "読み込み中...",
+            "error": "エラー: {error}",
+            "deleteConfirm": "この設定を削除してもよろしいですか？"
+        }
+    },
+    "availablePlaces": {
+        "title": "利用可能な枠",
+        "loading": "利用可能な枠を読み込み中...",
+        "noPlaces": "枠が埋まっています"
     }
 }
