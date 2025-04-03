@@ -9,6 +9,7 @@ import {
   TableHeaderCell,
   TableCell,
 } from "@/components/ui/Table";
+import { useTranslations } from "next-intl";
 
 interface Props {
   users: User[];
@@ -16,17 +17,19 @@ interface Props {
 
 export function UsersList({ users }: Props) {
   const { locale } = useParams();
+  const t = useTranslations("admin.usersList");
+
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold">Usuarios</h2>
+      <h2 className="text-xl font-semibold">{t("title")}</h2>
 
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHeaderCell>Nombre</TableHeaderCell>
-            <TableHeaderCell>Email</TableHeaderCell>
-            <TableHeaderCell>Rol</TableHeaderCell>
-            <TableHeaderCell>Acciones</TableHeaderCell>
+            <TableHeaderCell>{t("table.name")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.email")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.role")}</TableHeaderCell>
+            <TableHeaderCell>{t("table.actions")}</TableHeaderCell>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -40,7 +43,7 @@ export function UsersList({ users }: Props) {
                   href={`/${locale}/admin/customer-details/${user.id}`}
                   className="text-blue-600 hover:text-blue-800"
                 >
-                  Ver detalles
+                  {t("table.viewDetails")}
                 </Link>
               </TableCell>
             </TableRow>

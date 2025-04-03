@@ -22,6 +22,62 @@
         "noNotifications": "通知はありません",
         "viewMore": "もっと見る"
     },
+    "admin": {
+        "title": "管理パネル",
+        "welcome": "ようこそ",
+        "menu": {
+            "users": "ユーザー",
+            "requests": "リクエスト",
+            "settings": "設定"
+        },
+        "loading": "読み込み中...",
+        "users": {
+            "title": "ユーザー",
+            "loading": "読み込み中...",
+            "error": "エラー: {error}",
+            "table": {
+                "name": "名前",
+                "email": "メール",
+                "role": "役割",
+                "createdAt": "登録日",
+                "actions": "操作",
+                "makeAdmin": "管理者に設定"
+            }
+        },
+        "usersList": {
+            "title": "ユーザー",
+            "table": {
+                "name": "名前",
+                "email": "メール",
+                "role": "役割",
+                "actions": "操作",
+                "viewDetails": "詳細を表示"
+            }
+        },
+        "configuration": {
+            "title": "システム設定",
+            "addNew": {
+                "title": "新しい設定を追加",
+                "key": "キー",
+                "value": "値",
+                "description": "説明",
+                "keyPlaceholder": "例: MAX_PROJECTS",
+                "valuePlaceholder": "例: 100",
+                "descriptionPlaceholder": "設定の説明",
+                "addButton": "追加"
+            },
+            "existing": {
+                "title": "既存の設定",
+                "edit": "編集",
+                "save": "保存",
+                "cancel": "キャンセル",
+                "delete": "削除"
+            },
+            "loading": "読み込み中...",
+            "error": "エラー: {error}",
+            "deleteConfirm": "この設定を削除してもよろしいですか？"
+        }
+    },
     "changePassword": {
         "title": "パスワードを変更",
         "description": "初回ログインですので、安全のためパスワードを変更してください",
@@ -428,10 +484,13 @@
             "namePlaceholder": "リクエスト名",
             "userLabel": "ユーザー",
             "descriptionLabel": "リクエストの説明",
+            "deliverableLabel": "納品方法",
+            "selectDeliverable": "納品方法を選択",
             "buttons": {
                 "cancel": "キャンセル",
                 "create": "リクエストを作成"
-            }
+            },
+            "deliverableTypeLabel": "納品方法"
         },
         "profile": {
             "title": "個人情報",
@@ -497,7 +556,8 @@
                     "cta": "サブスクリプションプランを見る"
                 },
                 "namePlaceholder": "リクエスト名",
-                "requestLabel": "リクエストの説明"
+                "requestLabel": "リクエストの説明",
+                "deliverableTypeLabel": "納品方法"
             },
             "detail": {
                 "title": "リクエスト詳細",
@@ -529,13 +589,14 @@
             "name": "名前",
             "request": "リクエスト",
             "date": "日付",
-            "addFeedback": "フィードバックを追加",
+            "addFeedback": "フィードバック追加",
             "sending": "送信中...",
-            "sendFeedback": "フィードバックを送信",
-            "figmaDesign": "Figmaのデザイン",
-            "viewFigma": "Figmaでデザインを表示",
-            "status": "状態",
+            "sendFeedback": "フィードバック送信",
+            "figmaDesign": "Figmaデザイン",
+            "viewFigma": "Figmaでデザインを見る",
+            "status": "ステータス",
             "back": "戻る",
+            "deliverable": "納品方法",
             "statuses": {
                 "PENDING": "保留中",
                 "ACCEPTED": "承認済み",
@@ -712,44 +773,6 @@
         },
         "latestRequests": {
             "title": "最新のリクエスト"
-        }
-    },
-    "admin": {
-        "users": {
-            "title": "ユーザー",
-            "loading": "読み込み中...",
-            "error": "エラー: {error}",
-            "table": {
-                "name": "名前",
-                "email": "メール",
-                "role": "役割",
-                "createdAt": "登録日",
-                "actions": "操作",
-                "makeAdmin": "管理者に設定"
-            }
-        },
-        "configuration": {
-            "title": "システム設定",
-            "addNew": {
-                "title": "新しい設定を追加",
-                "key": "キー",
-                "value": "値",
-                "description": "説明",
-                "keyPlaceholder": "例: MAX_PROJECTS",
-                "valuePlaceholder": "例: 100",
-                "descriptionPlaceholder": "設定の説明",
-                "addButton": "追加"
-            },
-            "existing": {
-                "title": "既存の設定",
-                "edit": "編集",
-                "save": "保存",
-                "cancel": "キャンセル",
-                "delete": "削除"
-            },
-            "loading": "読み込み中...",
-            "error": "エラー: {error}",
-            "deleteConfirm": "この設定を削除してもよろしいですか？"
         }
     },
     "availablePlaces": {

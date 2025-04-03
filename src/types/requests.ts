@@ -4,6 +4,7 @@ export interface RequestWithFeedback extends Omit<Request, "status"> {
   status: RequestStatus;
   timeToComplete: string | null;
   user: {
+    id: string;
     name: string;
   };
   feedback: {

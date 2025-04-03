@@ -57,7 +57,7 @@ export function FeedbackList({
                   isOwnMessage ? "items-end" : "items-start"
                 }`}
               >
-                <div className="w-[60%]">
+                <div className="w-[80%]">
                   <div
                     className={`flex flex-row gap-2 items-center ${
                       isOwnMessage ? "flex-row-reverse" : ""
@@ -65,7 +65,7 @@ export function FeedbackList({
                   >
                     {/* Avatar Circle */}
                     <div
-                      className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium text-white ${
+                      className={`w-8 h-8 min-w-8 min-h-8 rounded-full flex items-center justify-center text-sm font-medium text-white ${
                         isOwnMessage ? "bg-blue-600" : "bg-gray-800"
                       }`}
                     >

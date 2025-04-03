@@ -1,22 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { RichText } from "@/components/RichText";
 import { processContentWithImages } from "@/lib/utils/imageProcessing";
-import { User } from "@prisma/client";
+import { UsersSelect } from "@/components/admin/UsersSelect";
+import { DeliverableSelect } from "@/components/admin/DeliverableSelect";
 import { useTranslations } from "next-intl";
+import { DeliverableType } from "@prisma/client";
 
 export default function NuevaPeticionPage() {
   const router = useRouter();
   const t = useTranslations("dashboard.createRequest");
-  const [users, setUsers] = useState<User[]>([]);
+  const { locale } = useParams();
   const [formData, setFormData] = useState({
     name: "",
     request: "",
     userId: "",
+    deliverable: null as DeliverableType | null,
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -33,25 +36,17 @@ export default function NuevaPeticionPage() {
           name: formData.name,
           request: processedRequest,
           userId: formData.userId,
+          deliverable: formData.deliverable,
         }),
       });
 
       if (response.ok) {
-        router.push("/admin");
+        router.push(`/${locale}/admin`);
       }
     } catch (error) {
       console.error("Error al crear la petición:", error);
     }
   };
-
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const users = await fetch("/api/users");
-      const data = await users.json();
-      setUsers([{ id: "1", name: "Admin" }, ...data]);
-    };
-    fetchUsers();
-  }, []);
 
   return (
     <div className="max-w-2xl mx-auto p-6 mt-24">
@@ -72,24 +67,19 @@ export default function NuevaPeticionPage() {
           />
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-            {t("userLabel")}
-          </label>
-          <select
-            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-            value={formData.userId}
-            onChange={(e) =>
-              setFormData({ ...formData, userId: e.target.value })
-            }
-          >
-            {users.map((user) => (
-              <option key={user.id} value={user.id}>
-                {user.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        <UsersSelect
+          label={t("userLabel")}
+          selectedUserId={formData.userId}
+          onSelect={(userId) => setFormData({ ...formData, userId })}
+          className="w-full"
+        />
+
+        <DeliverableSelect
+          label={t("deliverableLabel") || "Método de entrega"}
+          selectedDeliverable={formData.deliverable}
+          onSelect={(deliverable) => setFormData({ ...formData, deliverable })}
+          className="w-full"
+        />
 
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">

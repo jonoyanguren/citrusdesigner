@@ -34,7 +34,7 @@ export default function Navigation() {
 
       if (response.ok) {
         setUser(null);
-        router.push(`/${locale}`);
+        router.push(`/`);
       }
     } catch (error) {
       console.error("Error logging out:", error);

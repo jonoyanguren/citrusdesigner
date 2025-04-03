@@ -22,6 +22,62 @@
         "noNotifications": "No hay notificaciones",
         "viewMore": "Ver más"
     },
+    "admin": {
+        "title": "Panel de Administración",
+        "welcome": "Bienvenido",
+        "menu": {
+            "users": "Usuarios",
+            "requests": "Peticiones",
+            "settings": "Configuración"
+        },
+        "loading": "Cargando...",
+        "users": {
+            "title": "Usuarios",
+            "loading": "Cargando...",
+            "error": "Error: {error}",
+            "table": {
+                "name": "Nombre",
+                "email": "Email",
+                "role": "Rol",
+                "createdAt": "Fecha de registro",
+                "actions": "Acciones",
+                "makeAdmin": "Hacer admin"
+            }
+        },
+        "usersList": {
+            "title": "Usuarios",
+            "table": {
+                "name": "Nombre",
+                "email": "Email",
+                "role": "Rol",
+                "actions": "Acciones",
+                "viewDetails": "Ver detalles"
+            }
+        },
+        "configuration": {
+            "title": "Configuración del Sistema",
+            "addNew": {
+                "title": "Añadir Nueva Configuración",
+                "key": "Clave",
+                "value": "Valor",
+                "description": "Descripción",
+                "keyPlaceholder": "Ej: MAX_PROJECTS",
+                "valuePlaceholder": "Ej: 100",
+                "descriptionPlaceholder": "Descripción de la configuración",
+                "addButton": "Añadir"
+            },
+            "existing": {
+                "title": "Configuraciones Existentes",
+                "edit": "Editar",
+                "save": "Guardar",
+                "cancel": "Cancelar",
+                "delete": "Eliminar"
+            },
+            "loading": "Cargando...",
+            "error": "Error: {error}",
+            "deleteConfirm": "¿Estás seguro de que quieres eliminar esta configuración?"
+        }
+    },
     "changePassword": {
         "title": "Cambiar contraseña",
         "description": "Es la primera vez que entras, así que por seguridad, cambia tu contraseña",
@@ -428,10 +484,13 @@
             "namePlaceholder": "Nombre de la petición",
             "userLabel": "Usuario",
             "descriptionLabel": "Descripción de la petición",
+            "deliverableLabel": "Método de entrega",
+            "selectDeliverable": "Selecciona un método de entrega",
             "buttons": {
                 "cancel": "Cancelar",
                 "create": "Crear Petición"
-            }
+            },
+            "deliverableTypeLabel": "Método de entrega"
         },
         "profile": {
             "title": "Información Personal",
@@ -497,7 +556,8 @@
                     "cta": "Ver Planes de Suscripción"
                 },
                 "namePlaceholder": "Nombre de la petición",
-                "requestLabel": "Descripción de la petición"
+                "requestLabel": "Descripción de la petición",
+                "deliverableTypeLabel": "Método de entrega"
             },
             "detail": {
                 "title": "Detalle de la Petición",
@@ -536,6 +596,7 @@
             "viewFigma": "Ver diseño en Figma",
             "status": "Estado",
             "back": "Volver",
+            "deliverable": "Método de entrega",
             "statuses": {
                 "PENDING": "Pendiente",
                 "ACCEPTED": "Aceptado",
@@ -712,44 +773,6 @@
         },
         "latestRequests": {
             "title": "Últimas peticiones"
-        }
-    },
-    "admin": {
-        "users": {
-            "title": "Usuarios",
-            "loading": "Cargando...",
-            "error": "Error: {error}",
-            "table": {
-                "name": "Nombre",
-                "email": "Email",
-                "role": "Rol",
-                "createdAt": "Fecha de registro",
-                "actions": "Acciones",
-                "makeAdmin": "Hacer admin"
-            }
-        },
-        "configuration": {
-            "title": "Configuración del Sistema",
-            "addNew": {
-                "title": "Añadir Nueva Configuración",
-                "key": "Clave",
-                "value": "Valor",
-                "description": "Descripción",
-                "keyPlaceholder": "Ej: MAX_PROJECTS",
-                "valuePlaceholder": "Ej: 100",
-                "descriptionPlaceholder": "Descripción de la configuración",
-                "addButton": "Añadir"
-            },
-            "existing": {
-                "title": "Configuraciones Existentes",
-                "edit": "Editar",
-                "save": "Guardar",
-                "cancel": "Cancelar",
-                "delete": "Eliminar"
-            },
-            "loading": "Cargando...",
-            "error": "Error: {error}",
-            "deleteConfirm": "¿Estás seguro de que quieres eliminar esta configuración?"
         }
     },
     "availablePlaces": {

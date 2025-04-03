@@ -5,11 +5,12 @@ import { useAuth } from "@/contexts/AuthContext";
 import { UsersList } from "@/components/admin/UsersList";
 import { AdminRequests } from "@/components/admin/AdminRequests";
 import { Configuration } from "@/components/admin/Configuration";
+import { useTranslations } from "next-intl";
 
 const MENU_ITEMS = [
-  { name: "Usuarios", id: "users" },
-  { name: "Peticiones", id: "requests" },
-  { name: "Configuración", id: "settings" },
+  { nameKey: "admin.menu.users", id: "users" },
+  { nameKey: "admin.menu.requests", id: "requests" },
+  { nameKey: "admin.menu.settings", id: "settings" },
 ];
 
 export default function AdminPage() {
@@ -20,6 +21,7 @@ export default function AdminPage() {
   const { user, loading } = useAuth();
   const [users, setUsers] = useState([]);
   const [requests, setRequests] = useState([]);
+  const t = useTranslations();
 
   useEffect(() => {
     if (loading) return;
@@ -68,6 +70,7 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
+        <span className="ml-2">{t("admin.loading")}</span>
       </div>
     );
   }
@@ -92,8 +95,10 @@ export default function AdminPage() {
       <div className="max-w-7xl mx-auto space-y-8 pt-20">
         <div className="space-y-6">
           <div>
-            <h1 className="text-3xl font-bold">Panel de Administración</h1>
-            <p className="text-foreground/60">Bienvenido, {user?.name}</p>
+            <h1 className="text-3xl font-bold">{t("admin.title")}</h1>
+            <p className="text-foreground/60">
+              {t("admin.welcome")}, {user?.name}
+            </p>
           </div>
 
           <nav className="border-b border-gray-200">
@@ -108,7 +113,7 @@ export default function AdminPage() {
                       : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
                   }`}
                 >
-                  {item.name}
+                  {t(item.nameKey)}
                 </button>
               ))}
             </div>

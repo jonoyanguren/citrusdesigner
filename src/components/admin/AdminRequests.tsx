@@ -6,6 +6,7 @@ import { es } from "date-fns/locale";
 import * as Popover from "@radix-ui/react-popover";
 import { EmptyState } from "@/components/EmptyState";
 import { useParams } from "next/navigation";
+import { UsersSelect } from "./UsersSelect";
 import {
   Table,
   TableHeader,
@@ -123,6 +124,7 @@ export function AdminRequests({ requests }: Props) {
     useState<RequestWithFeedback[]>(requests);
   const [nameFilter, setNameFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("ALL");
+  const [userFilter, setUserFilter] = useState("");
   const [selectedRequest, setSelectedRequest] = useState<{
     id: string;
     action: RequestStatus;
@@ -193,7 +195,8 @@ export function AdminRequests({ requests }: Props) {
     )
     .filter((request) =>
       statusFilter === "ALL" ? true : request.status === statusFilter
-    );
+    )
+    .filter((request) => (userFilter ? request.user.id === userFilter : true));
 
   return (
     <div className="space-y-6">
@@ -220,6 +223,12 @@ export function AdminRequests({ requests }: Props) {
           <option value="WORKING">En proceso</option>
           <option value="DONE">Completado</option>
         </select>
+        <UsersSelect
+          selectedUserId={userFilter}
+          onSelect={setUserFilter}
+          label=""
+          className="min-w-[200px]"
+        />
       </div>
 
       {filteredRequests.length === 0 ? (

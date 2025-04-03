@@ -6,7 +6,7 @@ import { checkActiveSubscription } from "@/lib/subscription";
 
 export async function POST(body: Request) {
   try {
-    const { name, request, userId } = await body.json();
+    const { name, request, userId, deliverable } = await body.json();
     const decodedToken = await verifyToken();
 
     if (!decodedToken) {
@@ -37,6 +37,7 @@ export async function POST(body: Request) {
         name,
         request,
         userId: userId || decodedToken.userId,
+        deliverable,
       },
     });
 

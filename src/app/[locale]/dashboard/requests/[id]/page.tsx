@@ -3,6 +3,9 @@ import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { FaFigma } from "react-icons/fa";
+import { MdOutlineEmail } from "react-icons/md";
+import { FaGoogleDrive } from "react-icons/fa";
 import { StatusBadgeServer } from "@/components/StatusBadgeServer";
 import { FeedbackList } from "@/components/FeedbackList";
 import { verifyToken } from "@/lib/users";
@@ -54,6 +57,8 @@ export default async function RequestDetail({
     role: decodedUser.role as "user" | "admin",
   };
 
+  console.log(request);
+
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 mt-2">
       <BackButton text={t("back")} />
@@ -93,6 +98,25 @@ export default async function RequestDetail({
           />
         </div>
 
+        {/* Deliverable Type */}
+        {request.deliverable && (
+          <div>
+            <h2 className="text-lg font-semibold mb-2">{t("deliverable")}</h2>
+            <p className="text-gray-700 flex items-center gap-2">
+              {request.deliverable.toLowerCase().includes("email") && (
+                <MdOutlineEmail className="w-6 h-6 text-blue-500" />
+              )}
+              {request.deliverable.toLowerCase().includes("drive") && (
+                <FaGoogleDrive className="w-6 h-6 text-green-600" />
+              )}
+              {request.deliverable.toLowerCase().includes("figma") && (
+                <FaFigma className="w-6 h-6 text-purple-600" />
+              )}
+              {request.deliverable}
+            </p>
+          </div>
+        )}
+
         {/* Figma Design */}
         {request.figmaUrl && (
           <div>
@@ -103,34 +127,7 @@ export default async function RequestDetail({
               rel="noopener noreferrer"
               className="text-blue-600 hover:text-blue-800 underline flex items-center gap-2"
             >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2H8.5C6.567 2 5 3.567 5 5.5S6.567 9 8.5 9H12V2Z"
-                  fill="#1ABCFE"
-                />
-                <path
-                  d="M12 9H8.5C6.567 9 5 10.567 5 12.5S6.567 16 8.5 16H12V9Z"
-                  fill="#0ACF83"
-                />
-                <path
-                  d="M19 12.5c0 1.933-1.567 3.5-3.5 3.5H12V9h3.5c1.933 0 3.5 1.567 3.5 3.5Z"
-                  fill="#FF7262"
-                />
-                <path
-                  d="M12 2h3.5C17.433 2 19 3.567 19 5.5S17.433 9 15.5 9H12V2Z"
-                  fill="#F24E1E"
-                />
-                <path
-                  d="M8.5 16A3.5 3.5 0 1 0 12 19.5V16H8.5Z"
-                  fill="#A259FF"
-                />
-              </svg>
+              <FaFigma className="text-purple-600" />
               {t("viewFigma")}
             </a>
           </div>

@@ -7,6 +7,8 @@ import { RichText } from "@/components/RichText";
 import Button from "@/components/Button";
 import { processContentWithImages } from "@/lib/utils/imageProcessing";
 import { useTranslations } from "next-intl";
+import { DeliverableSelect } from "@/components/admin/DeliverableSelect";
+import { DeliverableType } from "@prisma/client";
 
 export default function NuevaPeticionPage() {
   const router = useRouter();
@@ -15,6 +17,7 @@ export default function NuevaPeticionPage() {
   const [formData, setFormData] = useState({
     name: "",
     request: "",
+    deliverableType: null as DeliverableType | null,
   });
   const [hasActiveSubscription, setHasActiveSubscription] = useState<
     boolean | null
@@ -52,6 +55,7 @@ export default function NuevaPeticionPage() {
         body: JSON.stringify({
           name: formData.name,
           request: processedRequest,
+          deliverable: formData.deliverableType,
         }),
       });
 
@@ -100,6 +104,14 @@ export default function NuevaPeticionPage() {
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           />
         </div>
+
+        <DeliverableSelect
+          selectedDeliverable={formData.deliverableType}
+          onSelect={(deliverable) =>
+            setFormData({ ...formData, deliverableType: deliverable })
+          }
+          label={t("deliverableTypeLabel") || "Método de entrega"}
+        />
 
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">

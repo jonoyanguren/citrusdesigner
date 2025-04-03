@@ -15,12 +15,68 @@
         "orangeMessage": "Jedes Projekt ist ein einzigartiges Abenteuer, das mich herausfordert, das Komplexe zu vereinfachen und Ideen in greifbare Realitäten zu verwandeln."
     },
     "common": {
-        "platform": "Die perfekte Plattform, um deine Designs zum Leben zu erwecken",
+        "platform": "Die perfekte Plattform, um Ihre Designs zum Leben zu erwecken",
         "dashboard": "Dashboard",
         "logout": "Abmelden",
         "createRequest": "Anfrage erstellen",
         "noNotifications": "Keine Benachrichtigungen",
         "viewMore": "Mehr anzeigen"
+    },
+    "admin": {
+        "title": "Admin-Panel",
+        "welcome": "Willkommen",
+        "menu": {
+            "users": "Benutzer",
+            "requests": "Anfragen",
+            "settings": "Einstellungen"
+        },
+        "loading": "Wird geladen...",
+        "users": {
+            "title": "Benutzer",
+            "loading": "Laden...",
+            "error": "Fehler: {error}",
+            "table": {
+                "name": "Name",
+                "email": "E-Mail",
+                "role": "Rolle",
+                "createdAt": "Registrierungsdatum",
+                "actions": "Aktionen",
+                "makeAdmin": "Als Admin festlegen"
+            }
+        },
+        "usersList": {
+            "title": "Benutzer",
+            "table": {
+                "name": "Name",
+                "email": "E-Mail",
+                "role": "Rolle",
+                "actions": "Aktionen",
+                "viewDetails": "Details anzeigen"
+            }
+        },
+        "configuration": {
+            "title": "Systemkonfiguration",
+            "addNew": {
+                "title": "Neue Konfiguration hinzufügen",
+                "key": "Schlüssel",
+                "value": "Wert",
+                "description": "Beschreibung",
+                "keyPlaceholder": "z.B. MAX_PROJECTS",
+                "valuePlaceholder": "z.B. 100",
+                "descriptionPlaceholder": "Beschreibung der Konfiguration",
+                "addButton": "Hinzufügen"
+            },
+            "existing": {
+                "title": "Bestehende Konfigurationen",
+                "edit": "Bearbeiten",
+                "save": "Speichern",
+                "cancel": "Abbrechen",
+                "delete": "Löschen"
+            },
+            "loading": "Laden...",
+            "error": "Fehler: {error}",
+            "deleteConfirm": "Bist du sicher, dass du diese Konfiguration löschen möchtest?"
+        }
     },
     "changePassword": {
         "title": "Passwort ändern",
@@ -425,13 +481,17 @@
             "title": "Neue Anfrage erstellen",
             "adminBadge": "admin",
             "nameLabel": "Name der Anfrage",
-            "namePlaceholder": "Name der Anfrage",
+            "namePlaceholder": "Anforderungsname",
             "userLabel": "Nutzer",
             "descriptionLabel": "Beschreibung der Anfrage",
+            "deliverableLabel": "Liefermethode",
+            "selectDeliverable": "Wähle eine Liefermethode",
             "buttons": {
                 "cancel": "Abbrechen",
                 "create": "Anfrage erstellen"
-            }
+            },
+            "requestLabel": "Beschreibung der Anforderung",
+            "deliverableTypeLabel": "Bereitstellungsmethode"
         },
         "profile": {
             "title": "Persönliche Informationen",
@@ -497,7 +557,8 @@
                     "cta": "Abonnementpläne anzeigen"
                 },
                 "namePlaceholder": "Name der Anfrage",
-                "requestLabel": "Beschreibung der Anfrage"
+                "requestLabel": "Beschreibung der Anfrage",
+                "deliverableTypeLabel": "Bereitstellungsmethode"
             },
             "detail": {
                 "title": "Anfragedetails",
@@ -536,6 +597,7 @@
             "viewFigma": "Design in Figma anzeigen",
             "status": "Status",
             "back": "Zurück",
+            "deliverable": "Liefermethode",
             "statuses": {
                 "PENDING": "Ausstehend",
                 "ACCEPTED": "Angenommen",
@@ -712,44 +774,6 @@
         },
         "latestRequests": {
             "title": "Neueste Anfragen"
-        }
-    },
-    "admin": {
-        "users": {
-            "title": "Benutzer",
-            "loading": "Laden...",
-            "error": "Fehler: {error}",
-            "table": {
-                "name": "Name",
-                "email": "E-Mail",
-                "role": "Rolle",
-                "createdAt": "Registrierungsdatum",
-                "actions": "Aktionen",
-                "makeAdmin": "Als Admin festlegen"
-            }
-        },
-        "configuration": {
-            "title": "Systemkonfiguration",
-            "addNew": {
-                "title": "Neue Konfiguration hinzufügen",
-                "key": "Schlüssel",
-                "value": "Wert",
-                "description": "Beschreibung",
-                "keyPlaceholder": "z.B. MAX_PROJECTS",
-                "valuePlaceholder": "z.B. 100",
-                "descriptionPlaceholder": "Beschreibung der Konfiguration",
-                "addButton": "Hinzufügen"
-            },
-            "existing": {
-                "title": "Bestehende Konfigurationen",
-                "edit": "Bearbeiten",
-                "save": "Speichern",
-                "cancel": "Abbrechen",
-                "delete": "Löschen"
-            },
-            "loading": "Laden...",
-            "error": "Fehler: {error}",
-            "deleteConfirm": "Bist du sicher, dass du diese Konfiguration löschen möchtest?"
         }
     },
     "availablePlaces": {

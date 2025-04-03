@@ -61,17 +61,18 @@ model User {
 }
 
 model Request {
-  id             String        @id @default(cuid())
+  id             String           @id @default(cuid())
   name           String
   request        String
   userId         String
-  status         RequestStatus @default(PENDING)
+  status         RequestStatus    @default(PENDING)
   timeToComplete String?
-  createdAt      DateTime      @default(now())
-  updatedAt      DateTime      @updatedAt
+  deliverable    DeliverableType?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
   figmaUrl       String?
   feedback       Feedback[]
-  user           User          @relation(fields: [userId], references: [id])
+  user           User             @relation(fields: [userId], references: [id])
 
   @@index([userId])
 }
@@ -126,4 +127,10 @@ enum RequestStatus {
   ACCEPTED
   WORKING
   DONE
+}
+
+enum DeliverableType {
+  FIGMA
+  DRIVE
+  EMAIL
 }
