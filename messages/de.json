@@ -20,7 +20,8 @@
         "logout": "Abmelden",
         "createRequest": "Anfrage erstellen",
         "noNotifications": "Keine Benachrichtigungen",
-        "viewMore": "Mehr anzeigen"
+        "viewMore": "Mehr anzeigen",
+        "markAllAsRead": "Alle als gelesen markieren"
     },
     "admin": {
         "title": "Admin-Panel",

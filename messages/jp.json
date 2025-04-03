@@ -20,7 +20,8 @@
         "logout": "ログアウト",
         "createRequest": "リクエストを作成",
         "noNotifications": "通知はありません",
-        "viewMore": "もっと見る"
+        "viewMore": "もっと見る",
+        "markAllAsRead": "すべて既読にする"
     },
     "admin": {
         "title": "管理パネル",

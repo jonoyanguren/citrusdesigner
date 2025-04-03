@@ -23,6 +23,11 @@ export default function NuevaPeticionPage() {
     boolean | null
   >(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{
+    name?: string;
+    request?: string;
+  }>({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,9 +58,32 @@ export default function NuevaPeticionPage() {
     fetchData();
   }, []);
 
+  const validateForm = () => {
+    const newErrors: {
+      name?: string;
+      request?: string;
+    } = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "El nombre es requerido";
+    }
+
+    if (!formData.request.trim()) {
+      newErrors.request = "La descripción es requerida";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
     const processedRequest = await processContentWithImages(formData.request);
 
     try {
@@ -76,6 +104,8 @@ export default function NuevaPeticionPage() {
       }
     } catch (error) {
       console.error("Error al crear la petición:", error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -114,6 +144,7 @@ export default function NuevaPeticionPage() {
             placeholder={t("namePlaceholder")}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            error={errors.name}
           />
         </div>
 
@@ -135,17 +166,33 @@ export default function NuevaPeticionPage() {
               setFormData({ ...formData, request: content })
             }
           />
+          {errors.request && (
+            <p className="text-red-500 text-sm mt-1">{errors.request}</p>
+          )}
         </div>
+
+        {(errors.name || errors.request) && (
+          <div className="bg-red-50 border border-red-200 text-red-800 rounded-md p-3 text-sm">
+            Por favor, completa todos los campos requeridos.
+          </div>
+        )}
 
         <div className="flex justify-end space-x-3">
           <Button
             variant="secondary"
             type="button"
             onClick={() => router.back()}
+            disabled={isSubmitting}
           >
             {t("cancel")}
           </Button>
-          <Button type="submit">{t("submit")}</Button>
+          <Button
+            type="submit"
+            disabled={isSubmitting}
+            isLoading={isSubmitting}
+          >
+            {t("submit")}
+          </Button>
         </div>
       </form>
     </div>

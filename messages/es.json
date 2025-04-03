@@ -20,7 +20,8 @@
         "logout": "Cerrar sesión",
         "createRequest": "Crear solicitud",
         "noNotifications": "No hay notificaciones",
-        "viewMore": "Ver más"
+        "viewMore": "Ver más",
+        "markAllAsRead": "Marcar todas como leídas"
     },
     "admin": {
         "title": "Panel de Administración",

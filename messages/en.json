@@ -20,7 +20,8 @@
         "logout": "Log Out",
         "createRequest": "Create Request",
         "noNotifications": "No notifications",
-        "viewMore": "View more"
+        "viewMore": "View more",
+        "markAllAsRead": "Mark all as read"
     },
     "admin": {
         "title": "Admin Panel",

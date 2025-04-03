@@ -67,6 +67,7 @@ export default function UserNavigation({
         position: "fixed",
         top: menuPosition.top,
         right: menuPosition.right,
+        zIndex: 99,
       }}
       className="w-48 py-2 bg-background rounded-lg shadow-lg bg-white"
     >
