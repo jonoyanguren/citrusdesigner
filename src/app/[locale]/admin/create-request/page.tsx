@@ -78,6 +78,7 @@ export default function NuevaPeticionPage() {
           label={t("deliverableLabel") || "Método de entrega"}
           selectedDeliverable={formData.deliverable}
           onSelect={(deliverable) => setFormData({ ...formData, deliverable })}
+          fromAdmin={true}
           className="w-full"
         />
 

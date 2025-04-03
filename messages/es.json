@@ -490,7 +490,8 @@
                 "cancel": "Cancelar",
                 "create": "Crear Petición"
             },
-            "deliverableTypeLabel": "Método de entrega"
+            "deliverableTypeLabel": "Método de entrega",
+            "deliverableTypeHelp": "Este método se guardará cada vez que cambies para futuras peticiones. También lo puedes cambiar en el perfil"
         },
         "profile": {
             "title": "Información Personal",
@@ -498,6 +499,11 @@
             "email": "Email",
             "role": "Rol",
             "memberSince": "Miembro desde",
+            "preferDeliverable": "Método de entrega preferido",
+            "savePreference": "Guardar",
+            "saving": "Guardando...",
+            "preferenceSuccess": "Preferencia guardada correctamente",
+            "preferenceError": "Error al guardar la preferencia",
             "password": {
                 "title": "Contraseña",
                 "changeButton": "Cambiar contraseña",
@@ -557,7 +563,8 @@
                 },
                 "namePlaceholder": "Nombre de la petición",
                 "requestLabel": "Descripción de la petición",
-                "deliverableTypeLabel": "Método de entrega"
+                "deliverableTypeLabel": "Método de entrega",
+                "deliverableTypeHelp": "Este método se guardará cada vez que cambies para futuras peticiones. También lo puedes cambiar en el perfil"
             },
             "detail": {
                 "title": "Detalle de la Petición",

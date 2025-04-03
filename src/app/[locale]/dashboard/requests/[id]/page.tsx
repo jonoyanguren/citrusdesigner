@@ -57,8 +57,6 @@ export default async function RequestDetail({
     role: decodedUser.role as "user" | "admin",
   };
 
-  console.log(request);
-
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 mt-2">
       <BackButton text={t("back")} />

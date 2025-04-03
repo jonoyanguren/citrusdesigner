@@ -14,6 +14,7 @@ import {
   TableHeaderCell,
   TableCell,
 } from "@/components/ui/Table";
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 interface RequestWithFeedback extends Omit<Request, "status"> {
   status: RequestStatus;
@@ -52,11 +53,7 @@ export function RequestsTab({ requests, isAdmin, isLoading }: Props) {
   }, [requests]);
 
   if (isLoading) {
-    return (
-      <div className="min-h-[400px] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!requests?.length) {

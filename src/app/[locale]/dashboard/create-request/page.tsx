@@ -25,20 +25,32 @@ export default function NuevaPeticionPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const checkSubscription = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch("/api/check-subscription");
-        const data = await response.json();
-        setHasActiveSubscription(data.hasActiveSubscription);
+        // Check subscription
+        const subscriptionResponse = await fetch("/api/check-subscription");
+        const subscriptionData = await subscriptionResponse.json();
+        setHasActiveSubscription(subscriptionData.hasActiveSubscription);
+
+        // Fetch user preferences
+        const preferencesResponse = await fetch("/api/user/preferences");
+        const preferencesData = await preferencesResponse.json();
+
+        if (preferencesData.preferences?.preferDeliverable) {
+          setFormData((prev) => ({
+            ...prev,
+            deliverableType: preferencesData.preferences.preferDeliverable,
+          }));
+        }
       } catch (error) {
-        console.error("Error checking subscription:", error);
+        console.error("Error loading data:", error);
         setHasActiveSubscription(false);
       } finally {
         setIsLoading(false);
       }
     };
 
-    checkSubscription();
+    fetchData();
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {

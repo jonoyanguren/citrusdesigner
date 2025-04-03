@@ -8,6 +8,7 @@ import {
   TableHeaderCell,
   TableCell,
 } from "@/components/ui/Table";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 interface Invoice {
   id: string;
@@ -57,11 +58,7 @@ export function InvoicesTab({ invoices, isLoading }: Props) {
   };
 
   if (isLoading) {
-    return (
-      <div className="min-h-[400px] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!invoices?.length) {

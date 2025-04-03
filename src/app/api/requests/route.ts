@@ -41,6 +41,13 @@ export async function POST(body: Request) {
       },
     });
 
+    if (deliverable && !userId) {
+      await prisma.user.update({
+        where: { id: decodedToken.userId },
+        data: { preferDeliverable: deliverable },
+      });
+    }
+
     if (userId) {
       await addNotification({
         userId: userId,

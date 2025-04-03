@@ -1,8 +1,10 @@
-import { User } from "@prisma/client";
+import { DeliverableType, User } from "@prisma/client";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "@/components/Input";
 import { makeApiRequest } from "@/lib/api";
+import { DeliverableSelect } from "@/components/admin/DeliverableSelect";
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 interface Props {
   user: User | null;
@@ -17,6 +19,13 @@ export function ProfileTab({ user }: Props) {
   const t = useTranslations("dashboard.profile");
   const [showPasswordForm, setShowPasswordForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [preferDeliverable, setPreferDeliverable] =
+    useState<DeliverableType | null>(user?.preferDeliverable || null);
+  const [savingPreference, setSavingPreference] = useState(false);
+  const [preferenceStatus, setPreferenceStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
   const [formData, setFormData] = useState<PasswordFormData>({
     newPassword: "",
     confirmPassword: "",
@@ -26,6 +35,10 @@ export function ProfileTab({ user }: Props) {
     type: "success" | "error";
     message: string;
   } | null>(null);
+
+  useEffect(() => {
+    setPreferDeliverable(user?.preferDeliverable || null);
+  }, [user]);
 
   const validateForm = (): boolean => {
     const newErrors: Partial<PasswordFormData> = {};
@@ -107,9 +120,47 @@ export function ProfileTab({ user }: Props) {
     setSubmitStatus(null);
   };
 
+  const saveDeliverablePreference = async () => {
+    try {
+      setSavingPreference(true);
+      setPreferenceStatus(null);
+
+      const response = await makeApiRequest("/api/user/preferences", {
+        method: "POST",
+        body: JSON.stringify({
+          preferDeliverable,
+        }),
+      });
+
+      if (response.ok) {
+        setPreferenceStatus({
+          type: "success",
+          message: t("preferenceSuccess"),
+        });
+      } else {
+        const data = await response.json();
+        setPreferenceStatus({
+          type: "error",
+          message: data.message || t("preferenceError"),
+        });
+      }
+    } catch {
+      setPreferenceStatus({
+        type: "error",
+        message: t("preferenceError"),
+      });
+    } finally {
+      setSavingPreference(false);
+    }
+  };
+
+  if (!user) {
+    return <LoadingSpinner />;
+  }
+
   return (
     <div className="max-w-6xl mx-auto">
-      <div className="flex gap-6">
+      <div className="flex flex-col md:flex-row gap-6">
         <div className="flex-1 bg-white shadow rounded-lg p-6">
           <h2 className="text-xl font-semibold mb-4">{t("title")}</h2>
           <div className="space-y-4">
@@ -140,6 +191,40 @@ export function ProfileTab({ user }: Props) {
                   ? new Date(user.createdAt).toLocaleDateString()
                   : "-"}
               </p>
+            </div>
+
+            {/* Preferred Delivery Method */}
+            <div className="pt-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                {t("preferDeliverable")}
+              </label>
+              <div className="flex gap-4 items-start">
+                <div className="w-full max-w-xs">
+                  <DeliverableSelect
+                    onSelect={setPreferDeliverable}
+                    selectedDeliverable={user?.preferDeliverable || null}
+                    label=""
+                  />
+                </div>
+                <button
+                  onClick={saveDeliverablePreference}
+                  disabled={savingPreference}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors disabled:opacity-50"
+                >
+                  {savingPreference ? t("saving") : t("savePreference")}
+                </button>
+              </div>
+              {preferenceStatus && (
+                <p
+                  className={`mt-2 text-sm ${
+                    preferenceStatus.type === "success"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  {preferenceStatus.message}
+                </p>
+              )}
             </div>
           </div>
         </div>

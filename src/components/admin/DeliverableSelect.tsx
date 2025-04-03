@@ -6,6 +6,7 @@ interface DeliverableSelectProps {
   selectedDeliverable?: DeliverableType | null;
   label?: string;
   className?: string;
+  fromAdmin?: boolean;
 }
 
 export function DeliverableSelect({
@@ -13,6 +14,7 @@ export function DeliverableSelect({
   selectedDeliverable = null,
   label = "Método de entrega",
   className = "",
+  fromAdmin = false,
 }: DeliverableSelectProps) {
   const t = useTranslations("dashboard.createRequest");
 
@@ -26,6 +28,13 @@ export function DeliverableSelect({
           {label}
         </label>
       )}
+
+      {!fromAdmin && (
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+          {t("deliverableTypeHelp")}
+        </p>
+      )}
+
       <select
         className="w-full px-3 py-2 border rounded-lg"
         value={selectedDeliverable || ""}

@@ -28,7 +28,6 @@ export function UsersSelect({
         const response = await fetch("/api/users/active");
         const data = await response.json();
         setUsers([{ id: "", name: "Todos los usuarios" }, ...data]);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching users:", error);
       } finally {

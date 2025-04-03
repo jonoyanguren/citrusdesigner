@@ -13,6 +13,7 @@ import {
 import Button from "@/components/Button";
 import { ConfirmModal } from "@/components/ConfirmModal";
 import { useParams } from "next/navigation";
+import LoadingSpinner from "../ui/LoadingSpinner";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -200,11 +201,7 @@ export function SubscriptionsTab({
   }, []);
 
   if (isLoading) {
-    return (
-      <div className="min-h-[400px] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-foreground"></div>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 
   if (!subscriptions?.length) {

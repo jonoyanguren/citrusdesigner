@@ -498,6 +498,11 @@
             "email": "Email",
             "role": "Role",
             "memberSince": "Member Since",
+            "preferDeliverable": "Preferred Delivery Method",
+            "savePreference": "Save",
+            "saving": "Saving...",
+            "preferenceSuccess": "Delivery method preference saved successfully",
+            "preferenceError": "Error saving delivery method preference",
             "password": {
                 "title": "Password",
                 "changeButton": "Change Password",
@@ -557,7 +562,8 @@
                 },
                 "namePlaceholder": "Request Name",
                 "requestLabel": "Request Description",
-                "deliverableTypeLabel": "Delivery Method"
+                "deliverableTypeLabel": "Delivery Method",
+                "deliverableTypeHelp": "This method will be saved for future requests whenever you change it. You can also change it in your profile"
             },
             "detail": {
                 "title": "Request Details",

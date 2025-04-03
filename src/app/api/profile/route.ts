@@ -22,6 +22,7 @@ export async function GET() {
         role: true,
         hasToChangePassword: true,
         subscriptions: true,
+        preferDeliverable: true,
       },
     });
 

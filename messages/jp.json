@@ -557,7 +557,8 @@
                 },
                 "namePlaceholder": "リクエスト名",
                 "requestLabel": "リクエストの説明",
-                "deliverableTypeLabel": "納品方法"
+                "deliverableTypeLabel": "納品方法",
+                "deliverableTypeHelp": "この納品方法は変更するたびに今後のリクエストのために保存されます。プロフィールでも変更できます"
             },
             "detail": {
                 "title": "リクエスト詳細",

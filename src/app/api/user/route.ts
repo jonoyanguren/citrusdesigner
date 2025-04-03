@@ -18,6 +18,7 @@ export async function GET() {
         name: true,
         role: true,
         hasToChangePassword: true,
+        preferDeliverable: true,
       },
     });
 
