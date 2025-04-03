@@ -490,7 +490,8 @@
                 "cancel": "キャンセル",
                 "create": "リクエストを作成"
             },
-            "deliverableTypeLabel": "納品方法"
+            "deliverableTypeLabel": "納品方法",
+            "deliverableTypeHelp": "この納品方法は変更するたびに今後のリクエストのために保存されます。プロフィールでも変更できます"
         },
         "profile": {
             "title": "個人情報",
@@ -557,8 +558,7 @@
                 },
                 "namePlaceholder": "リクエスト名",
                 "requestLabel": "リクエストの説明",
-                "deliverableTypeLabel": "納品方法",
-                "deliverableTypeHelp": "この納品方法は変更するたびに今後のリクエストのために保存されます。プロフィールでも変更できます"
+                "deliverableTypeLabel": "納品方法"
             },
             "detail": {
                 "title": "リクエスト詳細",

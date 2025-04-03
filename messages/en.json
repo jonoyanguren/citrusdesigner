@@ -490,7 +490,8 @@
                 "cancel": "Cancel",
                 "create": "Create Request"
             },
-            "deliverableTypeLabel": "Delivery Method"
+            "deliverableTypeLabel": "Delivery Method",
+            "deliverableTypeHelp": "This method will be saved for future requests when you change it. You can also change it in your profile."
         },
         "profile": {
             "title": "Personal Information",
@@ -562,8 +563,7 @@
                 },
                 "namePlaceholder": "Request Name",
                 "requestLabel": "Request Description",
-                "deliverableTypeLabel": "Delivery Method",
-                "deliverableTypeHelp": "This method will be saved for future requests whenever you change it. You can also change it in your profile"
+                "deliverableTypeLabel": "Delivery Method"
             },
             "detail": {
                 "title": "Request Details",

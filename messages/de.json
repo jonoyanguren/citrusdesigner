@@ -491,7 +491,8 @@
                 "create": "Anfrage erstellen"
             },
             "requestLabel": "Beschreibung der Anforderung",
-            "deliverableTypeLabel": "Bereitstellungsmethode"
+            "deliverableTypeLabel": "Bereitstellungsmethode",
+            "deliverableTypeHelp": "Diese Methode wird für zukünftige Anfragen gespeichert, wenn du sie änderst. Du kannst sie auch in deinem Profil ändern"
         },
         "profile": {
             "title": "Persönliche Informationen",
@@ -558,8 +559,7 @@
                 },
                 "namePlaceholder": "Name der Anfrage",
                 "requestLabel": "Beschreibung der Anfrage",
-                "deliverableTypeLabel": "Bereitstellungsmethode",
-                "deliverableTypeHelp": "Diese Methode wird für zukünftige Anfragen gespeichert, wenn du sie änderst. Du kannst sie auch in deinem Profil ändern"
+                "deliverableTypeLabel": "Bereitstellungsmethode"
             },
             "detail": {
                 "title": "Anfragedetails",
