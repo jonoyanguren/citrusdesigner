@@ -36,9 +36,66 @@ export default function ProjectsSummary() {
     },
   ];
 
+  // Mobile fan-like image positions
+  const mobilePositions = [
+    {
+      top: "-20%",
+      left: "40%",
+      width: "60%",
+      height: "80%",
+      zIndex: 3,
+      rotate: "-15deg",
+      translateX: "-50%",
+    },
+    {
+      top: "-15%",
+      left: "60%",
+      width: "60%",
+      height: "80%",
+      zIndex: 2,
+      rotate: "0deg",
+      translateX: "-50%",
+    },
+    {
+      top: "-5%",
+      left: "50%",
+      width: "60%",
+      height: "80%",
+      zIndex: 1,
+      rotate: "15deg",
+      translateX: "-50%",
+    },
+  ];
+
   return (
-    <div className="h-[345px] max-w-7xl my-16 w-full bg-gradient-to-r from-orange-300 via-orange-100 to-orange-300 rounded-2xl flex flex-col md:flex-row items-center justify-between relative overflow-visible">
-      {/* Left side project images */}
+    <div className="h-auto w-[90%] md:w-[80%] pb-16 md:mb-0 md:h-[345px] max-w-[100%] md:max-w-[80%] my-16 bg-gradient-to-r from-orange-300 via-orange-100 to-orange-300 rounded-2xl flex flex-col md:flex-row items-center justify-between relative overflow-visible pt-[220px] md:pt-0 md:pb-0">
+      {/* Mobile images (fan arrangement) */}
+      <div className="block md:hidden absolute top-0 left-0 w-full h-[250px]">
+        {[2, 3, 4].map((num, index) => (
+          <div
+            key={`mobile-${num}`}
+            className="absolute transform transition-all duration-300"
+            style={{
+              position: "absolute",
+              width: mobilePositions[index].width,
+              height: mobilePositions[index].height,
+              top: mobilePositions[index].top,
+              left: mobilePositions[index].left,
+              zIndex: mobilePositions[index].zIndex,
+              transform: `translateX(${mobilePositions[index].translateX}) rotate(${mobilePositions[index].rotate})`,
+            }}
+          >
+            <Image
+              src={`/projects/project${num}.png`}
+              alt={`Project ${num}`}
+              fill
+              className="object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Left side project images (desktop only) */}
       <div className="hidden md:block absolute left-0 w-[40%] h-full">
         {[2, 3].map((num, index) => (
           <div
@@ -78,7 +135,7 @@ export default function ProjectsSummary() {
         </Button>
       </div>
 
-      {/* Right side project images */}
+      {/* Right side project images (desktop only) */}
       <div className="hidden md:block absolute right-0 w-[40%] h-full">
         {[4].map((num, index) => (
           <div
