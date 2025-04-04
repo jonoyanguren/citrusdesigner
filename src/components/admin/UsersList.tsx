@@ -10,6 +10,7 @@ import {
   TableCell,
 } from "@/components/ui/Table";
 import { useTranslations } from "next-intl";
+import Button from "@/components/Button";
 
 interface Props {
   users: User[];
@@ -21,7 +22,12 @@ export function UsersList({ users }: Props) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold">{t("title")}</h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-xl font-semibold">{t("title")}</h2>
+        <Link href={`/${locale}/admin/create-user`}>
+          <Button>{t("createUser") || "Create User"}</Button>
+        </Link>
+      </div>
 
       <Table>
         <TableHeader>

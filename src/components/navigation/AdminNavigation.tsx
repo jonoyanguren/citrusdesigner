@@ -42,7 +42,7 @@ export default function AdminNavigation({
       {isMenuOpen && (
         <div
           id="user-menu"
-          className="absolute right-0 mt-2 w-48 py-2 bg-background rounded-lg shadow-lg z-10"
+          className="absolute right-0 mt-2 w-48 py-2 bg-background rounded-lg bg-white shadow-lg z-10"
         >
           <Link
             href="/admin"

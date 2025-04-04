@@ -22,6 +22,8 @@ export async function GET(
         email: true,
         role: true,
         createdAt: true,
+        subscriptions: true,
+        manualSubscriptions: true,
         requests: {
           take: 10,
           orderBy: { createdAt: "desc" },

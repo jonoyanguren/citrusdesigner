@@ -29,12 +29,13 @@
         "menu": {
             "users": "Benutzer",
             "requests": "Anfragen",
-            "settings": "Einstellungen"
+            "settings": "Einstellungen",
+            "manualSubscriptions": "Manuelle Abonnements"
         },
         "loading": "Wird geladen...",
         "users": {
             "title": "Benutzer",
-            "loading": "Laden...",
+            "loading": "Wird geladen...",
             "error": "Fehler: {error}",
             "table": {
                 "name": "Name",
@@ -42,17 +43,35 @@
                 "role": "Rolle",
                 "createdAt": "Registrierungsdatum",
                 "actions": "Aktionen",
-                "makeAdmin": "Als Admin festlegen"
+                "makeAdmin": "Zum Admin machen"
             }
         },
         "usersList": {
             "title": "Benutzer",
+            "createUser": "Benutzer erstellen",
             "table": {
                 "name": "Name",
                 "email": "E-Mail",
                 "role": "Rolle",
                 "actions": "Aktionen",
                 "viewDetails": "Details anzeigen"
+            }
+        },
+        "createUser": {
+            "title": "Neuen Benutzer erstellen",
+            "nameLabel": "Name",
+            "namePlaceholder": "Benutzername eingeben",
+            "emailLabel": "E-Mail",
+            "emailPlaceholder": "Benutzer-E-Mail eingeben",
+            "localeLabel": "E-Mail-Sprache",
+            "localeHelp": "Die Sprache für die E-Mails des Benutzers",
+            "createSubscription": "Manuelle Abonnement erstellen",
+            "subscriptionPriceLabel": "Abonnementpreis (€)",
+            "subscriptionPricePlaceholder": "Preis eingeben (z.B. 49.99)",
+            "buttons": {
+                "cancel": "Abbrechen",
+                "create": "Benutzer erstellen",
+                "creating": "Erstellen..."
             }
         },
         "configuration": {
@@ -77,6 +96,26 @@
             "loading": "Laden...",
             "error": "Fehler: {error}",
             "deleteConfirm": "Bist du sicher, dass du diese Konfiguration löschen möchtest?"
+        },
+        "manualSubscriptions": {
+            "title": "Manuelle Abonnements",
+            "filters": {
+                "nameSearch": "Nach Namen filtern...",
+                "emailSearch": "Nach E-Mail filtern..."
+            },
+            "empty": {
+                "title": "Keine manuellen Abonnements",
+                "description": "Es wurden keine Benutzer mit manuellen Abonnements gefunden."
+            },
+            "table": {
+                "user": "Benutzer",
+                "email": "E-Mail",
+                "price": "Preis",
+                "date": "Abonnementdatum",
+                "status": "Status",
+                "actions": "Aktionen",
+                "viewDetails": "Details anzeigen"
+            }
         }
     },
     "changePassword": {
@@ -768,11 +807,25 @@
         "title": "Kundendetails",
         "createRequest": "Anfrage erstellen",
         "customerInfo": {
-            "title": "Kundeninformationen",
+            "title": "Kundeninformation",
             "name": "Name",
             "email": "E-Mail",
             "role": "Rolle",
             "registrationDate": "Registrierungsdatum"
+        },
+        "subscriptions": {
+            "title": "Abonnements",
+            "status": "Status",
+            "type": "Typ",
+            "plan": "Plan",
+            "price": "Preis",
+            "created": "Erstellungsdatum",
+            "actions": "Aktionen",
+            "cancel": "Kündigen",
+            "none": "Keine Abonnements gefunden",
+            "cancelConfirm": "Sind Sie sicher, dass Sie dieses Abonnement kündigen möchten?",
+            "stripe": "Stripe-Abonnements",
+            "manual": "Manuelle Abonnements"
         },
         "latestRequests": {
             "title": "Neueste Anfragen"

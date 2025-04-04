@@ -29,7 +29,8 @@
         "menu": {
             "users": "Users",
             "requests": "Requests",
-            "settings": "Settings"
+            "settings": "Settings",
+            "manualSubscriptions": "Manual Subscriptions"
         },
         "loading": "Loading...",
         "users": {
@@ -42,17 +43,35 @@
                 "role": "Role",
                 "createdAt": "Registration Date",
                 "actions": "Actions",
-                "makeAdmin": "Make admin"
+                "makeAdmin": "Make Admin"
             }
         },
         "usersList": {
             "title": "Users",
+            "createUser": "Create User",
             "table": {
                 "name": "Name",
                 "email": "Email",
                 "role": "Role",
                 "actions": "Actions",
                 "viewDetails": "View details"
+            }
+        },
+        "createUser": {
+            "title": "Create New User",
+            "nameLabel": "Name",
+            "namePlaceholder": "Enter user name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "Enter user email",
+            "localeLabel": "Email Language",
+            "localeHelp": "The language for the user's emails",
+            "createSubscription": "Create manual subscription",
+            "subscriptionPriceLabel": "Subscription Price (€)",
+            "subscriptionPricePlaceholder": "Enter price (e.g. 49.99)",
+            "buttons": {
+                "cancel": "Cancel",
+                "create": "Create User",
+                "creating": "Creating..."
             }
         },
         "configuration": {
@@ -77,6 +96,26 @@
             "loading": "Loading...",
             "error": "Error: {error}",
             "deleteConfirm": "Are you sure you want to delete this configuration?"
+        },
+        "manualSubscriptions": {
+            "title": "Manual Subscriptions",
+            "filters": {
+                "nameSearch": "Filter by name...",
+                "emailSearch": "Filter by email..."
+            },
+            "empty": {
+                "title": "No manual subscriptions",
+                "description": "No users with manual subscriptions were found."
+            },
+            "table": {
+                "user": "User",
+                "email": "Email",
+                "price": "Price",
+                "date": "Subscription Date",
+                "status": "Status",
+                "actions": "Actions",
+                "viewDetails": "View details"
+            }
         }
     },
     "changePassword": {
@@ -778,8 +817,22 @@
             "role": "Role",
             "registrationDate": "Registration Date"
         },
+        "subscriptions": {
+            "title": "Subscriptions",
+            "status": "Status",
+            "type": "Type",
+            "plan": "Plan",
+            "price": "Price",
+            "created": "Created At",
+            "actions": "Actions",
+            "cancel": "Cancel",
+            "none": "No subscriptions found",
+            "cancelConfirm": "Are you sure you want to cancel this subscription?",
+            "stripe": "Stripe Subscriptions",
+            "manual": "Manual Subscriptions"
+        },
         "latestRequests": {
-            "title": "Latest requests"
+            "title": "Latest Requests"
         }
     },
     "availablePlaces": {

@@ -6,10 +6,12 @@ import { UsersList } from "@/components/admin/UsersList";
 import { AdminRequests } from "@/components/admin/AdminRequests";
 import { Configuration } from "@/components/admin/Configuration";
 import { useTranslations } from "next-intl";
+import { ManualSubscriptions } from "@/components/admin/ManualSubscriptions";
 
 const MENU_ITEMS = [
   { nameKey: "admin.menu.users", id: "users" },
   { nameKey: "admin.menu.requests", id: "requests" },
+  { nameKey: "admin.menu.manualSubscriptions", id: "manual-subscriptions" },
   { nameKey: "admin.menu.settings", id: "settings" },
 ];
 
@@ -20,6 +22,7 @@ export default function AdminPage() {
   const { locale } = useParams();
   const { user, loading } = useAuth();
   const [users, setUsers] = useState([]);
+  const [manualSubscriptionsUsers, setManualSubscriptionsUsers] = useState([]);
   const [requests, setRequests] = useState([]);
   const t = useTranslations();
 
@@ -53,7 +56,19 @@ export default function AdminPage() {
           setRequests(data);
         };
 
-        await Promise.all([fetchUsers(), fetchRequests()]);
+        const fetchManualSubscriptionsUsers = async () => {
+          const response = await fetch("/api/admin/users/manual-subscriptions");
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          setManualSubscriptionsUsers(data);
+        };
+        await Promise.all([
+          fetchUsers(),
+          fetchRequests(),
+          fetchManualSubscriptionsUsers(),
+        ]);
       } catch (error) {
         console.error("Error detallado al obtener datos:", error);
       } finally {
@@ -87,6 +102,8 @@ export default function AdminPage() {
         return <AdminRequests requests={requests} />;
       case "settings":
         return <Configuration />;
+      case "manual-subscriptions":
+        return <ManualSubscriptions users={manualSubscriptionsUsers} />;
     }
   };
 

@@ -28,8 +28,9 @@
         "welcome": "Bienvenido",
         "menu": {
             "users": "Usuarios",
-            "requests": "Peticiones",
-            "settings": "Configuración"
+            "requests": "Solicitudes",
+            "settings": "Configuración",
+            "manualSubscriptions": "Suscripciones Manuales"
         },
         "loading": "Cargando...",
         "users": {
@@ -42,11 +43,12 @@
                 "role": "Rol",
                 "createdAt": "Fecha de registro",
                 "actions": "Acciones",
-                "makeAdmin": "Hacer admin"
+                "makeAdmin": "Hacer Admin"
             }
         },
         "usersList": {
             "title": "Usuarios",
+            "createUser": "Crear Usuario",
             "table": {
                 "name": "Nombre",
                 "email": "Email",
@@ -77,6 +79,43 @@
             "loading": "Cargando...",
             "error": "Error: {error}",
             "deleteConfirm": "¿Estás seguro de que quieres eliminar esta configuración?"
+        },
+        "createUser": {
+            "title": "Crear Nuevo Usuario",
+            "nameLabel": "Nombre",
+            "namePlaceholder": "Introduce el nombre del usuario",
+            "emailLabel": "Email",
+            "emailPlaceholder": "Introduce el email del usuario",
+            "localeLabel": "Idioma de los Emails",
+            "localeHelp": "El idioma para los emails del usuario",
+            "createSubscription": "Crear suscripción manual",
+            "subscriptionPriceLabel": "Precio de Suscripción (€)",
+            "subscriptionPricePlaceholder": "Introduce el precio (ej. 49.99)",
+            "buttons": {
+                "cancel": "Cancelar",
+                "create": "Crear Usuario",
+                "creating": "Creando..."
+            }
+        },
+        "manualSubscriptions": {
+            "title": "Suscripciones Manuales",
+            "filters": {
+                "nameSearch": "Filtrar por nombre...",
+                "emailSearch": "Filtrar por email..."
+            },
+            "empty": {
+                "title": "No hay suscripciones manuales",
+                "description": "No se encontraron usuarios con suscripciones manuales."
+            },
+            "table": {
+                "user": "Usuario",
+                "email": "Email",
+                "price": "Precio",
+                "date": "Fecha de suscripción",
+                "status": "Estado",
+                "actions": "Acciones",
+                "viewDetails": "Ver detalles"
+            }
         }
     },
     "changePassword": {
@@ -770,14 +809,28 @@
         }
     },
     "customerDetails": {
-        "title": "Detalles del cliente",
-        "createRequest": "Crear petición",
+        "title": "Detalles del Cliente",
+        "createRequest": "Crear solicitud",
         "customerInfo": {
-            "title": "Información del cliente",
+            "title": "Información del Cliente",
             "name": "Nombre",
-            "email": "Email",
+            "email": "Correo electrónico",
             "role": "Rol",
             "registrationDate": "Fecha de registro"
+        },
+        "subscriptions": {
+            "title": "Suscripciones",
+            "status": "Estado",
+            "type": "Tipo",
+            "plan": "Plan",
+            "price": "Precio",
+            "created": "Fecha de creación",
+            "actions": "Acciones",
+            "cancel": "Cancelar",
+            "none": "No se encontraron suscripciones",
+            "cancelConfirm": "¿Está seguro de que desea cancelar esta suscripción?",
+            "stripe": "Suscripciones de Stripe",
+            "manual": "Suscripciones Manuales"
         },
         "latestRequests": {
             "title": "Últimas peticiones"
