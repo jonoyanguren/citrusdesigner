@@ -63,7 +63,7 @@ export async function createCheckoutSession(
   }
 
   try {
-    const session = await stripe.checkout.sessions.create({
+    const sessionConfig: Stripe.Checkout.SessionCreateParams = {
       mode: "subscription",
       payment_method_types: ["card"],
       line_items: [
@@ -74,11 +74,23 @@ export async function createCheckoutSession(
       ],
       success_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/pricing`,
-      customer: customerId,
       metadata: {
         locale: locale,
       },
-    });
+      billing_address_collection: "required",
+      tax_id_collection: { enabled: true },
+    };
+
+    // Only add customer and customer_update if customerId exists
+    if (customerId) {
+      sessionConfig.customer = customerId;
+      sessionConfig.customer_update = {
+        address: "auto",
+        name: "auto",
+      };
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionConfig);
 
     return { sessionId: session.id };
   } catch (error) {
