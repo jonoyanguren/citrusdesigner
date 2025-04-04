@@ -85,7 +85,9 @@ export default function HowItWorks() {
 
       <OrangeMessage message={t("orangeMessage")} highlightIndexes={[5, 6]} />
 
-      <OurProjects />
+      <div id="projects">
+        <OurProjects />
+      </div>
 
       <Features />
     </div>

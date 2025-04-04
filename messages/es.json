@@ -787,5 +787,9 @@
         "title": "Sitios disponibles",
         "loading": "Cargando sitios disponibles...",
         "noPlaces": "Plazas agotadas"
+    },
+    "projectsSummary": {
+        "title": "Echa un ojo de los resultados de otras empresas",
+        "button": "Ver proyectos"
     }
 }

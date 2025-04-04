@@ -782,5 +782,9 @@
         "title": "Verfügbare Plätze",
         "loading": "Lade verfügbare Plätze...",
         "noPlaces": "Keine freien Plätze"
+    },
+    "projectsSummary": {
+        "title": "Schau dir die Ergebnisse anderer Unternehmen an",
+        "button": "Projekte anzeigen"
     }
 }

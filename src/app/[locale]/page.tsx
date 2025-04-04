@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { AboutTheDesigner } from "@/components/AboutTheDesigner";
 import PricingList from "@/components/PricingList";
 import Image from "next/image";
+import ProjectsSummary from "@/components/ProjectsSummary";
 
 export default function HomePage() {
   const t = useTranslations("home");
@@ -32,6 +33,7 @@ export default function HomePage() {
           <Steps />
         </div>
         <Benefits />
+        <ProjectsSummary />
         <div className="relative flex flex-col md:flex-row items-center mt-12 md:mt-0 mx-4 md:mx-16">
           <Image
             className="absolute -top-8 md:top-20 md:-left-20 md:mb-0"

@@ -786,5 +786,9 @@
         "title": "Available Spots",
         "loading": "Loading available spots...",
         "noPlaces": "Slots full"
+    },
+    "projectsSummary": {
+        "title": "Take a look at the results of other companies",
+        "button": "View projects"
     }
 }
