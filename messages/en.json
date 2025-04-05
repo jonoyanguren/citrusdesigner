@@ -119,25 +119,25 @@
         }
     },
     "changePassword": {
-        "title": "Change Password",
-        "description": "This is your first login, so for security, please change your password",
-        "newPassword": "New Password",
-        "confirmPassword": "Confirm Password",
-        "submitButton": "Change Password",
+        "title": "Change password",
+        "description": "This is your first login, so for security reasons, please change your password",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password",
+        "submitButton": "Change password",
         "error": "Passwords do not match"
     },
     "cta": {
-        "title": "Ready to unlock all our creative potential together?",
+        "title": "Ready to squeeze all the creative potential together?",
         "primaryButton": "Subscribe",
         "secondaryButton": "Book a 1:1"
     },
     "home": {
         "hero": {
-            "titleBegin": "Your trusted designer, in subscription",
+            "titleBegin": "Your trusted designer, on a",
             "titleMiddle": "subscription",
             "cta": "Subscribe today",
             "ctaSecondary": "Contact me",
-            "description": "Subscribe for as many months as you need and forget about hiring full time or looking for a freelancer every time."
+            "description": "Subscribe for the months you need and forget about hiring full-time or looking for a freelancer each time."
         },
         "customers": {
             "title": "Companies that trust me"
@@ -199,10 +199,10 @@
                 }
             ]
         },
-        "orangeMessage": "Make the most of your time! With our unlimited subscription, forget about budgets and complications while adding a refreshing touch to your projects.",
+        "orangeMessage": "Make the most of your time! With an unlimited subscription, forget about budgets and complications while adding a refreshing touch to your projects.",
         "testimonials": {
             "title": "Testimonials",
-            "subtitle": "What our clients say",
+            "subtitle": "What clients say about Citrus Designer",
             "description": "Discover why our clients trust us",
             "items": [
                 {
@@ -228,7 +228,7 @@
     },
     "howItWorks": {
         "title": "How It Works",
-        "description": "My process is simple and easy. Avoid meetings and make the most of your time",
+        "description": "The process is simple and easy. Avoid meetings and make the most of your time.",
         "before": "Before",
         "after": "After",
         "steps": {
@@ -244,7 +244,7 @@
                 },
                 {
                     "title": "Make a request",
-                    "description": "Submit your design request through my portal"
+                    "description": "Submit your design request through the portal"
                 },
                 {
                     "title": "Receive your design",
@@ -254,11 +254,11 @@
         },
         "limeMessage": "I use an innovative model where quality and speed are my priorities. I am the creative mind behind every project; I do not hire external designers.",
         "benefits": {
-            "title": "My benefits mixed together",
+            "title": "All benefits mixed together",
             "benefits": [
                 {
                     "title": "Proprietary software",
-                    "description": "Easily manage requests from my internal software"
+                    "description": "Easily manage requests from the internal software"
                 },
                 {
                     "title": "Fast Delivery",
@@ -317,55 +317,17 @@
         "bookACall": "Book a 1:1",
         "currency": "€",
         "month": "month",
+        "2weeks": "2 weeks",
         "badge": {
             "availableSpots": "2 spots available"
         },
         "customPrice": "Customized",
         "customPriceDescription": "For companies that require much more powerful designs, we have what you need.",
-        "descriptions": {
-            "Standard": "Ideal for basic design needs",
-            "Pro": "Perfect for major design challenges",
-            "Enterprise": "For companies that require much more powerful designs, we have what you need."
-        },
         "features": {
-            "title": "What is included",
-            "Standard": [
-                "One request at a time",
-                "Unlimited revisions",
-                "Delivery within 24-48 hours",
-                "Dedicated designer"
-            ],
-            "Pro": [
-                "One request at a time",
-                "Unlimited revisions",
-                "Delivery within 24-48 hours",
-                "Priority support"
-            ],
-            "Enterprise": [
-                "Custom design",
-                "Delivery in 1 day",
-                "Unlimited revisions",
-                "Priority support"
-            ]
+            "title": "What is included"
         },
         "services": {
-            "title": "Included services",
-            "Standard": [
-                "Complete UI execution",
-                "Complete UX execution"
-            ],
-            "Pro": [
-                "Complete UI execution",
-                "Complete UX execution",
-                "Figma prototypes",
-                "Figma files ready for development"
-            ],
-            "Enterprise": [
-                "Custom design",
-                "Delivery in 1 day",
-                "Unlimited revisions",
-                "Priority support"
-            ]
+            "title": "Included services"
         },
         "faq": {
             "title": "Frequently Asked Questions",
@@ -378,7 +340,7 @@
                 {
                     "id": 1,
                     "title": "How can I make design requests?",
-                    "answer": "Once you subscribe to one of our plans, within your profile there is a section called Requests where you can submit your requests. Remember that you can only have one active at a time until the current request is closed."
+                    "answer": "Once you subscribe to one of the plans, within your profile there is a section called Requests where you can submit your requests. Remember that you can only have one active at a time until the current request is closed."
                 },
                 {
                     "id": 2,
@@ -401,6 +363,10 @@
                     "answer": "You can try one of our subscriptions for a week and if you're not satisfied with the service, we will refund your money."
                 }
             ]
+        },
+        "errors": {
+            "loadingPlans": "Error loading plans",
+            "processingPayment": "Error processing subscription payment."
         }
     },
     "contact": {
@@ -841,7 +807,73 @@
         "noPlaces": "Slots full"
     },
     "projectsSummary": {
-        "title": "Take a look at the results of other companies",
+        "title": "Take a look at the most impressive projects",
         "button": "View projects"
+    },
+    "subscriptions": {
+        "products": {
+            "splash": {
+                "name": "Splash",
+                "description": "To try Citrus for the first time",
+                "features": [
+                    "One request at a time",
+                    "Maximum 5 requests",
+                    "Delivery in 1-2 days"
+                ],
+                "services": [
+                    "Complete UI execution",
+                    "Complete UX execution"
+                ]
+            },
+            "standard": {
+                "name": "Standard",
+                "description": "Ideal for basic design needs",
+                "features": [
+                    "One request at a time",
+                    "Unlimited revisions",
+                    "Delivery in 1-2 days"
+                ],
+                "services": [
+                    "Complete UI execution",
+                    "Complete UX execution"
+                ]
+            },
+            "pro": {
+                "name": "Pro",
+                "description": "Perfect for large design challenges",
+                "features": [
+                    "One request at a time",
+                    "Free and unlimited revisions",
+                    "Delivery in 1-2 days"
+                ],
+                "services": [
+                    "Complete UI execution",
+                    "Complete UX execution",
+                    "Figma prototypes",
+                    "Figma files ready for development"
+                ]
+            },
+            "custom": {
+                "name": "Custom",
+                "description": "For 100% customized needs",
+                "features": [
+                    "Free initial consultation",
+                    "Strategic design roadmap",
+                    "Continuous progress tracking"
+                ],
+                "services": [
+                    "Complete UI execution",
+                    "Complete UX execution",
+                    "Figma prototypes",
+                    "Figma files ready for development"
+                ]
+            }
+        },
+        "common": {
+            "title": "What's included",
+            "services": "Included services",
+            "customPrice": "Custom",
+            "customPriceDescription": "For companies that require much more powerful designs, we have what you need."
+        }
     }
 }

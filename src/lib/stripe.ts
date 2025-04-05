@@ -18,7 +18,7 @@ export interface StripeProduct {
   description?: string | null;
   price: number;
   priceId: string;
-  features: string[];
+  features?: string[];
   interval: string;
 }
 

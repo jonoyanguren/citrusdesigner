@@ -35,7 +35,6 @@ export default function CustomerDetails() {
   const fetchUser = useCallback(async () => {
     const response = await fetch(`/api/admin/users/${id}`);
     const data = await response.json();
-    console.log("DATA", data);
     setUser(data);
 
     // Una vez tenemos las suscripciones, obtenemos los nombres de los planes
@@ -80,7 +79,6 @@ export default function CustomerDetails() {
     fetchUser();
   }, [fetchUser]);
 
-  console.log("USER", user);
   const handleCancelSubscription = async (
     subscriptionId: string,
     isManual: boolean = false

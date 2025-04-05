@@ -1,0 +1,70 @@
+{
+    "products": [
+        {
+            "id": "splash",
+            "name": "Splash",
+            "description": "Für Citrus-Erstnutzer",
+            "features": [
+                "Eine Anfrage zurzeit",
+                "Maximal 5 Anfragen",
+                "Lieferung in 1-2 Tagen"
+            ],
+            "services": [
+                "Komplette UI-Umsetzung",
+                "Komplette UX-Umsetzung"
+            ]
+        },
+        {
+            "id": "standard",
+            "name": "Standard",
+            "description": "Ideal für grundlegende Designbedürfnisse",
+            "features": [
+                "Eine Anfrage zurzeit",
+                "Unbegrenzte Revisionen",
+                "Lieferung in 1-2 Tagen"
+            ],
+            "services": [
+                "Komplette UI-Umsetzung",
+                "Komplette UX-Umsetzung"
+            ]
+        },
+        {
+            "id": "pro",
+            "name": "Pro",
+            "description": "Perfekt für größere Designherausforderungen",
+            "features": [
+                "Eine Anfrage zurzeit",
+                "Unbegrenzte kostenlose Revisionen",
+                "Lieferung in 1-2 Tagen"
+            ],
+            "services": [
+                "Komplette UI-Umsetzung",
+                "Komplette UX-Umsetzung",
+                "Figma-Prototypen",
+                "Figma-Dateien bereit für die Entwicklung"
+            ]
+        },
+        {
+            "id": "custom",
+            "name": "Custom",
+            "description": "Für 100% individuelle Bedürfnisse",
+            "features": [
+                "Kostenlose Initialberatung",
+                "Strategischer Design-Fahrplan",
+                "Kontinuierliche Fortschrittsverfolgung"
+            ],
+            "services": [
+                "Komplette UI-Umsetzung",
+                "Komplette UX-Umsetzung",
+                "Figma-Prototypen",
+                "Figma-Dateien bereit für die Entwicklung"
+            ]
+        }
+    ],
+    "common": {
+        "title": "Enthaltene Leistungen",
+        "services": "Enthaltene Services",
+        "customPrice": "Individuell",
+        "customPriceDescription": "Für Unternehmen, die deutlich stärkere Designs benötigen, haben wir genau das Richtige."
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "products": [
+        {
+            "id": "splash",
+            "name": "Splash",
+            "description": "For first-time Citrus users",
+            "features": [
+                "One request at a time",
+                "Maximum of 5 requests",
+                "Delivery in 1-2 days"
+            ],
+            "services": [
+                "Complete UI execution",
+                "Complete UX execution"
+            ]
+        },
+        {
+            "id": "standard",
+            "name": "Standard",
+            "description": "Ideal for basic design needs",
+            "features": [
+                "One request at a time",
+                "Unlimited revisions",
+                "Delivery in 1-2 days"
+            ],
+            "services": [
+                "Complete UI execution",
+                "Complete UX execution"
+            ]
+        },
+        {
+            "id": "pro",
+            "name": "Pro",
+            "description": "Perfect for major design challenges",
+            "features": [
+                "One request at a time",
+                "Unlimited free revisions",
+                "Delivery in 1-2 days"
+            ],
+            "services": [
+                "Complete UI execution",
+                "Complete UX execution",
+                "Figma prototypes",
+                "Figma files ready for development"
+            ]
+        },
+        {
+            "id": "custom",
+            "name": "Custom",
+            "description": "For 100% custom needs",
+            "features": [
+                "Free initial consultation",
+                "Strategic design roadmap",
+                "Continuous progress tracking"
+            ],
+            "services": [
+                "Complete UI execution",
+                "Complete UX execution",
+                "Figma prototypes",
+                "Figma files ready for development"
+            ]
+        }
+    ],
+    "common": {
+        "title": "What is included",
+        "services": "Included services",
+        "customPrice": "Customized",
+        "customPriceDescription": "For companies that require much more powerful designs, we have what you need."
+    }
+}

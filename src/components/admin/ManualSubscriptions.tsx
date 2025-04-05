@@ -29,8 +29,6 @@ export function ManualSubscriptions({ users }: Props) {
   const [emailFilter, setEmailFilter] = useState("");
   const t = useTranslations("admin.manualSubscriptions");
 
-  console.log("USERS", users);
-
   const getRelativeTime = (date: Date) => {
     return formatDistanceToNow(new Date(date), {
       addSuffix: true,

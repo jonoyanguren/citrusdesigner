@@ -7,6 +7,8 @@ import { useParams } from "next/navigation";
 import ProductCard from "./ProductCard";
 import { OrangeBlob } from "./OrangeBlob";
 import { useTranslations } from "next-intl";
+import { MdError } from "react-icons/md";
+import WaitlistPage from "@/app/[locale]/waitlist/page";
 
 type ProductsResponse = {
   waitlist: boolean;
@@ -21,6 +23,11 @@ interface Benefit {
   description: string;
   icon: "sparkles" | "lightning" | "shield";
 }
+
+type EnhancedProduct = StripeProduct & {
+  features?: string[];
+  services?: string[];
+};
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -37,27 +44,28 @@ export default function PricingList() {
   const t = useTranslations("pricing");
   const locale = (params.locale as string) || "es";
   const [isLoading, setIsLoading] = useState<string | null>(null);
-  const [products, setProducts] = useState<StripeProduct[]>([]);
+  const [stripeProducts, setStripeProducts] = useState<StripeProduct[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [showWaitlist, setShowWaitlist] = useState(false);
   const [isLoadingProducts, setIsLoadingProducts] = useState(true);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchData = async () => {
       try {
-        const response = await getProducts();
-        setShowWaitlist(response.waitlist || false);
-        setProducts(response.products || []);
+        // Cargar datos de productos desde Stripe
+        const stripeResponse = await getProducts();
+        setStripeProducts(stripeResponse.products || []);
+        setShowWaitlist(stripeResponse.waitlist || false);
       } catch (err) {
-        setError("Error cargando los planes");
+        setError(t("errors.loadingPlans"));
         console.error("Error:", err);
       } finally {
         setIsLoadingProducts(false);
       }
     };
 
-    fetchProducts();
-  }, []);
+    fetchData();
+  }, [t]);
 
   const handleSubscribe = async (priceId: string, productName: string) => {
     if (!priceId) {
@@ -92,15 +100,11 @@ export default function PricingList() {
       }
     } catch (err) {
       console.error("Error:", err);
-      setError("Error al procesar el pago");
+      setError(t("errors.processingPayment"));
     } finally {
       setIsLoading(null);
     }
   };
-
-  if (error) {
-    return <div className="text-red-500">{error}</div>;
-  }
 
   if (isLoadingProducts) {
     return <LoadingPricing />;
@@ -108,11 +112,19 @@ export default function PricingList() {
 
   return (
     <div className="relative w-full">
-      <div className="absolute inset-0 -z-10 w-full scale-x-[-1]">
-        <OrangeBlob />
-      </div>
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {products
+      {showWaitlist && <WaitlistPage type="small" />}
+      {error && (
+        <div className="bg-red-700 text-white font-bold max-w-md mx-auto rounded-lg p-4 flex items-center justify-center w-fit px-16 gap-2 mb-8">
+          <MdError className="text-white" />
+          {error}
+        </div>
+      )}
+      <div className="relative grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="absolute inset-0 -z-10 w-full scale-x-[-1]">
+          <OrangeBlob />
+        </div>
+        {stripeProducts
+          .filter((product) => product.id !== "custom")
           .sort((a, b) => a.price - b.price)
           .map((product) => (
             <ProductCard
@@ -123,15 +135,14 @@ export default function PricingList() {
               showWaitlist={showWaitlist}
             />
           ))}
+        {/* Custom product card */}
         <ProductCard
           key="custom"
           product={{
-            id: "enterprise",
-            name: "Enterprise",
+            id: "custom",
+            name: "Custom",
             price: 0,
-            description: t("customPriceDescription"),
-            priceId: "custom",
-            features: [],
+            priceId: "",
             interval: "month",
           }}
           isLoading={false}

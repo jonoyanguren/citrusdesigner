@@ -9,11 +9,29 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 
 async function getActiveSubscriptionsCount() {
   try {
-    const subscriptions = await stripe.subscriptions.list({
-      status: "active",
-      limit: 100, // Ajusta este límite según tus necesidades
-    });
-    return subscriptions.data.length;
+    let allSubscriptions: Stripe.Subscription[] = [];
+    let hasMore = true;
+    let startingAfter: string | undefined = undefined;
+
+    while (hasMore) {
+      const subscriptions: Stripe.Response<
+        Stripe.ApiList<Stripe.Subscription>
+      > = await stripe.subscriptions.list({
+        status: "active",
+        limit: 100,
+        starting_after: startingAfter,
+      });
+
+      allSubscriptions = [...allSubscriptions, ...subscriptions.data];
+
+      if (subscriptions.has_more) {
+        startingAfter = subscriptions.data[subscriptions.data.length - 1].id;
+      } else {
+        hasMore = false;
+      }
+    }
+
+    return allSubscriptions.length;
   } catch (error) {
     console.error("Error fetching subscriptions:", error);
     throw error;
@@ -48,6 +66,7 @@ async function getMaxProjects() {
 
 export async function GET() {
   try {
+    console.log("GETTING PRODUCTS");
     const [activeSubscriptions, maxProjects] = await Promise.all([
       getActiveSubscriptionsCount(),
       getMaxProjects(),

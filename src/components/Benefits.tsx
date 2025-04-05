@@ -13,7 +13,7 @@ export default function Benefits() {
 
   return (
     <>
-      <Title title={t("benefits.title")} highlightIndexes={[1]} />
+      <Title title={t("benefits.title")} highlightIndexes={[2]} />
       <div className="max-w-5xl w-full mx-auto px-4 pb-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 md:gap-8">
           {benefits.map((benefit, index) => (

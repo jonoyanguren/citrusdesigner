@@ -18,75 +18,85 @@ export default function ProductCard({
   onSubscribe,
   showWaitlist,
 }: ProductCardProps) {
-  const t = useTranslations("pricing");
+  const pricing = useTranslations("pricing");
+  const t = useTranslations("subscriptions");
   const { locale } = useParams();
+
+  const productKey = product.name.toLowerCase();
   const isHighlighted = product.name === "Pro";
 
   const highlightStyles = isHighlighted
     ? "border-4 border-neutral-900 bg-neutral-50"
     : "border-2 border-neutral-300 bg-white";
+
   return (
     <div
       className={`${highlightStyles} rounded-xl pt-8 pb-4 px-8 flex flex-col min-h-[700px] gap-6 text-lg relative shadow-xl`}
     >
-      <h2 className="text-2xl font-bold text-center">{product.name}</h2>
+      <h2 className="text-2xl font-bold text-center">
+        {t(`products.${productKey}.name`)}
+      </h2>
       {product.price === 0 ? (
         <div className="text-center">
-          <span className="text-4xl font-medium">{t("customPrice")}</span>
+          <span className="text-4xl font-medium">
+            {t("common.customPrice")}
+          </span>
         </div>
       ) : (
         <div className="text-center">
           <span className="text-4xl font-medium">
-            {product.price.toLocaleString()} {t("currency")}
+            {product.price.toLocaleString()} {pricing("currency")}
           </span>
-          <span className="text-lg text-neutral-500">/{t("month")}</span>
+          <span className="text-lg text-neutral-500">
+            /
+            {product.interval === "month"
+              ? pricing("month")
+              : pricing("2weeks")}
+          </span>
         </div>
       )}
-      {product.description && (
-        <p className="text-left">{t(`descriptions.${product.name}`)}</p>
-      )}
-      {product.price !== 0 && (
-        <>
-          {/* Features */}
-          <div>
-            <p className="font-bold underline mb-4 text-lg">
-              {t(`features.title`)} {product.name}:
-            </p>
-            <ul className="space-y-4 mb-2 flex-grow">
-              {t.raw(`features.${product.name}`).map((feature: string) => (
-                <li key={feature} className="flex items-center text-lg">
-                  <FaCheckCircle className="w-5 h-5 mr-3 text-neutral-900" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* Services */}
-          <div>
-            <p className="font-bold underline mb-4 text-lg">
-              {t(`services.title`)}:
-            </p>
-            <ul className="space-y-4 mb-2 flex-grow">
-              {t.raw(`services.${product.name}`).map((feature: string) => (
-                <li key={feature} className="flex items-center text-lg">
-                  <FaCheckCircle className="w-5 h-5 mr-3 text-neutral-900" />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </>
-      )}
+
+      <p className="text-left">{t(`products.${productKey}.description`)}</p>
+      <>
+        {/* Features */}
+        <div>
+          <p className="font-bold underline mb-4 text-lg">
+            {t("common.title")} {t(`products.${productKey}.name`)}:
+          </p>
+          <ul className="space-y-4 mb-2 flex-grow">
+            {t.raw(`products.${productKey}.features`).map((feature: string) => (
+              <li key={feature} className="flex items-center text-lg">
+                <FaCheckCircle className="w-5 h-5 mr-3 text-neutral-900" />
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+        {/* Services */}
+        <div>
+          <p className="font-bold underline mb-4 text-lg">
+            {t("common.services")}:
+          </p>
+          <ul className="space-y-4 mb-2 flex-grow">
+            {t.raw(`products.${productKey}.services`).map((service: string) => (
+              <li key={service} className="flex items-center text-lg">
+                <FaCheckCircle className="w-5 h-5 mr-3 text-neutral-900" />
+                {service}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </>
       {!showWaitlist ? (
         <div className="mt-auto flex flex-col gap-4">
-          {product.id !== "enterprise" && (
+          {product.id !== "custom" && (
             <Button
               variant="secondary"
               fullWidth
               isLoading={isLoading}
               onClick={() => onSubscribe(product.priceId, product.name)}
             >
-              {isLoading ? t("loading") : t("subscribe")}
+              {isLoading ? pricing("loading") : pricing("subscribe")}
             </Button>
           )}
           <CalendarButton variant="text" />
@@ -94,7 +104,7 @@ export default function ProductCard({
       ) : (
         <div className="mt-auto flex flex-col gap-4">
           <Button href={`/${locale}/waitlist`} className="text-center">
-            {t("waitlistButton")}
+            {pricing("waitlistButton")}
           </Button>
         </div>
       )}

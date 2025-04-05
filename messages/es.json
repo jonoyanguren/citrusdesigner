@@ -158,7 +158,7 @@
         },
         "aboutTheDesigner": {
             "title": "¿Quién está detrás?",
-            "description": "Esta es Andrea, la diseñadora detrás de Citrus Design. Con más de 8 años de experiencia, transforma ideas en experiencias únicas y memorables.",
+            "description": "Soy Andrea, la diseñadora detrás de Citrus. Con más de 8 años de experiencia, transformo ideas en experiencias únicas y memorables.",
             "principles": {
                 "title": "Mis principios de diseño",
                 "items": [
@@ -199,10 +199,10 @@
                 }
             ]
         },
-        "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos.",
+        "orangeMessage": "¡Exprime tu tiempo! Con una suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos.",
         "testimonials": {
             "title": "Testimonios",
-            "subtitle": "Lo que dicen nuestros clientes",
+            "subtitle": "Lo que dicen de Citrus Designer",
             "description": "Descubre por qué nuestros clientes confían en nosotros",
             "items": [
                 {
@@ -228,7 +228,7 @@
     },
     "howItWorks": {
         "title": "Así es como funciona",
-        "description": "Mi proceso es simple y fácil. Evita reuniones y exprime tu tiempo",
+        "description": "El proceso es simple y fácil. Evita reuniones y exprime tu tiempo.",
         "before": "Antes",
         "after": "Después",
         "steps": {
@@ -244,7 +244,7 @@
                 },
                 {
                     "title": "Haz una petición",
-                    "description": "Solicita tu diseño desde mi portal"
+                    "description": "Solicita el diseño desde el portal"
                 },
                 {
                     "title": "Recibe tu diseño",
@@ -254,11 +254,11 @@
         },
         "limeMessage": "Utilizo un modelo innovador donde la calidad y la rapidez son mi prioridad. Soy la mente creativa detrás de cada proyecto, no contrato a diseñadores externos.",
         "benefits": {
-            "title": "Mis beneficios en la coctelera",
+            "title": "Todos los beneficios en la coctelera",
             "benefits": [
                 {
                     "title": "Software propio",
-                    "description": "Gestiona fácilmente las peticiones desde mi software interno"
+                    "description": "Gestiona fácilmente las peticiones desde el software interno"
                 },
                 {
                     "title": "Fast Delivery",
@@ -317,68 +317,30 @@
         "bookACall": "Agenda un 1:1",
         "currency": "€",
         "month": "mes",
+        "2weeks": "2 semanas",
         "badge": {
             "availableSpots": "2 sitios libres"
         },
         "customPrice": "Personalizadas",
         "customPriceDescription": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas.",
-        "descriptions": {
-            "Standard": "Ideal para necesidades básicas de diseño",
-            "Pro": "Perfecto para retos de diseño grandes",
-            "Enterprise": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas."
-        },
         "features": {
-            "title": "Lo que incluye ",
-            "Standard": [
-                "Una petición a la vez",
-                "Revisiones ilimitadas",
-                "Entrega en 24-48 horas",
-                "Diseñador dedicado"
-            ],
-            "Pro": [
-                "Una petición a la vez",
-                "Revisiones ilimitadas",
-                "Entrega en 24-48 horas",
-                "Soporte prioritario"
-            ],
-            "Enterprise": [
-                "Diseño personalizado",
-                "Tiempo de entrega: 1 día",
-                "Revisiones ilimitadas",
-                "Soporte prioritario"
-            ]
+            "title": "Lo que incluye "
         },
         "services": {
-            "title": "Servicios incluidos",
-            "Standard": [
-                "Ejecución completa de UI",
-                "Ejecución complete de UX"
-            ],
-            "Pro": [
-                "Ejecución completa de UI",
-                "Ejecución complete de UX",
-                "Prototipos en Figma",
-                "Arhivos figma listos para desarrollo"
-            ],
-            "Enterprise": [
-                "Diseño personalizado",
-                "Tiempo de entrega: 1 día",
-                "Revisiones ilimitadas",
-                "Soporte prioritario"
-            ]
+            "title": "Servicios incluidos"
         },
         "faq": {
             "title": "Preguntas frecuentes",
             "infoBox": {
                 "title": "¿Aun tienes más preguntas?",
-                "description": "Ponte en contacto con nosotros, estaremos encantados de resolver todas tus preguntas :)",
+                "description": "Ponte en contacto conmigo y estaré encantada de resolver todas tus preguntas :)",
                 "cta": "Contáctanos"
             },
             "items": [
                 {
                     "id": 1,
                     "title": "¿Cómo puedo hacer peticiones de diseño?",
-                    "answer": "Una vez te suscribas a uno de nuestros planes, dentro del perfil hay una sección llamada Peticiones en la que podrás ir subiendo tus peticiones. Recuerda que sólo puedes tener activa una a la vez hasta que se cierre la petición en curso."
+                    "answer": "Una vez te suscribas a uno de los planes, dentro del perfil hay una sección llamada Peticiones en la que podrás ir subiendo tus peticiones. Recuerda que sólo puedes tener activa una a la vez hasta que se cierre la petición en curso."
                 },
                 {
                     "id": 2,
@@ -398,14 +360,18 @@
                 {
                     "id": 5,
                     "title": "¿Hay alguna política de reembolsos si no me gusta el servicio?",
-                    "answer": "Puedes probar una de nuestras suscripción durante una semana y si no estás satisfecho con el servicio te devolvemos el dinero."
+                    "answer": "Puedes probar una de las suscripciones durante una semana y si no estás satisfecho con el servicio te devolvemos el dinero."
                 }
             ]
+        },
+        "errors": {
+            "loadingPlans": "Error cargando los planes",
+            "processingPayment": "Error al procesar el pago de la suscripción."
         }
     },
     "contact": {
         "title": "¿Cómo puedo ayudarte?",
-        "description": "Elige cómo prefieres contactarme y responderé a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
+        "description": "Elige cómo prefieres ponerte en contacto conmigo y responderé a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
         "email": {
             "title": "Mándame un email",
             "description": "¿Tienes dudas o necesitas más información? Escríbeme y te responderé lo antes posible.",
@@ -413,7 +379,7 @@
         },
         "chat": {
             "title": "Chatea conmigo",
-            "description": "¿Prefieres algo más rápido? Conéctate conmigo en el chat y resolvemos tus dudas al momento.",
+            "description": "Habla conmigo a través de Whatsapp y resolveré tus dudas al momento.",
             "button": "Chatea ahora"
         },
         "meeting": {
@@ -842,7 +808,73 @@
         "noPlaces": "Plazas agotadas"
     },
     "projectsSummary": {
-        "title": "Echa un ojo de los resultados de otras empresas",
+        "title": "Echa un ojo a los proyectos más destacados",
         "button": "Ver proyectos"
+    },
+    "subscriptions": {
+        "products": {
+            "splash": {
+                "name": "Splash",
+                "description": "Para probar Citrus por primera vez",
+                "features": [
+                    "Una petición a la vez",
+                    "Máximo 5 peticiones",
+                    "Entrega en 1-2 días"
+                ],
+                "services": [
+                    "Ejecución completa de UI",
+                    "Ejecución complete de UX"
+                ]
+            },
+            "standard": {
+                "name": "Standard",
+                "description": "Ideal para necesidades básicas de diseño",
+                "features": [
+                    "Una petición a la vez",
+                    "Revisiones ilimitadas",
+                    "Entrega en 1-2 días"
+                ],
+                "services": [
+                    "Ejecución completa de UI",
+                    "Ejecución complete de UX"
+                ]
+            },
+            "pro": {
+                "name": "Pro",
+                "description": "Perfecto para retos de diseño grandes",
+                "features": [
+                    "Una petición a la vez",
+                    "Revisiones gratuitas e ilimitadas",
+                    "Entrega en 1-2 días"
+                ],
+                "services": [
+                    "Ejecución completa de UI",
+                    "Ejecución complete de UX",
+                    "Prototipos en Figma",
+                    "Arhivos figma listos para desarrollo"
+                ]
+            },
+            "custom": {
+                "name": "Custom",
+                "description": "Para necesidades 100% a medida",
+                "features": [
+                    "Consulta inicial gratuita",
+                    "Roadmap estratégico de diseño",
+                    "Seguimiento continuo del progreso"
+                ],
+                "services": [
+                    "Ejecución completa de UI",
+                    "Ejecución complete de UX",
+                    "Prototipos en Figma",
+                    "Arhivos figma listos para desarrollo"
+                ]
+            }
+        },
+        "common": {
+            "title": "Lo que incluye",
+            "services": "Servicios incluidos",
+            "customPrice": "Personalizadas",
+            "customPriceDescription": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas."
+        }
     }
 }

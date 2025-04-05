@@ -3,7 +3,7 @@ import { createCheckoutSession } from "@/lib/stripe";
 
 export async function POST(request: Request) {
   try {
-    const { priceId, locale } = await request.json();
+    const { priceId, locale = "es" } = await request.json();
 
     if (!priceId) {
       return NextResponse.json(
@@ -17,12 +17,14 @@ export async function POST(request: Request) {
       undefined,
       locale
     );
+
     return NextResponse.json({ sessionId });
   } catch (error) {
-    console.error("Error:", error);
-    return NextResponse.json(
-      { error: "Error creating checkout session" },
-      { status: 500 }
-    );
+    console.error("Error creating checkout session:", error);
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : "Error creating checkout session";
+    return NextResponse.json({ error: errorMessage }, { status: 500 });
   }
 }

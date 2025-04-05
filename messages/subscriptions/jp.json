@@ -1,0 +1,70 @@
+{
+    "products": [
+        {
+            "id": "splash",
+            "name": "Splash",
+            "description": "Citrus初回ユーザー向け",
+            "features": [
+                "同時に1件のリクエスト",
+                "最大5件のリクエスト",
+                "1～2日以内の納品"
+            ],
+            "services": [
+                "完全なUI実装",
+                "完全なUX実装"
+            ]
+        },
+        {
+            "id": "standard",
+            "name": "Standard",
+            "description": "基本的なデザインニーズに最適",
+            "features": [
+                "同時に1件のリクエスト",
+                "無制限のリビジョン",
+                "1～2日以内の納品"
+            ],
+            "services": [
+                "完全なUI実装",
+                "完全なUX実装"
+            ]
+        },
+        {
+            "id": "pro",
+            "name": "Pro",
+            "description": "大規模なデザインチャレンジに最適",
+            "features": [
+                "同時に1件のリクエスト",
+                "無制限の無料リビジョン",
+                "1～2日以内の納品"
+            ],
+            "services": [
+                "完全なUI実装",
+                "完全なUX実装",
+                "Figmaプロトタイプ",
+                "開発用Figmaファイル"
+            ]
+        },
+        {
+            "id": "custom",
+            "name": "Custom",
+            "description": "100%カスタムニーズ向け",
+            "features": [
+                "無料の初期コンサルテーション",
+                "戦略的デザインロードマップ",
+                "継続的な進捗追跡"
+            ],
+            "services": [
+                "完全なUI実装",
+                "完全なUX実装",
+                "Figmaプロトタイプ",
+                "開発用Figmaファイル"
+            ]
+        }
+    ],
+    "common": {
+        "title": "含まれる内容",
+        "services": "含まれるサービス",
+        "customPrice": "カスタム",
+        "customPriceDescription": "よりパワフルなデザインを必要とする企業向けです。"
+    }
+}

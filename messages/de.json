@@ -120,24 +120,24 @@
     },
     "changePassword": {
         "title": "Passwort ändern",
-        "description": "Dies ist dein erster Login, daher ändere aus Sicherheitsgründen dein Passwort",
+        "description": "Dies ist Ihre erste Anmeldung, daher ändern Sie bitte aus Sicherheitsgründen Ihr Passwort",
         "newPassword": "Neues Passwort",
         "confirmPassword": "Passwort bestätigen",
         "submitButton": "Passwort ändern",
         "error": "Passwörter stimmen nicht überein"
     },
     "cta": {
-        "title": "Bereit, gemeinsam unser kreatives Potenzial zu entfalten?",
+        "title": "Bereit, das kreative Potenzial gemeinsam zu entfalten?",
         "primaryButton": "Abonnieren",
-        "secondaryButton": "Buche ein 1:1"
+        "secondaryButton": "Buchen Sie ein 1:1"
     },
     "home": {
         "hero": {
-            "titleBegin": "Deine vertrauenswürdige Designerin im",
+            "titleBegin": "Ihr vertrauenswürdiger Designer, im",
             "titleMiddle": "Abonnement",
-            "cta": "Abonniere noch heute",
-            "ctaSecondary": "Kontaktiere mich",
-            "description": "Abonniere so viele Monate, wie du brauchst, und vergiss es, Vollzeitkräfte einzustellen oder jedes Mal einen Freelancer zu suchen."
+            "cta": "Abonnieren Sie noch heute",
+            "ctaSecondary": "Kontaktieren Sie mich",
+            "description": "Abonnieren Sie für die Monate, die Sie benötigen, und vergessen Sie die Vollzeiteinstellung oder die Suche nach einem Freelancer jedes Mal."
         },
         "customers": {
             "title": "Unternehmen, die mir vertrauen"
@@ -158,7 +158,7 @@
         },
         "aboutTheDesigner": {
             "title": "Wer steckt dahinter?",
-            "description": "Das ist Andrea, die Designerin hinter Citrus Design. Mit über 8 Jahren Erfahrung verwandelt sie Ideen in einzigartige und unvergessliche Erlebnisse.",
+            "description": "Ich bin Andrea, die Designerin hinter Citrus. Mit über 8 Jahren Erfahrung verwandle ich Ideen in einzigartige und unvergessliche Erlebnisse.",
             "principles": {
                 "title": "Meine Designprinzipien",
                 "items": [
@@ -199,10 +199,10 @@
                 }
             ]
         },
-        "orangeMessage": "Nutze deine Zeit optimal! Mit unserem unbegrenzten Abonnement vergisst du Budgets und Komplikationen, während du deinen Projekten einen frischen Touch verleihst.",
+        "orangeMessage": "Nutze deine Zeit optimal! Mit einem unbegrenzten Abonnement vergisst du Budgets und Komplikationen, während du deinen Projekten einen frischen Touch verleihst.",
         "testimonials": {
             "title": "Kundenstimmen",
-            "subtitle": "Was unsere Kunden sagen",
+            "subtitle": "Was unsere Kunden sagen über Citrus Designer",
             "description": "Entdecke, warum unsere Kunden uns vertrauen",
             "items": [
                 {
@@ -228,7 +228,7 @@
     },
     "howItWorks": {
         "title": "Wie es funktioniert",
-        "description": "Mein Prozess ist einfach und unkompliziert. Vermeide Meetings und spare Zeit",
+        "description": "Der Prozess ist einfach und unkompliziert. Vermeide Meetings und nutze deine Zeit optimal.",
         "before": "Vorher",
         "after": "Nachher",
         "steps": {
@@ -244,7 +244,7 @@
                 },
                 {
                     "title": "Stelle eine Anfrage",
-                    "description": "Sende deine Designanfrage über mein Portal"
+                    "description": "Stelle deine Designanfrage über das Portal"
                 },
                 {
                     "title": "Erhalte dein Design",
@@ -254,7 +254,7 @@
         },
         "limeMessage": "Ich nutze ein innovatives Modell, bei dem Qualität und Schnelligkeit oberste Priorität haben. Ich bin die kreative Seele hinter jedem Projekt; externe Designer stelle ich nicht ein.",
         "benefits": {
-            "title": "Meine geballten Vorteile",
+            "title": "Alle Vorteile im Shaker",
             "benefits": [
                 {
                     "title": "Eigene Software",
@@ -322,56 +322,17 @@
         },
         "customPrice": "Individuell",
         "customPriceDescription": "Für Unternehmen, die deutlich stärkere Designs benötigen, haben wir genau das Richtige.",
-        "descriptions": {
-            "Standard": "Ideal für grundlegende Designbedürfnisse",
-            "Pro": "Perfekt für größere Designherausforderungen",
-            "Enterprise": "Für Unternehmen, die deutlich stärkere Designs benötigen, haben wir genau das Richtige."
-        },
         "features": {
-            "title": "Enthaltene Leistungen",
-            "Standard": [
-                "Eine Anfrage zurzeit",
-                "Unbegrenzte Revisionen",
-                "Lieferung in 24-48 Stunden",
-                "Dedizierte Designerin"
-            ],
-            "Pro": [
-                "Eine Anfrage zurzeit",
-                "Unbegrenzte Revisionen",
-                "Lieferung in 24-48 Stunden",
-                "Priorisierter Support"
-            ],
-            "Enterprise": [
-                "Individuelles Design",
-                "Lieferung in 1 Tag",
-                "Unbegrenzte Revisionen",
-                "Priorisierter Support"
-            ]
+            "title": "Enthaltene Leistungen"
         },
         "services": {
-            "title": "Enthaltene Services",
-            "Standard": [
-                "Komplette UI-Umsetzung",
-                "Komplette UX-Umsetzung"
-            ],
-            "Pro": [
-                "Komplette UI-Umsetzung",
-                "Komplette UX-Umsetzung",
-                "Figma-Prototypen",
-                "Figma-Dateien bereit für die Entwicklung"
-            ],
-            "Enterprise": [
-                "Individuelles Design",
-                "Lieferung in 1 Tag",
-                "Unbegrenzte Revisionen",
-                "Priorisierter Support"
-            ]
+            "title": "Enthaltene Services"
         },
         "faq": {
             "title": "Häufig gestellte Fragen",
             "infoBox": {
                 "title": "Hast du noch Fragen?",
-                "description": "Kontaktiere uns, wir beantworten gerne alle deine Fragen :)",
+                "description": "Kontaktiere mich, ich beantworte gerne alle deine Fragen :)",
                 "cta": "Kontaktiere uns"
             },
             "items": [
@@ -401,6 +362,10 @@
                     "answer": "Du kannst eines unserer Abonnements eine Woche lang testen und wenn du nicht zufrieden bist, erstatten wir dir dein Geld."
                 }
             ]
+        },
+        "errors": {
+            "loadingPlans": "Fehler beim Laden der Pläne",
+            "processingPayment": "Fehler bei der Verarbeitung der Abonnementzahlung."
         }
     },
     "contact": {
@@ -413,7 +378,7 @@
         },
         "chat": {
             "title": "Chatte mit mir",
-            "description": "Lieber schnell? Verbinde dich mit mir im Chat und wir klären deine Fragen sofort.",
+            "description": "Sprich mit mir über WhatsApp und ich löse deine Fragen sofort.",
             "button": "Jetzt chatten"
         },
         "meeting": {
@@ -837,7 +802,73 @@
         "noPlaces": "Keine freien Plätze"
     },
     "projectsSummary": {
-        "title": "Schau dir die Ergebnisse anderer Unternehmen an",
+        "title": "Schau dir die Projekte an",
         "button": "Projekte anzeigen"
+    },
+    "subscriptions": {
+        "products": {
+            "splash": {
+                "name": "Splash",
+                "description": "Um Citrus zum ersten Mal auszuprobieren",
+                "features": [
+                    "Eine Anfrage auf einmal",
+                    "Maximal 5 Anfragen",
+                    "Lieferung in 1-2 Tagen"
+                ],
+                "services": [
+                    "Vollständige UI-Ausführung",
+                    "Vollständige UX-Ausführung"
+                ]
+            },
+            "standard": {
+                "name": "Standard",
+                "description": "Ideal für grundlegende Designbedürfnisse",
+                "features": [
+                    "Eine Anfrage auf einmal",
+                    "Unbegrenzte Überarbeitungen",
+                    "Lieferung in 1-2 Tagen"
+                ],
+                "services": [
+                    "Vollständige UI-Ausführung",
+                    "Vollständige UX-Ausführung"
+                ]
+            },
+            "pro": {
+                "name": "Pro",
+                "description": "Perfekt für große Designherausforderungen",
+                "features": [
+                    "Eine Anfrage auf einmal",
+                    "Kostenlose und unbegrenzte Überarbeitungen",
+                    "Lieferung in 1-2 Tagen"
+                ],
+                "services": [
+                    "Vollständige UI-Ausführung",
+                    "Vollständige UX-Ausführung",
+                    "Figma-Prototypen",
+                    "Figma-Dateien bereit für die Entwicklung"
+                ]
+            },
+            "custom": {
+                "name": "Custom",
+                "description": "Für 100% maßgeschneiderte Bedürfnisse",
+                "features": [
+                    "Kostenlose Erstberatung",
+                    "Strategische Design-Roadmap",
+                    "Kontinuierliche Fortschrittsverfolgung"
+                ],
+                "services": [
+                    "Vollständige UI-Ausführung",
+                    "Vollständige UX-Ausführung",
+                    "Figma-Prototypen",
+                    "Figma-Dateien bereit für die Entwicklung"
+                ]
+            }
+        },
+        "common": {
+            "title": "Was ist enthalten",
+            "services": "Enthaltene Dienstleistungen",
+            "customPrice": "Individuell",
+            "customPriceDescription": "Für Unternehmen, die viel leistungsfähigere Designs benötigen, haben wir genau das Richtige."
+        }
     }
 }
