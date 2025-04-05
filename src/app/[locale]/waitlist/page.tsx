@@ -5,11 +5,8 @@ import Title from "@/components/Title";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import Image from "next/image";
-export default function WaitlistPage({
-  type = "large",
-}: {
-  type?: "small" | "large";
-}) {
+
+export default function WaitlistPage() {
   const t = useTranslations("waitlist");
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
@@ -65,42 +62,26 @@ export default function WaitlistPage({
 
   return (
     <div className="flex flex-col items-center justify-center p-8">
-      {type === "large" && (
-        <div className="px-24 w-full">
-          <div className="relative">
-            <Image
-              className="absolute top-0 left-0"
-              src="/orangeWithLines.png"
-              alt="Waitlist"
-              width={150}
-              height={150}
-            />
-            <Title title={t("title")} description={t("description")} />
-            <Image
-              className="absolute bottom-0 right-0"
-              src="/orangeWithLines1.png"
-              alt="Waitlist"
-              width={150}
-              height={150}
-            />
-          </div>
+      <div className="px-24 w-full">
+        <div className="relative">
+          <Image
+            className="absolute top-0 left-0"
+            src="/orangeWithLines.png"
+            alt="Waitlist"
+            width={150}
+            height={150}
+          />
+          <Title title={t("title")} description={t("description")} />
+          <Image
+            className="absolute bottom-0 right-0"
+            src="/orangeWithLines1.png"
+            alt="Waitlist"
+            width={150}
+            height={150}
+          />
         </div>
-      )}
-      {type === "small" && (
-        <div className="max-w-4xl mx-auto">
-          <p className="text-center text-2xl font-bold text-neutral-900">
-            {t("title")}
-          </p>
-          <p className="text-center text-lg mt-4 text-neutral-500">
-            {t("description")}
-          </p>
-        </div>
-      )}
-      <div
-        className={`flex items-center justify-center max-w-2xl w-full gap-8 p-6 ${
-          type === "small" ? "flex-row w-fit mt-2" : "flex-col w-96"
-        }`}
-      >
+      </div>
+      <div className="flex items-center justify-center max-w-2xl gap-8 p-6 flex-col w-96">
         <Input
           type="email"
           value={email}

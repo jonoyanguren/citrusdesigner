@@ -8,7 +8,7 @@ import ProductCard from "./ProductCard";
 import { OrangeBlob } from "./OrangeBlob";
 import { useTranslations } from "next-intl";
 import { MdError } from "react-icons/md";
-import WaitlistPage from "@/app/[locale]/waitlist/page";
+import WaitlistComponentSmall from "@/components/WaitlistComponentSmall";
 
 type ProductsResponse = {
   waitlist: boolean;
@@ -23,11 +23,6 @@ interface Benefit {
   description: string;
   icon: "sparkles" | "lightning" | "shield";
 }
-
-type EnhancedProduct = StripeProduct & {
-  features?: string[];
-  services?: string[];
-};
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -112,7 +107,7 @@ export default function PricingList() {
 
   return (
     <div className="relative w-full">
-      {showWaitlist && <WaitlistPage type="small" />}
+      {showWaitlist && <WaitlistComponentSmall />}
       {error && (
         <div className="bg-red-700 text-white font-bold max-w-md mx-auto rounded-lg p-4 flex items-center justify-center w-fit px-16 gap-2 mb-8">
           <MdError className="text-white" />
