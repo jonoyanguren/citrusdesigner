@@ -153,23 +153,6 @@ export default function NavigationMobile() {
                         EN
                       </Link>
                       <div className="h-4 w-[1px] bg-gray-300" />
-                      <Link
-                        href={pathname}
-                        locale="de"
-                        className="hover:opacity-70 transition-opacity"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        DE
-                      </Link>
-                      <div className="h-4 w-[1px] bg-gray-300" />
-                      <Link
-                        href={pathname}
-                        locale="jp"
-                        className="hover:opacity-70 transition-opacity"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        JP
-                      </Link>
                     </div>
                   </div>
                   {user ? (

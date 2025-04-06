@@ -7,8 +7,6 @@ import { createPortal } from "react-dom";
 const languages = [
   { code: "es", name: "ES" },
   { code: "en", name: "EN" },
-  { code: "de", name: "DE" },
-  { code: "jp", name: "JP" },
 ];
 
 export default function LanguageSelector() {
