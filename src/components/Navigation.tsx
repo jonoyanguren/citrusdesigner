@@ -68,6 +68,12 @@ export default function Navigation() {
             {t("pricing")}
           </Link>
           <Link
+            href="/design-equivalence"
+            className="hover:opacity-70 transition-opacity"
+          >
+            {t("designEquivalence")}
+          </Link>
+          <Link
             href="/the-designer-behind"
             className="hover:opacity-70 transition-opacity"
           >

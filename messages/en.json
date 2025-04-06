@@ -9,7 +9,8 @@
         "register": "Register",
         "bookCall": "Book a 1:1",
         "logout": "Log Out",
-        "selectLanguage": "Select Language"
+        "selectLanguage": "Select Language",
+        "designEquivalence": "Equivalences"
     },
     "designerBehind": {
         "orangeMessage": "Each project is a unique adventure that challenges me to find the best way to simplify complexity and transform ideas into tangible realities."
@@ -875,5 +876,145 @@
             "customPrice": "Custom",
             "customPriceDescription": "For companies that require much more powerful designs, we have what you need."
         }
+    },
+    "designEquivalence": {
+        "title": "Equivalences",
+        "description": "At Citrus Designer, I always strive to deliver our designs within 24-48 hours. However, some requests might take longer due to the complexity involved. With this in mind, I've prepared this list of projects with their approximate estimates. Keep in mind that these numbers may vary depending on the project complexity, the level of detail required, and the review process.",
+        "callToAction": "Need something that's not on this list? Contact me and I'll give you more details!",
+        "contactButton": "Contact",
+        "categories": [
+            {
+                "name": "Web Pages",
+                "description": "Design of interfaces for websites adaptable to different devices, with a focus on user experience, loading speed, and SEO optimization. Includes everything from landing pages to complete corporate websites.",
+                "items": [
+                    {
+                        "title": "Design from scratch",
+                        "description": "Between 1 and 2 pages per week, starting from a completely new structure and defining the architecture and visual identity from the beginning."
+                    },
+                    {
+                        "title": "Redesign",
+                        "description": "Between 2 and 3 pages per week, leveraging the pre-existing structure to update the aesthetics and improve the user experience without redoing the entire architecture."
+                    }
+                ]
+            },
+            {
+                "name": "Mobile Applications",
+                "description": "Interface design for native and hybrid applications, considering iOS and Android design guidelines. Includes the design of main screens, navigation flows, and custom interactive components.",
+                "items": [
+                    {
+                        "title": "Design from scratch",
+                        "description": "Between 3 and 5 screens per week, considering a clear understanding of the project and few revision iterations."
+                    },
+                    {
+                        "title": "Redesign",
+                        "description": "Between 5 and 7 screens per week, having an established structure and flows that allow for streamlined processes."
+                    }
+                ]
+            },
+            {
+                "name": "User Experience",
+                "description": "Complete analysis of user experience with methodologies such as Design Thinking, empathy maps, and user journey maps. Includes research, persona definition, ideation, prototyping, and testing.",
+                "items": [
+                    {
+                        "title": "Medium projects",
+                        "description": "Between 4 and 6 weeks, including requirements definition, wireframing, and prototyping."
+                    },
+                    {
+                        "title": "Complex projects",
+                        "description": "Between 10 and 14 weeks, when in-depth research, multiple iterations, and exhaustive usability tests are required."
+                    }
+                ]
+            },
+            {
+                "name": "User Flows",
+                "description": "Detailed design of user journeys within a platform, considering all possible use cases and interface states. Intuitive flow diagrams are created and each interaction is defined to ensure a coherent experience.",
+                "items": [
+                    {
+                        "title": "Web flows from scratch (simple)",
+                        "description": "Between 1 and 2 complete flows per week."
+                    },
+                    {
+                        "title": "Web flows from scratch (moderate)",
+                        "description": "Between 0.5-1 flow per week, given the need to define the navigation architecture and validate various interactions."
+                    },
+                    {
+                        "title": "Web flow redesigns (simple)",
+                        "description": "2 flows per week, leveraging the existing base structure to update or improve the experience."
+                    },
+                    {
+                        "title": "Web flow redesigns (moderate)",
+                        "description": "1 flow per week, combining already defined elements with usability adjustments."
+                    },
+                    {
+                        "title": "App flows from scratch (simple)",
+                        "description": "1 flow per week, considering that the definition of interactions and transitions is usually more detailed."
+                    },
+                    {
+                        "title": "App flows from scratch (moderate)",
+                        "description": "1 flow per week, having to address various screens and states."
+                    },
+                    {
+                        "title": "App flow redesigns (simple)",
+                        "description": "Between 1-2 flows per week, as there is a previous base that is improved or modernized."
+                    },
+                    {
+                        "title": "App flow redesigns (moderate)",
+                        "description": "1 flow per week, balancing experience updates with validation of new interaction patterns and a comprehensive review of the experience."
+                    }
+                ]
+            },
+            {
+                "name": "Information Architecture",
+                "description": "Organization and structuring of content to facilitate understanding and accessibility. Includes the creation of taxonomies, information hierarchies, site maps, and navigation schemes that optimize how users find and process information.",
+                "items": [
+                    {
+                        "title": "Medium projects",
+                        "description": "Between 2 and 3 weeks, including content analysis, definition of navigation flows, and prototype development."
+                    },
+                    {
+                        "title": "Complex projects",
+                        "description": "Between 3-4 weeks, considering user testing and multiple iterations."
+                    }
+                ]
+            },
+            {
+                "name": "Design Systems",
+                "description": "Development of reusable component libraries, style guides, and design patterns that ensure visual and functional consistency across all platforms. Includes detailed documentation and implementation examples for developers.",
+                "items": [
+                    {
+                        "title": "Web systems from scratch (medium)",
+                        "description": "Between 6 and 8 weeks, with a pace of 2 to 3 components or main sections per week."
+                    },
+                    {
+                        "title": "Web systems from scratch (complex)",
+                        "description": "Between 10 and 12 weeks or more, to create a complete component library, comprehensive documentation, and adaptation to multiple devices."
+                    },
+                    {
+                        "title": "Web system redesigns (simple)",
+                        "description": "Between 4 and 6 weeks, leveraging existing elements and patterns to update and unify them."
+                    },
+                    {
+                        "title": "Web system redesigns (complex)",
+                        "description": "Between 8 and 10 weeks, when a comprehensive review of the style guide and integration of new patterns is required."
+                    },
+                    {
+                        "title": "App systems from scratch (simple)",
+                        "description": "Between 6 and 8 weeks, considering the definition of mobile-specific components, interactions, and adaptability to different resolutions."
+                    },
+                    {
+                        "title": "App systems from scratch (complex)",
+                        "description": "Between 10 and 12 weeks, especially if components need to be developed for different platforms (iOS, Android) and comply with their guidelines."
+                    },
+                    {
+                        "title": "App system redesigns (simple)",
+                        "description": "Between 4 and 6 weeks, updating and unifying key components of an existing system."
+                    },
+                    {
+                        "title": "App system redesigns (complex)",
+                        "description": "Between 8 and 10 weeks, in cases of complete experience revision and incorporation of new patterns and significant improvements."
+                    }
+                ]
+            }
+        ]
     }
 }

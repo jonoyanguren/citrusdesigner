@@ -9,7 +9,8 @@
         "register": "Registrarse",
         "bookCall": "Reserva un 1:1",
         "logout": "Cerrar sesión",
-        "selectLanguage": "Seleccionar idioma"
+        "selectLanguage": "Seleccionar idioma",
+        "designEquivalence": "Equivalencias"
     },
     "designerBehind": {
         "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."
@@ -876,5 +877,145 @@
             "customPrice": "Personalizadas",
             "customPriceDescription": "Para empresas que requieren diseños mucho más potente, tenemos lo que necesitas."
         }
+    },
+    "designEquivalence": {
+        "title": "Equivalencias",
+        "description": "En Citrus Designer, siempre trato de lograr la entrega de nuestros diseños en 24-48 horas. Sin embargo, algunas solicitudes, podrían toman más tiempo debido a la complejidad involucrada. Con esto en mente, he preparado esta lista de proyectos con sus estimaciones aproximadas. Ten cuenta que estos números pueden variar según la complejidad del proyecto, el nivel de detalle requerido y el proceso de revisión.",
+        "callToAction": "¿Necesitas algo que no esté en esta lista? ¡Contacta conmigo y te daré más detalles!",
+        "contactButton": "Contactar",
+        "categories": [
+            {
+                "name": "Páginas web",
+                "description": "Diseño de interfaces para sitios web adaptables a diferentes dispositivos, con enfoque en la experiencia del usuario, velocidad de carga y optimización para SEO. Incluye desde landing pages hasta sitios web corporativos completos.",
+                "items": [
+                    {
+                        "title": "Diseño desde cero",
+                        "description": "Entre 1 y 2 páginas por semana, partiendo de una estructura completamente nueva y definiendo la arquitectura e identidad visual desde el inicio."
+                    },
+                    {
+                        "title": "Rediseño",
+                        "description": "Entre 2 y 3 páginas por semana, aprovechando la estructura preexistente para actualizar la estética y mejorar la experiencia de usuario sin rehacer toda la arquitectura."
+                    }
+                ]
+            },
+            {
+                "name": "Aplicaciones móviles",
+                "description": "Diseño de interfaces para aplicaciones nativas e híbridas, considerando las directrices de diseño de iOS y Android. Se incluye el diseño de pantallas principales, flujos de navegación y componentes interactivos personalizados.",
+                "items": [
+                    {
+                        "title": "Diseño desde cero",
+                        "description": "Entre 3 y 5 pantallas por semana, considerando un entendimiento claro del proyecto y pocas iteraciones de revisión."
+                    },
+                    {
+                        "title": "Rediseño",
+                        "description": "Entre 5 y 7 pantallas por semana, al contar con una estructura y flujos preestablecidos que permiten agilizar los procesos."
+                    }
+                ]
+            },
+            {
+                "name": "Experiencia de usuario",
+                "description": "Análisis completo de la experiencia del usuario con metodologías como Design Thinking, mapas de empatía y user journey maps. Incluye investigación, definición de persona, ideación, prototipado y testing.",
+                "items": [
+                    {
+                        "title": "Proyectos medianos",
+                        "description": "Entre 4 y 6 semanas, incluyendo definición de requerimientos, wireframing y prototipado."
+                    },
+                    {
+                        "title": "Proyectos complejos",
+                        "description": "Entre 10 y 14 semanas, cuando se requieren investigaciones profundas, múltiples iteraciones y pruebas de usabilidad exhaustivas."
+                    }
+                ]
+            },
+            {
+                "name": "Flujos de usuario",
+                "description": "Diseño detallado de recorridos del usuario dentro de una plataforma, considerando todos los posibles casos de uso y estados de la interfaz. Se crean diagramas de flujo intuitivos y se define cada interacción para garantizar una experiencia coherente.",
+                "items": [
+                    {
+                        "title": "Flujos web desde cero (sencillos)",
+                        "description": "Entre 1 y 2 flujos completos por semana."
+                    },
+                    {
+                        "title": "Flujos web desde cero (moderados)",
+                        "description": "Entre 0,5-1 flujo por semana, dado que se requiere definir la arquitectura de la navegación y validar varias interacciones."
+                    },
+                    {
+                        "title": "Rediseño de flujos web (sencillos)",
+                        "description": "2 flujos por semana, aprovechando la estructura base existente para actualizar o mejorar la experiencia."
+                    },
+                    {
+                        "title": "Rediseño de flujos web (moderados)",
+                        "description": "1 flujo por semana, combinando elementos ya definidos con ajustes en usabilidad."
+                    },
+                    {
+                        "title": "Flujos app desde cero (sencillos)",
+                        "description": "1 flujo por semana, considerando que la definición de interacciones y transiciones suele ser más detallada."
+                    },
+                    {
+                        "title": "Flujos app desde cero (moderados)",
+                        "description": "1 flujo por semana, al tener que abordar diversas pantallas y estados."
+                    },
+                    {
+                        "title": "Rediseño flujos app (sencillos)",
+                        "description": "Entre 1-2 flujos por semana, ya que se cuenta con una base previa que se mejora o moderniza."
+                    },
+                    {
+                        "title": "Rediseño flujos app (moderados)",
+                        "description": "1 flujo por semana, equilibrando la actualización de la experiencia con la validación de nuevos patrones de interacción y una revisión integral de la experiencia."
+                    }
+                ]
+            },
+            {
+                "name": "Arquitectura de la información",
+                "description": "Organización y estructuración de contenidos para facilitar su comprensión y accesibilidad. Incluye la creación de taxonomías, jerarquías de información, mapas del sitio y esquemas de navegación que optimizan la forma en que los usuarios encuentran y procesan la información.",
+                "items": [
+                    {
+                        "title": "Proyectos medianos",
+                        "description": "Entre 2 y 3 semanas, incluyendo análisis del contenido, definición de flujos de navegación y elaboración de prototipos."
+                    },
+                    {
+                        "title": "Proyectos complejos",
+                        "description": "Entre 3-4 semanas, considerando test de usuarios y múltiples iteraciones."
+                    }
+                ]
+            },
+            {
+                "name": "Sistemas de diseño",
+                "description": "Desarrollo de bibliotecas de componentes reutilizables, guías de estilo y patrones de diseño que aseguran la consistencia visual y funcional en todas las plataformas. Incluye documentación detallada y ejemplos de implementación para desarrolladores.",
+                "items": [
+                    {
+                        "title": "Sistemas web desde cero (medianos)",
+                        "description": "Entre 6 y 8 semanas, con un ritmo de 2 a 3 componentes o secciones principales por semana."
+                    },
+                    {
+                        "title": "Sistemas web desde cero (complejos)",
+                        "description": "Entre 10 y 12 semanas o más, para crear una biblioteca de componentes completa, documentación exhaustiva y adaptación a múltiples dispositivos."
+                    },
+                    {
+                        "title": "Rediseño sistemas web (sencillos)",
+                        "description": "Entre 4 y 6 semanas, aprovechando elementos y patrones existentes para actualizarlos y unificarlos."
+                    },
+                    {
+                        "title": "Rediseño sistemas web (complejos)",
+                        "description": "Entre 8 y 10 semanas, cuando se requiere una revisión integral de la guía de estilos e integración de nuevos patrones."
+                    },
+                    {
+                        "title": "Sistemas app desde cero (sencillos)",
+                        "description": "Entre 6 y 8 semanas, considerando la definición de componentes específicos para móvil, interacciones y adaptabilidad a distintas resoluciones."
+                    },
+                    {
+                        "title": "Sistemas app desde cero (complejos)",
+                        "description": "Entre 10 y 12 semanas, especialmente si se deben desarrollar componentes para diferentes plataformas (iOS, Android) y cumplir con sus directrices."
+                    },
+                    {
+                        "title": "Rediseño sistemas app (sencillos)",
+                        "description": "Entre 4 y 6 semanas, actualizando y unificando componentes clave de un sistema preexistente."
+                    },
+                    {
+                        "title": "Rediseño sistemas app (complejos)",
+                        "description": "Entre 8 y 10 semanas, en casos de revisión completa de la experiencia e incorporación de nuevos patrones y mejoras significativas."
+                    }
+                ]
+            }
+        ]
     }
 }
