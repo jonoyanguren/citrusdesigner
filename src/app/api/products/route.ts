@@ -66,7 +66,6 @@ async function getMaxProjects() {
 
 export async function GET() {
   try {
-    console.log("GETTING PRODUCTS");
     const [activeSubscriptions, maxProjects] = await Promise.all([
       getActiveSubscriptionsCount(),
       getMaxProjects(),
