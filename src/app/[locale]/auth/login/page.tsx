@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import { useAuth } from "@/contexts/AuthContext";
 import Input from "@/components/Input";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -52,6 +53,15 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo2.png"
+              alt="Citrus Logo"
+              width={180}
+              height={60}
+              priority
+            />
+          </div>
           <h2 className="text-3xl font-bold">{t("title")}</h2>
           <p className="mt-2 text-foreground/60">{t("description")}</p>
         </div>

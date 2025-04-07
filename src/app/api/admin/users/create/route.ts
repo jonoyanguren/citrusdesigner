@@ -40,6 +40,8 @@ export async function POST(request: NextRequest) {
       name,
       email,
       createSubscription,
+      isAdmin: isAdminUser = false,
+      password,
       locale = "en",
       subscriptionPrice = "49.99",
     } = await request.json();
@@ -75,22 +77,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate random password
-    const temporaryPassword = randomBytes(8).toString("hex");
+    // Generate random password for non-admin users, use provided password for admins
+    const userPassword = isAdminUser
+      ? password
+      : randomBytes(8).toString("hex");
 
     // Create user
     const user = await prisma.user.create({
       data: {
         name,
         email,
-        password: hashSync(temporaryPassword, 10),
-        hasToChangePassword: true,
-        role: "USER",
+        password: hashSync(userPassword, 10),
+        hasToChangePassword: !isAdminUser,
+        role: isAdminUser ? "admin" : "user",
       },
     });
 
-    // Create manual subscription if requested
-    if (createSubscription) {
+    // Create manual subscription if requested and not admin
+    if (createSubscription && !isAdminUser) {
       await prisma.manualSubscription.create({
         data: {
           userId: user.id,
@@ -102,7 +106,7 @@ export async function POST(request: NextRequest) {
 
     // Send welcome email with temporary password in the specified locale
     try {
-      await sendWelcomeEmail(user, temporaryPassword, locale as LocaleType);
+      await sendWelcomeEmail(user, userPassword, locale as LocaleType);
     } catch (emailError) {
       console.error("Error sending welcome email:", emailError);
       // Continue even if email fails
@@ -114,7 +118,7 @@ export async function POST(request: NextRequest) {
         id: user.id,
         name: user.name,
         email: user.email,
-        temporaryPassword,
+        temporaryPassword: userPassword,
         locale,
       },
     });

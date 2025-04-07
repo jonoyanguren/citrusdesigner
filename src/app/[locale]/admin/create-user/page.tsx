@@ -16,6 +16,8 @@ export default function CreateUserPage() {
     name: "",
     email: "",
     createSubscription: false,
+    isAdmin: false,
+    password: "",
     locale: (locale as LocaleType) || "en",
     subscriptionPrice: "1000",
   });
@@ -101,10 +103,6 @@ export default function CreateUserPage() {
                   ? "English"
                   : localeOption === "es"
                   ? "Español"
-                  : localeOption === "de"
-                  ? "Deutsch"
-                  : localeOption === "jp"
-                  ? "日本語"
                   : localeOption}
               </option>
             ))}
@@ -118,15 +116,56 @@ export default function CreateUserPage() {
           <div className="flex items-center space-x-2">
             <input
               type="checkbox"
+              id="admin"
+              checked={formData.isAdmin}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  isAdmin: e.target.checked,
+                  createSubscription: e.target.checked
+                    ? false
+                    : formData.createSubscription,
+                })
+              }
+              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+            />
+            <label htmlFor="admin" className="cursor-pointer">
+              {t("createAdmin") || "Create as admin"}
+            </label>
+          </div>
+
+          {formData.isAdmin && (
+            <div className="pl-6 pt-2">
+              <Input
+                label={t("passwordLabel") || "Admin Password"}
+                type="password"
+                placeholder={t("passwordPlaceholder") || "Enter admin password"}
+                value={formData.password}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    password: e.target.value,
+                  })
+                }
+                required={formData.isAdmin}
+              />
+            </div>
+          )}
+
+          <div className="flex items-center space-x-2">
+            <input
+              type="checkbox"
               id="subscription"
               checked={formData.createSubscription}
               onChange={(e) =>
                 setFormData({
                   ...formData,
                   createSubscription: e.target.checked,
+                  isAdmin: e.target.checked ? false : formData.isAdmin,
                 })
               }
               className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              disabled={formData.isAdmin}
             />
             <label htmlFor="subscription" className="cursor-pointer">
               {t("createSubscription") || "Create manual subscription"}

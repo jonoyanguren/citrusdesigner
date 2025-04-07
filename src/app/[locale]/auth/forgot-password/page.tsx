@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -43,6 +44,15 @@ export default function ForgotPasswordPage() {
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <div className="max-w-md w-full text-center">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo2.png"
+              alt="Citrus Logo"
+              width={180}
+              height={60}
+              priority
+            />
+          </div>
           <h2 className="text-2xl font-bold mb-4">{t("errors.success")}</h2>
           <p className="text-foreground/60 mb-8">{t("description")}</p>
           <Link href="/auth/login" className="text-sm hover:underline">
@@ -57,6 +67,15 @@ export default function ForgotPasswordPage() {
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8">
         <div className="text-center">
+          <div className="flex justify-center mb-8">
+            <Image
+              src="/logo2.png"
+              alt="Citrus Logo"
+              width={180}
+              height={60}
+              priority
+            />
+          </div>
           <h2 className="text-3xl font-bold">{t("title")}</h2>
           <p className="mt-2 text-foreground/60">{t("description")}</p>
         </div>
