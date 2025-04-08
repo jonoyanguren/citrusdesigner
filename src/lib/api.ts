@@ -6,7 +6,7 @@ export const makeApiRequest = async (
 ) => {
   const token = await verifyToken();
   if (!token) {
-    return { error: "Token no proporcionado" };
+    return { ok: false, data: { error: "Token no proporcionado" } };
   }
   const response = await fetch(url, {
     ...options,
@@ -15,5 +15,6 @@ export const makeApiRequest = async (
       Authorization: `Bearer ${token}`,
     },
   });
-  return response.json();
+  const data = await response.json();
+  return { ok: response.ok, data };
 };

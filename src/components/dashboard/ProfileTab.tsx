@@ -125,23 +125,23 @@ export function ProfileTab({ user }: Props) {
       setSavingPreference(true);
       setPreferenceStatus(null);
 
-      const response = await makeApiRequest("/api/user/preferences", {
+      const { ok, data } = await makeApiRequest("/api/user/preferences", {
         method: "POST",
         body: JSON.stringify({
           preferDeliverable,
         }),
       });
 
-      if (response.ok) {
+      if (ok) {
+        setPreferDeliverable(data.user.preferDeliverable);
         setPreferenceStatus({
           type: "success",
           message: t("preferenceSuccess"),
         });
       } else {
-        const data = await response.json();
         setPreferenceStatus({
           type: "error",
-          message: data.message || t("preferenceError"),
+          message: data.error || t("preferenceError"),
         });
       }
     } catch {
@@ -202,7 +202,7 @@ export function ProfileTab({ user }: Props) {
                 <div className="w-full max-w-xs">
                   <DeliverableSelect
                     onSelect={setPreferDeliverable}
-                    selectedDeliverable={user?.preferDeliverable || null}
+                    selectedDeliverable={preferDeliverable}
                     label=""
                   />
                 </div>
