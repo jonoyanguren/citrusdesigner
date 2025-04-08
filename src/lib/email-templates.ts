@@ -16,6 +16,7 @@ const translations: {
   passwordReset: TranslationKey;
   subscriptionConfirmation: TranslationKey;
   footer: TranslationKey;
+  waitingList: TranslationKey;
 } = {
   welcome: {
     title: {
@@ -147,6 +148,24 @@ const translations: {
     thanks: {
       en: "Thank you for choosing Citrus Designer!",
       es: "¡Gracias por elegir Citrus Designer!",
+    },
+  },
+  waitingList: {
+    title: {
+      en: "👋🏼 You are on the waiting list",
+      es: "👋🏼 ¡Te acabas de unir a la lista de espera!",
+    },
+    greeting: {
+      en: "Thank you for joining the waiting list.",
+      es: "¡Gracias por unirte a la lista de espera.",
+    },
+    description: {
+      en: "Due to the high demand, the places for Citrus have been sold out. I appreciate your interest and although in this occasion we have closed the registrations, in case of any available place, you will be the first to know.",
+      es: "Debido a la gran acogida, las plazas para Citrus se han agotado. Aprecio mucho tu interés y aunque en esta ocasión ya hemos cerrado las inscripciones, en caso de que se libere alguna plaza serás el primero en enterarte.",
+    },
+    bye: {
+      en: "Thank you for trusting Citrus and I hope I can count on you in the future!",
+      es: "¡Gracias por confiar en Citrus y espero poder contar contigo en el futuro!",
     },
   },
   footer: {
@@ -297,7 +316,7 @@ const baseTemplate = (content: string, locale: LocaleType = "es") => `
 `;
 
 export const emailTemplates = {
-  async generateWelcomeEmail({
+  generateWelcomeEmail({
     userEmail,
     temporaryPassword,
     locale = "es",
@@ -349,7 +368,7 @@ export const emailTemplates = {
     return { html, text, subject: t.title[locale] };
   },
 
-  async generateSubscriptionCancelledEmail({
+  generateSubscriptionCancelledEmail({
     endDate,
     locale = "es",
   }: {
@@ -406,7 +425,7 @@ export const emailTemplates = {
     return { html, text, subject: t.title[locale] };
   },
 
-  async generatePasswordResetEmail({
+  generatePasswordResetEmail({
     resetToken,
     locale = "es",
   }: {
@@ -459,7 +478,7 @@ export const emailTemplates = {
     return { html, text, subject: t.title[locale] };
   },
 
-  async generateSubscriptionConfirmationEmail({
+  generateSubscriptionConfirmationEmail({
     userEmail,
     locale = "es",
   }: {
@@ -503,5 +522,40 @@ export const emailTemplates = {
       text,
       subject: t.title[locale],
     };
+  },
+
+  generateWaitingListEmail({
+    userEmail,
+    locale = "es",
+  }: {
+    userEmail: string;
+    locale?: LocaleType;
+  }) {
+    const t = translations.waitingList;
+    if (!VALID_LOCALES.includes(locale)) {
+      locale = "es";
+    }
+
+    const html = baseTemplate(
+      `
+      <h2>${t.title[locale]}</h2>
+      <p>${t.greeting[locale]} ${userEmail}</p>
+      
+      <p>${t.description[locale]}</p>
+      <p>${t.bye[locale]}</p>
+      
+    `,
+      locale
+    );
+
+    const text = `${t.title[locale]}
+
+    ${t.greeting[locale]} ${userEmail}
+
+    ${t.description[locale]}
+
+    ${t.bye[locale]}`;
+
+    return { html, text, subject: t.title[locale] };
   },
 };

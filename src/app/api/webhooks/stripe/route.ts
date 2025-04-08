@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
             deletedSubscription.current_period_end * 1000
           );
           const { html, text, subject } =
-            await emailTemplates.generateSubscriptionCancelledEmail({
+            emailTemplates.generateSubscriptionCancelledEmail({
               endDate,
               locale: deletedSubscription.metadata?.locale as LocaleType,
             });

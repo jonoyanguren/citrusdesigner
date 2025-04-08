@@ -13,7 +13,7 @@ const sendWelcomeEmail = async (
   temporaryPassword: string,
   locale: LocaleType
 ) => {
-  const { html, text, subject } = await emailTemplates.generateWelcomeEmail({
+  const { html, text, subject } = emailTemplates.generateWelcomeEmail({
     userEmail: user.email,
     temporaryPassword,
     locale: locale as LocaleType,

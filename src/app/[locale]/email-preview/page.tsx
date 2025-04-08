@@ -8,7 +8,8 @@ type EmailTemplateType =
   | "welcome"
   | "subscriptionCancelled"
   | "passwordReset"
-  | "subscriptionConfirmation";
+  | "subscriptionConfirmation"
+  | "waitingList";
 
 export default function EmailPreviewPage() {
   const [html, setHtml] = useState<string>("");
@@ -28,31 +29,35 @@ export default function EmailPreviewPage() {
       let emailContent;
       switch (selectedTemplate) {
         case "welcome":
-          emailContent = await emailTemplates.generateWelcomeEmail({
+          emailContent = emailTemplates.generateWelcomeEmail({
             userEmail: previewData.userEmail,
             temporaryPassword: previewData.temporaryPassword,
             locale: locale as LocaleType,
           });
           break;
         case "subscriptionCancelled":
-          emailContent =
-            await emailTemplates.generateSubscriptionCancelledEmail({
-              endDate: previewData.endDate,
-              locale: locale as LocaleType,
-            });
+          emailContent = emailTemplates.generateSubscriptionCancelledEmail({
+            endDate: previewData.endDate,
+            locale: locale as LocaleType,
+          });
           break;
         case "passwordReset":
-          emailContent = await emailTemplates.generatePasswordResetEmail({
+          emailContent = emailTemplates.generatePasswordResetEmail({
             resetToken: previewData.resetToken,
             locale: locale as LocaleType,
           });
           break;
         case "subscriptionConfirmation":
-          emailContent =
-            await emailTemplates.generateSubscriptionConfirmationEmail({
-              userEmail: previewData.userEmail,
-              locale: locale as LocaleType,
-            });
+          emailContent = emailTemplates.generateSubscriptionConfirmationEmail({
+            userEmail: previewData.userEmail,
+            locale: locale as LocaleType,
+          });
+          break;
+        case "waitingList":
+          emailContent = emailTemplates.generateWaitingListEmail({
+            userEmail: previewData.userEmail,
+            locale: locale as LocaleType,
+          });
           break;
       }
       setHtml(emailContent.html);
@@ -87,6 +92,7 @@ export default function EmailPreviewPage() {
           <option value="subscriptionConfirmation">
             Confirmación de Suscripción
           </option>
+          <option value="waitingList">Lista de Espera</option>
         </select>
       </div>
       <div className="border rounded-lg overflow-hidden">

@@ -28,11 +28,10 @@ export async function POST(request: Request) {
       },
     });
 
-    const { html, text, subject } =
-      await emailTemplates.generatePasswordResetEmail({
-        resetToken,
-        locale,
-      });
+    const { html, text, subject } = emailTemplates.generatePasswordResetEmail({
+      resetToken,
+      locale,
+    });
     await sendEmail({
       to: email,
       subject,

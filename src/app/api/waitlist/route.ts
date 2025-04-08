@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { emailTemplates } from "@/lib/email-templates";
+import { sendEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -30,6 +32,17 @@ export async function POST(request: Request) {
 
     const waitlistEntry = await prisma.waitlistEntry.create({
       data: { email },
+    });
+
+    const { html, text, subject } = emailTemplates.generateWaitingListEmail({
+      userEmail: email,
+    });
+
+    await sendEmail({
+      to: email,
+      subject,
+      html,
+      text,
     });
 
     return NextResponse.json({
