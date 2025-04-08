@@ -2,10 +2,11 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { emailTemplates } from "@/lib/email-templates";
 import { sendEmail } from "@/lib/email";
+import { LocaleType } from "@/types/locale";
 
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const { email, locale } = await request.json();
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -36,6 +37,7 @@ export async function POST(request: Request) {
 
     const { html, text, subject } = emailTemplates.generateWaitingListEmail({
       userEmail: email,
+      locale: locale as LocaleType,
     });
 
     await sendEmail({

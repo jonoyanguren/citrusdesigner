@@ -17,6 +17,26 @@ export async function GET() {
     }
 
     const requests = await prisma.request.findMany({
+      where: {
+        user: {
+          OR: [
+            {
+              subscriptions: {
+                some: {
+                  status: "active",
+                },
+              },
+            },
+            {
+              manualSubscriptions: {
+                some: {
+                  status: "active",
+                },
+              },
+            },
+          ],
+        },
+      },
       include: {
         user: {
           select: {

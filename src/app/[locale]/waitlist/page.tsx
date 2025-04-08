@@ -5,17 +5,18 @@ import Title from "@/components/Title";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import Image from "next/image";
-
+import { useParams } from "next/navigation";
 export default function WaitlistPage() {
   const t = useTranslations("waitlist");
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
+  const { locale } = useParams();
 
   const handleSubmit = async () => {
     try {
       const response = await fetch("/api/waitlist", {
         method: "POST",
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, locale }),
       });
       if (!response.ok) {
         throw new Error("Error al unirse a la lista de espera");

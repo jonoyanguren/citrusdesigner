@@ -73,6 +73,16 @@ export async function POST(request: NextRequest) {
       case "customer.subscription.deleted":
         const deletedSubscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription deleted:", deletedSubscription.id);
+        const deletedSubscriptionLocale = deletedSubscription.metadata
+          ?.locale as string;
+
+        if (!deletedSubscriptionLocale) {
+          console.error("⚠️ No locale found in checkout session metadata");
+          return NextResponse.json(
+            { error: "No locale found" },
+            { status: 400 }
+          );
+        }
 
         const user = await prisma.user.findFirst({
           where: {
@@ -91,7 +101,7 @@ export async function POST(request: NextRequest) {
           const { html, text, subject } =
             emailTemplates.generateSubscriptionCancelledEmail({
               endDate,
-              locale: deletedSubscription.metadata?.locale as LocaleType,
+              locale: deletedSubscriptionLocale as LocaleType,
             });
 
           await sendEmail({
