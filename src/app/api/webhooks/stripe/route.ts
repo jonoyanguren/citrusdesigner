@@ -74,7 +74,6 @@ export async function POST(request: NextRequest) {
         const deletedSubscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription deleted:", deletedSubscription.id);
 
-        // Buscar el usuario y enviar email de cancelación
         const user = await prisma.user.findFirst({
           where: {
             subscriptions: {
@@ -86,7 +85,6 @@ export async function POST(request: NextRequest) {
         });
 
         if (user) {
-          // Calcular la fecha de fin del período actual
           const endDate = new Date(
             deletedSubscription.current_period_end * 1000
           );

@@ -28,7 +28,7 @@ export async function sendEmail({ to, subject, text, html }: EmailData) {
     sendSmtpEmail.htmlContent = html;
     sendSmtpEmail.textContent = text;
     sendSmtpEmail.sender = {
-      name: "Citrus Designer NEW NEW",
+      name: "Citrus Designer",
       email: process.env.SENDINBLUE_SENDER_EMAIL,
     };
 

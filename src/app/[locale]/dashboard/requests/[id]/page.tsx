@@ -8,7 +8,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { FaGoogleDrive } from "react-icons/fa";
 import { StatusBadgeServer } from "@/components/StatusBadgeServer";
 import { FeedbackList } from "@/components/FeedbackList";
-import { verifyToken } from "@/lib/users";
+import { isAdmin, verifyToken } from "@/lib/users";
 import BackButton from "@/components/BackButton";
 
 async function getRequest(id: string | undefined) {
@@ -38,6 +38,8 @@ export default async function RequestDetail({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
+  const isAdminUser = await isAdmin();
+  const backUrl = isAdminUser ? "/admin" : "/dashboard?tab=requests";
 
   const t = await getTranslations("dashboard.requestDetail");
 
@@ -59,8 +61,7 @@ export default async function RequestDetail({
 
   return (
     <div className="max-w-4xl mx-auto py-8 px-4 mt-2">
-      <BackButton text={t("back")} />
-
+      <BackButton text={t("back")} url={backUrl} />
       <div className="bg-white shadow rounded-lg p-6 space-y-6">
         {/* Title */}
         <div className="flex items-center gap-2">

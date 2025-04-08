@@ -23,6 +23,7 @@ export async function GET() {
         hasToChangePassword: true,
         subscriptions: true,
         preferDeliverable: true,
+        createdAt: true,
       },
     });
 

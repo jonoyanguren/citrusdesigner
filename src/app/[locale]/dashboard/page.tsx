@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 import { FaListUl, FaUser } from "react-icons/fa6";
 import { CgFileDocument } from "react-icons/cg";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 interface UserWithSubscriptions extends User {
   subscriptions: (Subscription & {
@@ -152,6 +153,10 @@ export default function DashboardPage() {
         return <ProfileTab user={user} />;
     }
   };
+
+  if (!user) {
+    <LoadingSpinner />;
+  }
 
   return (
     <div className="min-h-screen bg-background p-4">

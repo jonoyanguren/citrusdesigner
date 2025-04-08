@@ -53,11 +53,9 @@ export default function ResetPasswordPage() {
         throw new Error(data.error || t("errors.resetError"));
       }
 
-      // Show success message before redirecting
-      setError(t("errors.success"));
       setTimeout(() => {
-        router.push(`${locale}/auth/login?reset=true`);
-      }, 2000);
+        router.push(`/${locale}/auth/login?reset=true`);
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : t("errors.resetError"));
     } finally {
@@ -111,7 +109,7 @@ export default function ResetPasswordPage() {
           </Button>
 
           <p className="text-center text-sm">
-            <Link href="/auth/login" className="hover:underline">
+            <Link href={`/${locale}/auth/login`} className="hover:underline">
               {t("backToLogin")}
             </Link>
           </p>

@@ -87,10 +87,9 @@ export function ProfileTab({ user }: Props) {
         });
         setErrors({});
       } else {
-        const data = await response.json();
         setSubmitStatus({
           type: "error",
-          message: data.message || t("password.error"),
+          message: response.data.error || t("password.error"),
         });
       }
     } catch {
