@@ -86,12 +86,12 @@ export default function DesignEquivalencePage() {
                 {category.items.map((item, itemIndex) => (
                   <div
                     key={itemIndex}
-                    className="bg-white rounded-lg p-2 flex flex-col"
+                    className="bg-white dark:bg-neutral-800 rounded-lg p-2 flex flex-col"
                   >
-                    <h3 className="text-xl font-bold mb-1 text-orange-400">
+                    <h3 className="text-xl font-bold mb-1 text-orange-400 dark:text-white">
                       {item.title}
                     </h3>
-                    <p className="text-neutral-600 dark:text-neutral-300">
+                    <p className="text-neutral-600 dark:text-neutral-200">
                       {item.description}
                     </p>
                   </div>
@@ -102,7 +102,9 @@ export default function DesignEquivalencePage() {
         ))}
 
         <div className="mt-16 text-center p-8 bg-orange-50 dark:bg-neutral-800 rounded-lg shadow-md">
-          <p className="text-lg font-bold mb-6">{t("callToAction")}</p>
+          <p className="text-lg font-bold mb-6 dark:text-white">
+            {t("callToAction")}
+          </p>
           <Link
             href={`/${locale}/contact`}
             className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
