@@ -1,23 +1,14 @@
-import { writeFile, mkdir } from "fs/promises";
+import { v2 as cloudinary } from "cloudinary";
 import { NextResponse } from "next/server";
-import path from "path";
-import { v4 as uuidv4 } from "uuid";
 
-const uploadDir = path.join(process.cwd(), "public/uploads");
-
-// Asegurarnos de que el directorio existe
-async function ensureDir() {
-  try {
-    await mkdir(uploadDir, { recursive: true });
-  } catch (error) {
-    console.error("Error creating uploads directory:", error);
-  }
-}
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function POST(request: Request) {
   try {
-    await ensureDir(); // Crear el directorio si no existe
-
     const formData = await request.formData();
     const file = formData.get("file") as File;
 
@@ -25,7 +16,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    // Validar el tipo de archivo
     if (!file.type.startsWith("image/")) {
       return NextResponse.json(
         { error: "Only images are allowed" },
@@ -34,17 +24,17 @@ export async function POST(request: Request) {
     }
 
     const buffer = Buffer.from(await file.arrayBuffer());
-    const fileName = `${uuidv4()}${path.extname(file.name)}`;
-    const filePath = path.join(uploadDir, fileName);
+    const base64String = `data:${file.type};base64,${buffer.toString(
+      "base64"
+    )}`;
 
-    await writeFile(filePath, buffer);
-
-    // Devolver la URL completa
-    const baseUrl = process.env.NEXT_PUBLIC_URL || "http://localhost:3000";
-    const fileUrl = `${baseUrl}/uploads/${fileName}`;
+    const result = await cloudinary.uploader.upload(base64String, {
+      folder: "citrusdesigner",
+      resource_type: "auto",
+    });
 
     return NextResponse.json({
-      url: fileUrl,
+      url: result.secure_url,
     });
   } catch (error) {
     console.error("Error uploading file:", error);

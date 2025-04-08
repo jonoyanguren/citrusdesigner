@@ -13,5 +13,12 @@ export async function checkActiveSubscription(
     },
   });
 
-  return !!subscription;
+  const manualSubscription = await prisma.manualSubscription.findFirst({
+    where: {
+      userId: userId,
+      status: "active",
+    },
+  });
+
+  return !!subscription || !!manualSubscription;
 }

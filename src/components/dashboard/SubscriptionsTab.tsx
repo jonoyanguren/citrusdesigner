@@ -218,8 +218,6 @@ export function SubscriptionsTab({
     );
   }
 
-  console.log(manualSubscriptions);
-
   return (
     <>
       <div className="space-y-6">
