@@ -79,7 +79,8 @@ export async function GET(request: NextRequest) {
     }).format(price);
 
     // Translate interval for display
-    const intervalDisplay = interval === "year" ? "year" : "month";
+    const intervalDisplay =
+      interval === "year" ? "year" : interval === "month" ? "month" : "day";
 
     return NextResponse.json({
       planName,

@@ -34,11 +34,17 @@ export async function GET() {
       }) || []
     );
 
+    const manualSubscriptions = await prisma.manualSubscription.findMany({
+      where: {
+        userId: user?.id,
+      },
+    });
+
     if (!user) {
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    return NextResponse.json({ user, subscriptions });
+    return NextResponse.json({ user, subscriptions, manualSubscriptions });
   } catch (error) {
     console.error("Auth error:", error);
     return NextResponse.json(

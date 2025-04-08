@@ -1,7 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams, useParams } from "next/navigation";
-import { User, Subscription, Request } from "@prisma/client";
+import {
+  User,
+  Subscription,
+  Request,
+  ManualSubscription,
+} from "@prisma/client";
 import {
   SubscriptionsTab,
   StripeSubscription,
@@ -46,6 +51,9 @@ export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState(initialTab);
   const [user, setUser] = useState<UserWithSubscriptions | null>(null);
   const [subscriptions, setSubscriptions] = useState<StripeSubscription[]>([]);
+  const [manualSubscriptions, setManualSubscriptions] = useState<
+    ManualSubscription[]
+  >([]);
   const [requests, setRequests] = useState<RequestWithFeedback[]>([]);
   const [isTabLoading, setIsTabLoading] = useState(false);
   const [invoices, setInvoices] = useState([]);
@@ -57,7 +65,9 @@ export default function DashboardPage() {
       id: "subscriptions",
       icon: <FaListUl />,
     },
-    { name: t("menu.invoices"), id: "invoices", icon: <CgFileDocument /> },
+    ...(subscriptions.length > 0
+      ? [{ name: t("menu.invoices"), id: "invoices", icon: <CgFileDocument /> }]
+      : []),
     {
       name: t("menu.requests"),
       id: "requests",
@@ -77,6 +87,7 @@ export default function DashboardPage() {
         const profile = await userResponse.json();
         setUser(profile.user);
         setSubscriptions(profile.subscriptions);
+        setManualSubscriptions(profile.manualSubscriptions);
       } catch (error) {
         console.error("Error fetching user:", error);
         router.push(`/${locale}/auth/login`);
@@ -142,11 +153,16 @@ export default function DashboardPage() {
         return (
           <SubscriptionsTab
             subscriptions={subscriptions}
+            manualSubscriptions={manualSubscriptions}
             isLoading={isTabLoading}
           />
         );
       case "invoices":
-        return <InvoicesTab invoices={invoices} isLoading={isTabLoading} />;
+        if (subscriptions.length > 0) {
+          return <InvoicesTab invoices={invoices} isLoading={isTabLoading} />;
+        } else {
+          return <div>No subscriptions</div>;
+        }
       case "requests":
         return <RequestsTab requests={requests} isLoading={isTabLoading} />;
       case "profile":

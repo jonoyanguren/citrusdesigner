@@ -637,7 +637,7 @@
                 "plan": "Plan",
                 "amount": "Amount",
                 "startDate": "Start Date",
-                "endDate": "End Date",
+                "endDate": "End of billing period",
                 "status": "Status",
                 "actions": "Actions"
             },
@@ -665,7 +665,12 @@
                 "reactivateCancel": "No, cancel"
             },
             "maxSubscriptionsReached": "It is not possible to reactivate the subscription because the maximum number of active subscriptions has been reached",
-            "joinWaitlist": "Join the waitlist"
+            "joinWaitlist": "Join the waitlist",
+            "manualSubscriptions": {
+                "title": "Manual Subscriptions",
+                "manualName": "Manual Plan",
+                "manualDescription": "Custom subscription plan"
+            }
         }
     },
     "testimonials": {

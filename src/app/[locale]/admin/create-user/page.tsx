@@ -90,7 +90,7 @@ export default function CreateUserPage() {
             {t("localeLabel") || "Email Language"}
           </label>
           <select
-            className="w-full px-3 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700"
+            className="w-full px-3 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             value={formData.locale}
             onChange={(e) =>
               setFormData({ ...formData, locale: e.target.value as LocaleType })

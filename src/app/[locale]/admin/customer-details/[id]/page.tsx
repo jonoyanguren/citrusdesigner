@@ -126,6 +126,9 @@ export default function CustomerDetails() {
     }).format(price);
   };
 
+  console.log(user?.subscriptions);
+  console.log("PLAN INFO", planInfo);
+
   return (
     <div className="min-h-screen bg-background p-4">
       <div className="max-w-7xl mx-auto space-y-8 pt-20 flex justify-between items-center">

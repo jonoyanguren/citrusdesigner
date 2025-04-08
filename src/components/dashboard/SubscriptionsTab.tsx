@@ -14,6 +14,7 @@ import Button from "@/components/Button";
 import { ConfirmModal } from "@/components/ConfirmModal";
 import { useParams } from "next/navigation";
 import LoadingSpinner from "../ui/LoadingSpinner";
+import { ManualSubscription } from "@prisma/client";
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
@@ -42,11 +43,13 @@ export interface StripeSubscription {
 
 interface SubscriptionsTabProps {
   subscriptions: StripeSubscription[];
+  manualSubscriptions: ManualSubscription[];
   isLoading: boolean;
 }
 
 export function SubscriptionsTab({
   subscriptions,
+  manualSubscriptions,
   isLoading,
 }: SubscriptionsTabProps) {
   const t = useTranslations("dashboard.subscriptions");
@@ -204,7 +207,7 @@ export function SubscriptionsTab({
     return <LoadingSpinner />;
   }
 
-  if (!subscriptions?.length) {
+  if (!subscriptions?.length && !manualSubscriptions?.length) {
     return (
       <div className="text-center py-12">
         <h3 className="text-lg font-medium text-gray-900">
@@ -214,6 +217,8 @@ export function SubscriptionsTab({
       </div>
     );
   }
+
+  console.log(manualSubscriptions);
 
   return (
     <>
@@ -315,6 +320,60 @@ export function SubscriptionsTab({
             ))}
           </TableBody>
         </Table>
+
+        {manualSubscriptions.length > 0 && (
+          <>
+            <h2 className="text-xl font-semibold mt-8">
+              {t("manualSubscriptions.title")}
+            </h2>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHeaderCell>{t("table.plan")}</TableHeaderCell>
+                  <TableHeaderCell>{t("table.amount")}</TableHeaderCell>
+                  <TableHeaderCell>{t("table.startDate")}</TableHeaderCell>
+                  <TableHeaderCell>{t("table.status")}</TableHeaderCell>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {manualSubscriptions.map((subscription) => (
+                  <TableRow key={subscription.id}>
+                    <TableCell>
+                      <div>
+                        <div className="font-medium">
+                          {t("manualSubscriptions.manualName")}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {t("manualSubscriptions.manualDescription")}
+                        </div>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      {formatAmount(subscription.price, "EUR")}
+                    </TableCell>
+                    <TableCell>
+                      {new Date(subscription.createdAt).toLocaleDateString(
+                        "es-ES",
+                        {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        }
+                      )}
+                    </TableCell>
+                    <TableCell>
+                      <span
+                        className={getStatusBadgeClass(subscription.status)}
+                      >
+                        {t(`status.${subscription.status || "unknown"}`)}
+                      </span>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </>
+        )}
       </div>
 
       <ConfirmModal
