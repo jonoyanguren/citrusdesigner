@@ -36,7 +36,6 @@ export default function NuevaPeticionPage() {
         const subscriptionResponse = await fetch("/api/check-subscription");
         const subscriptionData = await subscriptionResponse.json();
 
-        console.log("subscriptionData", subscriptionData);
         setHasActiveSubscription(subscriptionData.hasActiveSubscription);
 
         // Fetch user preferences

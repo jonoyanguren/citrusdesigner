@@ -23,8 +23,6 @@ export default function NotificationsMenu() {
   const generateMessage = (notification: Notification) => {
     const metadata = JSON.parse(notification.metadata);
 
-    console.log("NOTIFICATION", notification, metadata);
-
     switch (notification.type) {
       case "REQUEST_CREATED_BY_USER":
       case "REQUEST_CREATED_BY_ADMIN":

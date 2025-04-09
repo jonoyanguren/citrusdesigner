@@ -73,7 +73,6 @@ export async function POST(request: NextRequest) {
       case "customer.subscription.updated":
         const updatedSubscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription updated:", updatedSubscription.id);
-        console.log("UPDATED SUBSCRIPTION", updatedSubscription);
 
         // Si se cancela al final del período, actualizamos el estado
         if (updatedSubscription.cancel_at_period_end) {
@@ -110,7 +109,6 @@ export async function POST(request: NextRequest) {
       case "customer.subscription.deleted":
         const deletedSubscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription deleted:", deletedSubscription.id);
-        console.log("DELETED SUBSCRIPTION", deletedSubscription);
 
         const user = await prisma.user.findFirst({
           where: {
@@ -130,8 +128,6 @@ export async function POST(request: NextRequest) {
               ? "CANCELLED"
               : "ENDING_AT_PERIOD_END";
 
-          console.log("STATUS", status);
-
           await prisma.subscription.update({
             where: {
               stripeSubscriptionId: deletedSubscription.id,
@@ -142,10 +138,6 @@ export async function POST(request: NextRequest) {
           const endDate = new Date(
             deletedSubscription.current_period_end * 1000
           );
-
-          let html: string;
-          let text: string;
-          let subject: string;
 
           if (status === "ENDING_AT_PERIOD_END") {
             const { html, text, subject } =
@@ -162,7 +154,6 @@ export async function POST(request: NextRequest) {
           } else if (status === "CANCELLED") {
             const { html, text, subject } =
               emailTemplates.generateSubscriptionPeriodEndedEmail({
-                endDate,
                 locale: deletedSubscription.metadata?.locale as LocaleType,
               });
             await sendEmail({

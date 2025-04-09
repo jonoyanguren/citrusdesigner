@@ -22,8 +22,5 @@ export async function checkActiveSubscription(
     },
   });
 
-  console.log("subscription IN FUNCTION", subscription);
-  console.log("manualSubscription IN FUNCTION", manualSubscription);
-
   return !!subscription || !!manualSubscription;
 }

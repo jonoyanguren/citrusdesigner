@@ -60,8 +60,6 @@ export function SubscriptionsTab({
     useState<StripeSubscription | null>(null);
   const [isReactivating, setIsReactivating] = useState(false);
 
-  console.log("subscriptions", subscriptions);
-
   const hasActiveSubscription = subscriptions.some(
     (sub) =>
       (sub.status === "active" || sub.status === "ENDING_AT_PERIOD_END") &&
