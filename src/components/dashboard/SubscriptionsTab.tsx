@@ -100,6 +100,9 @@ export function SubscriptionsTab({
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          locale: params.locale,
+        }),
       });
 
       if (!response.ok) {
