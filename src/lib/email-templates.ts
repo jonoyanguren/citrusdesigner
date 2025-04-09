@@ -135,7 +135,7 @@ const translations: {
     },
     access: {
       en: "You now have full access to all our features and services.",
-      es: "Ahora tienes acceso completo a todas nuestras características y servicios.",
+      es: "Ahora tienes acceso completo a todas nuestras funcionalidades y servicios.",
     },
     dashboardButton: {
       en: "Go to Dashboard",
@@ -157,7 +157,7 @@ const translations: {
     },
     greeting: {
       en: "Thank you for joining the waiting list.",
-      es: "¡Gracias por unirte a la lista de espera.",
+      es: "Gracias por unirte a la lista de espera",
     },
     description: {
       en: "Due to the high demand, the places for Citrus have been sold out. I appreciate your interest and although in this occasion we have closed the registrations, in case of any available place, you will be the first to know.",
@@ -539,7 +539,7 @@ export const emailTemplates = {
     const html = baseTemplate(
       `
       <h2>${t.title[locale]}</h2>
-      <p>${t.greeting[locale]} ${userEmail}</p>
+      <p>${t.greeting[locale]} ${userEmail}.</p>
       
       <p>${t.description[locale]}</p>
       <p>${t.bye[locale]}</p>

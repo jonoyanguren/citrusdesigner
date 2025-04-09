@@ -1029,6 +1029,7 @@
     "notifications": {
         "markAllAsRead": "Marcar todas como leídas",
         "notifications": "Notificaciones",
+        "noNotifications": "No hay notificaciones",
         "viewMore": "Ver más",
         "status": {
             "PENDING": "Pendiente",
