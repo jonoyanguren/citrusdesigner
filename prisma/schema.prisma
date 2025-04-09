@@ -105,14 +105,14 @@ model Feedback {
 }
 
 model Notification {
-  id        String   @id @default(cuid())
+  id        String            @id @default(cuid())
   userId    String
-  title     String
-  message   String
+  type      NotificationTypes @default(REQUEST_CREATED_BY_USER)
+  metadata  String            @default("")
   action    String?
-  read      Boolean  @default(false)
-  createdAt DateTime @default(now())
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  read      Boolean           @default(false)
+  createdAt DateTime          @default(now())
+  user      User              @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
@@ -147,4 +147,11 @@ enum DeliverableType {
   FIGMA
   DRIVE
   EMAIL
+}
+
+enum NotificationTypes {
+  REQUEST_CREATED_BY_USER
+  REQUEST_CREATED_BY_ADMIN
+  REQUEST_STATUS_UPDATED
+  REQUEST_FEEDBACK_PROVIDED
 }

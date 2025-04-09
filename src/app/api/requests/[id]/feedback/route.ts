@@ -51,17 +51,19 @@ export async function POST(
     if (session.role === "admin") {
       await addNotification({
         userId: requestData.userId,
-        title: "Has recibido un feedback",
-        message:
-          "En la petición " + requestData.name + " has recibido un feedback",
+        type: "REQUEST_FEEDBACK_PROVIDED",
+        metadata: JSON.stringify({
+          name: requestData.name,
+        }),
         action: `/dashboard/requests/${id}`,
       });
     } else {
       await addNotification({
         userId: adminUser.id,
-        title: "Has recibido un feedback",
-        message:
-          "En la petición " + requestData.name + " has recibido un feedback",
+        type: "REQUEST_FEEDBACK_PROVIDED",
+        metadata: JSON.stringify({
+          name: requestData.name,
+        }),
         action: `/admin/requests/${id}`,
       });
     }

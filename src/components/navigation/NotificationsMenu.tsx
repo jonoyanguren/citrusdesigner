@@ -2,11 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "@/i18n/navigation";
 import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
+import { NotificationTypes } from "@prisma/client";
 
 interface Notification {
   id: string;
-  title: string;
-  message: string;
+  type: NotificationTypes;
+  metadata: string;
   createdAt: string;
   action?: string;
 }
@@ -16,8 +17,33 @@ export default function NotificationsMenu() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [loadingAll, setLoadingAll] = useState(false);
   const [loadingIds, setLoadingIds] = useState<string[]>([]);
-  const t = useTranslations("common");
+  const t = useTranslations("notifications");
   const menuRef = useRef<HTMLDivElement>(null);
+
+  const generateMessage = (notification: Notification) => {
+    const metadata = JSON.parse(notification.metadata);
+
+    console.log("NOTIFICATION", notification, metadata);
+
+    switch (notification.type) {
+      case "REQUEST_CREATED_BY_USER":
+      case "REQUEST_CREATED_BY_ADMIN":
+        return t(`${notification.type}.message`, {
+          requestName: metadata.name,
+        });
+      case "REQUEST_STATUS_UPDATED":
+        return t(`${notification.type}.message`, {
+          requestName: metadata.name,
+          status: t(`status.${metadata.status}`),
+        });
+      case "REQUEST_FEEDBACK_PROVIDED":
+        return t(`${notification.type}.message`, {
+          requestName: metadata.name,
+        });
+      default:
+        return "";
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -179,9 +205,11 @@ export default function NotificationsMenu() {
                 >
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
-                      <h4 className="font-medium">{notification.title}</h4>
+                      <h4 className="font-medium">
+                        {t(`${notification.type}.title`)}
+                      </h4>
                       <p className="text-sm text-foreground/70">
-                        {notification.message}
+                        {generateMessage(notification)}
                       </p>
                       <div className="flex items-center mt-1">
                         <span className="text-xs text-foreground/50">
@@ -198,7 +226,7 @@ export default function NotificationsMenu() {
                           e.stopPropagation();
                           handleMarkAsRead(notification.id);
                         }}
-                        className="text-xs text-foreground/50 hover:text-foreground"
+                        className="pr-0 text-xs text-foreground/50 hover:text-foreground"
                         disabled={loadingIds.includes(notification.id)}
                       >
                         {loadingIds.includes(notification.id) ? (

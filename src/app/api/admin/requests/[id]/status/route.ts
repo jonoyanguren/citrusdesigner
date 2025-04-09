@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
-import { statusMessages } from "@/constants/messages";
 import { addNotification } from "@/lib/notifications";
 
 export async function PUT(
@@ -28,12 +27,16 @@ export async function PUT(
       },
     });
 
+    const metadata = {
+      name: updatedRequest.name,
+      status: status,
+      timeToComplete,
+    };
+
     await addNotification({
       userId: updatedRequest.userId,
-      title: "Actualización de solicitud",
-      message: `Tu solicitud "${updatedRequest.name}" ${
-        statusMessages[status as keyof typeof statusMessages]
-      }${timeToComplete ? `. Tiempo estimado: ${timeToComplete}` : ""}`,
+      type: "REQUEST_STATUS_UPDATED",
+      metadata: JSON.stringify(metadata),
       action: `/dashboard/requests/${id}`,
     });
 

@@ -1025,5 +1025,32 @@
                 ]
             }
         ]
+    },
+    "notifications": {
+        "markAllAsRead": "Marcar todas como leídas",
+        "notifications": "Notificaciones",
+        "viewMore": "Ver más",
+        "status": {
+            "PENDING": "Pendiente",
+            "IN_PROGRESS": "En progreso",
+            "COMPLETED": "Completada",
+            "CANCELLED": "Cancelada"
+        },
+        "REQUEST_CREATED_BY_USER": {
+            "title": "Nueva petición",
+            "message": "Has creado una nueva petición: {requestName}"
+        },
+        "REQUEST_CREATED_BY_ADMIN": {
+            "title": "Nueva petición",
+            "message": "Se ha creado una nueva petición para ti: {requestName}"
+        },
+        "REQUEST_STATUS_UPDATED": {
+            "title": "Actualización de petición",
+            "message": "Se ha actualizado el estado de una petición: {requestName} a {status}"
+        },
+        "REQUEST_FEEDBACK_PROVIDED": {
+            "title": "Feedback recibido",
+            "message": "Has recibido un feedback en una petición: {requestName}"
+        }
     }
 }

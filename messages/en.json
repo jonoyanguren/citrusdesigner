@@ -1024,5 +1024,32 @@
                 ]
             }
         ]
+    },
+    "notifications": {
+        "markAllAsRead": "Mark all as read",
+        "notifications": "Notifications",
+        "viewMore": "View more",
+        "status": {
+            "PENDING": "Pending",
+            "IN_PROGRESS": "In progress",
+            "COMPLETED": "Completed",
+            "CANCELLED": "Cancelled"
+        },
+        "REQUEST_CREATED_BY_USER": {
+            "title": "New request",
+            "message": "A new request has been created for you: {requestName}"
+        },
+        "REQUEST_CREATED_BY_ADMIN": {
+            "title": "New request",
+            "message": "You have created a new request: {requestName}"
+        },
+        "REQUEST_STATUS_UPDATED": {
+            "title": "Request updated",
+            "message": "The request {requestName} has been updated to {status}"
+        },
+        "REQUEST_FEEDBACK_PROVIDED": {
+            "title": "Feedback provided",
+            "message": "You have received feedback on the request {requestName}"
+        }
     }
 }

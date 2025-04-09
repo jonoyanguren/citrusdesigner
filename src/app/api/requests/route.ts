@@ -32,7 +32,7 @@ export async function POST(body: Request) {
       );
     }
 
-    const nuevaPeticion = await prisma.request.create({
+    const newRequest = await prisma.request.create({
       data: {
         name,
         request,
@@ -51,9 +51,11 @@ export async function POST(body: Request) {
     if (userId) {
       await addNotification({
         userId: userId,
-        title: "Te han asignado una nueva petición",
-        message: "El admin te ha creado una nueva petición",
-        action: `/dashboard/requests/${nuevaPeticion.id}`,
+        type: "REQUEST_CREATED_BY_ADMIN",
+        metadata: JSON.stringify({
+          name: newRequest.name,
+        }),
+        action: `/dashboard/requests/${newRequest.id}`,
       });
     } else {
       const adminUser = await prisma.user.findFirst({
@@ -64,14 +66,16 @@ export async function POST(body: Request) {
       if (adminUser) {
         await addNotification({
           userId: adminUser.id,
-          title: "Nueva petición",
-          message: "Del usuario " + decodedToken.email,
-          action: `/dashboard/requests/${nuevaPeticion.id}`,
+          type: "REQUEST_CREATED_BY_USER",
+          metadata: JSON.stringify({
+            name: newRequest.name,
+          }),
+          action: `/dashboard/requests/${newRequest.id}`,
         });
       }
     }
 
-    return NextResponse.json(nuevaPeticion);
+    return NextResponse.json(newRequest);
   } catch (error) {
     console.error("Error al crear la petición:", error);
     return NextResponse.json(
