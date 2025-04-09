@@ -350,7 +350,7 @@ export function SubscriptionsTab({
                       </div>
                     </TableCell>
                     <TableCell>
-                      {formatAmount(subscription.price, "EUR")}
+                      {formatAmount(subscription.price * 100, "EUR")}
                     </TableCell>
                     <TableCell>
                       {new Date(subscription.createdAt).toLocaleDateString(

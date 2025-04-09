@@ -130,6 +130,11 @@ export async function createSubscription(
     productId: (subscription.items.data[0].price.product as Stripe.Product).id,
   };
 
+  // Actualizar metadata de la suscripción
+  await stripe.subscriptions.update(subscription.id, {
+    metadata: { locale },
+  });
+
   const newSubscription = await prisma.subscription.create({ data });
   console.info("🔔 Subscription created:", {
     id: newSubscription.id,

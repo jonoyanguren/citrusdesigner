@@ -3,11 +3,9 @@ import { verifyToken } from "@/lib/users";
 import { stripe } from "@/lib/stripe";
 import prisma from "@/lib/prisma";
 
-export async function POST(request: Request) {
+export async function POST() {
   try {
     const decodedToken = await verifyToken();
-    const body = await request.json();
-    const locale = body.locale || "es";
 
     if (!decodedToken) {
       return NextResponse.json({ error: "No autorizado" }, { status: 401 });
@@ -29,11 +27,6 @@ export async function POST(request: Request) {
         { status: 404 }
       );
     }
-
-    // Actualizar metadata de la suscripción
-    await stripe.subscriptions.update(subscription.stripeSubscriptionId, {
-      metadata: { locale },
-    });
 
     // Cancelar la suscripción en Stripe
     await stripe.subscriptions.cancel(subscription.stripeSubscriptionId);
