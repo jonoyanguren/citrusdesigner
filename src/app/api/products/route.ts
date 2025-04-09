@@ -31,7 +31,14 @@ async function getActiveSubscriptionsCount() {
       }
     }
 
-    return allSubscriptions.length;
+    // Get active manual subscriptions count
+    const manualSubscriptionsCount = await prisma.manualSubscription.count({
+      where: {
+        status: "active",
+      },
+    });
+
+    return allSubscriptions.length + manualSubscriptionsCount;
   } catch (error) {
     console.error("Error fetching subscriptions:", error);
     throw error;
