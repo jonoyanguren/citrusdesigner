@@ -95,6 +95,15 @@ export async function POST(request: NextRequest) {
         });
 
         if (user) {
+          await prisma.subscription.update({
+            where: {
+              stripeSubscriptionId: deletedSubscription.id,
+            },
+            data: {
+              status: "CANCELLED",
+            },
+          });
+
           const endDate = new Date(
             deletedSubscription.current_period_end * 1000
           );
