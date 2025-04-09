@@ -7,7 +7,9 @@ export async function GET() {
       where: {
         subscriptions: {
           some: {
-            status: "active",
+            status: {
+              in: ["active", "ENDING_AT_PERIOD_END"],
+            },
           },
         },
         role: {

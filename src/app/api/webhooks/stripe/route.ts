@@ -70,19 +70,47 @@ export async function POST(request: NextRequest) {
         }
         break;
 
+      case "customer.subscription.updated":
+        const updatedSubscription = event.data.object as Stripe.Subscription;
+        console.info("📦 Subscription updated:", updatedSubscription.id);
+        console.log("UPDATED SUBSCRIPTION", updatedSubscription);
+
+        // Si se cancela al final del período, actualizamos el estado
+        if (updatedSubscription.cancel_at_period_end) {
+          console.info(
+            "📦 Subscription will end at period end:",
+            updatedSubscription.id
+          );
+
+          await prisma.subscription.update({
+            where: {
+              stripeSubscriptionId: updatedSubscription.id,
+            },
+            data: {
+              status: "ENDING_AT_PERIOD_END",
+            },
+          });
+        } else if (updatedSubscription.status === "canceled") {
+          console.info(
+            "📦 Subscription period ended, marking as cancelled:",
+            updatedSubscription.id
+          );
+
+          await prisma.subscription.update({
+            where: {
+              stripeSubscriptionId: updatedSubscription.id,
+            },
+            data: {
+              status: "CANCELLED",
+            },
+          });
+        }
+        break;
+
       case "customer.subscription.deleted":
         const deletedSubscription = event.data.object as Stripe.Subscription;
         console.info("📦 Subscription deleted:", deletedSubscription.id);
-        const deletedSubscriptionLocale = deletedSubscription.metadata
-          ?.locale as string;
-
-        if (!deletedSubscriptionLocale) {
-          console.error("⚠️ No locale found in checkout session metadata");
-          return NextResponse.json(
-            { error: "No locale found" },
-            { status: 400 }
-          );
-        }
+        console.log("DELETED SUBSCRIPTION", deletedSubscription);
 
         const user = await prisma.user.findFirst({
           where: {
@@ -95,30 +123,55 @@ export async function POST(request: NextRequest) {
         });
 
         if (user) {
+          // Si el status es cancelled, significa que el período ha terminado
+          // Si el status es active y cancel_at_period_end es true, significa que se acaba de cancelar al final del período
+          const status =
+            deletedSubscription.status === "canceled"
+              ? "CANCELLED"
+              : "ENDING_AT_PERIOD_END";
+
+          console.log("STATUS", status);
+
           await prisma.subscription.update({
             where: {
               stripeSubscriptionId: deletedSubscription.id,
             },
-            data: {
-              status: "CANCELLED",
-            },
+            data: { status },
           });
 
           const endDate = new Date(
             deletedSubscription.current_period_end * 1000
           );
-          const { html, text, subject } =
-            emailTemplates.generateSubscriptionCancelledEmail({
-              endDate,
-              locale: deletedSubscriptionLocale as LocaleType,
-            });
 
-          await sendEmail({
-            to: user.email,
-            subject,
-            html,
-            text,
-          });
+          let html: string;
+          let text: string;
+          let subject: string;
+
+          if (status === "ENDING_AT_PERIOD_END") {
+            const { html, text, subject } =
+              emailTemplates.generateSubscriptionCancelledEmail({
+                endDate,
+                locale: deletedSubscription.metadata?.locale as LocaleType,
+              });
+            await sendEmail({
+              to: user.email,
+              subject,
+              html,
+              text,
+            });
+          } else if (status === "CANCELLED") {
+            const { html, text, subject } =
+              emailTemplates.generateSubscriptionPeriodEndedEmail({
+                endDate,
+                locale: deletedSubscription.metadata?.locale as LocaleType,
+              });
+            await sendEmail({
+              to: user.email,
+              subject,
+              html,
+              text,
+            });
+          }
         }
         break;
 

@@ -31,7 +31,7 @@ model Subscription {
   stripeUserId         String
   userId               String
   stripeSubscriptionId String   @unique
-  status               String
+  status               String // active, CANCELLED, ENDING_AT_PERIOD_END
   priceId              String
   productId            String
   createdAt            DateTime @default(now())

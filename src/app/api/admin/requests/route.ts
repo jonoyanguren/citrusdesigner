@@ -23,7 +23,9 @@ export async function GET() {
             {
               subscriptions: {
                 some: {
-                  status: "active",
+                  status: {
+                    in: ["active", "ENDING_AT_PERIOD_END"],
+                  },
                 },
               },
             },

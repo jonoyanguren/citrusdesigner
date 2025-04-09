@@ -33,12 +33,14 @@ export async function POST(
       // For manual subscriptions, just update status
       await prisma.subscription.update({
         where: { id },
-        data: { status: "canceled" },
+        data: { status: "CANCELLED" },
       });
     } else {
       // For Stripe subscriptions, cancel in Stripe
       try {
-        await stripe.subscriptions.cancel(subscription.stripeSubscriptionId);
+        await stripe.subscriptions.update(subscription.stripeSubscriptionId, {
+          cancel_at_period_end: true,
+        });
       } catch (stripeError) {
         console.error("Stripe cancellation error:", stripeError);
         // Continue anyway to update local DB
@@ -47,7 +49,7 @@ export async function POST(
       // Update in database
       await prisma.subscription.update({
         where: { id },
-        data: { status: "canceled" },
+        data: { status: "ENDING_AT_PERIOD_END" },
       });
     }
 

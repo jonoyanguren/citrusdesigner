@@ -29,12 +29,14 @@ export async function POST() {
     }
 
     // Cancelar la suscripción en Stripe
-    await stripe.subscriptions.cancel(subscription.stripeSubscriptionId);
+    await stripe.subscriptions.update(subscription.stripeSubscriptionId, {
+      cancel_at_period_end: true,
+    });
 
     // Actualizar el estado en la base de datos
     await prisma.subscription.update({
       where: { id: subscription.id },
-      data: { status: "canceled" },
+      data: { status: "ENDING_AT_PERIOD_END" },
     });
 
     return NextResponse.json({ message: "Suscripción cancelada con éxito" });

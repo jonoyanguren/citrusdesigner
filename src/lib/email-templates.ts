@@ -17,6 +17,7 @@ const translations: {
   subscriptionConfirmation: TranslationKey;
   footer: TranslationKey;
   waitingList: TranslationKey;
+  subscriptionPeriodEnded: TranslationKey;
 } = {
   welcome: {
     title: {
@@ -180,6 +181,16 @@ const translations: {
     contact: {
       en: "If you have any questions or doubts, don't hesitate to contact us. We'll be happy to help you.",
       es: "Si tienes cualquier pregunta o duda, no dudes en contactarnos. Estaremos encantados de ayudarte.",
+    },
+  },
+  subscriptionPeriodEnded: {
+    title: {
+      en: "Your subscription period has ended",
+      es: "Tu período de suscripción ha finalizado",
+    },
+    message: {
+      en: "We inform you that your subscription period has ended. We hope to see you again soon!",
+      es: "Te informamos que tu período de suscripción ha finalizado. ¡Esperamos volverte a ver pronto!",
     },
   },
 };
@@ -555,6 +566,31 @@ export const emailTemplates = {
     ${t.description[locale]}
 
     ${t.bye[locale]}`;
+
+    return { html, text, subject: t.title[locale] };
+  },
+
+  generateSubscriptionPeriodEndedEmail({
+    locale = "es",
+  }: {
+    locale?: LocaleType;
+  }) {
+    const t = translations.subscriptionPeriodEnded;
+    if (!VALID_LOCALES.includes(locale)) {
+      locale = "es";
+    }
+
+    const html = baseTemplate(
+      `
+      <h2>${t.title[locale]}</h2>
+      <p>${t.message[locale]}</p>
+    `,
+      locale
+    );
+
+    const text = `${t.title[locale]}
+
+    ${t.message[locale]}`;
 
     return { html, text, subject: t.title[locale] };
   },

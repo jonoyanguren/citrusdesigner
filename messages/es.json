@@ -646,7 +646,8 @@
                 "active": "Activa",
                 "canceled": "Cancelada",
                 "incomplete": "Incompleta",
-                "unknown": "Desconocido"
+                "unknown": "Desconocido",
+                "ENDING_AT_PERIOD_END": "Finalizando al final del período"
             },
             "actions": {
                 "cancel": "Cancelar",

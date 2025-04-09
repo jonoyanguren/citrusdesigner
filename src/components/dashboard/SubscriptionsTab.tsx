@@ -60,12 +60,18 @@ export function SubscriptionsTab({
     useState<StripeSubscription | null>(null);
   const [isReactivating, setIsReactivating] = useState(false);
 
+  console.log("subscriptions", subscriptions);
+
   const hasActiveSubscription = subscriptions.some(
-    (sub) => sub.status === "active" && !sub.cancel_at_period_end
+    (sub) =>
+      (sub.status === "active" || sub.status === "ENDING_AT_PERIOD_END") &&
+      !sub.cancel_at_period_end
   );
 
   const totalActiveSubscriptions = subscriptions.filter(
-    (sub) => sub.status === "active" && !sub.cancel_at_period_end
+    (sub) =>
+      (sub.status === "active" || sub.status === "ENDING_AT_PERIOD_END") &&
+      !sub.cancel_at_period_end
   ).length;
 
   const fetchMaxProjects = async () => {
@@ -188,9 +194,21 @@ export function SubscriptionsTab({
         return `${baseClasses} bg-red-100 text-red-800`;
       case "incomplete":
         return `${baseClasses} bg-yellow-100 text-yellow-800`;
+      case "ENDING_AT_PERIOD_END":
+        return `${baseClasses} bg-orange-100 text-orange-800`;
       default:
         return `${baseClasses} bg-gray-100 text-gray-800`;
     }
+  };
+
+  const getSubscriptionStatus = (subscription: StripeSubscription) => {
+    if (subscription.status === "canceled") {
+      return "canceled";
+    }
+    if (subscription.cancel_at_period_end) {
+      return "ENDING_AT_PERIOD_END";
+    }
+    return subscription.status;
   };
 
   useEffect(() => {
@@ -269,12 +287,20 @@ export function SubscriptionsTab({
                     : "-"}
                 </TableCell>
                 <TableCell>
-                  <span className={getStatusBadgeClass(subscription.status)}>
-                    {t(`status.${subscription.status || "unknown"}`)}
+                  <span
+                    className={getStatusBadgeClass(
+                      getSubscriptionStatus(subscription)
+                    )}
+                  >
+                    {t(
+                      `status.${
+                        getSubscriptionStatus(subscription) || "unknown"
+                      }`
+                    )}
                   </span>
                 </TableCell>
                 <TableCell>
-                  {subscription.status === "active" ? (
+                  {getSubscriptionStatus(subscription) === "active" ? (
                     <Button
                       variant="outline"
                       onClick={() => handleCancelClick(subscription.id)}
@@ -282,7 +308,7 @@ export function SubscriptionsTab({
                     >
                       {t("actions.cancel")}
                     </Button>
-                  ) : subscription.status === "canceled" ? (
+                  ) : getSubscriptionStatus(subscription) === "canceled" ? (
                     hasActiveSubscription ? (
                       <span className="text-sm text-gray-500">
                         {t("actions.hasActiveSubscription")}

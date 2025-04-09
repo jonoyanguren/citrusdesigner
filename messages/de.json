@@ -636,7 +636,8 @@
                 "active": "Aktiv",
                 "canceled": "Gekündigt",
                 "incomplete": "Unvollständig",
-                "unknown": "Unbekannt"
+                "unknown": "Unbekannt",
+                "ENDING_AT_PERIOD_END": "Endet am Periodenende"
             },
             "actions": {
                 "cancel": "Kündigen",

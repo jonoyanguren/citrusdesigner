@@ -221,6 +221,8 @@ export default function CustomerDetails() {
                             className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                               subscription.status === "active"
                                 ? "bg-green-100 text-green-800"
+                                : subscription.status === "ENDING_AT_PERIOD_END"
+                                ? "bg-orange-100 text-orange-800"
                                 : "bg-gray-100 text-gray-800"
                             }`}
                           >
@@ -315,6 +317,8 @@ export default function CustomerDetails() {
                             className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                               subscription.status === "active"
                                 ? "bg-green-100 text-green-800"
+                                : subscription.status === "ENDING_AT_PERIOD_END"
+                                ? "bg-orange-100 text-orange-800"
                                 : "bg-gray-100 text-gray-800"
                             }`}
                           >

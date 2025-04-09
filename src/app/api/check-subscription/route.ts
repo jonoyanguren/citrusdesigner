@@ -14,6 +14,8 @@ export async function GET() {
       decodedToken.userId
     );
 
+    console.log("hasActiveSubscription IN ROUTE", hasActiveSubscription);
+
     if (!hasActiveSubscription) {
       return NextResponse.json(
         { hasActiveSubscription: false },

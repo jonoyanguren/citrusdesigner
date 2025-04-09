@@ -645,7 +645,8 @@
                 "active": "Active",
                 "canceled": "Canceled",
                 "incomplete": "Incomplete",
-                "unknown": "Unknown"
+                "unknown": "Unknown",
+                "ENDING_AT_PERIOD_END": "Ending at period end"
             },
             "actions": {
                 "cancel": "Cancel",
