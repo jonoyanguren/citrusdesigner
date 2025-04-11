@@ -12,9 +12,9 @@ import {
   BiSolidQuoteAltLeft,
   BiExpand,
   BiCollapse,
+  BiPaperclip,
 } from "react-icons/bi";
 import { TbH1, TbH2 } from "react-icons/tb";
-import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./RichText.css";
 import React, { forwardRef, useState } from "react";
 
@@ -271,7 +271,7 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
             title="Subir imagen"
             type="button"
           >
-            <AiOutlineCloudUpload size={20} />
+            <BiPaperclip size={20} />
           </button>
 
           <input
