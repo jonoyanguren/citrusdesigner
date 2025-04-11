@@ -14,6 +14,7 @@ import {
   BiCollapse,
 } from "react-icons/bi";
 import { TbH1, TbH2 } from "react-icons/tb";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./RichText.css";
 import React, { forwardRef, useState } from "react";
 
@@ -112,7 +113,7 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
         StarterKit,
         CustomImage.configure({
           inline: true,
-          // allowBase64: true,
+          allowBase64: true,
         }),
       ],
       content: initialContent,
@@ -128,6 +129,24 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
     });
 
     const [bigArea, setBigArea] = useState(false);
+    const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+    const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (!file || !editor) return;
+
+      const reader = new FileReader();
+      reader.onload = (readerEvent) => {
+        if (!readerEvent.target?.result) return;
+
+        const node = editor.schema.nodes.image.create({
+          src: readerEvent.target.result,
+        });
+        const transaction = editor.state.tr.replaceSelectionWith(node);
+        editor.view.dispatch(transaction);
+      };
+      reader.readAsDataURL(file);
+    };
 
     React.useEffect(() => {
       if (editor && value !== undefined) {
@@ -244,6 +263,25 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
           >
             <BiSolidQuoteAltLeft size={20} />
           </button>
+
+          <button
+            onMouseDown={handleButtonMouseDown}
+            onClick={() => fileInputRef.current?.click()}
+            className="p-2 rounded hover:bg-gray-200 transition-colors"
+            title="Subir imagen"
+            type="button"
+          >
+            <AiOutlineCloudUpload size={20} />
+          </button>
+
+          <input
+            type="file"
+            ref={fileInputRef}
+            onChange={handleImageUpload}
+            accept="image/*"
+            className="hidden"
+          />
+
           <button
             onClick={(e) => {
               e.preventDefault();

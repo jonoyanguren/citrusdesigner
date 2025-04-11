@@ -64,7 +64,6 @@ export default function Footer() {
             <ul className="space-y-2 text-gray-400">
               <li>{t("contact.email")}</li>
               <li>{t("contact.phone")}</li>
-              <li>{t("contact.address")}</li>
             </ul>
           </div>
         </div>
