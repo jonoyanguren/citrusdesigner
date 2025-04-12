@@ -79,6 +79,7 @@ export async function createCheckoutSession(
       },
       billing_address_collection: "required",
       tax_id_collection: { enabled: true },
+      automatic_tax: { enabled: true },
     };
 
     // Only add customer and customer_update if customerId exists
