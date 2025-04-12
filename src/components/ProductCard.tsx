@@ -22,6 +22,11 @@ export default function ProductCard({
   const t = useTranslations("subscriptions");
   const { locale } = useParams();
 
+  const formatNumber = (num: number) => {
+    const rounded = Math.round(num * 100) / 100;
+    return rounded % 1 === 0 ? rounded.toString() : rounded.toFixed(2);
+  };
+
   const productKey = product.name.toLowerCase();
   const isHighlighted = product.name === "Pro";
 
@@ -50,7 +55,7 @@ export default function ProductCard({
       ) : (
         <div className="text-center">
           <span className="text-4xl font-medium">
-            {product.price.toLocaleString()} {pricing("currency")}
+            {formatNumber(product.price)} {pricing("currency")}
           </span>
           <span className="text-lg text-neutral-500">
             /
@@ -61,7 +66,7 @@ export default function ProductCard({
 
           <div className="text-center">
             <span className="text-sm">
-              {(product.price * 1.21).toLocaleString()} {pricing("currency")}
+              {formatNumber(product.price * 1.21)} {pricing("currency")}
             </span>
             <span className="text-sm text-neutral-500">
               {" "}
