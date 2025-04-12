@@ -118,8 +118,8 @@ export default function PricingList() {
         <div className="absolute inset-0 -z-10 w-full scale-x-[-1]">
           <OrangeBlob />
         </div>
-        <div className="flex justify-center gap-8 max-w-6xl mx-auto">
-          <div className="w-1/3">
+        <div className="flex flex-col md:flex-row justify-center gap-8 max-w-6xl mx-auto">
+          <div className="w-full md:w-1/3">
             {stripeProducts
               .filter((product) => product.id !== "custom")
               .sort((a, b) => a.price - b.price)
@@ -134,7 +134,7 @@ export default function PricingList() {
               ))}
           </div>
           {/* Custom product card */}
-          <div className="w-1/3">
+          <div className="w-full md:w-1/3">
             <ProductCard
               key="custom"
               product={{
