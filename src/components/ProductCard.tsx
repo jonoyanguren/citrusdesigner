@@ -41,6 +41,11 @@ export default function ProductCard({
           <span className="text-4xl font-medium">
             {t("common.customPrice")}
           </span>
+          <div className="text-center">
+            <span className="text-sm text-neutral-500">
+              {pricing("customPriceDescription")}
+            </span>
+          </div>
         </div>
       ) : (
         <div className="text-center">
@@ -51,8 +56,18 @@ export default function ProductCard({
             /
             {product.interval === "month"
               ? pricing("month")
-              : pricing("2weeks")}
+              : pricing("2weeks")}{" "}
           </span>
+
+          <div className="text-center">
+            <span className="text-sm">
+              {(product.price * 1.21).toLocaleString()} {pricing("currency")}
+            </span>
+            <span className="text-sm text-neutral-500">
+              {" "}
+              {pricing("taxIncluded")}
+            </span>
+          </div>
         </div>
       )}
 

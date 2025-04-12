@@ -288,6 +288,7 @@
     },
     "pricing": {
         "title": "Pricing",
+        "taxIncluded": "Tax included",
         "description": "Choose the plan that best fits you. No contracts, no stress... you can cancel at any time. Forget about freelancers or hiring an in-house designer.",
         "waitlistButton": "Slots full",
         "benefits": {
@@ -326,7 +327,7 @@
             "availableSpots": "2 spots available"
         },
         "customPrice": "Customized",
-        "customPriceDescription": "For companies that require much more powerful designs, we have what you need.",
+        "customPriceDescription": "Customized budget according to needs",
         "features": {
             "title": "What is included"
         },
