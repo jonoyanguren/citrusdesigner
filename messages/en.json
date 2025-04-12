@@ -841,7 +841,7 @@
             },
             "standard": {
                 "name": "Standard",
-                "description": "Ideal for basic design needs",
+                "description": "For large design challenges",
                 "features": [
                     "One request at a time",
                     "Unlimited revisions",
@@ -849,7 +849,9 @@
                 ],
                 "services": [
                     "Complete UI execution",
-                    "Complete UX execution"
+                    "Complete UX execution",
+                    "Figma prototypes",
+                    "Figma files ready for development"
                 ]
             },
             "custom": {
@@ -858,7 +860,8 @@
                 "features": [
                     "Free initial consultation",
                     "Strategic design roadmap",
-                    "Continuous progress tracking"
+                    "Continuous progress tracking",
+                    "Personalized budget"
                 ],
                 "services": [
                     "Complete UI execution",

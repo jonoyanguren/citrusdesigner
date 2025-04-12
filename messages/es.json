@@ -842,7 +842,7 @@
             },
             "standard": {
                 "name": "Standard",
-                "description": "Ideal para necesidades básicas de diseño",
+                "description": "Para retos de diseño grandes",
                 "features": [
                     "Una petición a la vez",
                     "Revisiones ilimitadas",
@@ -850,16 +850,19 @@
                 ],
                 "services": [
                     "Ejecución completa de UI",
-                    "Ejecución complete de UX"
+                    "Ejecución complete de UX",
+                    "Prototipos en Figma",
+                    "Archivos Figma listos para desarrollo"
                 ]
             },
             "custom": {
                 "name": "Custom",
-                "description": "Para necesidades 100% a medida",
+                "description": "Para necesidades 100% a medida.",
                 "features": [
                     "Consulta inicial gratuita",
                     "Roadmap estratégico de diseño",
-                    "Seguimiento continuo del progreso"
+                    "Seguimiento continuo del progreso",
+                    "Presupuesto personalizado"
                 ],
                 "services": [
                     "Ejecución completa de UI",

@@ -114,36 +114,42 @@ export default function PricingList() {
           {error}
         </div>
       )}
-      <div className="relative grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div className="relative max-w-6xl mx-auto">
         <div className="absolute inset-0 -z-10 w-full scale-x-[-1]">
           <OrangeBlob />
         </div>
-        {stripeProducts
-          .filter((product) => product.id !== "custom")
-          .sort((a, b) => a.price - b.price)
-          .map((product) => (
+        <div className="flex justify-center gap-8 max-w-6xl mx-auto">
+          <div className="w-1/3">
+            {stripeProducts
+              .filter((product) => product.id !== "custom")
+              .sort((a, b) => a.price - b.price)
+              .map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  isLoading={isLoading === product.name}
+                  onSubscribe={handleSubscribe}
+                  showWaitlist={showWaitlist}
+                />
+              ))}
+          </div>
+          {/* Custom product card */}
+          <div className="w-1/3">
             <ProductCard
-              key={product.id}
-              product={product}
-              isLoading={isLoading === product.name}
+              key="custom"
+              product={{
+                id: "custom",
+                name: "Custom",
+                price: 0,
+                priceId: "",
+                interval: "month",
+              }}
+              isLoading={false}
               onSubscribe={handleSubscribe}
               showWaitlist={showWaitlist}
             />
-          ))}
-        {/* Custom product card */}
-        <ProductCard
-          key="custom"
-          product={{
-            id: "custom",
-            name: "Custom",
-            price: 0,
-            priceId: "",
-            interval: "month",
-          }}
-          isLoading={false}
-          onSubscribe={handleSubscribe}
-          showWaitlist={showWaitlist}
-        />
+          </div>
+        </div>
       </div>
       {/* Benefits */}
       <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mt-8 md:mt-20">
