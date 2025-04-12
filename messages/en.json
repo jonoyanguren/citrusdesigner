@@ -826,12 +826,12 @@
     },
     "subscriptions": {
         "products": {
-            "splash": {
-                "name": "Splash",
-                "description": "To try Citrus for the first time",
+            "test": {
+                "name": "Test",
+                "description": "For first-time Citrus users",
                 "features": [
                     "One request at a time",
-                    "Maximum 5 requests",
+                    "Maximum of 5 requests",
                     "Delivery in 1-2 days"
                 ],
                 "services": [
@@ -850,21 +850,6 @@
                 "services": [
                     "Complete UI execution",
                     "Complete UX execution"
-                ]
-            },
-            "pro": {
-                "name": "Pro",
-                "description": "Perfect for large design challenges",
-                "features": [
-                    "One request at a time",
-                    "Free and unlimited revisions",
-                    "Delivery in 1-2 days"
-                ],
-                "services": [
-                    "Complete UI execution",
-                    "Complete UX execution",
-                    "Figma prototypes",
-                    "Figma files ready for development"
                 ]
             },
             "custom": {
