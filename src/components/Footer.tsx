@@ -23,14 +23,26 @@ export default function Footer() {
             />
             <p className="text-gray-400 mb-4">{t("company.description")}</p>
             <div className="flex space-x-4">
-              <Link href="/" className="hover:text-white transition-colors">
-                Twitter
+              <Link
+                href="https://www.instagram.com/citrusdesigner"
+                target="_blank"
+                className="hover:text-white transition-colors"
+              >
+                {t("social.instagram")}
               </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                LinkedIn
+              <Link
+                href="https://medium.com/@andreacegarra"
+                target="_blank"
+                className="hover:text-white transition-colors"
+              >
+                {t("social.medium")}
               </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Instagram
+              <Link
+                href="https://www.linkedin.com/company/citrusdesigner"
+                target="_blank"
+                className="hover:text-white transition-colors"
+              >
+                {t("social.linkedin")}
               </Link>
             </div>
           </div>

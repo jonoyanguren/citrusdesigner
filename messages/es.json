@@ -419,6 +419,11 @@
             "title": "Citrus Designer",
             "description": "Transformo tus ideas en diseños excepcionales. Servicio de diseño por suscripción simple y efectivo."
         },
+        "social": {
+            "medium": "Medium",
+            "linkedin": "LinkedIn",
+            "instagram": "Instagram"
+        },
         "quickLinks": {
             "title": "Enlaces rápidos",
             "items": [

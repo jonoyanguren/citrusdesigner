@@ -33,8 +33,8 @@ const translations: {
       es: "Para acceder por primera ver, utiliza estas credenciales.",
     },
     credentials: {
-      en: "To access your account, use these credentials:",
-      es: "Para acceder a tu cuenta, utiliza estas credenciales:",
+      en: "Access your account, use these credentials:",
+      es: "Accede a tu cuenta, utilizando estas credenciales:",
     },
     email: {
       en: "Email:",
@@ -51,6 +51,30 @@ const translations: {
     loginButton: {
       en: "Log in",
       es: "Iniciar sesión",
+    },
+    stepsDescription: {
+      es: "Para empezar a utilizar Citrus Designer, tienes solamente que hacer 2 cosas:",
+      en: "To start using Citrus Designer, you only have to do 2 things:",
+    },
+    bookACall: {
+      en: "Book a call with me. In that call I will explain to you in detail the platform and how to start using it.",
+      es: "Reserva una llamada conmigo. En esa llamada te explicaré en profundidad la plataforma y cómo empezar a usarla.",
+    },
+    bookACallText: {
+      en: "Book a call",
+      es: "Reserva una llamada",
+    },
+    bookACallLink: {
+      en: "https://calendly.com/acegarras/30min",
+      es: "https://calendly.com/acegarras/30min",
+    },
+    stepOne: {
+      en: "Step 1:",
+      es: "Paso 1:",
+    },
+    stepTwo: {
+      en: "Step 2:",
+      es: "Paso 2:",
     },
   },
   subscriptionCancelled: {
@@ -286,7 +310,7 @@ const baseTemplate = (content: string, locale: LocaleType = "es") => `
         .highlight {
             background-color: #ffedd5;
             border: 2px solid #ff6600;
-            margin: 20px 0;
+            margin: 10px;
             padding: 15px;
             border-radius: 16px;
             max-width: 90%;
@@ -347,17 +371,32 @@ export const emailTemplates = {
       <h2>${t.title[locale]}</h2>
       <p>${t.greeting[locale]}</p>
       
-      <p>${t.credentials[locale]}</p>
+      <h3>${t.stepsDescription[locale]}</h3>
+
+      <div style="margin: 10px 0;">
+        <p style="font-weight: bold; margin: 0;">${t.stepOne[locale]}</p>
+        <p style="margin: 0;">${t.credentials[locale]}</p>
+      </div>
+
       <div class="highlight">
         <p><strong>${t.email[locale]}</strong> ${userEmail}</p>
         <p><strong>${t.tempPassword[locale]}</strong> ${temporaryPassword}</p>
       </div>
-      
-      <p>${t.securityNote[locale]}</p>
-      
-      <p style="text-align: center;">
+
+      <p style="margin-bottom: 0x;">${t.securityNote[locale]}</p>
+      <div style="text-align: center;">
         <a href="${process.env.NEXT_PUBLIC_URL}/${locale}/auth/login" class="button" style="background-color: #FF6B00; border: 1px solid #FF6B00; border-radius: 5px; color: #ffffff !important; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">${t.loginButton[locale]}</a>
-      </p>
+      </div>
+      
+      <hr class="separator"/>
+      <div style="margin: 10px 0;">
+        <p style="font-weight: bold; margin: 0;">${t.stepTwo[locale]}</p>
+        <p style="margin: 0;">${t.bookACall[locale]}</p>
+      </div>
+
+      <div style="text-align: center;">
+        <a target="_blank" href="https://calendly.com/acegarras/30min" class="button" style="background-color: #FF6B00; border: 1px solid #FF6B00; border-radius: 5px; color: #ffffff !important; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">${t.bookACallText[locale]}</a>
+      </div>
     `,
       locale
     );
