@@ -44,6 +44,15 @@ const sendSubscriptionConfirmationEmail = async (
   });
 };
 
+const sendAdminSubscriptionEmail = async () => {
+  await sendEmail({
+    to: "acegarras@gmail.com",
+    subject: "💶 Nueva suscripción",
+    html: "Nueva suscripción creada!!!! Vamos que nos vamos!!",
+    text: "Nueva suscripción creada!!! Vamos que nos vamos!!",
+  });
+};
+
 export async function createSubscription(
   invoice: Stripe.Invoice,
   locale: string
@@ -151,5 +160,6 @@ export async function createSubscription(
     );
   }
 
+  await sendAdminSubscriptionEmail();
   return newSubscription;
 }
