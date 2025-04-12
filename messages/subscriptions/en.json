@@ -1,8 +1,8 @@
 {
     "products": [
         {
-            "id": "splash",
-            "name": "Splash",
+            "id": "test",
+            "name": "Test",
             "description": "For first-time Citrus users",
             "features": [
                 "One request at a time",
@@ -26,22 +26,6 @@
             "services": [
                 "Complete UI execution",
                 "Complete UX execution"
-            ]
-        },
-        {
-            "id": "pro",
-            "name": "Pro",
-            "description": "Perfect for major design challenges",
-            "features": [
-                "One request at a time",
-                "Unlimited free revisions",
-                "Delivery in 1-2 days"
-            ],
-            "services": [
-                "Complete UI execution",
-                "Complete UX execution",
-                "Figma prototypes",
-                "Figma files ready for development"
             ]
         },
         {

@@ -1,8 +1,8 @@
 {
     "products": [
         {
-            "id": "splash",
-            "name": "Splash",
+            "id": "test",
+            "name": "Test",
             "description": "Para probar Citrus por primera vez",
             "features": [
                 "Una petición a la vez",
@@ -26,22 +26,6 @@
             "services": [
                 "Ejecución completa de UI",
                 "Ejecución complete de UX"
-            ]
-        },
-        {
-            "id": "pro",
-            "name": "Pro",
-            "description": "Perfecto para retos de diseño grandes",
-            "features": [
-                "Una petición a la vez",
-                "Revisiones gratuitas e ilimitadas",
-                "Entrega en 1-2 días"
-            ],
-            "services": [
-                "Ejecución completa de UI",
-                "Ejecución complete de UX",
-                "Prototipos en Figma",
-                "Arhivos figma listos para desarrollo"
             ]
         },
         {
