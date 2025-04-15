@@ -1,16 +1,17 @@
 "use client";
-import CustomersCarousel from "@/components/CustomersCarousel";
+import React from "react";
+import CustomersCarousel from "../../components/CustomersCarousel";
 import { useTranslations } from "next-intl";
-import Hero from "@/components/Hero";
-import Title from "@/components/Title";
-import Steps from "@/components/Steps";
-import Benefits from "@/components/Benefits";
-import { OrangeMessage } from "@/components/OrangeMessage";
-import { Testimonials } from "@/components/Testimonials";
-import { AboutTheDesigner } from "@/components/AboutTheDesigner";
-import PricingList from "@/components/PricingList";
+import Hero from "../../components/Hero";
+import Title from "../../components/Title";
+import Steps from "../../components/Steps";
+import Benefits from "../../components/Benefits";
+import { OrangeMessage } from "../../components/OrangeMessage";
+import { Testimonials } from "../../components/Testimonials";
+import { AboutTheDesigner } from "../../components/AboutTheDesigner";
+import PricingList from "../../components/PricingList";
 import Image from "next/image";
-import ProjectsSummary from "@/components/ProjectsSummary";
+import ProjectsSummary from "../../components/ProjectsSummary";
 
 export default function HomePage() {
   const t = useTranslations("home");
