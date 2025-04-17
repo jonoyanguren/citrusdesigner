@@ -4,6 +4,7 @@
         "howItWorks": "Cómo funciona",
         "theDesignerBehind": "Sobre mí",
         "pricing": "Precios",
+        "blog": "Blog",
         "contact": "Contacto",
         "login": "Iniciar sesión",
         "register": "Registrarse",
@@ -31,7 +32,8 @@
             "users": "Usuarios",
             "requests": "Solicitudes",
             "settings": "Configuración",
-            "manualSubscriptions": "Suscripciones Manuales"
+            "manualSubscriptions": "Suscripciones Manuales",
+            "blog": "Blog"
         },
         "loading": "Cargando...",
         "users": {
@@ -1046,6 +1048,45 @@
         "REQUEST_FEEDBACK_PROVIDED": {
             "title": "Feedback recibido",
             "message": "Has recibido un feedback en una petición: {requestName}"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "loading": "Cargando...",
+        "createPost": "Crear Entrada de Blog",
+        "form": {
+            "title": "Título",
+            "slug": "Slug",
+            "excerpt": "Extracto",
+            "content": "Contenido",
+            "metaTitle": "Meta Título",
+            "metaDesc": "Meta Descripción",
+            "keywords": "Palabras clave",
+            "submit": "Guardar",
+            "submitting": "Guardando...",
+            "publishDate": "Fecha de publicación"
+        },
+        "admin": {
+            "title": "Administrar Blog",
+            "createPost": "Crear Nueva Entrada",
+            "newPost": "Nueva Entrada",
+            "edit": "Editar",
+            "published": "Publicado",
+            "draft": "Borrador",
+            "loading": "Cargando...",
+            "error": {
+                "fetching": "Error al cargar las entradas",
+                "updating": "Error al actualizar la entrada"
+            },
+            "editPost": "Editar entrada",
+            "postNotFound": "Entrada no encontrada",
+            "status": {
+                "draft": "Borrador",
+                "scheduled": "Programado",
+                "published": "Publicado"
+            },
+            "cancel": "Cancelar",
+            "save": "Guardar"
         }
     }
 }

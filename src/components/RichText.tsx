@@ -16,7 +16,7 @@ import {
 } from "react-icons/bi";
 import { TbH1, TbH2 } from "react-icons/tb";
 import "./RichText.css";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useImperativeHandle } from "react";
 
 const CustomImage = Image.extend({
   addProseMirrorPlugins() {
@@ -42,6 +42,12 @@ const CustomImage = Image.extend({
               });
 
               images.forEach((image) => {
+                if (image.size > 5 * 1024 * 1024) {
+                  // 5MB limit
+                  alert("Image too large. Maximum size is 5MB");
+                  return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = (readerEvent) => {
                   if (!coordinates?.pos || !readerEvent.target?.result) return;
@@ -74,6 +80,12 @@ const CustomImage = Image.extend({
               const { schema } = view.state;
 
               images.forEach((image) => {
+                if (image.size > 5 * 1024 * 1024) {
+                  // 5MB limit
+                  alert("Image too large. Maximum size is 5MB");
+                  return;
+                }
+
                 const reader = new FileReader();
                 reader.onload = (readerEvent) => {
                   if (!readerEvent.target?.result) return;
@@ -102,12 +114,17 @@ interface RichTextProps {
   value?: string;
 }
 
-interface RichTextHandle {
+export interface RichTextHandle {
+  getValue: () => string;
   clearContent: () => void;
+  setContent: (content: string) => void;
 }
 
 export const RichText = forwardRef<RichTextHandle, RichTextProps>(
   ({ initialContent = "", onChange, value }, ref) => {
+    const [bigArea, setBigArea] = useState(false);
+    const fileInputRef = React.useRef<HTMLInputElement>(null);
+
     const editor = useEditor({
       extensions: [
         StarterKit,
@@ -116,7 +133,7 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
           allowBase64: true,
         }),
       ],
-      content: initialContent,
+      content: value || initialContent,
       onUpdate: ({ editor }) => {
         onChange?.(editor.getHTML());
       },
@@ -127,9 +144,6 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
         },
       },
     });
-
-    const [bigArea, setBigArea] = useState(false);
-    const fileInputRef = React.useRef<HTMLInputElement>(null);
 
     const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
       const file = event.target.files?.[0];
@@ -154,9 +168,13 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
       }
     }, [editor, value]);
 
-    React.useImperativeHandle(ref, () => ({
+    useImperativeHandle(ref, () => ({
+      getValue: () => editor?.getHTML() || "",
       clearContent: () => {
         editor?.commands.setContent("");
+      },
+      setContent: (newContent: string) => {
+        editor?.commands.setContent(newContent);
       },
     }));
 
@@ -283,28 +301,22 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
           />
 
           <button
-            onClick={(e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              setBigArea(!bigArea);
-              editor.chain().focus().run();
-            }}
+            onMouseDown={handleButtonMouseDown}
+            onClick={() => setBigArea(!bigArea)}
             className="p-2 rounded hover:bg-gray-200 transition-colors"
+            title={bigArea ? "Reducir" : "Expandir"}
+            type="button"
           >
             {bigArea ? <BiCollapse size={20} /> : <BiExpand size={20} />}
           </button>
         </div>
 
-        <div className="flex-grow overflow-y-auto">
-          <EditorContent
-            editor={editor}
-            className="h-full p-4"
-            onClick={() => editor.chain().focus().run()}
-          />
-        </div>
+        <EditorContent editor={editor} className="flex-1 overflow-y-auto p-4" />
       </div>
     );
   }
 );
 
 RichText.displayName = "RichText";
+
+export default RichText;

@@ -1,6 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import Button from "@/components/Button";
 import { User } from "@prisma/client";
+import { useTranslations } from "next-intl";
 
 type Props = {
   user: User;
@@ -15,6 +16,8 @@ export default function AdminNavigation({
   setIsMenuOpen,
   onLogout,
 }: Props) {
+  const t = useTranslations();
+
   return (
     <div className="relative">
       <Button
@@ -64,6 +67,20 @@ export default function AdminNavigation({
             onClick={() => setIsMenuOpen(false)}
           >
             Lista de espera
+          </Link>
+          <Link
+            href="/admin/requests"
+            className="block px-4 py-2 hover:bg-foreground/5"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t("admin.menu.requests")}
+          </Link>
+          <Link
+            href="/admin/blog"
+            className="block px-4 py-2 hover:bg-foreground/5"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            {t("admin.menu.blog")}
           </Link>
           <Button
             variant="text"

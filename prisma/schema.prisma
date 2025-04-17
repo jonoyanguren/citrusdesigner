@@ -72,6 +72,7 @@ model User {
   requests            Request[]
   subscriptions       Subscription[]
   manualSubscriptions ManualSubscription[]
+  blogPosts           BlogPost[]
 }
 
 model Request {
@@ -134,6 +135,25 @@ model Configuration {
   updatedAt   DateTime @updatedAt
 
   @@map("configurations")
+}
+
+model BlogPost {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String
+  excerpt     String
+  metaTitle   String
+  metaDesc    String
+  keywords    String
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+
+  @@index([slug])
+  @@index([userId])
 }
 
 enum RequestStatus {

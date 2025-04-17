@@ -1,11 +1,12 @@
 {
     "navigation": {
         "home": "Home",
-        "howItWorks": "How It Works",
-        "theDesignerBehind": "About Me",
+        "howItWorks": "How it works",
+        "theDesignerBehind": "About me",
         "pricing": "Pricing",
+        "blog": "Blog",
         "contact": "Contact",
-        "login": "Log In",
+        "login": "Login",
         "register": "Register",
         "bookCall": "Book a 1:1",
         "logout": "Log Out",
@@ -31,7 +32,8 @@
             "users": "Users",
             "requests": "Requests",
             "settings": "Settings",
-            "manualSubscriptions": "Manual Subscriptions"
+            "manualSubscriptions": "Manual Subscriptions",
+            "blog": "Blog"
         },
         "loading": "Loading...",
         "users": {
@@ -1045,6 +1047,45 @@
         "REQUEST_FEEDBACK_PROVIDED": {
             "title": "Feedback provided",
             "message": "You have received feedback on the request {requestName}"
+        }
+    },
+    "blog": {
+        "title": "Blog",
+        "loading": "Loading...",
+        "createPost": "Create Blog Post",
+        "form": {
+            "title": "Title",
+            "slug": "Slug",
+            "excerpt": "Excerpt",
+            "content": "Content",
+            "metaTitle": "Meta Title",
+            "metaDesc": "Meta Description",
+            "keywords": "Keywords",
+            "submit": "Save",
+            "submitting": "Saving...",
+            "publishDate": "Publish Date"
+        },
+        "admin": {
+            "title": "Manage Blog",
+            "createPost": "Create New Post",
+            "newPost": "New Post",
+            "edit": "Edit",
+            "published": "Published",
+            "draft": "Draft",
+            "loading": "Loading...",
+            "error": {
+                "fetching": "Error loading posts",
+                "updating": "Error updating post"
+            },
+            "editPost": "Edit post",
+            "postNotFound": "Post not found",
+            "status": {
+                "draft": "Draft",
+                "scheduled": "Scheduled",
+                "published": "Published"
+            },
+            "cancel": "Cancel",
+            "save": "Save"
         }
     }
 }
