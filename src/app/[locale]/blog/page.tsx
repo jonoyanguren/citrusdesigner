@@ -13,6 +13,7 @@ interface BlogPost {
   slug: string;
   excerpt: string;
   content: string;
+  keywords: string;
   createdAt: string;
   user: {
     name: string;
@@ -80,6 +81,18 @@ export default function BlogPage() {
                   <span className="mx-2">•</span>
                   <span>{post.user.name}</span>
                 </div>
+                {post.keywords && (
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {post.keywords.split(",").map((keyword, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full"
+                      >
+                        #{keyword.trim()}
+                      </span>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="md:w-1/3 relative aspect-video">
                 {extractFirstImage(post.content) ? (

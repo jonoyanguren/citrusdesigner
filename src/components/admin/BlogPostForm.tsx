@@ -56,6 +56,21 @@ export default function BlogPostForm({
     }
   }, [initialData?.content]);
 
+  const generateSlug = (text: string) => {
+    return text
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  };
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newTitle = e.target.value;
+    setTitle(newTitle);
+    setSlug(generateSlug(newTitle));
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!richTextRef.current || isSubmitting) return;
@@ -111,12 +126,7 @@ export default function BlogPostForm({
       )}
       <div className="space-y-2">
         <label htmlFor="title">{t("title")}</label>
-        <Input
-          id="title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
+        <Input id="title" value={title} onChange={handleTitleChange} required />
       </div>
 
       <div className="space-y-2">

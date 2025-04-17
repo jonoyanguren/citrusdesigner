@@ -59,6 +59,20 @@ export default function BlogPostContent({ post }: Props) {
         >
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </div>
+        {post.keywords && (
+          <div className="mt-8 pt-6 border-t border-gray-200">
+            <div className="flex flex-wrap gap-2 mt-2">
+              {post.keywords.split(",").map((keyword, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full"
+                >
+                  #{keyword.trim()}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </article>
     </div>
   );
