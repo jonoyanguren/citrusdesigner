@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 import BlogPostContent from "@/components/BlogPostContent";
+import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await prisma.blogPost.findMany({
@@ -15,7 +16,7 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata> {
   const post = await prisma.blogPost.findUnique({
     where: { slug: params.slug },
     select: {
@@ -36,6 +37,15 @@ export async function generateMetadata({
     title: post.metaTitle || post.title,
     description: post.metaDesc,
     keywords: post.keywords,
+    openGraph: {
+      title: post.metaTitle || post.title,
+      description: post.metaDesc,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.metaTitle || post.title,
+      description: post.metaDesc,
+    },
   };
 }
 

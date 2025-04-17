@@ -24,6 +24,10 @@ function extractFirstImage(content: string): string | null {
   return imgMatch ? imgMatch[1] : null;
 }
 
+const mediumLoader = ({ src }: { src: string }) => {
+  return src;
+};
+
 export default function BlogPage() {
   const t = useTranslations("blog");
   const { locale } = useParams();
@@ -80,6 +84,7 @@ export default function BlogPage() {
               <div className="md:w-1/3 relative aspect-video">
                 {extractFirstImage(post.content) ? (
                   <Image
+                    loader={mediumLoader}
                     src={extractFirstImage(post.content) || ""}
                     alt={post.title}
                     fill

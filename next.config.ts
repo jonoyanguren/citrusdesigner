@@ -3,13 +3,7 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cruip-tutorials.vercel.app",
-        pathname: "/logo-carousel/**",
-      },
-    ],
+    domains: ["miro.medium.com", "cruip-tutorials.vercel.app"],
   },
 };
 
