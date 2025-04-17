@@ -5,10 +5,14 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Button from "@/components/Button";
 import { useCalendly } from "@/components/CalendarButton";
+import { RichText, RichTextHandle } from "@/components/RichText";
+import { useRef, useState } from "react";
 
 export default function Contact() {
   const t = useTranslations("contact");
   const { openCalendly } = useCalendly();
+  const editorRef = useRef<RichTextHandle>(null);
+  const [feedback, setFeedback] = useState("");
 
   const openWhatsApp = () => {
     const phoneNumber = "34620682321";
@@ -16,6 +20,14 @@ export default function Contact() {
       "Hola, me gustaría más información sobre Citrus Designer"
     );
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (editorRef.current) {
+      editorRef.current.clearContent();
+    }
+    console.log(feedback);
   };
 
   return (
@@ -63,6 +75,18 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="feedback">Feedback</label>
+          <RichText
+            ref={editorRef as React.RefObject<RichTextHandle>}
+            initialContent=""
+            onChange={(content) => setFeedback(content)}
+          />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }

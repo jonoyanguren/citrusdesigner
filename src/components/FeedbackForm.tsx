@@ -5,6 +5,7 @@ import { RichText } from "./RichText";
 import Button from "./Button";
 import { processContentWithImages } from "@/lib/utils/imageProcessing";
 import { useTranslations } from "next-intl";
+import { RichTextHandle } from "./RichText";
 
 interface FeedbackFormProps {
   requestId: string;
@@ -20,7 +21,7 @@ export function FeedbackForm({
   const t = useTranslations("dashboard.requestDetail");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState("");
-  const editorRef = useRef<{ clearContent: () => void } | null>(null);
+  const editorRef = useRef<RichTextHandle>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

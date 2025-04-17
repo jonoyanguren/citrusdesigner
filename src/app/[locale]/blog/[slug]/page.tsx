@@ -1,6 +1,6 @@
+import { Metadata } from "next";
 import prisma from "@/lib/prisma";
 import BlogPostContent from "@/components/BlogPostContent";
-import { Metadata } from "next";
 
 export async function generateStaticParams() {
   const posts = await prisma.blogPost.findMany({
@@ -9,16 +9,18 @@ export async function generateStaticParams() {
 
   return posts.map((post) => ({
     slug: post.slug,
+    locale: "es",
   }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
+  const resolvedParams = await params;
   const post = await prisma.blogPost.findUnique({
-    where: { slug: params.slug },
+    where: { slug: resolvedParams.slug },
     select: {
       title: true,
       metaTitle: true,
@@ -36,15 +38,15 @@ export async function generateMetadata({
   return {
     title: post.metaTitle || post.title,
     description: post.metaDesc,
-    keywords: post.keywords,
+    keywords: post.keywords || [],
     openGraph: {
       title: post.metaTitle || post.title,
-      description: post.metaDesc,
+      description: post.metaDesc || "",
     },
     twitter: {
       card: "summary_large_image",
       title: post.metaTitle || post.title,
-      description: post.metaDesc,
+      description: post.metaDesc || "",
     },
   };
 }
@@ -52,10 +54,11 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string; locale: string }>;
 }) {
+  const resolvedParams = await params;
   const post = await prisma.blogPost.findUnique({
-    where: { slug: params.slug },
+    where: { slug: resolvedParams.slug },
     include: {
       user: {
         select: {
@@ -65,9 +68,5 @@ export default async function BlogPostPage({
     },
   });
 
-  if (!post) {
-    return <BlogPostContent post={null} />;
-  }
-
-  return <BlogPostContent post={post} />;
+  return <BlogPostContent post={post ?? null} />;
 }
