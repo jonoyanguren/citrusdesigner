@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import Title from "@/components/Title";
 import Image from "next/image";
 import { Spacer } from "@/components/Spacer";
