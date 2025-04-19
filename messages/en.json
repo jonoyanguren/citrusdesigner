@@ -1067,6 +1067,7 @@
         },
         "admin": {
             "title": "Manage Blog",
+            "translate": "Translate",
             "createPost": "Create New Post",
             "newPost": "New Post",
             "edit": "Edit",
@@ -1085,7 +1086,9 @@
                 "published": "Published"
             },
             "cancel": "Cancel",
-            "save": "Save"
+            "save": "Save",
+            "language": "Language",
+            "relatedPost": "Related Post"
         }
     }
 }

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
+import { Language } from "@prisma/client";
 
 export async function POST(request: Request) {
   try {
@@ -74,9 +75,15 @@ export async function POST(request: Request) {
   }
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
+    const { searchParams } = new URL(request.url);
+    const locale = searchParams.get("locale");
+
     const posts = await prisma.blogPost.findMany({
+      where: {
+        language: (locale?.toUpperCase() as Language) || Language.ES,
+      },
       orderBy: { createdAt: "desc" },
       include: {
         user: {

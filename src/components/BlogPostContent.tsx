@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
+import { Link } from "@/i18n/navigation";
 
 interface BlogPost {
   id: string;
@@ -17,6 +18,8 @@ interface BlogPost {
   createdAt: Date;
   updatedAt: Date;
   userId: string;
+  translatedSlug: string | null;
+  language: "ES" | "EN";
   user: {
     name: string;
   };
@@ -28,7 +31,6 @@ interface Props {
 
 export default function BlogPostContent({ post }: Props) {
   const t = useTranslations("blog");
-
   if (!post) {
     return <div className="container mx-auto py-8">{t("notFound")}</div>;
   }
@@ -37,6 +39,19 @@ export default function BlogPostContent({ post }: Props) {
     <div className="container mx-auto py-8 pb-24">
       <article className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 leading-tight">{post.title}</h1>
+
+        {post.translatedSlug && (
+          <div className="mb-8">
+            <Link
+              href={`/blog/${post.translatedSlug}`}
+              locale={post.language === "ES" ? "en" : "es"}
+              className="text-blue-600 hover:text-blue-800"
+            >
+              {post.language === "ES" ? "Read in English" : "Leer en Español"}
+            </Link>
+          </div>
+        )}
+
         <div className="text-gray-500 mb-8 text-lg">
           {format(new Date(post.createdAt), "PPP", { locale: es })} •{" "}
           {post.user.name}

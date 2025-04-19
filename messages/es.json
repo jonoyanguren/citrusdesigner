@@ -1067,6 +1067,7 @@
             "publishDate": "Fecha de publicación"
         },
         "admin": {
+            "translate": "Traducir",
             "title": "Administrar Blog",
             "createPost": "Crear Nueva Entrada",
             "newPost": "Nueva Entrada",
@@ -1086,7 +1087,9 @@
                 "published": "Publicado"
             },
             "cancel": "Cancelar",
-            "save": "Guardar"
+            "save": "Guardar",
+            "language": "Idioma",
+            "relatedPost": "Entrada relacionada"
         }
     }
 }

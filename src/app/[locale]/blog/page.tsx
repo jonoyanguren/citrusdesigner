@@ -38,7 +38,7 @@ export default function BlogPage() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await fetch("/api/blog");
+        const response = await fetch(`/api/blog?locale=${locale}`);
         const data = await response.json();
         setPosts(data);
       } catch (error) {
@@ -49,7 +49,7 @@ export default function BlogPage() {
     };
 
     fetchPosts();
-  }, []);
+  }, [locale]);
 
   if (loading) {
     return <div className="container mx-auto py-8">Loading...</div>;

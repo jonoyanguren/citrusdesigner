@@ -18,6 +18,9 @@ export async function GET() {
         excerpt: true,
         createdAt: true,
         publishedAt: true,
+        userId: true,
+        language: true,
+        translatedSlug: true,
       },
     });
 
