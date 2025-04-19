@@ -1054,6 +1054,9 @@
         "title": "Blog",
         "loading": "Cargando...",
         "createPost": "Crear Entrada de Blog",
+        "notFound": "Historia no encontrada",
+        "notFoundDescription": "La historia que buscas no existe o puede haber sido eliminada. Te invitamos a explorar nuestras otras historias.",
+        "backToBlog": "Explorar historias",
         "form": {
             "title": "Título",
             "slug": "Slug",

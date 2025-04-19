@@ -1,9 +1,9 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { Link } from "@/i18n/navigation";
+import BlogNotFound from "./BlogNotFound";
 
 interface BlogPost {
   id: string;
@@ -30,9 +30,8 @@ interface Props {
 }
 
 export default function BlogPostContent({ post }: Props) {
-  const t = useTranslations("blog");
   if (!post) {
-    return <div className="container mx-auto py-8">{t("notFound")}</div>;
+    return <BlogNotFound />;
   }
 
   return (

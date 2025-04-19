@@ -1053,6 +1053,9 @@
         "title": "Blog",
         "loading": "Loading...",
         "createPost": "Create Blog Post",
+        "notFound": "Story not found",
+        "notFoundDescription": "The story you're looking for doesn't exist or might have been removed. Feel free to explore our other stories.",
+        "backToBlog": "Explore stories",
         "form": {
             "title": "Title",
             "slug": "Slug",
