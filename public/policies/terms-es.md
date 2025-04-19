@@ -86,4 +86,4 @@ Este Acuerdo podrá ser modificado en cualquier momento. Recomendamos que revise
 
 Si tienes alguna duda, inquietud o solicitud relacionada con este Acuerdo, contáctanos a través del correo electrónico:
 
-privacy@citrusdesigner.com 
+andrea@citrusdesigner.com 

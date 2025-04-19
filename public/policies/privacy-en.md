@@ -77,4 +77,4 @@ The updated version will be communicated to users through their registered email
 
 For queries, requests, complaints, or any other matters related to your data privacy, please contact us at:
 
-Email: privacy@citrusdesigner.com 
+Email: andrea@citrusdesigner.com 

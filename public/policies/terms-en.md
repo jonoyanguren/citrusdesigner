@@ -86,4 +86,4 @@ This Agreement may be modified at any time. We recommend that you periodically r
 
 If you have any questions, concerns, or requests related to this Agreement, please contact us at:
 
-privacy@citrusdesigner.com 
+andrea@citrusdesigner.com 

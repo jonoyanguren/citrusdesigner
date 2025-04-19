@@ -77,4 +77,4 @@ La versión actualizada será comunicada a los usuarios a través del correo ele
 
 Para consultas, solicitudes, quejas o cualquier otro asunto relacionado con la privacidad de tus datos, por favor, contáctanos a:
 
-Correo Electrónico: privacy@citrusdesigner.com 
+Correo Electrónico: andrea@citrusdesigner.com 

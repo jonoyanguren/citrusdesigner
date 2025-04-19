@@ -58,7 +58,7 @@ export function ContactClient({ translations }: Props) {
             <Button
               variant="secondary"
               onClick={() => {
-                window.open("mailto:contact@citrusdesigner.com", "_blank");
+                window.open("mailto:andrea@citrusdesigner.com", "_blank");
               }}
             >
               {translations.email.button}
