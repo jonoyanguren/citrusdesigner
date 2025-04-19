@@ -1,7 +1,5 @@
 "use client";
 
-import { useMemo } from "react";
-
 export default function DecorativeElements() {
   return (
     <div className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none h-full w-full -z-10">
@@ -18,20 +16,24 @@ export default function DecorativeElements() {
       {/* Espirales izquierda */}
       <Spiral
         className="absolute left-[15%] top-1/4 w-28 h-28"
+        color="#FB923C"
         style={{ transform: "scale(0.7)" }}
       />
       <Spiral
         className="absolute left-[20%] top-2/3 w-24 h-24"
+        color="#FBEC41"
         style={{ transform: "scale(0.5)" }}
       />
 
       {/* Espirales derecha */}
       <Spiral
         className="absolute right-[15%] top-1/3 w-32 h-32"
+        color="#84CC16"
         style={{ transform: "scale(0.6)" }}
       />
       <Spiral
         className="absolute right-[20%] top-3/4 w-20 h-20"
+        color="#FB923C"
         style={{ transform: "scale(0.4)" }}
       />
     </div>
@@ -40,16 +42,13 @@ export default function DecorativeElements() {
 
 const Spiral = ({
   className,
+  color,
   style,
 }: {
   className: string;
+  color: string;
   style: React.CSSProperties;
 }) => {
-  const color = useMemo(() => {
-    const colors = ["#FBEC41", "#84CC16", "#FB923C"]; // yellow-300, lime-300, orange-400
-    return colors[Math.floor(Math.random() * colors.length)];
-  }, []);
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

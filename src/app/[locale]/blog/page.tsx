@@ -3,9 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { BlogClient } from "./BlogClient";
 
 type Props = {
-  params: {
-    locale: string;
-  };
+  params: Promise<{ locale: string }>;
 };
 
 export async function generateStaticParams() {
@@ -13,7 +11,8 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPage({ params }: Props) {
-  await setRequestLocale(params.locale);
+  const { locale } = await params;
+  await setRequestLocale(locale);
   const t = await getTranslations("blog");
 
   return <BlogClient translations={{ title: t("title") }} />;
