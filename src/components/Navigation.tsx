@@ -10,14 +10,12 @@ import NavigationMobile from "./navigation/NavigationMobile";
 import LanguageSelector from "./navigation/LanguageSelector";
 import Button from "./Button";
 import CalendarButton from "./CalendarButton";
-import { useParams } from "next/navigation";
 import Image from "next/image";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, setUser } = useAuth();
   const t = useTranslations("navigation");
-  const { locale } = useParams();
   const router = useRouter();
 
   useEffect(() => {

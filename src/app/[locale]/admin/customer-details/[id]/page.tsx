@@ -1,12 +1,12 @@
 "use client";
 import { User, Subscription, ManualSubscription } from "@prisma/client";
-import { useParams } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 import { RequestsTab } from "@/components/dashboard/RequestsTab";
 import { RequestWithFeedback } from "@/types/requests";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import Button from "@/components/Button";
+import { useParams } from "next/navigation";
 
 interface UserWithRequestsAndSubscriptions extends User {
   requests: RequestWithFeedback[];
@@ -30,7 +30,6 @@ export default function CustomerDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const [planInfo, setPlanInfo] = useState<PlanInfo>({});
   const t = useTranslations("customerDetails");
-  const { locale } = useParams();
 
   const fetchUser = useCallback(async () => {
     const response = await fetch(`/api/admin/users/${id}`);

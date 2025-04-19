@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useSearchParams, useParams } from "next/navigation";
-import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import Button from "@/components/Button";
 import { IoMdCheckmark } from "react-icons/io";
@@ -27,7 +27,6 @@ function SuccessPage() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("session_id");
   const t = useTranslations("success");
-  const { locale } = useParams();
 
   useEffect(() => {
     if (!sessionId) {

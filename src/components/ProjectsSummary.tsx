@@ -2,11 +2,9 @@
 import { useTranslations } from "next-intl";
 import Button from "./Button";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 
 export default function ProjectsSummary() {
   const t = useTranslations("projectsSummary");
-  const { locale } = useParams();
   const leftPositions = [
     {
       top: "-10%",

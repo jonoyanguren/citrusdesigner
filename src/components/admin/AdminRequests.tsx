@@ -5,7 +5,6 @@ import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
 import * as Popover from "@radix-ui/react-popover";
 import { EmptyState } from "@/components/EmptyState";
-import { useParams } from "next/navigation";
 import { UsersSelect } from "./UsersSelect";
 import {
   Table,
@@ -119,7 +118,6 @@ function FigmaUrlDialog({ onSubmit, onClose }: FigmaUrlDialogProps) {
 }
 
 export function AdminRequests({ requests }: Props) {
-  const { locale } = useParams();
   const [requestsState, setRequestsState] =
     useState<RequestWithFeedback[]>(requests);
   const [nameFilter, setNameFilter] = useState("");

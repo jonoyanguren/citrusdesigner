@@ -2,7 +2,6 @@ import { StripeProduct } from "@/lib/stripe";
 import Button from "@/components/Button";
 import { useTranslations } from "next-intl";
 import { FaCheckCircle } from "react-icons/fa";
-import { useParams } from "next/navigation";
 import CalendarButton from "./CalendarButton";
 
 interface ProductCardProps {
@@ -20,7 +19,6 @@ export default function ProductCard({
 }: ProductCardProps) {
   const pricing = useTranslations("pricing");
   const t = useTranslations("subscriptions");
-  const { locale } = useParams();
 
   const formatNumber = (num: number) => {
     const rounded = Math.round(num * 100) / 100;

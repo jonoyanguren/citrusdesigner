@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import { format, isAfter, isBefore } from "date-fns";
 import { es } from "date-fns/locale";
 import Button from "@/components/Button";
-import { useParams } from "next/navigation";
 import { FaCalendarAlt } from "react-icons/fa";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { format as formatDate } from "date-fns";
@@ -12,7 +11,6 @@ import { BlogPost, Language } from "@prisma/client";
 
 export default function AdminBlogPage() {
   const t = useTranslations("blog");
-  const { locale } = useParams();
   const [posts, setPosts] = React.useState<BlogPost[]>([]);
   const [loading, setLoading] = React.useState(true);
   const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);

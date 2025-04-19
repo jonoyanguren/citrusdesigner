@@ -6,7 +6,6 @@ import { useAuth } from "@/contexts/AuthContext";
 import { createPortal } from "react-dom";
 import CalendarButton from "../CalendarButton";
 import Button from "../Button";
-import { useParams } from "next/navigation";
 
 export default function NavigationMobile() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +13,6 @@ export default function NavigationMobile() {
   const { user, setUser } = useAuth();
   const t = useTranslations("navigation");
   const pathname = usePathname();
-  const { locale } = useParams();
 
   useEffect(() => {
     setMounted(true);

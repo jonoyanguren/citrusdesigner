@@ -3,7 +3,6 @@
 import Title from "@/components/Title";
 import Image from "next/image";
 import { Spacer } from "@/components/Spacer";
-import { useParams } from "next/navigation";
 import { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { Link } from "@/i18n/navigation";
@@ -29,7 +28,6 @@ type Props = {
 };
 
 export function DesignEquivalenceClient({ translations }: Props) {
-  const { locale } = useParams();
   const [openCategories, setOpenCategories] = useState<number[]>([0]);
 
   const toggleCategory = (index: number) => {
