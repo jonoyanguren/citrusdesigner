@@ -3,11 +3,10 @@
 import Title from "@/components/Title";
 import Image from "next/image";
 import { Spacer } from "@/components/Spacer";
-import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-
+import { Link } from "@/i18n/navigation";
 interface EquivalenceItem {
   title: string;
   description: string;
@@ -114,7 +113,7 @@ export function DesignEquivalenceClient({ translations }: Props) {
             {translations.callToAction}
           </p>
           <Link
-            href={`/${locale}/contact`}
+            href={`/contact`}
             className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
           >
             {translations.contactButton}

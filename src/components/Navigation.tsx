@@ -108,11 +108,7 @@ export default function Navigation() {
             </div>
           ) : (
             <div className="flex items-center gap-4 min-w-[300px]">
-              <Button
-                variant="outline"
-                href={`/${locale}/auth/login`}
-                fullWidth
-              >
+              <Button variant="outline" href={`/auth/login`} fullWidth>
                 {t("login")}
               </Button>
               <CalendarButton />

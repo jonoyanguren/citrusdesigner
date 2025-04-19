@@ -103,7 +103,7 @@ function SuccessPage() {
         <div className="space-y-4">
           <div className="flex gap-4 justify-center">
             <Button href="/">{t("success.actions.goHome")}</Button>
-            <Button href={`/${locale}/contact`} variant="outline">
+            <Button href={`/contact`} variant="outline">
               {t("success.actions.contactSupport")}
             </Button>
           </div>

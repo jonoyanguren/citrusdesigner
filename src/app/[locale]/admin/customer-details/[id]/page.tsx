@@ -131,7 +131,7 @@ export default function CustomerDetails() {
       <div className="max-w-7xl mx-auto space-y-8 pt-20 flex justify-between items-center">
         <h1 className="text-3xl font-bold">{t("title")}</h1>
         <Link
-          href={`/${locale}/admin/create-request`}
+          href={`/admin/create-request`}
           className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
         >
           {t("createRequest")}

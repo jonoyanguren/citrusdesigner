@@ -1,9 +1,8 @@
 import { User, ManualSubscription } from "@prisma/client";
 import { useState } from "react";
-import { useParams } from "next/navigation";
 import { formatDistanceToNow } from "date-fns";
 import { es } from "date-fns/locale";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import {
   Table,
@@ -24,7 +23,6 @@ interface Props {
 }
 
 export function ManualSubscriptions({ users }: Props) {
-  const { locale } = useParams();
   const [nameFilter, setNameFilter] = useState("");
   const [emailFilter, setEmailFilter] = useState("");
   const t = useTranslations("admin.manualSubscriptions");
@@ -158,7 +156,7 @@ export function ManualSubscriptions({ users }: Props) {
                   </TableCell>
                   <TableCell>
                     <Link
-                      href={`/${locale}/admin/customer-details/${user.id}`}
+                      href={`/admin/customer-details/${user.id}`}
                       className="text-blue-600 hover:text-blue-800"
                     >
                       {t("table.viewDetails") || "View details"}

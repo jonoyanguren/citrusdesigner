@@ -1,5 +1,5 @@
 import { Request, RequestStatus } from "@prisma/client";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { EmptyState } from "@/components/EmptyState";
 import { useEffect, useState } from "react";
 import Button from "@/components/Button";
@@ -131,7 +131,7 @@ export function RequestsTab({ requests, isAdmin, isLoading }: Props) {
               </TableCell>
               <TableCell>
                 <Link
-                  href={`/${locale}/dashboard/requests/${request.id}`}
+                  href={`/dashboard/requests/${request.id}`}
                   className="text-blue-600 hover:text-blue-800 font-medium"
                 >
                   {t("detail.viewDetails")}

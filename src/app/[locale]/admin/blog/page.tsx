@@ -62,7 +62,7 @@ export default function AdminBlogPage() {
     }
   };
 
-  const getPostStatus = (publishedAt: string | null) => {
+  const getPostStatus = (publishedAt: Date | null) => {
     if (!publishedAt) return t("admin.status.draft");
     const publishDate = new Date(publishedAt);
     const now = new Date();
@@ -99,7 +99,7 @@ export default function AdminBlogPage() {
     <div className="container mx-auto py-8">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">{t("admin.title")}</h1>
-        <Button variant="primary" href={`/${locale}/admin/blog/new`}>
+        <Button variant="primary" href={`/admin/blog/new`}>
           {t("admin.createPost")}
         </Button>
       </div>
@@ -162,7 +162,7 @@ export default function AdminBlogPage() {
                   </Button>
                   <Button
                     variant="outline"
-                    href={`/${locale}/admin/blog/${post.slug}`}
+                    href={`/admin/blog/${post.slug}`}
                     className="min-w-[120px]"
                   >
                     {t("admin.edit")}
@@ -186,7 +186,7 @@ export default function AdminBlogPage() {
                       }}
                     >
                       <FaCalendarAlt className="w-4 h-4" />
-                      {getPostStatus(post.publishedAt?.toISOString() ?? null)}
+                      {getPostStatus(post.publishedAt)}
                     </Button>
                   </DropdownMenu.Trigger>
                   <DropdownMenu.Portal>

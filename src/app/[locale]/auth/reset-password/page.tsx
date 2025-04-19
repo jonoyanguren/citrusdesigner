@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { useTranslations } from "next-intl";
@@ -109,7 +109,7 @@ export default function ResetPasswordPage() {
           </Button>
 
           <p className="text-center text-sm">
-            <Link href={`/${locale}/auth/login`} className="hover:underline">
+            <Link href={`/auth/login`} className="hover:underline">
               {t("backToLogin")}
             </Link>
           </p>

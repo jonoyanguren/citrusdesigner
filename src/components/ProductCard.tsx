@@ -123,7 +123,7 @@ export default function ProductCard({
         </div>
       ) : (
         <div className="mt-auto flex flex-col gap-4">
-          <Button href={`/${locale}/waitlist`} className="text-center">
+          <Button href={`/waitlist`} className="text-center">
             {pricing("waitlistButton")}
           </Button>
         </div>

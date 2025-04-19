@@ -337,7 +337,7 @@ export function AdminRequests({ requests }: Props) {
                 </TableCell>
                 <TableCell>
                   <Link
-                    href={`/${locale}/dashboard/requests/${request.id}`}
+                    href={`/dashboard/requests/${request.id}`}
                     className="text-blue-600 hover:text-blue-800"
                   >
                     Ver detalle

@@ -90,7 +90,7 @@ export default function Faq() {
             <Button
               variant="outline"
               className="mt-6 text-center"
-              href={`/${locale}/contact`}
+              href={`/contact`}
             >
               {t("infoBox.cta")}
             </Button>

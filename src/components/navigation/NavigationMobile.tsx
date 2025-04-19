@@ -171,7 +171,7 @@ export default function NavigationMobile() {
                     <div className="flex flex-col gap-2 p-2">
                       <Button
                         variant="outline"
-                        href={`/${locale}/auth/login`}
+                        href={`/auth/login`}
                         className="text-center m-4"
                         onClick={() => setIsOpen(false)}
                       >

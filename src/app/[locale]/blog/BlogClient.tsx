@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
@@ -69,11 +69,7 @@ export function BlogClient({ translations }: Props) {
 
       <div className="grid gap-12">
         {posts.map((post) => (
-          <Link
-            key={post.id}
-            href={`/${locale}/blog/${post.slug}`}
-            className="group"
-          >
+          <Link key={post.id} href={`/blog/${post.slug}`} className="group">
             <div className="flex flex-col md:flex-row gap-6">
               <div className="md:w-2/3">
                 <h2 className="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">

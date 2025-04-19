@@ -1,6 +1,5 @@
 import { User } from "@prisma/client";
-import Link from "next/link";
-import { useParams } from "next/navigation";
+import { Link } from "@/i18n/navigation";
 import {
   Table,
   TableHeader,
@@ -17,14 +16,13 @@ interface Props {
 }
 
 export function UsersList({ users }: Props) {
-  const { locale } = useParams();
   const t = useTranslations("admin.usersList");
 
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h2 className="text-xl font-semibold">{t("title")}</h2>
-        <Link href={`/${locale}/admin/create-user`}>
+        <Link href={`/admin/create-user`}>
           <Button>{t("createUser") || "Create User"}</Button>
         </Link>
       </div>
@@ -46,7 +44,7 @@ export function UsersList({ users }: Props) {
               <TableCell>{user.role}</TableCell>
               <TableCell>
                 <Link
-                  href={`/${locale}/admin/customer-details/${user.id}`}
+                  href={`/admin/customer-details/${user.id}`}
                   className="text-blue-600 hover:text-blue-800"
                 >
                   {t("table.viewDetails")}

@@ -1,12 +1,10 @@
 "use client";
-import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { useParams } from "next/navigation";
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const { locale } = useParams();
 
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -88,13 +86,13 @@ export default function Footer() {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link
-                href={`/${locale}/privacy`}
+                href={`/privacy`}
                 className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 {t("legal.privacy")}
               </Link>
               <Link
-                href={`/${locale}/terms`}
+                href={`/terms`}
                 className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 {t("legal.terms")}

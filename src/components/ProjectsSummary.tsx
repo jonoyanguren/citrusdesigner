@@ -128,7 +128,7 @@ export default function ProjectsSummary() {
           {t("title")}
         </h2>
         <Button
-          href={`/${locale}/how-it-works#projects`}
+          href={`/how-it-works#projects`}
           variant="secondary"
           className="px-8"
         >
