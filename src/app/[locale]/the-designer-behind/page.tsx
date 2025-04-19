@@ -1,20 +1,23 @@
-"use client";
-import { AboutTheDesigner } from "@/components/AboutTheDesigner";
-import { OrangeMessage } from "@/components/OrangeMessage";
-import { Principles } from "@/components/Principles";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { TheDesignerBehindClient } from "./TheDesignerBehindClient";
 
-export default function TheDesignerBehind() {
-  const t = useTranslations("designerBehind");
+type Props = {
+  params: Promise<{ locale: string }>;
+};
 
-  return (
-    <section>
-      <AboutTheDesigner />
-      <OrangeMessage
-        message={t("orangeMessage")}
-        highlightIndexes={[15, 16, 17]}
-      />
-      <Principles />
-    </section>
-  );
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "es" }];
+}
+
+export default async function TheDesignerBehindPage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations({ locale, namespace: "designerBehind" });
+
+  const translations = {
+    orangeMessage: t("orangeMessage"),
+  };
+
+  return <TheDesignerBehindClient translations={translations} />;
 }
