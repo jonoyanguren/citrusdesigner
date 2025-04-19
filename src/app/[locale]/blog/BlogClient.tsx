@@ -6,6 +6,7 @@ import Image from "next/image";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { useParams } from "next/navigation";
+import LoadingBlog from "@/components/LoadingBlog";
 
 interface BlogPost {
   id: string;
@@ -57,7 +58,7 @@ export function BlogClient({ translations }: Props) {
   }, [locale]);
 
   if (loading) {
-    return <div className="container mx-auto py-8">Loading...</div>;
+    return <LoadingBlog />;
   }
 
   return (
