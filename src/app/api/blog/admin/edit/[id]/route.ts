@@ -1,10 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
 
 export async function PUT(
-  request: Request,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
 ) {
   try {
     const session = await verifyToken();
@@ -23,7 +23,7 @@ export async function PUT(
       publishedAt,
     } = await request.json();
 
-    const { id } = params;
+    const { id } = await context.params;
 
     // Check if new slug is already taken by another post
     const existingPost = await prisma.blogPost.findUnique({
