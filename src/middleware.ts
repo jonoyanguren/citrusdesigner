@@ -5,7 +5,11 @@ import type { NextRequest } from "next/server";
 import * as jose from "jose";
 
 // Create the internationalization middleware
-const intlMiddleware = createMiddleware(routing);
+const intlMiddleware = createMiddleware({
+  ...routing,
+  locales: ["es", "en"],
+  defaultLocale: "es",
+});
 
 // Wrap the intl middleware with our custom auth logic
 export async function middleware(request: NextRequest) {
@@ -20,13 +24,19 @@ export async function middleware(request: NextRequest) {
   const token = request.cookies.get("token")?.value;
 
   // Rutas protegidas
-  if (request.nextUrl.pathname.startsWith("/admin")) {
+  if (request.nextUrl.pathname.match(/^\/(es|en)\/admin/)) {
     if (!token) {
-      return NextResponse.redirect(new URL("/auth/login", request.url));
+      const locale = request.nextUrl.pathname.split("/")[1];
+      return NextResponse.redirect(
+        new URL(`/${locale}/auth/login`, request.url)
+      );
     }
 
     if (!process.env.JWT_SECRET) {
-      return NextResponse.redirect(new URL("/auth/login", request.url));
+      const locale = request.nextUrl.pathname.split("/")[1];
+      return NextResponse.redirect(
+        new URL(`/${locale}/auth/login`, request.url)
+      );
     }
 
     try {
@@ -34,13 +44,17 @@ export async function middleware(request: NextRequest) {
       const { payload } = await jose.jwtVerify(token, secret);
 
       if (payload.role !== "admin") {
-        return NextResponse.redirect(new URL("/", request.url));
+        const locale = request.nextUrl.pathname.split("/")[1];
+        return NextResponse.redirect(new URL(`/${locale}`, request.url));
       } else {
         return NextResponse.next();
       }
     } catch (err) {
       console.error("🚫 Token verification failed:", err);
-      return NextResponse.redirect(new URL("/auth/login", request.url));
+      const locale = request.nextUrl.pathname.split("/")[1];
+      return NextResponse.redirect(
+        new URL(`/${locale}/auth/login`, request.url)
+      );
     }
   }
 
@@ -48,11 +62,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    // Auth and admin routes
-    "/admin/:path*",
-    "/admin",
-    "/",
-    "/(es|en)/:path*",
-  ],
+  matcher: ["/((?!api|_next|.*\\..*|favicon.ico).*)"],
 };
