@@ -22,7 +22,7 @@ interface BlogPostFormProps {
     metaTitle: string;
     metaDesc: string;
     keywords: string;
-    publishedAt?: Date | null;
+    publishedAt?: string | null;
   };
   postId?: string;
 }
@@ -40,7 +40,7 @@ export default function BlogPostForm({
   const [metaTitle, setMetaTitle] = useState(initialData?.metaTitle || "");
   const [metaDesc, setMetaDesc] = useState(initialData?.metaDesc || "");
   const [keywords, setKeywords] = useState(initialData?.keywords || "");
-  const [publishedAt, setPublishedAt] = useState<Date | null>(
+  const [publishedAt, setPublishedAt] = useState<string | null>(
     initialData?.publishedAt || null
   );
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -53,8 +53,10 @@ export default function BlogPostForm({
   useEffect(() => {
     if (initialData?.content) {
       setInitialContent(initialData.content);
+      console.log("initialData.publishedAt", initialData.publishedAt);
+      setPublishedAt(initialData.publishedAt || null);
     }
-  }, [initialData?.content]);
+  }, [initialData?.content, initialData?.publishedAt]);
 
   const generateSlug = (text: string) => {
     return text
@@ -80,15 +82,14 @@ export default function BlogPostForm({
     const content = richTextRef.current.getValue();
 
     try {
-      const token = localStorage.getItem("token");
       const url = postId ? `/api/blog/admin/edit/${postId}` : "/api/blog/admin";
       const method = postId ? "PUT" : "POST";
+      console.log("publishedAt", publishedAt);
 
       const response = await fetch(url, {
         method,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           id: postId,
@@ -99,7 +100,7 @@ export default function BlogPostForm({
           metaTitle,
           metaDesc,
           keywords,
-          publishedAt,
+          publishedAt: publishedAt ? publishedAt : null,
         }),
       });
 
@@ -152,18 +153,6 @@ export default function BlogPostForm({
       <div className="space-y-2">
         <label>{t("content")}</label>
         <RichText ref={richTextRef} value={initialContent} />
-      </div>
-
-      <div className="space-y-2">
-        <label htmlFor="publishedAt">{t("publishDate")}</label>
-        <Input
-          id="publishedAt"
-          type="datetime-local"
-          value={publishedAt ? publishedAt.toISOString().slice(0, 16) : ""}
-          onChange={(e) =>
-            setPublishedAt(e.target.value ? new Date(e.target.value) : null)
-          }
-        />
       </div>
 
       <div className="space-y-2">

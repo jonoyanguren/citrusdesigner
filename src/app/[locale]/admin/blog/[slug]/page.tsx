@@ -15,6 +15,7 @@ interface BlogPost {
   keywords: string;
   published: boolean;
   createdAt: string;
+  publishedAt: string;
 }
 
 export default function EditBlogPostPage() {
@@ -33,6 +34,7 @@ export default function EditBlogPostPage() {
         }
 
         const data = await response.json();
+        console.log("data", data);
         setPost(data);
       } catch (error) {
         console.error("Error fetching post:", error);
@@ -66,6 +68,7 @@ export default function EditBlogPostPage() {
           metaTitle: post.metaTitle,
           metaDesc: post.metaDesc,
           keywords: post.keywords,
+          publishedAt: post.publishedAt,
         }}
         postId={post.id}
       />
