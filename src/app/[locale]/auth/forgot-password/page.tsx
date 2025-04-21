@@ -76,7 +76,7 @@ export default function ForgotPasswordPage() {
               priority
             />
           </div>
-          <h2 className="text-3xl font-bold">{t("title")}</h2>
+          <h1 className="text-3xl font-bold">{t("title")}</h1>
           <p className="mt-2 text-foreground/60">{t("description")}</p>
         </div>
 
