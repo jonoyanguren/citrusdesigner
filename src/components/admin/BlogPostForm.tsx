@@ -81,7 +81,7 @@ export default function BlogPostForm({
 
     try {
       const token = localStorage.getItem("token");
-      const url = postId ? `/api/blog/admin/${postId}` : "/api/blog";
+      const url = postId ? `/api/blog/admin/edit/${postId}` : "/api/blog/admin";
       const method = postId ? "PUT" : "POST";
 
       const response = await fetch(url, {

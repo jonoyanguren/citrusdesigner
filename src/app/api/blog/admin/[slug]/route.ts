@@ -31,34 +31,3 @@ export async function GET(
     );
   }
 }
-
-export async function PUT(
-  request: Request,
-  { params }: { params: Promise<{ slug: string }> }
-) {
-  try {
-    const session = await verifyToken();
-    if (!session || session.role !== "admin") {
-      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-    }
-
-    const { publishedAt } = await request.json();
-    const { slug } = await params;
-
-    console.log("publishedAt", publishedAt);
-    const post = await prisma.blogPost.update({
-      where: { slug },
-      data: { publishedAt },
-    });
-
-    console.log("post", post);
-
-    return NextResponse.json(post);
-  } catch (error) {
-    console.error("Error updating blog post:", error);
-    return NextResponse.json(
-      { error: "Internal server error" },
-      { status: 500 }
-    );
-  }
-}

@@ -26,12 +26,7 @@ export default function EditBlogPostPage() {
   React.useEffect(() => {
     const fetchPost = async () => {
       try {
-        const token = localStorage.getItem("token");
-        const response = await fetch(`/api/blog/admin/${params.slug}`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await fetch(`/api/blog/admin/${params.slug}`);
 
         if (!response.ok) {
           throw new Error("Post not found");

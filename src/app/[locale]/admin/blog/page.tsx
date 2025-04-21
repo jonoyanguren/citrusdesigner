@@ -33,10 +33,9 @@ export default function AdminBlogPage() {
   }, []);
 
   const handlePublish = async (post: BlogPost, date: Date | null) => {
-    console.log("handlePublish called with:", { post, date });
     try {
-      const response = await fetch(`/api/blog/admin/${post.slug}`, {
-        method: "PUT",
+      const response = await fetch(`/api/blog/admin/publish/${post.slug}`, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
