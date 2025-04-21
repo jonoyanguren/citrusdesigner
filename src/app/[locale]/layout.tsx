@@ -9,6 +9,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { LocaleType } from "@/types/locale";
 import "@/app/globals.css";
 import Script from "next/script";
+import AlternateLinks from "@/components/AlternateLinks";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -130,9 +131,6 @@ export default async function RootLayout({
     },
   };
 
-  const baseUrl = "https://citrusdesigner.com";
-  const supportedLocales = ["es", "en"];
-
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
@@ -141,14 +139,7 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {supportedLocales.map((lang) => (
-          <link
-            key={lang}
-            rel="alternate"
-            href={`${baseUrl}/${lang}`}
-            hrefLang={lang}
-          />
-        ))}
+        <AlternateLinks />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${patrickHand.variable} antialiased min-h-screen flex flex-col`}
