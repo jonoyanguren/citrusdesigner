@@ -77,6 +77,10 @@ export async function POST(req: Request) {
       return Response.json({ error: "userId is required" }, { status: 400 });
     }
 
+    const userPrompt = `Translate from Spanish to English:\n${JSON.stringify(
+      post
+    )}`;
+
     const completion = await openai.chat.completions.create({
       model: "gpt-4o",
       response_format: { type: "json_object" },
@@ -84,9 +88,7 @@ export async function POST(req: Request) {
         { role: "system", content: prompt },
         {
           role: "user",
-          content: `Translate from Spanish to English:\n${JSON.stringify(
-            post
-          )}`,
+          content: userPrompt,
         },
       ],
     });

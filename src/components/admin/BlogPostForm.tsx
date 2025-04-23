@@ -6,6 +6,7 @@ import Input from "@/components/Input";
 import Textarea from "@/components/Textarea";
 import { useTranslations } from "next-intl";
 import { useRouter, useParams } from "next/navigation";
+import { processContentWithImages } from "@/lib/utils/imageProcessing";
 
 interface RichTextHandle {
   getValue: () => string;
@@ -82,6 +83,7 @@ export default function BlogPostForm({
     const content = richTextRef.current.getValue();
 
     try {
+      const processedContent = await processContentWithImages(content);
       const url = postId ? `/api/blog/admin/edit/${postId}` : "/api/blog/admin";
       const method = postId ? "PUT" : "POST";
       console.log("publishedAt", publishedAt);
@@ -95,7 +97,7 @@ export default function BlogPostForm({
           id: postId,
           title,
           slug,
-          content,
+          content: processedContent,
           excerpt,
           metaTitle,
           metaDesc,
