@@ -1,8 +1,8 @@
-import createMiddleware from "next-intl/middleware";
-import { routing } from "./i18n/routing";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 import * as jose from "jose";
+import createMiddleware from "next-intl/middleware";
+import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server";
+import { routing } from "./i18n/routing";
 
 // ✔️ Utilidad segura para extraer el locale actual desde la URL
 function extractLocale(pathname: string): "es" | "en" {
@@ -20,6 +20,11 @@ const intlMiddleware = createMiddleware({
 // ✔️ Middleware principal
 export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // Permitir acceso a la raíz
+  if (pathname === "/") {
+    return NextResponse.next();
+  }
 
   // ✅ Redirecciones permanentes para evitar /es/es o /en/en
   if (pathname.startsWith("/es/es")) {
