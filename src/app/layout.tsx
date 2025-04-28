@@ -1,5 +1,6 @@
 import AlternateLinks from "@/components/AlternateLinks";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Patrick_Hand } from "next/font/google";
 import Script from "next/script";
@@ -131,6 +132,7 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <AuthProvider>{children}</AuthProvider>
+        <GoogleAnalytics gaId="G-7FG95T4SK2" />
       </body>
     </html>
   );
