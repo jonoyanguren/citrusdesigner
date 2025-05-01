@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
-import { RichText } from "@/components/RichText";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
+import { RichText } from "@/components/RichText";
 import Textarea from "@/components/Textarea";
-import { useTranslations } from "next-intl";
-import { useRouter, useParams } from "next/navigation";
 import { processContentWithImages } from "@/lib/utils/imageProcessing";
+import { useTranslations } from "next-intl";
+import { useParams, useRouter } from "next/navigation";
+import React, { useEffect, useRef, useState } from "react";
 
 interface RichTextHandle {
   getValue: () => string;
@@ -24,6 +24,7 @@ interface BlogPostFormProps {
     metaDesc: string;
     keywords: string;
     publishedAt?: string | null;
+    language: "ES" | "EN";
   };
   postId?: string;
 }
@@ -41,6 +42,9 @@ export default function BlogPostForm({
   const [metaTitle, setMetaTitle] = useState(initialData?.metaTitle || "");
   const [metaDesc, setMetaDesc] = useState(initialData?.metaDesc || "");
   const [keywords, setKeywords] = useState(initialData?.keywords || "");
+  const [language, setLanguage] = useState<"ES" | "EN">(
+    initialData?.language || "ES"
+  );
   const [publishedAt, setPublishedAt] = useState<string | null>(
     initialData?.publishedAt || null
   );
@@ -102,6 +106,7 @@ export default function BlogPostForm({
           metaTitle,
           metaDesc,
           keywords,
+          language,
           publishedAt: publishedAt ? publishedAt : null,
         }),
       });
@@ -185,6 +190,20 @@ export default function BlogPostForm({
           onChange={(e) => setKeywords(e.target.value)}
           required
         />
+      </div>
+
+      <div className="space-y-2">
+        <label htmlFor="language">{t("language")}</label>
+        <select
+          id="language"
+          value={language}
+          onChange={(e) => setLanguage(e.target.value as "ES" | "EN")}
+          className="w-full p-2 border rounded"
+          required
+        >
+          <option value="ES">Español</option>
+          <option value="EN">English</option>
+        </select>
       </div>
 
       <Button type="submit" disabled={isSubmitting}>

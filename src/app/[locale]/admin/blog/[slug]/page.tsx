@@ -1,8 +1,8 @@
 "use client";
-import React from "react";
+import BlogPostForm from "@/components/admin/BlogPostForm";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import BlogPostForm from "@/components/admin/BlogPostForm";
+import React from "react";
 
 interface BlogPost {
   id: string;
@@ -16,6 +16,7 @@ interface BlogPost {
   published: boolean;
   createdAt: string;
   publishedAt: string;
+  language: string;
 }
 
 export default function EditBlogPostPage() {
@@ -69,6 +70,7 @@ export default function EditBlogPostPage() {
           metaDesc: post.metaDesc,
           keywords: post.keywords,
           publishedAt: post.publishedAt,
+          language: post.language as "ES" | "EN",
         }}
         postId={post.id}
       />

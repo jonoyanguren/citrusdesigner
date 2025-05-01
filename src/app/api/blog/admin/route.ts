@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   try {
@@ -45,8 +45,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { title, slug, content, excerpt, metaTitle, metaDesc, keywords } =
-      await request.json();
+    const {
+      title,
+      slug,
+      content,
+      excerpt,
+      metaTitle,
+      metaDesc,
+      keywords,
+      language,
+    } = await request.json();
 
     if (
       !title ||
@@ -55,7 +63,8 @@ export async function POST(request: Request) {
       !excerpt ||
       !metaTitle ||
       !metaDesc ||
-      !keywords
+      !keywords ||
+      !language
     ) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -88,6 +97,7 @@ export async function POST(request: Request) {
         metaTitle,
         metaDesc,
         keywords,
+        language,
         userId: session.userId,
         publishedAt: null,
       },

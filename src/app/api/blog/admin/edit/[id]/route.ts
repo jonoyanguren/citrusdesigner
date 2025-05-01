@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { verifyToken } from "@/lib/users";
+import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
   request: NextRequest,
@@ -21,6 +21,7 @@ export async function PUT(
       metaDesc,
       keywords,
       publishedAt,
+      language,
     } = await request.json();
 
     const { id } = await context.params;
@@ -48,6 +49,7 @@ export async function PUT(
         metaDesc,
         keywords,
         publishedAt,
+        language,
       },
     });
 
