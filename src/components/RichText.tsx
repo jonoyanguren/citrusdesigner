@@ -1,22 +1,24 @@
 "use client";
 
-import { useEditor, EditorContent } from "@tiptap/react";
 import Image from "@tiptap/extension-image";
+import Link from "@tiptap/extension-link";
+import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import { Plugin } from "prosemirror-state";
+import React, { forwardRef, useImperativeHandle, useState } from "react";
 import {
   BiBold,
-  BiItalic,
-  BiListUl,
-  BiListOl,
-  BiSolidQuoteAltLeft,
-  BiExpand,
   BiCollapse,
+  BiExpand,
+  BiItalic,
+  BiLink,
+  BiListOl,
+  BiListUl,
   BiPaperclip,
+  BiSolidQuoteAltLeft,
 } from "react-icons/bi";
 import { TbH1, TbH2 } from "react-icons/tb";
 import "./RichText.css";
-import React, { forwardRef, useState, useImperativeHandle } from "react";
 
 const CustomImage = Image.extend({
   addProseMirrorPlugins() {
@@ -123,11 +125,19 @@ export interface RichTextHandle {
 export const RichText = forwardRef<RichTextHandle, RichTextProps>(
   ({ initialContent = "", onChange, value }, ref) => {
     const [bigArea, setBigArea] = useState(false);
+    const [showLinkModal, setShowLinkModal] = useState(false);
+    const [linkUrl, setLinkUrl] = useState("");
     const fileInputRef = React.useRef<HTMLInputElement>(null);
 
     const editor = useEditor({
       extensions: [
         StarterKit,
+        Link.configure({
+          openOnClick: false,
+          HTMLAttributes: {
+            class: "text-blue-600 hover:text-blue-800 underline",
+          },
+        }),
         CustomImage.configure({
           inline: true,
           allowBase64: true,
@@ -185,6 +195,41 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
     const handleButtonMouseDown = (e: React.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
+    };
+
+    const handleLinkSubmit = () => {
+      if (linkUrl && editor) {
+        if (editor.isActive("link")) {
+          editor
+            .chain()
+            .focus()
+            .extendMarkRange("link")
+            .setLink({ href: linkUrl })
+            .run();
+        } else {
+          const selectedText = editor.state.doc.textBetween(
+            editor.state.selection.from,
+            editor.state.selection.to
+          );
+          if (selectedText) {
+            editor.chain().focus().setLink({ href: linkUrl }).run();
+          } else {
+            editor
+              .chain()
+              .focus()
+              .insertContent(`<a href="${linkUrl}">${linkUrl}</a>`)
+              .run();
+          }
+        }
+        setLinkUrl("");
+        setShowLinkModal(false);
+      }
+    };
+
+    const removeLink = () => {
+      if (editor) {
+        editor.chain().focus().extendMarkRange("link").unsetLink().run();
+      }
     };
 
     return (
@@ -284,6 +329,18 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
 
           <button
             onMouseDown={handleButtonMouseDown}
+            onClick={() => setShowLinkModal(true)}
+            className={`p-2 rounded hover:bg-gray-200 transition-colors ${
+              editor.isActive("link") ? "bg-gray-200" : ""
+            }`}
+            title="Insertar enlace"
+            type="button"
+          >
+            <BiLink size={20} />
+          </button>
+
+          <button
+            onMouseDown={handleButtonMouseDown}
             onClick={() => fileInputRef.current?.click()}
             className="p-2 rounded hover:bg-gray-200 transition-colors"
             title="Subir imagen"
@@ -312,6 +369,61 @@ export const RichText = forwardRef<RichTextHandle, RichTextProps>(
         </div>
 
         <EditorContent editor={editor} className="flex-1 overflow-y-auto p-4" />
+
+        {/* Link Modal */}
+        {showLinkModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg p-6 w-96">
+              <h3 className="text-lg font-semibold mb-4">Insertar enlace</h3>
+              <input
+                type="url"
+                value={linkUrl}
+                onChange={(e) => setLinkUrl(e.target.value)}
+                placeholder="https://ejemplo.com"
+                className="w-full p-2 border border-gray-300 rounded mb-4"
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleLinkSubmit();
+                  }
+                  if (e.key === "Escape") {
+                    setShowLinkModal(false);
+                    setLinkUrl("");
+                  }
+                }}
+                autoFocus
+              />
+              <div className="flex gap-2">
+                <button
+                  onClick={handleLinkSubmit}
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                >
+                  Insertar
+                </button>
+                <button
+                  onClick={() => {
+                    setShowLinkModal(false);
+                    setLinkUrl("");
+                  }}
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400"
+                >
+                  Cancelar
+                </button>
+                {editor?.isActive("link") && (
+                  <button
+                    onClick={() => {
+                      removeLink();
+                      setShowLinkModal(false);
+                      setLinkUrl("");
+                    }}
+                    className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+                  >
+                    Eliminar
+                  </button>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

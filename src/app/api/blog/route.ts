@@ -1,6 +1,6 @@
-import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { Language } from "@prisma/client";
+import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
   try {
@@ -10,8 +10,12 @@ export async function GET(request: Request) {
     const posts = await prisma.blogPost.findMany({
       where: {
         language: (locale?.toUpperCase() as Language) || Language.ES,
+        publishedAt: {
+          not: null,
+          lte: new Date(),
+        },
       },
-      orderBy: { createdAt: "desc" },
+      orderBy: { publishedAt: "desc" },
       include: {
         user: {
           select: {
