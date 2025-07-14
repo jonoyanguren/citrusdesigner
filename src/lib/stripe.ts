@@ -1,5 +1,5 @@
-import Stripe from "stripe";
 import { PrismaClient } from "@prisma/client";
+import Stripe from "stripe";
 
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const prisma = new PrismaClient();
@@ -74,6 +74,7 @@ export async function createCheckoutSession(
       ],
       success_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_URL}/${locale}/pricing`,
+      allow_promotion_codes: true,
       metadata: {
         locale: locale,
       },
