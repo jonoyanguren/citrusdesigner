@@ -14,7 +14,7 @@
         "designEquivalence": "Equivalences"
     },
     "designerBehind": {
-        "orangeMessage": "Each project is a unique adventure that challenges me to find the best way to simplify complexity and transform ideas into tangible realities."
+        "orangeMessage": "Each project is a unique adventure that challenges us to find the best way to simplify complexity and transform ideas into tangible realities."
     },
     "common": {
         "platform": "The perfect platform to bring your designs to life",
@@ -60,26 +60,6 @@
                 "viewDetails": "View details"
             }
         },
-        "createUser": {
-            "title": "Create New User",
-            "nameLabel": "Name",
-            "namePlaceholder": "Enter user name",
-            "emailLabel": "Email",
-            "emailPlaceholder": "Enter user email",
-            "localeLabel": "Email Language",
-            "localeHelp": "The language for the user's emails",
-            "createAdmin": "Create as admin",
-            "passwordLabel": "Admin Password",
-            "passwordPlaceholder": "Enter admin password",
-            "createSubscription": "Create manual subscription",
-            "subscriptionPriceLabel": "Subscription Price (€)",
-            "subscriptionPricePlaceholder": "Enter price (e.g. 49.99)",
-            "buttons": {
-                "cancel": "Cancel",
-                "create": "Create User",
-                "creating": "Creating..."
-            }
-        },
         "configuration": {
             "title": "System Configuration",
             "addNew": {
@@ -102,6 +82,26 @@
             "loading": "Loading...",
             "error": "Error: {error}",
             "deleteConfirm": "Are you sure you want to delete this configuration?"
+        },
+        "createUser": {
+            "title": "Create New User",
+            "nameLabel": "Name",
+            "namePlaceholder": "Enter user name",
+            "emailLabel": "Email",
+            "emailPlaceholder": "Enter user email",
+            "localeLabel": "Email Language",
+            "localeHelp": "The language for the user's emails",
+            "createAdmin": "Create as admin",
+            "passwordLabel": "Admin Password",
+            "passwordPlaceholder": "Enter admin password",
+            "createSubscription": "Create manual subscription",
+            "subscriptionPriceLabel": "Subscription Price (€)",
+            "subscriptionPricePlaceholder": "Enter price (e.g. 49.99)",
+            "buttons": {
+                "cancel": "Cancel",
+                "create": "Create User",
+                "creating": "Creating..."
+            }
         },
         "manualSubscriptions": {
             "title": "Manual Subscriptions",
@@ -139,32 +139,32 @@
     },
     "home": {
         "hero": {
-            "titleBegin": "Your trusted designer, on a",
+            "titleBegin": "Your trusted design team, in",
             "titleMiddle": "subscription",
             "cta": "Subscribe today",
-            "ctaSecondary": "Contact me",
-            "description": "Subscribe for the months you need and forget about hiring full-time or looking for a freelancer each time."
+            "ctaSecondary": "Contact us",
+            "description": "We are a strategic design firm: we unite research, UX/UI, and business to deliver solutions with strategic speed and high impact."
         },
         "customers": {
-            "title": "Companies that trust me"
+            "title": "Companies that trust us"
         },
         "pricing": {
             "title": "Pricing",
-            "description": "Choose the plan that best fits you. No contracts, no stress... you can pause or cancel at any time.",
-            "waitlistMessage": "I'm on the waitlist. I will notify you when the subscription launches."
+            "description": "Strategic design firm by subscription. Choose the plan that fits you best. No contracts, no stress—you can cancel anytime.",
+            "waitlistMessage": "I'm on the waitlist. We will notify you when the subscription launches."
         },
         "howItWorks": {
             "title": "How It Works",
-            "description": "Discover how my service works"
+            "description": "We are a strategic design firm. We bring method, product thinking, and speed so every delivery moves the business—not just the interface. The process is simple and straightforward. Skip meetings and make the most of your time."
         },
         "benefits": {
             "title": "Benefits",
-            "subtitle": "My benefits",
-            "description": "Discover the benefits of my service"
+            "subtitle": "Our benefits",
+            "description": "Discover the benefits of our service"
         },
         "aboutTheDesigner": {
             "title": "Who is behind it?",
-            "description": "This is Andrea, the designer behind Citrus Design. With over 8 years of experience, she transforms ideas into unique and memorable experiences.",
+            "description": "Citrus Designer is a strategic design firm led by Andrea. With 8+ years of experience, I turn ideas into unique and memorable experiences.",
             "principles": {
                 "title": "My design principles",
                 "items": [
@@ -218,13 +218,13 @@
                     "logo": "/logos/logo1.png"
                 },
                 {
-                    "text": "From the start we trusted Andrea and the result has been exceptional, receiving great reviews especially regarding the client experience throughout the platform.",
+                    "text": "From the start we trusted Citrus Designer and the result has been exceptional, receiving great reviews especially regarding the client experience throughout the platform.",
                     "author": "Jagoba Ormaetxea",
                     "position": "CEO, Gureik",
                     "logo": "/logos/logo2.png"
                 },
                 {
-                    "text": "Besides being quick and efficient, Andrea quickly understands the few inputs given and from there her creativity emerges to achieve an optimal solution.",
+                    "text": "Besides being quick and efficient, Citrus Designer quickly understands the few inputs given and from there their creativity emerges to achieve an optimal solution.",
                     "author": "Nacho Kleinman",
                     "position": "CEO and Co-founder, Culpass",
                     "logo": "/logos/logo3.png"
@@ -241,7 +241,7 @@
             "title": "My way of working",
             "description": "A technological process with",
             "descriptionThin": "a personal touch",
-            "secondaryText": "From subscription to final delivery, the process is designed to maximize efficiency. Technology handles the operational part, while I focus on creativity and personalized attention for each project.",
+            "secondaryText": "From subscription to final delivery, the process is designed to maximize efficiency. Technology handles the operational part, while we focus on creativity and personalized attention for each project.",
             "infiniteDesigns": "Unlimited requests",
             "steps": [
                 {
@@ -258,7 +258,7 @@
                 }
             ]
         },
-        "limeMessage": "I use an innovative model where quality and speed are my priorities. I am the creative mind behind every project; I do not hire external designers.",
+        "limeMessage": "We use an innovative model where quality and speed are our priorities. We are the creative team behind every project, working with specialized internal designers.",
         "benefits": {
             "title": "All benefits mixed together",
             "benefits": [
@@ -268,7 +268,7 @@
                 },
                 {
                     "title": "Fast Delivery",
-                    "description": "I will deliver your designs within 24/48 hours"
+                    "description": "We deliver your designs within 24/48 hours"
                 },
                 {
                     "title": "High-quality designs",
@@ -303,7 +303,7 @@
                 },
                 {
                     "title": "Try it for a week",
-                    "description": "If you're not satisfied in the first week, I'll refund your money.",
+                    "description": "If you're not satisfied in the first week, we will refund your money.",
                     "icon": "lightning"
                 },
                 {
@@ -377,27 +377,27 @@
         }
     },
     "contact": {
-        "title": "How can I help you?",
-        "description": "Choose how you prefer to contact me and I will answer any questions you may have, or if you prefer, book a 20-minute introductory call.",
+        "title": "How can we help you?",
+        "description": "Choose how you prefer to contact us and we will answer any questions you may have, or if you prefer, book a 20-minute introductory call.",
         "email": {
-            "title": "Send me an email",
-            "description": "Do you have questions or need more information? Write to me and I will respond as soon as possible.",
+            "title": "Send us an email",
+            "description": "Do you have questions or need more information? Write to us and we will respond as soon as possible.",
             "button": "Send email"
         },
         "chat": {
-            "title": "Chat with me",
-            "description": "Prefer something faster? Connect with me in the chat and we'll resolve your doubts immediately.",
+            "title": "Chat with us",
+            "description": "Prefer something faster? Connect with us in the chat and we'll resolve your doubts immediately.",
             "button": "Chat now"
         },
         "meeting": {
             "title": "Book a 1:1",
-            "description": "Let's talk about your project. Schedule a personalized session and find the best design solution.",
+            "description": "Schedule a personalized session and we will discuss the best solution for your project.",
             "button": "Schedule meeting"
         }
     },
     "waitlist": {
-        "title": "Join my waitlist",
-        "description": "I want to provide the best service to everyone, so I don't take too many subscriptions at once. Join my waitlist and I will notify you when a spot becomes available on my platform 🎉",
+        "title": "Join our waitlist",
+        "description": "We want to provide the best service to everyone, so we don't take too many subscriptions at once. Join our waitlist and we will notify you when a spot becomes available on our platform 🎉",
         "emailPlaceholder": "Your email",
         "joinWaitlist": "Join the waitlist",
         "successTitle": "You're already on the waitlist!",
@@ -420,7 +420,7 @@
     "footer": {
         "company": {
             "title": "Citrus Designer",
-            "description": "I transform your ideas into exceptional designs. Simple and effective design subscription service."
+            "description": "Strategic design firm by subscription. We turn your ideas into exceptional designs that move your business."
         },
         "social": {
             "medium": "Medium",
@@ -461,7 +461,7 @@
     },
     "projects": {
         "title": "Some of my favorite projects",
-        "description": "From startups to large companies, discover some projects I have collaborated on to transform high-impact visual experiences.",
+        "description": "From startups to large companies, discover some projects we have collaborated on to transform high-impact visual experiences.",
         "items": [
             {
                 "id": "1",
@@ -580,7 +580,8 @@
                 },
                 "namePlaceholder": "Request Name",
                 "requestLabel": "Request Description",
-                "deliverableTypeLabel": "Delivery Method"
+                "deliverableTypeLabel": "Delivery Method",
+                "deliverableTypeHelp": "This method will be saved for future requests when you change it. You can also change it in your profile"
             },
             "detail": {
                 "title": "Request Details",
@@ -883,8 +884,8 @@
     },
     "designEquivalence": {
         "title": "Equivalences",
-        "description": "At Citrus Designer, I always strive to deliver our designs within 24-48 hours. However, some requests might take longer due to the complexity involved. With this in mind, I've prepared this list of projects with their approximate estimates. Keep in mind that these numbers may vary depending on the project complexity, the level of detail required, and the review process.",
-        "callToAction": "Need something that's not on this list? Contact me and I'll give you more details!",
+        "description": "As a strategic design firm, we prioritize impact and clarity. At Citrus Designer, we always aim to deliver our designs within 24–48 hours. However, some requests may take longer due to their complexity. With this in mind, we've prepared this list of project types with approximate estimates. Keep in mind these numbers can vary depending on project complexity, the level of detail required, and the review process.",
+        "callToAction": "Need something that's not on this list? Contact us and we'll give you more details!",
         "contactButton": "Contact",
         "categories": [
             {

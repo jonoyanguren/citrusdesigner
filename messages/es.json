@@ -139,32 +139,32 @@
     },
     "home": {
         "hero": {
-            "titleBegin": "Tu diseñadora de confianza, en formato",
+            "titleBegin": "Tu equipo de diseño, en formato",
             "titleMiddle": "suscripción",
             "cta": "Suscríbete hoy mismo",
-            "ctaSecondary": "Contacta conmigo",
-            "description": "Suscríbete los meses que lo necesites y olvídate de contratar full time o buscar un freelance cada vez."
+            "ctaSecondary": "Contacta con nosotros",
+            "description": "Somos una firma de diseño estratégico: unimos investigación, UX/UI y negocio para entregar soluciones con velocidad estratégica y alto impacto."
         },
         "customers": {
-            "title": "Empresas que confían en mí"
+            "title": "Empresas que confían en nosotros"
         },
         "pricing": {
             "title": "Precios",
             "description": "Elige el plan que mejor se adapte a ti. Sin contratos, sin estrés... puedes pausarlo o cancélalo en cualquier momento.",
-            "waitlistMessage": "Estoy en la lista de espera. Te notificaré cuando se lance la suscripción."
+            "waitlistMessage": "Estoy en la lista de espera. Te notificaremos cuando se lance la suscripción."
         },
         "howItWorks": {
-            "title": "Así es como funciono",
-            "description": "Descubre cómo funciona mi servicio"
+            "title": "Así es como funcionamos",
+            "description": "Somos una firma de diseño estratégico. Unimos método, producto y velocidad para que cada entrega mueva el negocio, no solo la interfaz. El proceso es simple y fácil. Evita reuniones y exprime tu tiempo."
         },
         "benefits": {
             "title": "Beneficios",
-            "subtitle": "Mis beneficios",
-            "description": "Descubre los beneficios de mi servicio"
+            "subtitle": "Nuestros beneficios",
+            "description": "Descubre los beneficios de nuestro servicio"
         },
         "aboutTheDesigner": {
             "title": "¿Quién está detrás?",
-            "description": "Soy Andrea, la diseñadora detrás de Citrus. Con más de 8 años de experiencia, transformo ideas en experiencias únicas y memorables.",
+            "description": "Soy Andrea, la diseñadora detrás de Citrus Designer. Con más de 8 años de experiencia, transformo ideas en experiencias únicas y memorables.",
             "principles": {
                 "title": "Mis principios de diseño",
                 "items": [
@@ -196,7 +196,7 @@
                     "description": "Reconocida por mi impacto e innovación en el mundo digital."
                 },
                 {
-                    "title": "Lider de Friends of Figma",
+                    "title": "Líder de Friends of Figma",
                     "description": "Impulso la comunidad de Figma para revolucionar el diseño colaborativo."
                 },
                 {
@@ -205,7 +205,7 @@
                 }
             ]
         },
-        "orangeMessage": "¡Exprime tu tiempo! Con una suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos.",
+        "orangeMessage": "¡Exprime tu tiempo! Con una suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añadimos un toque refrescante a tus proyectos.",
         "testimonials": {
             "title": "Testimonios",
             "subtitle": "Lo que dicen de Citrus Designer",
@@ -218,13 +218,13 @@
                     "logo": "/logos/logo1.png"
                 },
                 {
-                    "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
+                    "text": "Desde el inicio confiamos en Citrus Designer y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
                     "author": "Jagoba Ormaetxea",
                     "position": "CEO, Gureik",
                     "logo": "/logos/logo2.png"
                 },
                 {
-                    "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
+                    "text": "Además de ser rápidos y eficientes, Citrus Designer entiende rápidamente los pocos inputs que se les ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
                     "author": "Nacho Kleinman",
                     "position": "CEO y Co-fundador, Culpass",
                     "logo": "/logos/logo3.png"
@@ -238,10 +238,10 @@
         "before": "Antes",
         "after": "Después",
         "steps": {
-            "title": "Mi forma de trabajar",
+            "title": "Nuestra forma de trabajar",
             "description": "Un proceso tecnológico con",
             "descriptionThin": "toque personal",
-            "secondaryText": "Desde la suscripción hasta la entrega final, el proceso ha sido diseñado para maximizar la eficiencia. La tecnología se encarga de lo operativo, mientras que yo me concentro en aportar creatividad y atención personalizada a cada proyecto.",
+            "secondaryText": "Desde la suscripción hasta la entrega final, el proceso ha sido diseñado para maximizar la eficiencia. La tecnología se encarga de lo operativo, mientras que nuestro equipo se concentra en aportar creatividad y atención personalizada a cada proyecto.",
             "infiniteDesigns": "Peticiones ilimitadas",
             "steps": [
                 {
@@ -258,7 +258,7 @@
                 }
             ]
         },
-        "limeMessage": "Utilizo un modelo innovador donde la calidad y la rapidez son mi prioridad. Soy la mente creativa detrás de cada proyecto, no contrato a diseñadores externos.",
+        "limeMessage": "Utilizamos un modelo innovador donde la calidad y la rapidez son nuestra prioridad. Somos el equipo creativo detrás de cada proyecto, trabajamos con diseñadores internos especializados.",
         "benefits": {
             "title": "Todos los beneficios en la coctelera",
             "benefits": [
@@ -268,7 +268,7 @@
                 },
                 {
                     "title": "Fast Delivery",
-                    "description": "Entregaré tus diseños en un plazo de 24/48 horas"
+                    "description": "Entregamos tus diseños en un plazo de 24/48 horas"
                 },
                 {
                     "title": "Diseños de calidad",
@@ -286,7 +286,7 @@
             "descriptionThin": "ideas en diseños",
             "secondaryText": "Explora ejemplos ficticios que demuestran el impacto de nuestro proceso con resultados de alta calidad en cuestión de tiempo."
         },
-        "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añades un toque refrescante a tus proyectos."
+        "orangeMessage": "¡Exprime tu tiempo! Con nuestra suscripción ilimitada, olvídate de presupuestos y complicaciones mientras añadimos un toque refrescante a tus proyectos."
     },
     "pricing": {
         "title": "Precios",
@@ -303,7 +303,7 @@
                 },
                 {
                     "title": "Pruébalo una semana",
-                    "description": "Si no estás satisfecho en la primera semana, te devolveré el dinero.",
+                    "description": "Si no estás satisfecho en la primera semana, te devolveremos el dinero.",
                     "icon": "lightning"
                 },
                 {
@@ -377,16 +377,16 @@
         }
     },
     "contact": {
-        "title": "¿Cómo puedo ayudarte?",
-        "description": "Elige cómo prefieres ponerte en contacto conmigo y responderé a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
+        "title": "¿Cómo podemos ayudarte?",
+        "description": "Elige cómo prefieres ponerte en contacto con nosotros y responderemos a cualquier pregunta que puedas tener, o si lo prefieres reserva una llamada introductoria de 20 minutos.",
         "email": {
-            "title": "Mándame un email",
-            "description": "¿Tienes dudas o necesitas más información? Escríbeme y te responderé lo antes posible.",
+            "title": "Mándanos un email",
+            "description": "¿Tienes dudas o necesitas más información? Escríbenos y te responderemos lo antes posible.",
             "button": "Enviar email"
         },
         "chat": {
-            "title": "Chatea conmigo",
-            "description": "Habla conmigo a través de Whatsapp y resolveré tus dudas al momento.",
+            "title": "Chatea con nosotros",
+            "description": "Habla con nosotros a través de Whatsapp y resolveremos tus dudas al momento.",
             "button": "Chatea ahora"
         },
         "meeting": {
@@ -396,8 +396,8 @@
         }
     },
     "waitlist": {
-        "title": "Únete a mi lista de espera",
-        "description": "Quiero dar el mejor servicio a todo el mundo, por lo que no cojo muchas suscripciones a la vez. Únete a mi lista de espera y te notificaré cuando se quede un sitio libre en mi plataforma 🎉",
+        "title": "Únete a nuestra lista de espera",
+        "description": "Queremos dar el mejor servicio a todo el mundo, por lo que no aceptamos muchas suscripciones a la vez. Únete a nuestra lista de espera y te notificaremos cuando se quede un sitio libre en nuestra plataforma 🎉",
         "emailPlaceholder": "Tu email",
         "joinWaitlist": "Unirme a la lista de espera",
         "successTitle": "¡Ya estás en la lista de espera!",
@@ -420,7 +420,7 @@
     "footer": {
         "company": {
             "title": "Citrus Designer",
-            "description": "Transformo tus ideas en diseños excepcionales. Servicio de diseño por suscripción simple y efectivo."
+            "description": "Firma de diseño estratégico por suscripción. Transformamos tus ideas en diseños excepcionales que mueven tu negocio."
         },
         "social": {
             "medium": "Medium",
@@ -692,13 +692,13 @@
                 "logo": "/logos/logo1.png"
             },
             {
-                "text": "Desde el inicio confiamos en Andrea y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
+                "text": "Desde el inicio confiamos en Citrus Designer y el resultado ha sido excepcional habiendo logrado unas buenas críticas haciendo referencia, sobre todo, a la experiencia que el cliente logra en toda la plataforma.",
                 "author": "Jagoba Ormaetxea",
                 "position": "CEO, Gureik",
                 "logo": "/logos/logo2.png"
             },
             {
-                "text": "Además de ser rápida y eficiente, Andrea entiende rápidamente los pocos inputs que se le ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
+                "text": "Además de ser rápidos y eficientes, Citrus Designer entiende rápidamente los pocos inputs que se les ofrecen y a partir de ahí su creatividad nace para llegar a una solución óptima. ",
                 "author": "Nacho Kleinman",
                 "position": "CEO y Co-fundador, Culpass",
                 "logo": "/logos/logo3.png"
@@ -884,8 +884,8 @@
     },
     "designEquivalence": {
         "title": "Equivalencias",
-        "description": "En Citrus Designer, siempre trato de lograr la entrega de nuestros diseños en 24-48 horas. Sin embargo, algunas solicitudes, podrían toman más tiempo debido a la complejidad involucrada. Con esto en mente, he preparado esta lista de proyectos con sus estimaciones aproximadas. Ten cuenta que estos números pueden variar según la complejidad del proyecto, el nivel de detalle requerido y el proceso de revisión.",
-        "callToAction": "¿Necesitas algo que no esté en esta lista? ¡Contacta conmigo y te daré más detalles!",
+        "description": "Como firma de diseño estratégico, priorizamos impacto y claridad. En Citrus Designer, siempre tratamos de lograr la entrega de nuestros diseños en 24-48 horas. Sin embargo, algunas solicitudes podrían tomar más tiempo debido a la complejidad involucrada. Con esto en mente, hemos preparado esta lista de proyectos con sus estimaciones aproximadas. Ten en cuenta que estos números pueden variar según la complejidad del proyecto, el nivel de detalle requerido y el proceso de revisión.",
+        "callToAction": "¿Necesitas algo que no esté en esta lista? ¡Contacta con nosotros y te daremos más detalles!",
         "contactButton": "Contactar",
         "categories": [
             {
