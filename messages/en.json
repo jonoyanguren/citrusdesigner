@@ -455,9 +455,26 @@
         },
         "legal": {
             "privacy": "Privacy Policy",
-            "terms": "Terms and Conditions"
+            "terms": "Terms and Conditions",
+            "cookies": "Cookie Policy"
         },
         "copyright": "All rights reserved"
+    },
+    "privacy": {
+        "title": "Privacy Policy"
+    },
+    "terms": {
+        "title": "Terms and Conditions"
+    },
+    "cookies": {
+        "title": "Cookie Policy",
+        "banner": {
+            "title": "🍋 We use cookies",
+            "message": "We use our own and third-party cookies to analyze traffic and improve your experience. We also use Facebook marketing cookies to show you relevant ads.",
+            "moreInfo": "More information",
+            "accept": "Accept all",
+            "decline": "Decline"
+        }
     },
     "projects": {
         "title": "Some of my favorite projects",

@@ -10,6 +10,7 @@ import { LocaleType } from "@/types/locale";
 import "@/app/globals.css";
 import Script from "next/script";
 import AlternateLinks from "@/components/AlternateLinks";
+import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -151,6 +152,7 @@ export default async function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
           </AuthProvider>
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

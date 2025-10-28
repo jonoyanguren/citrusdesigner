@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import CookieConsent from 'react-cookie-consent';
 
 export default function CookieBanner() {
   const [isMounted, setIsMounted] = useState(false);
+  const t = useTranslations('cookies.banner');
 
   useEffect(() => {
     setIsMounted(true);
@@ -31,8 +33,8 @@ export default function CookieBanner() {
   return (
     <CookieConsent
       location="bottom"
-      buttonText="Aceptar todas"
-      declineButtonText="Rechazar"
+      buttonText={t('accept')}
+      declineButtonText={t('decline')}
       enableDeclineButton
       onAccept={handleAccept}
       onDecline={handleDecline}
@@ -65,19 +67,18 @@ export default function CookieBanner() {
     >
       <div className="flex flex-col gap-2">
         <span className="font-semibold text-white text-lg">
-          🍋 Usamos cookies
+          {t('title')}
         </span>
         <span className="text-gray-300 text-sm">
-          Utilizamos cookies propias y de terceros para analizar el tráfico y mejorar tu experiencia.
-          También usamos cookies de marketing de Facebook para mostrarte anuncios relevantes.
+          {t('message')}
           {' '}
           <a
-            href="/politica-de-cookies"
+            href="/cookie-policy"
             className="underline hover:text-lime-400 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Más información
+            {t('moreInfo')}
           </a>
         </span>
       </div>

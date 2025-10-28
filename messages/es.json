@@ -455,9 +455,26 @@
         },
         "legal": {
             "privacy": "Política de privacidad",
-            "terms": "Términos y condiciones"
+            "terms": "Términos y condiciones",
+            "cookies": "Política de cookies"
         },
         "copyright": "Todos los derechos reservados"
+    },
+    "privacy": {
+        "title": "Política de Privacidad"
+    },
+    "terms": {
+        "title": "Términos y Condiciones"
+    },
+    "cookies": {
+        "title": "Política de Cookies",
+        "banner": {
+            "title": "🍋 Usamos cookies",
+            "message": "Utilizamos cookies propias y de terceros para analizar el tráfico y mejorar tu experiencia. También usamos cookies de marketing de Facebook para mostrarte anuncios relevantes.",
+            "moreInfo": "Más información",
+            "accept": "Aceptar todas",
+            "decline": "Rechazar"
+        }
     },
     "projects": {
         "title": "Algunos de mis proyectos favoritos",

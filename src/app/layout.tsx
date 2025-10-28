@@ -4,7 +4,6 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Patrick_Hand } from "next/font/google";
 import Script from "next/script";
-import CookieBanner from "@/components/CookieBanner";
 import FacebookPixel from "@/components/FacebookPixel";
 import "./globals.css";
 
@@ -138,7 +137,6 @@ export default async function RootLayout({
         {process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID && (
           <FacebookPixel pixelId={process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID} />
         )}
-        <CookieBanner />
       </body>
     </html>
   );
