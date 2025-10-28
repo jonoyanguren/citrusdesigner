@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Script from 'next/script';
-import { useEffect, useState } from 'react';
+import Script from "next/script";
+import { useEffect, useState } from "react";
 
 interface FacebookPixelProps {
   pixelId: string;
@@ -12,17 +12,18 @@ export default function FacebookPixel({ pixelId }: FacebookPixelProps) {
 
   useEffect(() => {
     // Verificar si el usuario ha dado su consentimiento
-    const consent = localStorage.getItem('cookie-consent');
-    setHasConsent(consent === 'true');
+    const consent = localStorage.getItem("cookie-consent");
+    setHasConsent(consent === "true");
 
     // Escuchar eventos de cambio de consentimiento
     const handleConsentChange = () => {
-      const consent = localStorage.getItem('cookie-consent');
-      setHasConsent(consent === 'true');
+      const consent = localStorage.getItem("cookie-consent");
+      setHasConsent(consent === "true");
     };
 
-    window.addEventListener('cookie-consent-change', handleConsentChange);
-    return () => window.removeEventListener('cookie-consent-change', handleConsentChange);
+    window.addEventListener("cookie-consent-change", handleConsentChange);
+    return () =>
+      window.removeEventListener("cookie-consent-change", handleConsentChange);
   }, []);
 
   if (!hasConsent) {
@@ -50,10 +51,11 @@ export default function FacebookPixel({ pixelId }: FacebookPixelProps) {
         }}
       />
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           height="1"
           width="1"
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
           src={`https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`}
           alt=""
         />
@@ -62,17 +64,31 @@ export default function FacebookPixel({ pixelId }: FacebookPixelProps) {
   );
 }
 
+// Tipos para Facebook Pixel
+declare global {
+  interface Window {
+    fbq?: (
+      type: string,
+      eventName: string,
+      data?: Record<string, unknown>
+    ) => void;
+  }
+}
+
 // Hook para rastrear eventos personalizados
 export function useFacebookPixel() {
-  const trackEvent = (eventName: string, data?: Record<string, any>) => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', eventName, data);
+  const trackEvent = (eventName: string, data?: Record<string, unknown>) => {
+    if (typeof window !== "undefined" && window.fbq) {
+      window.fbq("track", eventName, data);
     }
   };
 
-  const trackCustomEvent = (eventName: string, data?: Record<string, any>) => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('trackCustom', eventName, data);
+  const trackCustomEvent = (
+    eventName: string,
+    data?: Record<string, unknown>
+  ) => {
+    if (typeof window !== "undefined" && window.fbq) {
+      window.fbq("trackCustom", eventName, data);
     }
   };
 
