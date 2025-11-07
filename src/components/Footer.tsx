@@ -1,7 +1,7 @@
 "use client";
+import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -72,8 +72,22 @@ export default function Footer() {
               {t("contact.title")}
             </h3>
             <ul className="space-y-2 text-gray-400">
-              <li>{t("contact.email")}</li>
-              <li>{t("contact.phone")}</li>
+              <li>
+                <a
+                  href={`mailto:${t("contact.email")}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {t("contact.email")}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${t("contact.phone").replace(/\s+/g, "")}`}
+                  className="hover:text-white transition-colors"
+                >
+                  {t("contact.phone")}
+                </a>
+              </li>
             </ul>
           </div>
         </div>
