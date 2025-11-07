@@ -1,0 +1,54 @@
+{
+  "id": "2",
+  "slug": "2-bbscafe",
+  "title": "BBs Café",
+  "heroImage": "bbs0.png",
+  "challenge": {
+    "en": "BBs Café had an attractive offer, but their e-commerce was not up to par with the brand's new expansion phase. They were renewing their visual identity, launching a coffee subscription model, and opening their first café in Vizcaya. The digital experience did not accompany this growth: the site lacked visual coherence, smooth navigation, and a clear hierarchy to guide the user.",
+    "es": "BBS Café tenía una oferta atractiva, pero su e-commerce no estaba a la altura de la nueva etapa de expansión de la marca. Estaban renovando su identidad visual, lanzando un modelo de suscripción de café y abriendo su primera cafetería en Vizcaya. La experiencia digital no acompañaba este crecimiento: el sitio carecía de coherencia visual, fluidez en la navegación y una jerarquía clara que guiara al usuario."
+  },
+  "approach": {
+    "en": "We redesigned the e-commerce from the UX/UI strategy. We organized the site architecture, clarified key points in the purchase journey, and applied a visual system that reflected the new brand identity. The result was an interface aligned with the brand's tone and aspirations: clearer, more professional, and conversion-oriented.",
+    "es": "Rediseñamos el e-commerce desde la estrategia UX/UI. Ordenamos la arquitectura del sitio, clarificamos los puntos clave del recorrido de compra y aplicamos un sistema visual que reflejara la nueva identidad de marca. El resultado fue una interfaz alineada con el tono y aspiraciones de la marca: más clara, profesional y orientada a conversión."
+  },
+  "location": {
+    "en": "Abadiño, Vizcaya, Spain",
+    "es": "Abadiño, Vizcaya, España"
+  },
+  "url": "https://bbscafe.com",
+  "plan": {
+    "en": "Subscription (2 months)",
+    "es": "Suscripción (2 meses)"
+  },
+  "images": [
+    "bbs1.png",
+    "bbs2.png",
+    "bbs3.png"
+  ],
+  "imageBackgrounds": {
+    "bbs1.png": "#fcf7ef",
+    "bbs2.png": "#fcf7ef",
+    "bbs3.png": "#e2c7b6"
+  },
+  "defaultBackground": "#F3F4F6",
+  "beforeAfter": {
+    "before": "bbsantes.png",
+    "after": "bbsdespues.png"
+  },
+  "results": {
+    "en": "The new design accompanied the brand relaunch and helped position its value proposition digitally. Checkout abandonment was reduced, the mobile experience improved, and users began navigating with greater clarity. The site went from being functional to becoming an active sales and loyalty tool.",
+    "es": "El nuevo diseño acompañó el relanzamiento de marca y ayudó a posicionar su propuesta de valor en digital. Se redujo el abandono en el checkout, mejoró la experiencia mobile y los usuarios comenzaron a navegar con mayor claridad. El sitio pasó de ser funcional a convertirse en una herramienta activa de ventas y fidelización."
+  },
+  "testimonial": {
+    "text": {
+      "en": "We knew we wanted to take a leap with the brand, but our website had fallen behind. We didn't know how to translate all that growth into digital. Andrea not only understood what we wanted to convey, she took it further. In a few days, she delivered a design that reflected exactly the spirit of BBS: close, careful, and professional. The most valuable thing was feeling that someone was as committed as we were to making this work. And it showed in every detail. Working with Citrus Designer was one of the best decisions of this phase.",
+      "es": "Teníamos claro que queríamos dar un salto con la marca, pero nuestra web se había quedado atrás. No sabíamos cómo traducir todo ese crecimiento a lo digital. Andrea no solo entendió lo que queríamos transmitir, lo llevó más allá. En pocos días nos entregó un diseño que reflejaba exactamente el espíritu de BBS: cercano, cuidado y profesional. Lo más valioso fue sentir que alguien estaba tan comprometida como nosotros con que esto saliera bien. Y se notó en cada detalle. Trabajar con Citrus Designer fue una de las decisiones más acertadas de esta etapa."
+    },
+    "author": "Marisa Baqué",
+    "position": {
+      "en": "Founder, BBs Café",
+      "es": "Fundadora de BBs Café"
+    },
+    "image": "testimonial.png"
+  }
+}

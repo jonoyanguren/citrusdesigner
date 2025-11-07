@@ -11,7 +11,7 @@
         "bookCall": "Reserva un 1:1",
         "logout": "Cerrar sesión",
         "selectLanguage": "Seleccionar idioma",
-        "designEquivalence": "Equivalencias"
+        "projects": "Proyectos"
     },
     "designerBehind": {
         "orangeMessage": "Cada proyecto es una aventura única que me reta a buscar la mejor forma de simplificar lo complejo y transformar ideas en realidades tangibles."
@@ -481,26 +481,48 @@
         "description": "De startups a grandes empresas, descubre algunos proyectos en los que he colaborado para transformar experiencias visuales de alto impacto.",
         "items": [
             {
-                "id": "1",
-                "title": "Competize",
-                "description": "Rediseño de la web para hacerlo más visual y responsive."
-            },
-            {
                 "id": "2",
-                "title": "Tenvinilo",
-                "description": "Mejora de la experiencia de usuario del proceso de compra."
+                "slug": "2-bbscafe",
+                "title": "BBs Café",
+                "description": "Rediseño de e-commerce alineado con su nueva identidad de marca.",
+                "heroImage": "bbs0.png"
             },
             {
                 "id": "3",
-                "title": "Freakit",
-                "description": "Rediseño de la app y diseño de nuevas funcionalidades."
+                "slug": "3-homeprive",
+                "title": "Homeprive",
+                "description": "MVP de app de intercambio de casas dentro de redes de confianza.",
+                "heroImage": "homeprive0.png"
             },
             {
                 "id": "4",
-                "title": "Gureik",
-                "description": "Diseño de la web de delivery de la cadena de restauración multimarca."
+                "slug": "4-tenvinilo",
+                "title": "Tenvinilo",
+                "description": "Optimización mobile-first y rediseño de experiencia de e-commerce.",
+                "heroImage": "tenvinilo0.png"
+            },
+            {
+                "id": "5",
+                "slug": "5-competize",
+                "title": "Competize",
+                "description": "Rediseño modular de plataforma para gestión de torneos deportivos.",
+                "heroImage": "competize0.png"
             }
         ]
+    },
+    "projectDetail": {
+        "location": "Localización",
+        "plan": "Plan",
+        "website": "Sitio web",
+        "visitWebsite": "Visitar sitio web",
+        "challenge": "El Reto",
+        "approach": "Nuestro Enfoque",
+        "gallery": "Galería del Proyecto",
+        "beforeAfter": "Antes y Después",
+        "before": "Antes",
+        "after": "Después",
+        "results": "Resultados",
+        "testimonial": "Testimonio"
     },
     "dashboard": {
         "title": "Panel de control",

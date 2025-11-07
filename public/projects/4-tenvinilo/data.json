@@ -1,0 +1,51 @@
+{
+  "id": "4",
+  "slug": "4-tenvinilo",
+  "title": "Tenvinilo",
+  "heroImage": "tenvinilo0.png",
+  "challenge": {
+    "en": "Tenvinilo is a leading brand in personalized decorative vinyl, with an international presence. The online store worked correctly, but the challenge was to improve mobile conversion and modernize the user experience, without losing SEO positioning or the graphic identity already recognized by its community.",
+    "es": "Tenvinilo es una marca de referencia en vinilos decorativos personalizados, con presencia internacional. La tienda online funcionaba correctamente, pero el reto era mejorar la conversión móvil y modernizar la experiencia de usuario, sin perder el posicionamiento SEO ni la identidad gráfica que ya reconocía su comunidad."
+  },
+  "approach": {
+    "en": "Our work with Tenvinilo focused on optimizing the online shopping experience, with a mobile-first approach and special attention to the conversion funnel. We redesigned the navigation and checkout process, improved filters and search to facilitate exploration by size, style or room, and prototyped new inspiration sections and visual product customization. We also incorporated more modern elements—such as micro-interactions, clean typography and a refined palette—while always maintaining performance, responsive compatibility and SEO positioning intact.",
+    "es": "Nuestro trabajo con Tenvinilo se centró en optimizar la experiencia de compra online, con un enfoque mobile-first y especial atención al funnel de conversión. Rediseñamos la navegación y el proceso de checkout, mejoramos los filtros y el buscador para facilitar la exploración por tamaño, estilo o habitación, y prototipamos nuevas secciones de inspiración y personalización visual del producto. También incorporamos elementos más modernos —como microinteracciones, tipografía limpia y una paleta refinada— manteniendo siempre el rendimiento, la compatibilidad responsive y el posicionamiento SEO intactos."
+  },
+  "location": {
+    "en": "Girona, Spain",
+    "es": "Gerona, España"
+  },
+  "url": "https://www.tenvinilo.com",
+  "plan": {
+    "en": "Subscription (5 months)",
+    "es": "Suscripción (5 meses)"
+  },
+  "images": [
+    "tenvinilo1.png",
+    "tenvinilo2.png",
+    "tenvinilo3.png",
+    "tenvinilo4.png"
+  ],
+  "imageBackgrounds": {
+    "tenvinilo1.png": "#fbe7f0",
+    "tenvinilo2.png": "#fbe7f0",
+    "tenvinilo3.png": "#1f2937",
+    "tenvinilo4.png": "#f3f4f6"
+  },
+  "defaultBackground": "#F3F4F6",
+  "results": {
+    "en": "The redesign completely improved the mobile experience, facilitating navigation and supporting conversion from devices. The new interface architecture made product exploration and customization more intuitive, while visual coherence reinforced brand identity and international positioning. Additionally, the new design system left the store prepared to scale future improvements without affecting performance or user experience.",
+    "es": "El rediseño permitió mejorar por completo la experiencia móvil, facilitando la navegación y apoyando la conversión desde dispositivos. La nueva arquitectura de interfaz hizo más intuitiva la exploración y personalización de productos, mientras que la coherencia visual reforzó la identidad de marca y su posicionamiento internacional. Además, el nuevo sistema de diseño dejó preparada la tienda para escalar futuras mejoras sin afectar ni el rendimiento ni la experiencia de usuario."
+  },
+  "testimonial": {
+    "text": {
+      "en": "Working with Andrea is easy. Beyond her evident UX/UI knowledge, Andrea is a professional who is easy to communicate with and quickly understands what the company is looking for, bringing new ideas and perspectives that are clearly enriching.",
+      "es": "Trabajar con Andrea es fácil. Más allá de sus evidentes conocimientos de Ux/Ui, Andrea es una profesional con quién es fácil comunicarse y enseguida entiende lo que la empresa busca y aporta nuevas ideas y puntos de vista que son claramente enriquecedores."
+    },
+    "author": "Joel Pascual",
+    "position": {
+      "en": "Co-founder of Tenvinilo",
+      "es": "Co-fundador de Tenvinilo"
+    }
+  }
+}

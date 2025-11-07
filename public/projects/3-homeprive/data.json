@@ -1,0 +1,48 @@
+{
+  "id": "3",
+  "slug": "3-homeprive",
+  "title": "Homeprive",
+  "heroImage": "homeprive0.png",
+  "challenge": {
+    "en": "Home Prive is a house exchange app within trusted networks: users can only see properties if they know the host directly (or indirectly). A private and secure alternative to platforms like Airbnb, based on personal relationships and visibility control. The main challenge was to launch a functional MVP in less than 4 months, combining privacy, design and a mobile-first experience. The app had to allow users to register by invitation, explore private properties, request access and chat within the network—all with an elegant and easy-to-use interface.",
+    "es": "Home Privee es una app de intercambio de casas dentro de redes de confianza: usuarios pueden ver propiedades solo si conocen directamente (o indirectamente) al anfitrión. Una alternativa privada y segura a plataformas como Airbnb, basada en relaciones personales y control de visibilidad. El principal reto era lanzar un MVP funcional en menos de 4 meses, combinando privacidad, diseño y una experiencia mobile-first. La app debía permitir registrar usuarios por invitación, explorar propiedades privadas, solicitar acceso y chatear dentro de la red —todo con una interfaz elegante y fácil de usar."
+  },
+  "approach": {
+    "en": "From Citrus we accompanied the founding team from the beginning, helping to transform their vision into a clear, functional and scalable MVP. We designed an intuitive, mobile-first interface with simple flows for registration, exploration of private properties and access requests based on trust networks. We prioritized the implementation of key functionalities such as contact synchronization, the degrees visibility system and internal chat, all on a modular architecture ready to grow with the product.",
+    "es": "Desde Citrus acompañamos al equipo fundador desde el inicio, ayudando a transformar su visión en un MVP claro, funcional y escalable. Diseñamos una interfaz intuitiva y mobile-first, con flujos simples para registro, exploración de propiedades privadas y solicitudes de acceso basadas en redes de confianza. Priorizamos la implementación de funcionalidades clave como la sincronización de contactos, el sistema de visibilidad por grados y el chat interno, todo sobre una arquitectura modular lista para crecer con el producto."
+  },
+  "location": {
+    "en": "Donosti (Guipuzkoa, Spain)",
+    "es": "Donosti (Guipuzkoa, España)"
+  },
+  "plan": {
+    "en": "Subscription (3 months)",
+    "es": "Suscripción (3 meses)"
+  },
+  "images": [
+    "homeprive1.png",
+    "homeprive2.png",
+    "homeprive3.png"
+  ],
+  "imageBackgrounds": {
+    "homeprive1.png": "#edf6fd",
+    "homeprive2.png": "#edf6fd",
+    "homeprive3.png": "#bfe3ff"
+  },
+  "defaultBackground": "#F3F4F6",
+  "results": {
+    "en": "We managed to launch a functional MVP in less than 4 months, meeting the initial project objectives and validating the first key flows with real users. The interface offered smooth navigation, intuitive usage logic and a presentation consistent with the brand's value proposition. Thanks to a well-structured design system, both in Figma and in the code, the team was able to iterate quickly and maintain visual consistency throughout the product. The project architecture was prepared to integrate new functionalities such as payments, reputation or synchronization with external platforms without needing to redesign from scratch.",
+    "es": "Logramos lanzar un MVP funcional en menos de 4 meses, cumpliendo con los objetivos iniciales del proyecto y validando los primeros flujos clave con usuarios reales. La interfaz ofrecía una navegación fluida, una lógica de uso intuitiva y una presentación coherente con la propuesta de valor de la marca. Gracias a un sistema de diseño bien estructurado, tanto en Figma como en el código, el equipo pudo iterar rápidamente y mantener una coherencia visual a lo largo del producto. La arquitectura del proyecto quedó preparada para integrar nuevas funcionalidades como pagos, reputación o sincronización con plataformas externas sin necesidad de rediseñar desde cero."
+  },
+  "testimonial": {
+    "text": {
+      "en": "Working with Citrus was like having an internal product team. They knew how to translate a complex idea into an elegant and functional interface, always keeping the focus on privacy, simplicity and trust. Their strategic vision and eye for detail made the difference.",
+      "es": "Trabajar con Citrus fue como tener un equipo interno de producto. Supieron traducir una idea compleja en una interfaz elegante y funcional, manteniendo siempre el enfoque en privacidad, simplicidad y confianza. Su visión estratégica y ojo por los detalles marcaron la diferencia."
+    },
+    "author": "Beñat Sesma",
+    "position": {
+      "en": "Co-founder of Homeprive",
+      "es": "Co-fundador de Homeprive"
+    }
+  }
+}

@@ -11,7 +11,7 @@
         "bookCall": "Book a 1:1",
         "logout": "Log Out",
         "selectLanguage": "Select Language",
-        "designEquivalence": "Equivalences"
+        "projects": "Projects"
     },
     "designerBehind": {
         "orangeMessage": "Each project is a unique adventure that challenges us to find the best way to simplify complexity and transform ideas into tangible realities."
@@ -481,26 +481,48 @@
         "description": "From startups to large companies, discover some projects we have collaborated on to transform high-impact visual experiences.",
         "items": [
             {
-                "id": "1",
-                "title": "Competize",
-                "description": "Website redesign to make it more visual and responsive."
-            },
-            {
                 "id": "2",
-                "title": "Tenvinilo",
-                "description": "Improved user experience of the purchase process."
+                "slug": "2-bbscafe",
+                "title": "BBs Café",
+                "description": "E-commerce redesign aligned with their new brand identity.",
+                "heroImage": "bbs0.png"
             },
             {
                 "id": "3",
-                "title": "Freakit",
-                "description": "App redesign and new feature design."
+                "slug": "3-homeprive",
+                "title": "Homeprive",
+                "description": "House exchange app MVP within trusted networks.",
+                "heroImage": "homeprive0.png"
             },
             {
                 "id": "4",
-                "title": "Gureik",
-                "description": "Design of the delivery website for the multi-brand restaurant chain."
+                "slug": "4-tenvinilo",
+                "title": "Tenvinilo",
+                "description": "Mobile-first optimization and e-commerce experience redesign.",
+                "heroImage": "tenvinilo0.png"
+            },
+            {
+                "id": "5",
+                "slug": "5-competize",
+                "title": "Competize",
+                "description": "Modular redesign of platform for sports tournament management.",
+                "heroImage": "competize0.png"
             }
         ]
+    },
+    "projectDetail": {
+        "location": "Location",
+        "plan": "Plan",
+        "website": "Website",
+        "visitWebsite": "Visit website",
+        "challenge": "The Challenge",
+        "approach": "Our Approach",
+        "gallery": "Project Gallery",
+        "beforeAfter": "Before & After",
+        "before": "Before",
+        "after": "After",
+        "results": "Results",
+        "testimonial": "What They Say"
     },
     "dashboard": {
         "title": "Dashboard",

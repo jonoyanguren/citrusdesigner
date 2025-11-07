@@ -1,0 +1,49 @@
+{
+  "id": "5",
+  "slug": "5-competize",
+  "title": "Competize",
+  "heroImage": "competize0.png",
+  "challenge": {
+    "en": "Competize is a platform for managing sports tournaments and competitions, used by clubs, leagues and event organizers throughout Europe and Latin America. Although the tool was functional, the interface was outdated and did not reflect the professionalism or scalability of the product. The challenge was to modernize the design without disrupting the service and maintain simplicity for a very diverse audience: from coaches and players to non-technical organizers.",
+    "es": "Competize es una plataforma para gestionar torneos y competiciones deportivas, utilizada por clubes, ligas y organizadores de eventos en toda Europa y Latinoamérica. Aunque la herramienta era funcional, la interfaz estaba desactualizada y no reflejaba la profesionalidad ni la escalabilidad del producto. El reto era modernizar el diseño sin interrumpir el servicio y mantener la simplicidad para un público muy variado: desde entrenadores y jugadores hasta organizadores no técnicos."
+  },
+  "approach": {
+    "en": "At Citrus we approached the redesign with a progressive, user-centered strategy. We started with a usability audit to detect friction points, and from there, we redesigned the interface with a modular approach, adaptable to desktop and mobile. We built a flexible design system to facilitate future iterations and ensured a clear visual hierarchy, highlighting the most relevant information such as results, rankings or calendars. All the work was developed applying accessibility principles and a modern aesthetic, aligned with the platform's sports and professional audience.",
+    "es": "En Citrus abordamos el rediseño con una estrategia progresiva y centrada en el usuario. Comenzamos con una auditoría de usabilidad para detectar puntos de fricción, y a partir de ahí, rediseñamos la interfaz con un enfoque modular, adaptable a desktop y móvil. Construimos un sistema de diseño flexible para facilitar futuras iteraciones y aseguramos una jerarquía visual clara, destacando la información más relevante como resultados, clasificaciones o calendarios. Todo el trabajo se desarrolló aplicando principios de accesibilidad y una estética moderna, alineada con el público deportivo y profesional de la plataforma."
+  },
+  "location": {
+    "en": "Barcelona, Spain",
+    "es": "Barcelona, España"
+  },
+  "url": "https://www.competize.com",
+  "plan": {
+    "en": "Subscription (3 months)",
+    "es": "Suscripción (3 meses)"
+  },
+  "images": [
+    "Competize1.png",
+    "Competize2.png",
+    "Competize3.png"
+  ],
+  "imageBackgrounds": {
+    "Competize1.png": "#ffedd5",
+    "Competize2.png": "#ffedd5",
+    "Competize3.png": "#374151"
+  },
+  "defaultBackground": "#F3F4F6",
+  "results": {
+    "en": "The redesign resulted in a completely renewed interface, with a more professional and modern image, aligned with current UX/UI standards. Clearer navigation and a better defined visual hierarchy were achieved, facilitating use for both organizers and participants. In addition, a solid visual and structural foundation was established that allows scaling new functionalities without compromising consistency or redoing the existing design.",
+    "es": "El rediseño dio como resultado una interfaz completamente renovada, con una imagen más profesional y moderna, alineada con los estándares actuales de UX/UI. Se logró una navegación más clara y una jerarquía visual mejor definida, facilitando el uso tanto para organizadores como para participantes. Además, se estableció una base visual y estructural sólida que permite escalar nuevas funcionalidades sin comprometer la coherencia ni rehacer el diseño existente."
+  },
+  "testimonial": {
+    "text": {
+      "en": "We have collaborated with Citrus Designer in the redesign of the public view of events and competitions of Competize, and the experience has been excellent. We value especially the close treatment, the weekly follow-up meetings and the flexibility of Andrea to incorporate our feedback. Thanks to her collaborative approach, we achieved visual solutions that adapt to the needs of the software.",
+      "es": "Hemos colaborado con Citrus Designer en el rediseño de la vista pública de eventos y competiciones de Competize, y la experiencia ha sido excelente. Valoramos especialmente el trato cercano, las reuniones semanales de seguimiento y la flexibilidad de Andrea para incorporar nuestro feedback. Gracias a su enfoque colaborativo, conseguimos soluciones visuales que se adaptan a las necesidades del software."
+    },
+    "author": "Klara Stepanova",
+    "position": {
+      "en": "Co-founder of Competize",
+      "es": "Co-fundadora de Competize"
+    }
+  }
+}
