@@ -5,6 +5,14 @@ import Image from "next/image";
 
 export default function ProjectsSummary() {
   const t = useTranslations("projectsSummary");
+
+  // Project images mapping
+  const projectImages = [
+    { path: "/projects/2-bbscafe/bbs0.png", alt: "BBs Café" },
+    { path: "/projects/3-homeprive/homeprive0.png", alt: "Homeprive" },
+    { path: "/projects/4-tenvinilo/tenvinilo0.png", alt: "Tenvinilo" },
+  ];
+
   const leftPositions = [
     {
       top: "-10%",
@@ -70,9 +78,9 @@ export default function ProjectsSummary() {
     <div className="h-auto w-[90%] md:w-[80%] pb-16 md:mb-0 md:h-[345px] max-w-[100%] md:max-w-[80%] my-16 bg-gradient-to-r from-orange-300 via-orange-100 to-orange-300 rounded-2xl flex flex-col md:flex-row items-center justify-between relative overflow-visible pt-[220px] md:pt-0 md:pb-0">
       {/* Mobile images (fan arrangement) */}
       <div className="block md:hidden absolute top-0 left-0 w-full h-[250px]">
-        {[2, 3, 4].map((num, index) => (
+        {projectImages.map((project, index) => (
           <div
-            key={`mobile-${num}`}
+            key={`mobile-${index}`}
             className="absolute transform transition-all duration-300"
             style={{
               position: "absolute",
@@ -85,8 +93,8 @@ export default function ProjectsSummary() {
             }}
           >
             <Image
-              src={`/projects/project${num}.png`}
-              alt={`Project ${num}`}
+              src={project.path}
+              alt={project.alt}
               fill
               className="object-cover rounded-lg shadow-lg"
             />
@@ -96,9 +104,9 @@ export default function ProjectsSummary() {
 
       {/* Left side project images (desktop only) */}
       <div className="hidden md:block absolute left-0 w-[40%] h-full">
-        {[2, 3].map((num, index) => (
+        {projectImages.slice(0, 2).map((project, index) => (
           <div
-            key={`left-${num}`}
+            key={`left-${index}`}
             className="absolute transform transition-all duration-300 hover:z-30"
             style={{
               position: "absolute",
@@ -111,8 +119,8 @@ export default function ProjectsSummary() {
             }}
           >
             <Image
-              src={`/projects/project${num}.png`}
-              alt={`Project ${num}`}
+              src={project.path}
+              alt={project.alt}
               fill
               className="object-cover rounded-lg shadow-lg"
             />
@@ -136,9 +144,9 @@ export default function ProjectsSummary() {
 
       {/* Right side project images (desktop only) */}
       <div className="hidden md:block absolute right-0 w-[40%] h-full">
-        {[4].map((num, index) => (
+        {projectImages.slice(2, 3).map((project, index) => (
           <div
-            key={`right-${num}`}
+            key={`right-${index}`}
             className="absolute transform transition-all duration-300 hover:z-30"
             style={{
               position: "absolute",
@@ -151,8 +159,8 @@ export default function ProjectsSummary() {
             }}
           >
             <Image
-              src={`/projects/project${num > 4 ? (num % 4) + 1 : num}.png`}
-              alt={`Project ${num}`}
+              src={project.path}
+              alt={project.alt}
               fill
               className="object-cover rounded-lg shadow-lg"
             />
