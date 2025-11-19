@@ -1,0 +1,228 @@
+{
+    "slug": "ejemplo",
+    "meta": {
+        "title": {
+            "en": "Example Landing Page",
+            "es": "Página de Ejemplo"
+        },
+        "description": {
+            "en": "This is an example landing page",
+            "es": "Esta es una página de ejemplo"
+        }
+    },
+    "sections": [
+        {
+            "type": "hero",
+            "badge": {
+                "en": "No long-term contracts • No endless meetings",
+                "es": "Sin contratos largos • Sin reuniones eternas"
+            },
+            "title": {
+                "en": "Your MVP ready to validate in days, not weeks",
+                "es": "Tu MVP listo para validar en días, no semanas"
+            },
+            "subtitle": {
+                "en": "I'm Andrea, a UX/UI designer with over 7 years of experience. With Citrus Designer, I turn your idea into a functional prototype without hiring internal teams.",
+                "es": "Soy Andrea, diseñadora UX/UI con más de 7 años de experiencia. Con Citrus Designer, transformo tu idea en un prototipo funcional sin contratar equipo interno."
+            },
+            "cta": {
+                "text": {
+                    "en": "Schedule your discovery meeting today",
+                    "es": "Agenda tu reunión de discovery hoy"
+                },
+                "href": "/contact"
+            },
+            "text": {
+                "en": "Free 30min meeting - No commitment",
+                "es": "Reunión de 30min gratuita - Sin compromiso"
+            },
+            "backgroundImage": null,
+            "backgroundColor": "bg-gradient-to-r from-orange-300 via-orange-100 to-orange-300"
+        },
+        {
+            "type": "painpoints",
+            "title": {
+                "en": "Your team doesn't need more meetings, they need design that moves forward.",
+                "es": "Tu equipo no necesita más reuniones, necesita diseño que avance."
+            },
+            "items": [
+                {
+                    "text": {
+                        "en": "You don't need a full-time designer to validate your product.",
+                        "es": "No necesitas un diseñador full-time para validar tu producto."
+                    }
+                },
+                {
+                    "text": {
+                        "en": "Agencies take weeks and require huge budgets.",
+                        "es": "Las agencias tardan semanas y requieren presupuestos enormes."
+                    }
+                },
+                {
+                    "text": {
+                        "en": "Freelancers lack continuity and context.",
+                        "es": "Los freelancers carecen de continuidad y contexto."
+                    }
+                }
+            ]
+        },
+        {
+            "type": "info",
+            "title": {
+                "en": "A system that delivers speed without sacrificing quality.",
+                "es": "Un sistema que entrega rapidez sin sacrificar la calidad."
+            },
+            "items": [
+                {
+                    "text": {
+                        "en": "UX/UI design",
+                        "es": "Diseño UX/UI"
+                    },
+                    "subtext": {
+                        "en": "In 48 hours",
+                        "es": "en 48 horas"
+                    },
+                    "icon": "FaBolt"
+                },
+                {
+                    "text": {
+                        "en": "No long-term contracts",
+                        "es": "Sin contratos largos"
+                    },
+                    "subtext": {
+                        "en": "no endless onboardings",
+                        "es": "ni onboardings infinitos"
+                    },
+                    "icon": "FaBullseye"
+                },
+                {
+                    "text": {
+                        "en": "Asynchronous feedback",
+                        "es": "Feedback asíncrono"
+                    },
+                    "subtext": {
+                        "en": "No unnecessary meetings",
+                        "es": "Sin reuniones innecesarias"
+                    },
+                    "icon": "FaRegClock"
+                }
+            ],
+            "image": null,
+            "imagePosition": "right"
+        },
+        {
+            "type": "benefits",
+            "title": {
+                "en": "Benefits for startups",
+                "es": "Beneficios para startups"
+            },
+            "items": [
+                {
+                    "text": {
+                        "en": "Fast delivery - No waiting weeks",
+                        "es": "Entrega en días, no semanas"
+                    }
+                },
+                {
+                    "text": {
+                        "en": "Prototypes ready for development or investors",
+                        "es": "Prototipos listos para desarollo o inversores"
+                    }
+                },
+                {
+                    "text": {
+                        "en": "Andrea at the helm, senior design and quality ready for development",
+                        "es": "Andrea al mando, diseño senior y de calidad listo para desarrollo"
+                    }
+                },
+                {
+                    "text": {
+                        "en": "Asynchronous feedback with clear reviews",
+                        "es": "Feedback asíncrono con revisiones claras"
+                    }
+                }
+            ],
+            "backgroundImage": "/benefits/benefit1.svg"
+        },
+        {
+            "type": "example",
+            "title": {
+                "en": "How I helped this startup redesign a flow in 48 hours",
+                "es": "Cómo ayudé a esta startup a rediseñar un flujo en 48 horas"
+            },
+            "image": "/landings/Laptopempresas.png",
+            "cardWhite": {
+                "title": {
+                    "en": "Before",
+                    "es": "Antes"
+                },
+                "items": [
+                    {
+                        "en": "User flow confusing",
+                        "es": "Flujo de usuario confuso"
+                    },
+                    {
+                        "en": "High abandonment rate",
+                        "es": "Tasa de abandono alta"
+                    },
+                    {
+                        "en": "Low value proposition",
+                        "es": "Propuesta de valor poco clara"
+                    }
+                ]
+            },
+            "cardOrange": {
+                "title": {
+                    "en": "After",
+                    "es": "Después"
+                },
+                "items": [
+                    {
+                        "en": "Optimized user flow in fewer steps",
+                        "es": "Flujo optimizado en menos pasos"
+                    },
+                    {
+                        "en": "45% improvement in completion rate",
+                        "es": "Mejora del 45 % en la tasa de finalización"
+                    },
+                    {
+                        "en": "Ready for demo with investors in 1 week",
+                        "es": "Listo para demo con inversores en 1 semana"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "cta",
+            "title": {
+                "en": "Ready to launch your MVP without friction or delays?",
+                "es": "¿Quieres lanzar tu MVP sin fricción, ni retrasos?"
+            },
+            "subtitle": {
+                "en": "Let's talk. In a 30-minute call, I'll show you how we could turn your idea into a functional prototype this week. No commitment. I'll explain how I work and if it fits your current stage.",
+                "es": "Hablemos. En una llamada de 30 minutos, te mostraré cómo podríamos convertir tu idea en un prototipo funcional esta misma semana. Sin compromiso. Te explicaré cómo trabajo y si se adapta a tu etapa actual."
+            },
+            "cta": {
+                "text": {
+                    "en": "Schedule a call",
+                    "es": "Agenda una llamada"
+                },
+                "href": "/contact"
+            },
+            "items": [
+                {
+                    "en": "Free consultation",
+                    "es": "Consulta gratuita"
+                },
+                {
+                    "en": "30 minutes",
+                    "es": "30 minutos"
+                },
+                {
+                    "en": "No commitment",
+                    "es": "Sin compromiso"
+                }
+            ]
+        }
+    ]
+}
