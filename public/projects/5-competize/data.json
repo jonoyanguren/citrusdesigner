@@ -25,6 +25,10 @@
     "Competize2.png",
     "Competize3.png"
   ],
+  "beforeAfter": {
+    "before": "competizeantes.png",
+    "after": "competizedespues.png"
+  },
   "imageBackgrounds": {
     "Competize1.png": "#ffedd5",
     "Competize2.png": "#ffedd5",

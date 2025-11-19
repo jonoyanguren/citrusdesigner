@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   ReactCompareSlider,
   ReactCompareSliderImage,
@@ -45,9 +46,25 @@ type Props = {
 export function ProjectTemplate({ project, locale, slug }: Props) {
   const t = useTranslations("projectDetail");
   const lang = locale as "en" | "es";
+  const [imageHeight, setImageHeight] = useState<number | null>(null);
 
   // Helper to build image paths
   const getImagePath = (imageName: string) => `/projects/${slug}/${imageName}`;
+
+  // Get image dimensions to adjust slider height
+  useEffect(() => {
+    if (project.beforeAfter) {
+      const img = new window.Image();
+      img.onload = () => {
+        // Calculate height based on max-width of 4xl (896px) and image aspect ratio
+        const maxWidth = 896; // max-w-4xl
+        const aspectRatio = img.height / img.width;
+        const calculatedHeight = maxWidth * aspectRatio;
+        setImageHeight(Math.min(calculatedHeight, img.height));
+      };
+      img.src = `/projects/${slug}/${project.beforeAfter.before}`;
+    }
+  }, [project.beforeAfter, slug]);
 
   // Helper to get background color for an image
   const getImageBackground = (imageName: string) => {
@@ -197,7 +214,7 @@ export function ProjectTemplate({ project, locale, slug }: Props) {
               {t("beforeAfter")}
             </h2>
             <div className="max-w-4xl mx-auto">
-              <div className="rounded-lg overflow-hidden shadow-xl">
+              <div className="rounded-lg overflow-hidden shadow-xl relative w-full">
                 <ReactCompareSlider
                   itemOne={
                     <ReactCompareSliderImage
@@ -212,8 +229,11 @@ export function ProjectTemplate({ project, locale, slug }: Props) {
                     />
                   }
                   position={50}
-                  style={{ height: "500px" }}
-                  className="cursor-col-resize"
+                  style={{
+                    height: imageHeight ? `${imageHeight}px` : "auto",
+                    minHeight: "400px",
+                  }}
+                  className="cursor-col-resize w-full"
                 />
               </div>
               <div className="flex justify-between mt-8">
