@@ -10,6 +10,7 @@ import { FaXmark } from "react-icons/fa6";
 import * as HiIcons from "react-icons/hi";
 import * as Hi2Icons from "react-icons/hi2";
 import Button from "./Button";
+import { useCalendly } from "./CalendarButton";
 import DecorativeElements from "./DecorativeElements";
 import MobileDecorativeElements from "./MobileDecorativeElements";
 
@@ -76,6 +77,7 @@ const getIcon = (iconName: string | undefined): IconType | null => {
 };
 
 export function LandingPageTemplate({ landingData, locale }: Props) {
+  const { openCalendly } = useCalendly();
   const getText = (text: { en: string; es: string }) => text[locale];
 
   const renderSection = (section: LandingSection, index: number) => {
@@ -131,7 +133,7 @@ export function LandingPageTemplate({ landingData, locale }: Props) {
                   <div className="flex justify-center gap-4 md:gap-8">
                     <Button
                       className="flex items-center gap-2 py-5 px-8 bg-orange-500 text-white hover:bg-orange-600"
-                      href={section.cta.href}
+                      onClick={openCalendly}
                       variant={section.cta.variant || "primary"}
                     >
                       <span className="text-xl">
@@ -344,7 +346,7 @@ export function LandingPageTemplate({ landingData, locale }: Props) {
               <div className="flex justify-center gap-4 md:gap-8">
                 <Button
                   className="flex items-center gap-2 py-5 px-8 bg-orange-500 text-white hover:bg-orange-600 mb-8"
-                  href={section.cta.href}
+                  onClick={openCalendly}
                   variant={section.cta.variant || "primary"}
                 >
                   <span className="text-xl">{getText(section.cta.text)}</span>
