@@ -15,15 +15,15 @@
             "type": "hero",
             "badge": {
                 "en": "No long-term contracts • No endless meetings",
-                "es": "Sin contratos largos • Sin reuniones eternas"
+                "es": "Tu aliado de diseño • Escala bajo demanda"
             },
             "title": {
-                "en": "Your MVP ready to validate in days, not weeks",
-                "es": "Tu MVP listo para validar en días, no semanas"
+                "en": "Scale your design without scaling your team.",
+                "es": "Escala tu diseño, sin escalar tu equipo."
             },
             "subtitle": {
-                "en": "I'm Andrea, a UX/UI designer with over 7 years of experience. With Citrus Designer, I turn your idea into a functional prototype without hiring internal teams.",
-                "es": "Soy Andrea, diseñadora UX/UI con más de 7 años de experiencia. Con Citrus Designer, transformo tu idea en un prototipo funcional sin contratar equipo interno."
+                "en": "I'm Andrea, a senior UX/UI designer with over 7 years of experience helping companies improve their interfaces. Citrus Designer acts as an extension of your design team, delivering development-ready work.",
+                "es": "Soy Andrea, diseñadora senior UX/UI con más de 7 años ayudando a empresas a mejorar su interfaz. Citrus Designer actúa como tu extensión de tu equipo de diseño, entregando trabajo listo para desarrollo."
             },
             "cta": {
                 "text": {
@@ -42,26 +42,26 @@
         {
             "type": "painpoints",
             "title": {
-                "en": "Your team doesn't need more meetings, they need design that moves forward.",
-                "es": "Tu equipo no necesita más reuniones, necesita diseño que avance."
+                "en": "Your company doesn’t need more expenses. It needs reliable design capacity.",
+                "es": "Tu empresa no necesita más gastos. Necesita una capacidad de diseño fiable."
             },
             "items": [
                 {
                     "text": {
-                        "en": "You don't need a full-time designer to validate your product.",
-                        "es": "No necesitas un diseñador full-time para validar tu producto."
+                        "en": "Hiring full-time designers means fixed costs even during slow months.",
+                        "es": "Contratar diseñadores full-time significa costes fijos incluso en meses tranquilos."
                     }
                 },
                 {
                     "text": {
-                        "en": "Agencies take weeks and require huge budgets.",
-                        "es": "Las agencias tardan semanas y requieren presupuestos enormes."
+                        "en": "Outsourcing to multiple freelancers creates inconsistency and communication chaos.",
+                        "es": "Subcontratar múltiples freelancers crea inconsistencia y caos en la comunicación."
                     }
                 },
                 {
                     "text": {
-                        "en": "Freelancers lack continuity and context.",
-                        "es": "Los freelancers carecen de continuidad y contexto."
+                        "en": "Internal deadlines won’t wait for your team to be available.",
+                        "es": "Las fechas límite internas no esperan a que tu equipo esté disponible."
                     }
                 }
             ]
@@ -69,29 +69,29 @@
         {
             "type": "info",
             "title": {
-                "en": "A system that delivers speed without sacrificing quality.",
-                "es": "Un sistema que entrega rapidez sin sacrificar la calidad."
+                "en": "A design partner that adapts to your company’s pace",
+                "es": "Un socio de diseño que se adapta al ritmo de tu empresa"
             },
             "items": [
                 {
                     "text": {
-                        "en": "UX/UI design",
-                        "es": "Diseño UX/UI"
+                        "en": "Senior design",
+                        "es": "Diseño senior"
                     },
                     "subtext": {
-                        "en": "In 48 hours",
-                        "es": "en 48 horas"
+                        "en": "ready for development handoff",
+                        "es": "listo para la entrega a desarrollo"
                     },
                     "icon": "FaBolt"
                 },
                 {
                     "text": {
-                        "en": "No long-term contracts",
-                        "es": "Sin contratos largos"
+                        "en": "Scale your team",
+                        "es": "Escala tu equipo"
                     },
                     "subtext": {
-                        "en": "no endless onboardings",
-                        "es": "ni onboardings infinitos"
+                        "en": "according to your workflow",
+                        "es": "según el flujo de trabajo"
                     },
                     "icon": "FaBullseye"
                 },
@@ -113,32 +113,32 @@
         {
             "type": "benefits",
             "title": {
-                "en": "Benefits for startups",
-                "es": "Beneficios para startups"
+                "en": "Benefits of being a partner",
+                "es": "Beneficios de ser partner"
             },
             "items": [
                 {
                     "text": {
-                        "en": "Fast delivery - No waiting weeks",
-                        "es": "Entrega en días, no semanas"
+                        "en": "No long-term contracts or minimum commitments",
+                        "es": "Sin contratos a largo plazo ni compromisos mínimos"
                     }
                 },
                 {
                     "text": {
-                        "en": "Prototypes ready for development or investors",
-                        "es": "Prototipos listos para desarollo o inversores"
+                        "en": "Fast turnaround (24–48h for most deliverables)",
+                        "es": "Entrega rápida (24-48h para la mayoría de los entregables)"
                     }
                 },
                 {
                     "text": {
-                        "en": "Andrea at the helm, senior design and quality ready for development",
-                        "es": "Andrea al mando, diseño senior y de calidad listo para desarrollo"
+                        "en": "I integrate into your team while maintaining your style and standards",
+                        "es": "Me integro en tu equipo manteniendo vuestro estilo y estándares"
                     }
                 },
                 {
                     "text": {
-                        "en": "Asynchronous feedback with clear reviews",
-                        "es": "Feedback asíncrono con revisiones claras"
+                        "en": "Asynchronous communication that respects your workflow",
+                        "es": "Comunicación asíncrona que respeta tu flujo de trabajo"
                     }
                 }
             ],
@@ -147,10 +147,10 @@
         {
             "type": "example",
             "title": {
-                "en": "How I helped this startup redesign a flow in 48 hours",
-                "es": "Cómo ayudé a esta startup a rediseñar un flujo en 48 horas"
+                "en": "How I helped this company redesign their checkout in 1 week",
+                "es": "Cómo ayudé a esta empresa a rediseñar su checkout en 1 semana"
             },
-            "image": "/landings/startup/Laptopstartups.png",
+            "image": "/landings/enterprise/Laptopempresas.png",
             "cardWhite": {
                 "title": {
                     "en": "Before",
@@ -158,8 +158,8 @@
                 },
                 "items": [
                     {
-                        "en": "User flow confusing",
-                        "es": "Flujo de usuario confuso"
+                        "en": "Very long user flow",
+                        "es": "Flujo de usuario muy extenso"
                     },
                     {
                         "en": "High abandonment rate",
@@ -182,12 +182,12 @@
                         "es": "Flujo optimizado en menos pasos"
                     },
                     {
-                        "en": "45% improvement in completion rate",
-                        "es": "Mejora del 45 % en la tasa de finalización"
+                        "en": "Thoughtful visual hierarchy and instant feedback",
+                        "es": "Jerarquía visual cuidada y feedback inmediato"
                     },
                     {
-                        "en": "Ready for demo with investors in 1 week",
-                        "es": "Listo para demo con inversores en 1 semana"
+                        "en": "More than a 45% improvement in completion rate",
+                        "es": "Mejoró más de un 45 % en la tasa de finalización"
                     }
                 ]
             }
@@ -195,12 +195,12 @@
         {
             "type": "cta",
             "title": {
-                "en": "Ready to launch your MVP without friction or delays?",
-                "es": "¿Quieres lanzar tu MVP sin fricción, ni retrasos?"
+                "en": "Ready to scale your team without hiring more people?",
+                "es": "¿Listo para ampliar tu equipo sin contratar a más gente?"
             },
             "subtitle": {
-                "en": "Let's talk. In a 30-minute call, I'll show you how we could turn your idea into a functional prototype this week. No commitment. I'll explain how I work and if it fits your current stage.",
-                "es": "Hablemos. En una llamada de 30 minutos, te mostraré cómo podríamos convertir tu idea en un prototipo funcional esta misma semana. Sin compromiso. Te explicaré cómo trabajo y si se adapta a tu etapa actual."
+                "en": "Let’s talk. In 30 minutes, we’ll explore how Citrus Designer can become your preferred design partner. I’ll walk you through my process, review your typical project needs, and see if we’re a good fit.",
+                "es": "Hablemos. En 30 minutos, exploraremos cómo Citrus Designer puede convertirse en tu socio de diseño preferido. Te explicaré mi proceso, revisaré tus necesidades típicas de proyecto y veré si somos una buena opción."
             },
             "cta": {
                 "text": {
