@@ -2,12 +2,12 @@
     "slug": "ejemplo",
     "meta": {
         "title": {
-            "en": "Example Landing Page",
-            "es": "Página de Ejemplo"
+            "en": "MVP UX/UI Design for Startups | Fast Prototyping in 48h | Citrus Designer",
+            "es": "Diseño UX/UI MVP para Startups | Prototipado Rápido en 48h | Citrus Designer"
         },
         "description": {
-            "en": "This is an example landing page",
-            "es": "Esta es una página de ejemplo"
+            "en": "Transform your startup idea into a functional MVP prototype in days, not weeks. Senior UX/UI designer with 7+ years experience. No long-term contracts, fast delivery, ready for investors. Free 30min consultation.",
+            "es": "Transforma tu idea de startup en un prototipo MVP funcional en días, no semanas. Diseñadora UX/UI senior con más de 7 años de experiencia. Sin contratos largos, entrega rápida, listo para inversores. Consulta gratuita de 30min."
         }
     },
     "sections": [
