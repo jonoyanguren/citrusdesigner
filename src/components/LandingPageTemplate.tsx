@@ -92,8 +92,19 @@ export function LandingPageTemplate({ landingData, locale }: Props) {
         return (
           <section
             key={index}
-            className="relative flex min-h-[75vh] md:min-h-0 items-center justify-center overflow-hidden bg-yellow-100"
+            className="relative flex min-h-[75vh] md:min-h-0 items-center justify-center overflow-visible bg-yellow-100"
           >
+            {/* Decorative rings */}
+            <div className="absolute inset-0 overflow-visible pointer-events-none z-0">
+              {/* Orange ring - top left */}
+              <div className="absolute -left-24 top-10 w-80 h-80 rounded-full border-[30px] border-orange-300 opacity-70"></div>
+
+              {/* White ring - top right */}
+              <div className="absolute -right-12 -top-24 w-80 h-80 rounded-full border-[30px] border-white opacity-80"></div>
+
+              {/* Yellow ring - bottom right */}
+              <div className="absolute right-8 bottom-20 w-80 h-80 rounded-full border-[30px] border-yellow-200 opacity-75"></div>
+            </div>
             <DecorativeElements />
             <MobileDecorativeElements />
             {section.backgroundImage && (
@@ -189,7 +200,10 @@ export function LandingPageTemplate({ landingData, locale }: Props) {
 
       case "info":
         return (
-          <section key={index} className="py-12 md:py-12 px-4 md:px-8 bg-white">
+          <section
+            key={index}
+            className="py-12 mb-16 md:py-12 px-4 md:px-8 bg-white"
+          >
             <div className="max-w-7xl mx-auto">
               <h2 className="text-6xl md:text-5xl md:leading-[64px] font-bold mb-8 text-center text-gray-900">
                 {getText(section.title)}
@@ -228,12 +242,12 @@ export function LandingPageTemplate({ landingData, locale }: Props) {
         return (
           <section
             key={index}
-            className="relative w-full px-6 bg-orange-400 py-20 overflow-hidden col-span-2"
+            className="relative w-full px-6 bg-orange-400 pt-16 pb-24 overflow-hidden col-span-2"
           >
             {generateRandomConfetti(20)}
             <div className="max-w-5xl mx-auto relative">
               <div className="relative z-10">
-                <h2 className="text-5xl md:text-5xl md:leading-[64px] mb-12 text-center text-white bg-orange-400 px-2 md:px-6">
+                <h2 className="text-5xl md:text-5xl md:leading-[64px] mb-12 text-center text-white bg-orange-400 px-4 md:px-6">
                   {getText(section.title)}
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 gap-0 md:gap-8">
