@@ -45,6 +45,7 @@ export interface InfoSection {
   items: InfoItem[];
   image?: string | null;
   imagePosition?: "left" | "right";
+  cta?: CTAButton;
 }
 
 export interface BenefitItem {

@@ -1,228 +1,235 @@
 {
-    "slug": "ejemplo",
-    "meta": {
-        "title": {
-            "en": "Enterprise UX/UI Design Services | Scalable Design Team Extension | Citrus Designer",
-            "es": "Servicios de Diseño UX/UI para Empresas | Extensión de Equipo Escalable | Citrus Designer"
-        },
-        "description": {
-            "en": "Scale your design capacity without hiring full-time designers. Senior UX/UI design services for enterprises. Fast turnaround (24-48h), development-ready deliverables, asynchronous workflow. Free 30min consultation.",
-            "es": "Escala tu capacidad de diseño sin contratar diseñadores full-time. Servicios de diseño UX/UI senior para empresas. Entrega rápida (24-48h), entregables listos para desarrollo, flujo de trabajo asíncrono. Consulta gratuita de 30min."
-        }
+  "slug": "ejemplo",
+  "meta": {
+    "title": {
+      "en": "Enterprise UX/UI Design Services | Scalable Design Team Extension | Citrus Designer",
+      "es": "Servicios de Diseño UX/UI para Empresas | Extensión de Equipo Escalable | Citrus Designer"
     },
-    "sections": [
+    "description": {
+      "en": "Scale your design capacity without hiring full-time designers. Senior UX/UI design services for enterprises. Fast turnaround (24-48h), development-ready deliverables, asynchronous workflow. Free 30min consultation.",
+      "es": "Escala tu capacidad de diseño sin contratar diseñadores full-time. Servicios de diseño UX/UI senior para empresas. Entrega rápida (24-48h), entregables listos para desarrollo, flujo de trabajo asíncrono. Consulta gratuita de 30min."
+    }
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "badge": {
+        "en": "No long-term contracts • No endless meetings",
+        "es": "Tu aliado de diseño • Escala bajo demanda"
+      },
+      "title": {
+        "en": "Scale your design without scaling your team.",
+        "es": "Escala tu diseño, sin escalar tu equipo."
+      },
+      "subtitle": {
+        "en": "I'm Andrea, a senior UX/UI designer with over 7 years of experience helping companies improve their interfaces. Citrus Designer acts as an extension of your design team, delivering development-ready work.",
+        "es": "Soy Andrea, diseñadora senior UX/UI con más de 7 años ayudando a empresas a mejorar su interfaz. Citrus Designer actúa como tu extensión de tu equipo de diseño, entregando trabajo listo para desarrollo."
+      },
+      "cta": {
+        "text": {
+          "en": "Schedule your discovery meeting today",
+          "es": "Agenda tu reunión de discovery hoy"
+        },
+        "href": "/contact"
+      },
+      "text": {
+        "en": "Free 30min meeting - No commitment",
+        "es": "Reunión de 30min gratuita - Sin compromiso"
+      },
+      "backgroundImage": null,
+      "backgroundColor": "bg-gradient-to-r from-orange-300 via-orange-100 to-orange-300"
+    },
+    {
+      "type": "painpoints",
+      "title": {
+        "en": "Your company doesn’t need more expenses. It needs reliable design capacity.",
+        "es": "Tu empresa no necesita más gastos. Necesita una capacidad de diseño fiable."
+      },
+      "items": [
         {
-            "type": "hero",
-            "badge": {
-                "en": "No long-term contracts • No endless meetings",
-                "es": "Tu aliado de diseño • Escala bajo demanda"
-            },
-            "title": {
-                "en": "Scale your design without scaling your team.",
-                "es": "Escala tu diseño, sin escalar tu equipo."
-            },
-            "subtitle": {
-                "en": "I'm Andrea, a senior UX/UI designer with over 7 years of experience helping companies improve their interfaces. Citrus Designer acts as an extension of your design team, delivering development-ready work.",
-                "es": "Soy Andrea, diseñadora senior UX/UI con más de 7 años ayudando a empresas a mejorar su interfaz. Citrus Designer actúa como tu extensión de tu equipo de diseño, entregando trabajo listo para desarrollo."
-            },
-            "cta": {
-                "text": {
-                    "en": "Schedule your discovery meeting today",
-                    "es": "Agenda tu reunión de discovery hoy"
-                },
-                "href": "/contact"
-            },
-            "text": {
-                "en": "Free 30min meeting - No commitment",
-                "es": "Reunión de 30min gratuita - Sin compromiso"
-            },
-            "backgroundImage": null,
-            "backgroundColor": "bg-gradient-to-r from-orange-300 via-orange-100 to-orange-300"
+          "text": {
+            "en": "Hiring full-time designers means fixed costs even during slow months.",
+            "es": "Contratar diseñadores full-time significa costes fijos incluso en meses tranquilos."
+          }
         },
         {
-            "type": "painpoints",
-            "title": {
-                "en": "Your company doesn’t need more expenses. It needs reliable design capacity.",
-                "es": "Tu empresa no necesita más gastos. Necesita una capacidad de diseño fiable."
-            },
-            "items": [
-                {
-                    "text": {
-                        "en": "Hiring full-time designers means fixed costs even during slow months.",
-                        "es": "Contratar diseñadores full-time significa costes fijos incluso en meses tranquilos."
-                    }
-                },
-                {
-                    "text": {
-                        "en": "Outsourcing to multiple freelancers creates inconsistency and communication chaos.",
-                        "es": "Subcontratar múltiples freelancers crea inconsistencia y caos en la comunicación."
-                    }
-                },
-                {
-                    "text": {
-                        "en": "Internal deadlines won’t wait for your team to be available.",
-                        "es": "Las fechas límite internas no esperan a que tu equipo esté disponible."
-                    }
-                }
-            ]
+          "text": {
+            "en": "Outsourcing to multiple freelancers creates inconsistency and communication chaos.",
+            "es": "Subcontratar múltiples freelancers crea inconsistencia y caos en la comunicación."
+          }
         },
         {
-            "type": "info",
-            "title": {
-                "en": "A design partner that adapts to your company’s pace",
-                "es": "Un socio de diseño que se adapta al ritmo de tu empresa"
-            },
-            "items": [
-                {
-                    "text": {
-                        "en": "Senior design",
-                        "es": "Diseño senior"
-                    },
-                    "subtext": {
-                        "en": "ready for development handoff",
-                        "es": "listo para la entrega a desarrollo"
-                    },
-                    "icon": "FaBolt"
-                },
-                {
-                    "text": {
-                        "en": "Scale your team",
-                        "es": "Escala tu equipo"
-                    },
-                    "subtext": {
-                        "en": "according to your workflow",
-                        "es": "según el flujo de trabajo"
-                    },
-                    "icon": "FaBullseye"
-                },
-                {
-                    "text": {
-                        "en": "Asynchronous feedback",
-                        "es": "Feedback asíncrono"
-                    },
-                    "subtext": {
-                        "en": "No unnecessary meetings",
-                        "es": "Sin reuniones innecesarias"
-                    },
-                    "icon": "FaRegClock"
-                }
-            ],
-            "image": null,
-            "imagePosition": "right"
-        },
-        {
-            "type": "benefits",
-            "title": {
-                "en": "Benefits of being a partner",
-                "es": "Beneficios de ser partner"
-            },
-            "items": [
-                {
-                    "text": {
-                        "en": "No long-term contracts or minimum commitments",
-                        "es": "Sin contratos a largo plazo ni compromisos mínimos"
-                    }
-                },
-                {
-                    "text": {
-                        "en": "Fast turnaround (24–48h for most deliverables)",
-                        "es": "Entrega rápida (24-48h para la mayoría de los entregables)"
-                    }
-                },
-                {
-                    "text": {
-                        "en": "I integrate into your team while maintaining your style and standards",
-                        "es": "Me integro en tu equipo manteniendo vuestro estilo y estándares"
-                    }
-                },
-                {
-                    "text": {
-                        "en": "Asynchronous communication that respects your workflow",
-                        "es": "Comunicación asíncrona que respeta tu flujo de trabajo"
-                    }
-                }
-            ],
-            "backgroundImage": "/benefits/benefit1.svg"
-        },
-        {
-            "type": "example",
-            "title": {
-                "en": "How I helped this company redesign their checkout in 1 week",
-                "es": "Cómo ayudé a esta empresa a rediseñar su checkout en 1 semana"
-            },
-            "image": "/landings/enterprise/Laptopempresas.png",
-            "cardWhite": {
-                "title": {
-                    "en": "Before",
-                    "es": "Antes"
-                },
-                "items": [
-                    {
-                        "en": "Very long user flow",
-                        "es": "Flujo de usuario muy extenso"
-                    },
-                    {
-                        "en": "High abandonment rate",
-                        "es": "Tasa de abandono alta"
-                    },
-                    {
-                        "en": "Low value proposition",
-                        "es": "Propuesta de valor poco clara"
-                    }
-                ]
-            },
-            "cardOrange": {
-                "title": {
-                    "en": "After",
-                    "es": "Después"
-                },
-                "items": [
-                    {
-                        "en": "Optimized user flow in fewer steps",
-                        "es": "Flujo optimizado en menos pasos"
-                    },
-                    {
-                        "en": "Thoughtful visual hierarchy and instant feedback",
-                        "es": "Jerarquía visual cuidada y feedback inmediato"
-                    },
-                    {
-                        "en": "More than a 45% improvement in completion rate",
-                        "es": "Mejoró más de un 45 % en la tasa de finalización"
-                    }
-                ]
-            }
-        },
-        {
-            "type": "cta",
-            "title": {
-                "en": "Ready to scale your team without hiring more people?",
-                "es": "¿Listo para ampliar tu equipo sin contratar a más gente?"
-            },
-            "subtitle": {
-                "en": "Let’s talk. In 30 minutes, we’ll explore how Citrus Designer can become your preferred design partner. I’ll walk you through my process, review your typical project needs, and see if we’re a good fit.",
-                "es": "Hablemos. En 30 minutos, exploraremos cómo Citrus Designer puede convertirse en tu socio de diseño preferido. Te explicaré mi proceso, revisaré tus necesidades típicas de proyecto y veré si somos una buena opción."
-            },
-            "cta": {
-                "text": {
-                    "en": "Schedule a call",
-                    "es": "Agenda una llamada"
-                },
-                "href": "/contact"
-            },
-            "items": [
-                {
-                    "en": "Free consultation",
-                    "es": "Consulta gratuita"
-                },
-                {
-                    "en": "30 minutes",
-                    "es": "30 minutos"
-                },
-                {
-                    "en": "No commitment",
-                    "es": "Sin compromiso"
-                }
-            ]
+          "text": {
+            "en": "Internal deadlines won’t wait for your team to be available.",
+            "es": "Las fechas límite internas no esperan a que tu equipo esté disponible."
+          }
         }
-    ]
+      ]
+    },
+    {
+      "type": "info",
+      "title": {
+        "en": "A design partner that adapts to your company’s pace",
+        "es": "Un socio de diseño que se adapta al ritmo de tu empresa"
+      },
+      "cta": {
+        "text": {
+          "en": "Schedule your discovery meeting today",
+          "es": "Agenda tu reunión de discovery hoy"
+        },
+        "href": "/contact"
+      },
+      "items": [
+        {
+          "text": {
+            "en": "Senior design",
+            "es": "Diseño senior"
+          },
+          "subtext": {
+            "en": "ready for development handoff",
+            "es": "listo para la entrega a desarrollo"
+          },
+          "icon": "FaBolt"
+        },
+        {
+          "text": {
+            "en": "Scale your team",
+            "es": "Escala tu equipo"
+          },
+          "subtext": {
+            "en": "according to your workflow",
+            "es": "según el flujo de trabajo"
+          },
+          "icon": "FaBullseye"
+        },
+        {
+          "text": {
+            "en": "Asynchronous feedback",
+            "es": "Feedback asíncrono"
+          },
+          "subtext": {
+            "en": "No unnecessary meetings",
+            "es": "Sin reuniones innecesarias"
+          },
+          "icon": "FaRegClock"
+        }
+      ],
+      "image": null,
+      "imagePosition": "right"
+    },
+    {
+      "type": "benefits",
+      "title": {
+        "en": "Benefits of being a partner",
+        "es": "Beneficios de ser partner"
+      },
+      "items": [
+        {
+          "text": {
+            "en": "No long-term contracts or minimum commitments",
+            "es": "Sin contratos a largo plazo ni compromisos mínimos"
+          }
+        },
+        {
+          "text": {
+            "en": "Fast turnaround (24–48h for most deliverables)",
+            "es": "Entrega rápida (24-48h para la mayoría de los entregables)"
+          }
+        },
+        {
+          "text": {
+            "en": "I integrate into your team while maintaining your style and standards",
+            "es": "Me integro en tu equipo manteniendo vuestro estilo y estándares"
+          }
+        },
+        {
+          "text": {
+            "en": "Asynchronous communication that respects your workflow",
+            "es": "Comunicación asíncrona que respeta tu flujo de trabajo"
+          }
+        }
+      ],
+      "backgroundImage": "/benefits/benefit1.svg"
+    },
+    {
+      "type": "example",
+      "title": {
+        "en": "How I helped this company redesign their checkout in 1 week",
+        "es": "Cómo ayudé a esta empresa a rediseñar su checkout en 1 semana"
+      },
+      "image": "/landings/enterprise/Laptopempresas.png",
+      "cardWhite": {
+        "title": {
+          "en": "Before",
+          "es": "Antes"
+        },
+        "items": [
+          {
+            "en": "Very long user flow",
+            "es": "Flujo de usuario muy extenso"
+          },
+          {
+            "en": "High abandonment rate",
+            "es": "Tasa de abandono alta"
+          },
+          {
+            "en": "Low value proposition",
+            "es": "Propuesta de valor poco clara"
+          }
+        ]
+      },
+      "cardOrange": {
+        "title": {
+          "en": "After",
+          "es": "Después"
+        },
+        "items": [
+          {
+            "en": "Optimized user flow in fewer steps",
+            "es": "Flujo optimizado en menos pasos"
+          },
+          {
+            "en": "Thoughtful visual hierarchy and instant feedback",
+            "es": "Jerarquía visual cuidada y feedback inmediato"
+          },
+          {
+            "en": "More than a 45% improvement in completion rate",
+            "es": "Mejoró más de un 45 % en la tasa de finalización"
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "title": {
+        "en": "Ready to scale your team without hiring more people?",
+        "es": "¿Listo para ampliar tu equipo sin contratar a más gente?"
+      },
+      "subtitle": {
+        "en": "Let’s talk. In 30 minutes, we’ll explore how Citrus Designer can become your preferred design partner. I’ll walk you through my process, review your typical project needs, and see if we’re a good fit.",
+        "es": "Hablemos. En 30 minutos, exploraremos cómo Citrus Designer puede convertirse en tu socio de diseño preferido. Te explicaré mi proceso, revisaré tus necesidades típicas de proyecto y veré si somos una buena opción."
+      },
+      "cta": {
+        "text": {
+          "en": "Schedule a call",
+          "es": "Agenda una llamada"
+        },
+        "href": "/contact"
+      },
+      "items": [
+        {
+          "en": "Free consultation",
+          "es": "Consulta gratuita"
+        },
+        {
+          "en": "30 minutes",
+          "es": "30 minutos"
+        },
+        {
+          "en": "No commitment",
+          "es": "Sin compromiso"
+        }
+      ]
+    }
+  ]
 }

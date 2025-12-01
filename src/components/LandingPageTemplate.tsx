@@ -234,6 +234,17 @@ export function LandingPageTemplate({ landingData, locale }: Props) {
                   );
                 })}
               </div>
+              <div className="flex justify-center mt-10">
+                <Button
+                  className="flex items-center gap-2 py-5 px-8 bg-orange-500 text-white hover:bg-orange-600"
+                  onClick={openCalendly}
+                >
+                  <span className="text-xl">
+                    {getText(section.cta?.text || { en: "", es: "" })}
+                  </span>
+                  <FaArrowRight />
+                </Button>
+              </div>
             </div>
           </section>
         );
