@@ -3,12 +3,16 @@ import Image from "next/image";
 interface ProjectCardProps {
   title: string;
   description: string;
+  slug: string;
+  heroImage: string;
   index: number;
 }
 
 export default function ProjectCard({
   title,
   description,
+  slug,
+  heroImage,
   index,
 }: ProjectCardProps) {
   return (
@@ -23,10 +27,10 @@ export default function ProjectCard({
       </p>
       <div className="relative h-[500px] w-full">
         <Image
-          src={`/projects/project${index + 1}.png`}
+          src={`/projects/${slug}/${heroImage}`}
           alt={title}
           fill
-          className="rounded-lg"
+          className="rounded-lg object-cover"
         />
       </div>
     </div>

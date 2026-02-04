@@ -1,5 +1,4 @@
 "use client";
-import { useTranslations } from "next-intl";
 import { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import ProjectCard from "./ProjectCard";
@@ -7,18 +6,21 @@ import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 interface Project {
   id: string;
+  slug: string;
   title: string;
   description: string;
-  image: string;
-  tags: {
-    id: string;
-    name: string;
-  }[];
+  heroImage: string;
 }
 
-export const OurProjects = () => {
-  const t = useTranslations();
-  const projects = t.raw("projects.items") as Project[];
+interface Props {
+  projects: {
+    title: string;
+    description: string;
+    items: Project[];
+  };
+}
+
+export const OurProjects = ({ projects }: Props) => {
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -42,10 +44,10 @@ export const OurProjects = () => {
           {/* Left side - Description */}
           <div className="flex flex-col justify-center lg:col-span-1">
             <h2 className="text-3xl md:text-5xl font-bold mb-6">
-              {t("projects.title")}
+              {projects.title}
             </h2>
             <p className="text-base md:text-2xl text-gray-400 mb-8">
-              {t("projects.description")}
+              {projects.description}
             </p>
 
             {/* Carousel Controls */}
@@ -70,7 +72,7 @@ export const OurProjects = () => {
           {/* Right side - Carousel */}
           <div className="overflow-hidden lg:col-span-2" ref={emblaRef}>
             <div className="flex">
-              {projects.map((project, index) => (
+              {projects.items.map((project, index) => (
                 <div
                   key={project.id}
                   className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] mr-6"
@@ -79,6 +81,8 @@ export const OurProjects = () => {
                   <ProjectCard
                     title={project.title}
                     description={project.description}
+                    slug={project.slug}
+                    heroImage={project.heroImage}
                     index={index}
                   />
                 </div>

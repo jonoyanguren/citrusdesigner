@@ -14,6 +14,7 @@ export default async function HowItWorksPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "howItWorks" });
+  const tProjects = await getTranslations({ locale, namespace: "projects" });
 
   const translations = {
     title: t("title"),
@@ -23,6 +24,11 @@ export default async function HowItWorksPage({ params }: Props) {
     before: t("before"),
     after: t("after"),
     orangeMessage: t("orangeMessage"),
+    projects: {
+      title: tProjects("title"),
+      description: tProjects("description"),
+      items: tProjects.raw("items"),
+    },
   };
 
   return <HowItWorksClient translations={translations} />;

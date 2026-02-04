@@ -25,6 +25,17 @@ type Props = {
     before: string;
     after: string;
     orangeMessage: string;
+    projects: {
+      title: string;
+      description: string;
+      items: Array<{
+        id: string;
+        slug: string;
+        title: string;
+        description: string;
+        heroImage: string;
+      }>;
+    };
   };
 };
 
@@ -93,7 +104,7 @@ export function HowItWorksClient({ translations }: Props) {
       />
 
       <div id="projects">
-        <OurProjects />
+        <OurProjects projects={translations.projects} />
       </div>
 
       <Features />
