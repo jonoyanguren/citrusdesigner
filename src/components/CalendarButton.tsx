@@ -1,97 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Button from "./Button";
 import { useTranslations } from "next-intl";
+import { BOOKING_URL } from "@/lib/constants";
 
-interface CalendlyApi {
-  initPopupWidget: (options: { url: string }) => void;
-}
-
-declare global {
-  interface Window {
-    Calendly?: CalendlyApi;
-  }
-}
-
-export function useCalendly() {
-  const [isCalendlyReady, setIsCalendlyReady] = useState(false);
-
-  useEffect(() => {
-    const loadCalendlyScript = () => {
-      // Check if script is already loaded
-      if (
-        document.querySelector(
-          'script[src="https://assets.calendly.com/assets/external/widget.js"]'
-        )
-      ) {
-        setIsCalendlyReady(true);
-        return;
-      }
-
-      // Load Calendly script
-      const script = document.createElement("script");
-      script.src = "https://assets.calendly.com/assets/external/widget.js";
-      script.async = true;
-      script.onload = () => {
-        setIsCalendlyReady(true);
-      };
-      script.onerror = (error) => {
-        console.error("Error loading Calendly script:", error);
-      };
-      document.body.appendChild(script);
-
-      // Load Calendly styles
-      if (
-        !document.querySelector(
-          'link[href="https://assets.calendly.com/assets/external/widget.css"]'
-        )
-      ) {
-        const link = document.createElement("link");
-        link.href = "https://assets.calendly.com/assets/external/widget.css";
-        link.rel = "stylesheet";
-        document.head.appendChild(link);
-      }
-    };
-
+export function useCalendar() {
+  const openCalendar = () => {
     if (typeof window !== "undefined") {
-      if (window.Calendly) {
-        setIsCalendlyReady(true);
-      } else {
-        loadCalendlyScript();
-      }
-    }
-
-    // No cleanup on unmount to keep the script loaded
-    return () => {};
-  }, []);
-
-  const openCalendly = () => {
-    try {
-      if (typeof window === "undefined") {
-        console.error("Window is not available");
-        return;
-      }
-
-      if (!window.Calendly) {
-        console.error("Calendly is not available");
-        return;
-      }
-
-      // Add a small delay to ensure the widget is ready
-      setTimeout(() => {
-        if (window.Calendly) {
-          window.Calendly.initPopupWidget({
-            url: "https://calendly.com/acegarras/30min",
-          });
-        }
-      }, 100);
-    } catch (error) {
-      console.error("Error opening Calendly:", error);
+      window.open(BOOKING_URL, "_blank", "noopener,noreferrer");
     }
   };
 
-  return { openCalendly, isCalendlyReady };
+  return { openCalendar, isCalendarReady: true };
 }
 
 export default function CalendarButton({
@@ -100,16 +20,11 @@ export default function CalendarButton({
   variant?: "primary" | "text";
 }) {
   const t = useTranslations("calendar");
-  const { openCalendly, isCalendlyReady } = useCalendly();
+  const { openCalendar } = useCalendar();
 
   return (
-    <Button
-      fullWidth
-      variant={variant}
-      onClick={openCalendly}
-      disabled={!isCalendlyReady}
-    >
-      {isCalendlyReady ? t("schedule_call") : t("loading")}
+    <Button fullWidth variant={variant} onClick={openCalendar}>
+      {t("schedule_call")}
     </Button>
   );
 }

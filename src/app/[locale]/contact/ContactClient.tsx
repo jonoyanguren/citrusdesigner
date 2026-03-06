@@ -3,7 +3,7 @@
 import Title from "@/components/Title";
 import Image from "next/image";
 import Button from "@/components/Button";
-import { useCalendly } from "@/components/CalendarButton";
+import { useCalendar } from "@/components/CalendarButton";
 
 type Props = {
   translations: {
@@ -28,7 +28,7 @@ type Props = {
 };
 
 export function ContactClient({ translations }: Props) {
-  const { openCalendly } = useCalendly();
+  const { openCalendar } = useCalendar();
 
   const openWhatsApp = () => {
     const phoneNumber = "34620682321";
@@ -80,7 +80,7 @@ export function ContactClient({ translations }: Props) {
             <Image src="/calendar.svg" alt="Calendar" width={60} height={60} />
             <h3 className="text-2xl font-bold">{translations.meeting.title}</h3>
             <p className="text-gray-600">{translations.meeting.description}</p>
-            <Button variant="secondary" onClick={openCalendly}>
+            <Button variant="secondary" onClick={openCalendar}>
               {translations.meeting.button}
             </Button>
           </div>

@@ -65,8 +65,8 @@ const translations: {
       es: "Reserva una llamada",
     },
     bookACallLink: {
-      en: "https://calendly.com/acegarras/30min",
-      es: "https://calendly.com/acegarras/30min",
+      en: "https://calendar.app.google/1yrcjaUe9HwB6ciL9",
+      es: "https://calendar.app.google/1yrcjaUe9HwB6ciL9",
     },
     stepOne: {
       en: "Step 1:",
@@ -395,7 +395,7 @@ export const emailTemplates = {
       </div>
 
       <div style="text-align: center;">
-        <a target="_blank" href="https://calendly.com/acegarras/30min" class="button" style="background-color: #FF6B00; border: 1px solid #FF6B00; border-radius: 5px; color: #ffffff !important; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">${t.bookACallText[locale]}</a>
+        <a target="_blank" href="${t.bookACallLink[locale]}" class="button" style="background-color: #FF6B00; border: 1px solid #FF6B00; border-radius: 5px; color: #ffffff !important; display: inline-block; font-family: Arial, sans-serif; font-size: 16px; line-height: 1.5; text-align: center; text-decoration: none; -webkit-text-size-adjust: none; mso-hide: all;">${t.bookACallText[locale]}</a>
       </div>
     `,
       locale
